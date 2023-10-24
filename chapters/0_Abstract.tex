@@ -1,0 +1,26 @@
+%Statement of the problem?
+%Why the problem appears?
+%how solve the problem (design and methods)
+%new contriubution
+
+
+
+%################################################################
+%why you did the work and what you were trying to achieve;
+
+%What methods you used and what results you obtained?
+
+%Conclusions
+
+In the recent years, the \glspl{mpsoc} complexity has been growing exponentially, however the performance of simulation tools are not following this growth, mainly because of their sequential simulation type. Therefore, simulation time increases each time a new \gls{mpsoc} is developed. The \gls{ice} \gls{rwth} Aachen team developed a parallel version of the atomic mode of gem5. It’s based on a synchronous \gls{pdes} which allows each simulation thread to run independently from the rest of the system for a time $t_{\Delta q}$ – the so-called quantum.
+
+This dissertation aims to solve the problem of finding the optimal quantum, which can lead to the best trade-off between accuracy and performance. Nowadays, gem5 is bound to a static quantum which cannot be changed during run-time, although an adaptive quantum can overcome the limitations of the static version. Thus, the main objective was to develop a flexible algorithm that can operate independently the used benchmark.  
+
+
+\paragraph{}\textbf{Keywords: Parallel Discrete Event Simulation, Gem5, Full-
+System Simulation, Quantum}
+\begin{comment}
+\glsreset{FPGA}
+\end{comment}
+
+% taking into account the existing solutions.

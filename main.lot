@@ -1,0 +1,21 @@
+\babel@toc {english}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Availability of system classes and the corresponding downtime per year.\relax }}{13}{table.caption.30}% 
+\contentsline {table}{\numberline {2.2}{\ignorespaces Fault tolerance techniques overview.\relax }}{26}{table.caption.44}% 
+\contentsline {table}{\numberline {2.3}{\ignorespaces Lockstep related work overview.\relax }}{30}{table.caption.51}% 
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces List of RISC-V soft-core.\relax }}{35}{table.caption.58}% 
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces \textit {bit\_DataSel\_X} selection according with number of data to compare.\relax }}{40}{table.caption.66}% 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Resource utilization of the \textit {xLockstep} and the entire system described in section \ref {sec:Imp_lockV}.\relax }}{59}{table.caption.102}% 
+\contentsline {table}{\numberline {6.2}{\ignorespaces Arm memory footprint (values in bytes).\relax }}{60}{table.caption.104}% 
+\contentsline {table}{\numberline {6.3}{\ignorespaces RISC-V memory footprint (values in bytes).\relax }}{60}{table.caption.105}% 
+\contentsline {table}{\numberline {6.4}{\ignorespaces \textit {saveContext()} and \textit {rollback()} execution footprint (the \textit {main()} stack size was 4x4 bytes).\relax }}{61}{table.caption.109}% 
+\contentsline {table}{\numberline {6.5}{\ignorespaces Checkpoint execution footprint without errors and with error in first element to compare.\relax }}{62}{table.caption.111}% 
+\contentsline {table}{\numberline {6.6}{\ignorespaces Checkpoint execution footprint without errors and with error in last element to compare.\relax }}{63}{table.caption.112}% 
+\contentsline {table}{\numberline {6.7}{\ignorespaces Lock-V execution footprint with and without errors, using \textit {Fibonacci} function.\relax }}{65}{table.caption.114}% 
+\contentsline {table}{\numberline {6.8}{\ignorespaces Fault injection results with and without Lock-V.\relax }}{67}{table.caption.118}% 
+\addvspace {10\p@ }

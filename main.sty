@@ -1,0 +1,122 @@
+%--------------------------------------------
+%%	Packages e Configurações
+%--------------------------------------------
+
+\usepackage{color}				%cor no pdf (nos comandos)
+%\usepackage[breaklinks]{hyperref}			%autoref para figuras
+\usepackage{subcaption}			%captions for subfigures 
+\usepackage{listings}			%listing, snippets de código
+\usepackage{graphicx}			%imagens
+\usepackage{enumerate}			%enumerate (inside sentence or just because enumerate)
+\usepackage[inline]{enumitem}   %use (i)(ii)(iii)... and undifined sequence \item A...
+%\usepackage[final]{pdfpages}
+%\usepackage[portuges]{babel}
+%\usepackage[utf8]{inputenc} 	% Required for inputting international characters. It isn't required wiht xelatex
+%\usepackage[T1]{fontenc} 		%Output font encoding for international characters
+%\usepackage{lmodern} 			%Use the Palatino font by default
+\usepackage{fontspec}			%To use different Fonts
+%\setmainfont{NewsGotT}			%New font type -> NewsGotT
+%\setmainfont[Mapping=tex-text, AutoFakeSlant=0.35,
+%Path = ./Fonts/ ,
+%BoldFont={NewsGotT Bold},  % don't need
+%ItalicFont={NewsGoth Cn BT Italic},
+%BoldItalicFont={* Bold},
+%BoldItalicFont={NewsGoth Cn BT Bold Italic},
+%BoldItalicFeatures={FakeSlant=0.35}
+%]{NewsGotT}
+
+\setmainfont{NewsGotT}[
+    Mapping=tex-text, AutoFakeSlant=0.35,
+    Path=./Fonts/,
+    Extension = .ttf,
+    UprightFont=*Normal,
+    BoldFont=*Bold
+    %ItalicFont=*-Italic,
+    %BoldItalicFont=*-BoldItalic
+    ]
+
+
+\usepackage{setspace}			
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage[euler]{textgreek}
+\usepackage{lipsum} 			%Para gerar paragrafos aleatorios
+
+\usepackage{pdfpages}
+\usepackage{multirow} 			%tabelas cm diferentes numeros de colunas/linhas atraves dela
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage{indentfirst}
+
+\usepackage{titlesec}
+\usepackage{acro}
+
+\usepackage{booktabs}
+
+\usepackage{upgreek}
+\newcommand{\meansymbol}{\mu}
+\newcommand{\meanupsymbol}{\upmu}
+%--------------------------------------------
+%%	As minhas packages e infos
+%--------------------------------------------
+
+%################# Glossaries ################
+%[options] 	nogroupskip 	-> nao divide por letra
+%			nonumberlist 	-> não adiciona o numero da pagina
+%			style=long		-> Sem espaçamento entre linha
+%\usepackage[nonumberlist,nopostdot,style=long,nogroupskip]{glossaries} 	%Usar este para remover o espaçamento
+\usepackage[nonumberlist,nopostdot,nogroupskip,style=long]{glossaries} 				%Usar para teste - Não dá warning
+
+
+
+%################# Bibliography ################
+
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{floatrow}
+\usepackage{float}
+
+\usepackage[ruled]{algorithm2e}
+\usepackage{algpseudocode}
+ 
+\usepackage{booktabs}
+\usepackage[svgnames,table]{xcolor}
+\usepackage[tableposition=above]{caption}
+\usepackage{pifont}
+
+\usepackage{xcolor}
+
+\usepackage[hypcap, tablename=Table, figurename=Figure]{caption} 	%caption aponta para cima em vez de para a figura
+\usepackage[font=footnotesize,labelfont=bf]{caption} 				%mudar tamanho das legendas
+\floatsetup[table]{capposition=top}		%tabelas com legenda em cima
+\setcounter{secnumdepth}{3}				%section dentro de section
+\setcounter{tocdepth}{3}   				%include chapter, section and subsection AND subsubsection on table of contents. put 2 to remove subsubsection
+
+%% atbegindocument performs the action when you do the \begin{document}
+\renewcommand\labelitemi{\normalfont\bfseries --}		%bullets instead of dashes
+\renewcommand\labelitemii{$\m\bullet$}					%bullets instead of dashes
+\AtBeginDocument{\renewcommand{\labelitemi}{$\bullet$}} %bullet points nos items
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter.}{0.25em}{} 
+
+\renewcommand\lstlistlistingname{List of Listings}
+
+%--------------------------------------------
+%%	Sets
+%--------------------------------------------
+\setlength\LTleft{0pt}
+\setlength\LTright{0pt}
+\setlength\glsdescwidth{0.8\hsize}
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
+
+%\setlength{\bibsep}{4pt}
+
+%################# Chapter ################
+%% chapter só com numero e sem "chapter" só o nome e adiciona-lo ao ToC
+\newcommand{\chapterstart}[1]{%
+	\refstepcounter{chapter}%
+	\chapter*{#1}%
+	\markright{\MakeUppercase{#1}}%
+	\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}%
+}
+
+\usepackage{tabularx}

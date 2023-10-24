@@ -1,0 +1,36 @@
+\babel@toc {english}{}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Dependability tree.\relax }}{5}{figure.caption.17}% 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Fault, error, and failure hierarchy.\relax }}{6}{figure.caption.20}% 
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Elementary fault classes and its eight different classifiers.\relax }}{7}{figure.caption.22}% 
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The classes of combined faults.\relax }}{8}{figure.caption.23}% 
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Single event effect tree.\relax }}{10}{figure.caption.25}% 
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Service failure modes.\relax }}{11}{figure.caption.28}% 
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Fault tolerance mechanisms.\relax }}{16}{figure.caption.33}% 
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Fault tolerance strategy, error detection with system rollback recovery.\relax }}{18}{figure.caption.34}% 
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Duplication with comparison.\relax }}{20}{figure.caption.36}% 
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Three types of lockstep in computer systems.\relax }}{23}{figure.caption.39}% 
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Fault tolerance architecture for \gls {FPGA} with soft-core \gls {DCLS} and \gls {TMR} in configuration engine.\relax }}{29}{figure.caption.49}% 
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Fault tolerance soft-core architecture for \gls {FPGA} with triplication of all units.\relax }}{29}{figure.caption.50}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Microsemi SmartFusion2 SoC FPGA Block Diagram.\relax }}{33}{figure.caption.56}% 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces MIV RV32IMA L1 AHB soft-core block diagram.\relax }}{36}{figure.caption.60}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Proposed \gls {DCLS} architecture, Lock-V.\relax }}{38}{figure.caption.63}% 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \textit {xLockstep} architecture overview.\relax }}{39}{figure.caption.65}% 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Control Register.\relax }}{40}{figure.caption.67}% 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Status Register.\relax }}{41}{figure.caption.68}% 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Error Status Register.\relax }}{41}{figure.caption.69}% 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces \gls {FSM} to manage the \textit {xLockstep} architecture.\relax }}{42}{figure.caption.71}% 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Architecture overview and \gls {FSM} of the \textit {Timer} module.\relax }}{44}{figure.caption.73}% 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Architecture overview and \gls {FSM} of the \textit {Checker} module.\relax }}{45}{figure.caption.75}% 
+\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {xLockstep} memory-mapped address.\relax }}{45}{figure.caption.77}% 
+\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {xLockstep} design on Microsemi SmartFusion2.\relax }}{46}{figure.caption.79}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \gls {DCLS} execution flow with rollback.\relax }}{52}{figure.caption.90}% 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Stack in Arm Cortex-M3 before and after a function call without arguments nested functions. The address are merely illustrative.\relax }}{55}{figure.caption.95}% 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Fibonacci sequence calculation with one (a) or \textit {N} (b) checkpoints. And \textit {Fibonacci} sequence with error in the first (c) or in the last (d) element.\relax }}{64}{figure.caption.113}% 
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Lock-V architecture with fault injection mechanism and monitor system.\relax }}{66}{figure.caption.116}% 
+\addvspace {10\p@ }
