@@ -1,36 +1,69 @@
-\babel@toc {english}{}
+\acswitchoff 
+\babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Dependability tree.\relax }}{5}{figure.caption.17}% 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Fault, error, and failure hierarchy.\relax }}{6}{figure.caption.20}% 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Elementary fault classes and its eight different classifiers.\relax }}{7}{figure.caption.22}% 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces The classes of combined faults.\relax }}{8}{figure.caption.23}% 
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Single event effect tree.\relax }}{10}{figure.caption.25}% 
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Service failure modes.\relax }}{11}{figure.caption.28}% 
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Fault tolerance mechanisms.\relax }}{16}{figure.caption.33}% 
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Fault tolerance strategy, error detection with system rollback recovery.\relax }}{18}{figure.caption.34}% 
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Duplication with comparison.\relax }}{20}{figure.caption.36}% 
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Three types of lockstep in computer systems.\relax }}{23}{figure.caption.39}% 
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Fault tolerance architecture for \gls {FPGA} with soft-core \gls {DCLS} and \gls {TMR} in configuration engine.\relax }}{29}{figure.caption.49}% 
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Fault tolerance soft-core architecture for \gls {FPGA} with triplication of all units.\relax }}{29}{figure.caption.50}% 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Evolution of the simulation topic in the literature by google books ngram viewer}}{3}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Market research report by ZION about simulation \blx@tocontentsinit {0}\cite {zionMarketResearch}}}{4}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Taxonomy of virtual simulations (Adapt from \blx@tocontentsinit {0}\cite {verkuyl2022virtual})}}{5}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Typical embedded system (adapted from \blx@tocontentsinit {0}\cite {camposano1996embedded})}}{7}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Layers of an \gls {os} \blx@tocontentsinit {0}\cite {OSbook} }}{9}{figure.caption.31}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Concurrency between processes }}{9}{figure.caption.32}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Process and threads block diagram }}{10}{figure.caption.37}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces \glsxtrfull {cs} }}{11}{figure.caption.38}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Two different tasks using the same resource }}{11}{figure.caption.39}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Two different tasks using the same resource with mutex }}{12}{figure.caption.40}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces The waterfall model}}{13}{figure.caption.42}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces The V-Model}}{14}{figure.caption.43}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces The agile model}}{14}{figure.caption.44}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces The spiral model \blx@tocontentsinit {0}\cite {SpiralModel3}}}{15}{figure.caption.45}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Full system hardware simulator \blx@tocontentsinit {0}\cite {TypesOfFSS}}}{16}{figure.caption.47}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Full system software simulator \blx@tocontentsinit {0}\cite {TypesOfFSS}}}{17}{figure.caption.48}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Supermarket flow schematic}}{18}{figure.caption.50}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Updating state over simulated time in continuous and discrete simulation \blx@tocontentsinit {0}\cite {helal2008hybrid}}}{20}{figure.caption.53}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Example of a sequential simulation}}{21}{figure.caption.56}%
+\contentsline {figure}{\numberline {2.20}{\ignorespaces The principal of temporal decoupling}}{22}{figure.caption.58}%
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Sequential VS parallel simulation with and without \gls {td}}}{23}{figure.caption.60}%
+\contentsline {figure}{\numberline {2.22}{\ignorespaces The causality problem}}{24}{figure.caption.61}%
+\contentsline {figure}{\numberline {2.23}{\ignorespaces Speed vs. accuracy spectrum \blx@tocontentsinit {0}\cite {TheGem5Simulator}}}{26}{figure.caption.64}%
+\contentsline {figure}{\numberline {2.24}{\ignorespaces Atomic mode}}{28}{figure.caption.67}%
+\contentsline {figure}{\numberline {2.25}{\ignorespaces Timing mode}}{28}{figure.caption.68}%
+\contentsline {figure}{\numberline {2.26}{\ignorespaces Simple system configuration diagram}}{29}{figure.caption.70}%
+\contentsline {figure}{\numberline {2.27}{\ignorespaces Example of scheduling events in gem5 \blx@tocontentsinit {0}\cite {pargem5}}}{31}{figure.caption.88}%
+\contentsline {figure}{\numberline {2.28}{\ignorespaces Final assessment charts \blx@tocontentsinit {0}\cite {morales2016evaluating}}}{33}{figure.caption.91}%
+\contentsline {figure}{\numberline {2.29}{\ignorespaces Modelling solutions spectrum \blx@tocontentsinit {0}\cite {herrera2020running}}}{33}{figure.caption.92}%
+\contentsline {figure}{\numberline {2.30}{\ignorespaces Feature comparison between simulators \blx@tocontentsinit {0}\cite {akram2016comparison}}}{34}{figure.caption.93}%
+\contentsline {figure}{\numberline {2.31}{\ignorespaces Some \gls {ml} algorithms \blx@tocontentsinit {0}\cite {mahesh2020machine}}}{35}{figure.caption.95}%
+\contentsline {figure}{\numberline {2.32}{\ignorespaces Comparison diagram between a biological and an artificial neuron}}{36}{figure.caption.97}%
+\contentsline {figure}{\numberline {2.33}{\ignorespaces Schematic of ADALINE \blx@tocontentsinit {0}\cite {widrow1960adaptive}}}{37}{figure.caption.100}%
+\contentsline {figure}{\numberline {2.34}{\ignorespaces Subfields of combining \gls {ml} and simulation \blx@tocontentsinit {0}\cite {von2020combining}}}{38}{figure.caption.103}%
+\contentsline {figure}{\numberline {2.35}{\ignorespaces Different domains of a complex system}}{39}{figure.caption.105}%
+\contentsline {figure}{\numberline {2.36}{\ignorespaces Research publications of co-simulation applications over five years\blx@tocontentsinit {0}\cite {gomes2017co}}}{40}{figure.caption.106}%
+\contentsline {figure}{\numberline {2.37}{\ignorespaces SystemC and gem5 interoperability \blx@tocontentsinit {0}\cite {menard2017system}}}{40}{figure.caption.108}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Microsemi SmartFusion2 SoC FPGA Block Diagram.\relax }}{33}{figure.caption.56}% 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces MIV RV32IMA L1 AHB soft-core block diagram.\relax }}{36}{figure.caption.60}% 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Quantum definition in the synchronization process}}{42}{figure.caption.110}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Bubble sort example}}{43}{figure.caption.114}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces \gls {anc} scheme}}{45}{figure.caption.117}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Control action with different learning rate values}}{46}{figure.caption.120}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Reset system in ADALINE algorithm}}{47}{figure.caption.121}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces \gls {tdl} working method}}{47}{figure.caption.123}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Reset vs. Host}}{48}{figure.caption.124}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces ADALINE flowchart}}{49}{figure.caption.126}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces ADALINE algorithm results}}{50}{figure.caption.128}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces ADALINE with increment algorithm flowchart}}{51}{figure.caption.130}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Example of evolution of the increment value with a threshold}}{52}{figure.caption.131}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Increment algorithm flowchart}}{53}{figure.caption.133}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Dynamic increment results}}{54}{figure.caption.135}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces PC Algorithm}}{56}{figure.caption.137}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Possible scenarios after the forecast}}{57}{figure.caption.141}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces \gls {pc} algorithm results}}{59}{figure.caption.144}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Worst case of accuracy lost comparison}}{60}{figure.caption.145}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Quantum definition with repetitions algorithm}}{61}{figure.caption.147}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Hare-Tortoise Algorithm}}{62}{figure.caption.149}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Loop detection flowchart}}{63}{figure.caption.150}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Quantum calculation flowchart}}{64}{figure.caption.152}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Repetitions algorithm results}}{65}{figure.caption.154}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces New quantum definition in the synchronization process}}{66}{figure.caption.156}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Proposed \gls {DCLS} architecture, Lock-V.\relax }}{38}{figure.caption.63}% 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \textit {xLockstep} architecture overview.\relax }}{39}{figure.caption.65}% 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Control Register.\relax }}{40}{figure.caption.67}% 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Status Register.\relax }}{41}{figure.caption.68}% 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Error Status Register.\relax }}{41}{figure.caption.69}% 
-\contentsline {figure}{\numberline {4.6}{\ignorespaces \gls {FSM} to manage the \textit {xLockstep} architecture.\relax }}{42}{figure.caption.71}% 
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Architecture overview and \gls {FSM} of the \textit {Timer} module.\relax }}{44}{figure.caption.73}% 
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Architecture overview and \gls {FSM} of the \textit {Checker} module.\relax }}{45}{figure.caption.75}% 
-\contentsline {figure}{\numberline {4.9}{\ignorespaces \textit {xLockstep} memory-mapped address.\relax }}{45}{figure.caption.77}% 
-\contentsline {figure}{\numberline {4.10}{\ignorespaces \textit {xLockstep} design on Microsemi SmartFusion2.\relax }}{46}{figure.caption.79}% 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces \gls {DCLS} execution flow with rollback.\relax }}{52}{figure.caption.90}% 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Stack in Arm Cortex-M3 before and after a function call without arguments nested functions. The address are merely illustrative.\relax }}{55}{figure.caption.95}% 
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Fibonacci sequence calculation with one (a) or \textit {N} (b) checkpoints. And \textit {Fibonacci} sequence with error in the first (c) or in the last (d) element.\relax }}{64}{figure.caption.113}% 
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Lock-V architecture with fault injection mechanism and monitor system.\relax }}{66}{figure.caption.116}% 
 \addvspace {10\p@ }

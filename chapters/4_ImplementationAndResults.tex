@@ -1,8 +1,68 @@
+This chapter presents the chosen case study, which serves as a stimulus for system design and demonstrates 
+the practical application of the developed work. The chosen case study focuses on the verification of 
+data integrity, particularly concerning the \gls{crc} peripheral.
+
+The \gls{crc} was created in 1961 by William Wesley Peterson \cite{peterson1961cyclic}. As the name suggests, 
+it utilizes systematic cyclic codes to encode messages by incorporating a fixed-length check value. In the end, his work
+contributed significantly to simplifying and enhancing the detection of accidental errors/changes in communication 
+networks. \gls{crc} uses a generator polynomial, which is known by the sender and receiver, and it is used to 
+perform the calculation. There are different standards however, the most common ones are the CRC-8, CRC-12, CRC-16, 
+CRC-32, and CRC-CCIT \cite{borrelli2001ieee}
+
+Another application for the \gls{crc} is the storage integrity. Due to defective components or electromagnetic fields,
+bits can change their value without notice. In the presented case study, this scenario will be explored, where 
+the \gls{crc} peripheral is used to maintain a specific memory state and verify if there have been any changes. 
+Furthermore, to showcase the advantages of the previously developed work, the application will perform other 
+tasks simultaneously. To implement the presented peripheral, the reference manual of the STM32F75xxx and 
+STM32F74xxx microcontroller was taken into account.
 
 
+\section{CRC peripheral} %Software development
 
-Final ADALINE tests running in Niko's computer
+\subsection{CRC in SystemC}
 
-Wrinting also
+%Falar sobre o design no systemC
+%A função de cada cena - initiator, route e crc
 
-Co-simulation topic is almost done, CRC pheripherial is done and functional
+\subsection{CRC in gem5}
+
+%CRC e considerado como um off chip peripheral
+%Falar sobre de e necessario para assumir como um perifierico para a co-sim
+%Necessario dizer ao gem5 que crc é um perifirico (armv7, adicionar ao realview)
+%mostrar como foi implementado 
+
+\subsection{TLM wrapper}
+
+%Falar sobre este wrapper - O que é, porque existe(Porque o systemC e gem5 precisao de um "tradutor")
+%Falar sobre a comunicação, do RP - feito com um socket
+%Falar sobre a trama, playload e assim
+
+\subsection{CRC application interface}
+
+%Falar sobre o modulo CRC_SC
+%Que funções tem, com aquele digrama de funcoes bonito
+%Como existe com a biloteca HAL da STM
+
+
+\section{Application simulation using gem5}
+
+%Falar sobre as configurações da placa do vexpress
+%Em que portas as coissas vao ficar connectadas
+%perifericos que se vao utilizar
+
+\subsection{CRC peripheral validation} 
+
+%Show that the CRC pheripheral is working
+
+\section{Memory integrity}
+
+%Entrar aqui no tema do proposito do CRC
+
+\subsection{Fault Modeling}
+
+%Mostrar como é que vai ser injetada a falha na memoria
+
+\section{Results}
+
+%Mostrar os resultados da simulação com a falha
+
