@@ -3287,6 +3287,41 @@
     \field{year}{2006}
   \endentry
 
+  \entry{referenceManualRM0385}{misc}{}
+    \field{labeltitlesource}{title}
+    \field{title}{RM0385 Reference manual -based 32-bit MCUs}
+    \field{journaltitle}{STMicroelectronics: Our technology starts with you}
+  \endentry
+
+  \entry{xilinx2014zynq}{report}{}
+    \name{author}{2}{}{%
+      {{hash=XG}{%
+         family={Xilinx},
+         familyi={X\bibinitperiod},
+         given={G},
+         giveni={G},
+      }}%
+      {{hash=GS}{%
+         family={Guide},
+         familyi={G\bibinitperiod},
+         given={S},
+         giveni={S},
+      }}%
+    }
+    \strng{namehash}{XGGS1}
+    \strng{fullhash}{XGGS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Zynq-7000 All programmable SoC technical reference manual
+  (UG585)}
+    \list{institution}{1}{%
+      {Tech. rep., Xilinx, 2014, https://www. xilinx.
+  com/support/documentation~…}%
+    }
+    \field{type}{techreport}
+    \field{year}{2014}
+  \endentry
+
   \entry{peterson1961cyclic}{article}{}
     \name{author}{2}{}{%
       {{hash=PWW}{%

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  28 OCT 2023 16:36
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  2 NOV 2023 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1861,23 +1861,23 @@ e 68.
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
- [9] (./main.lot)
+ [9] [10] (./main.lot)
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
 
 Using TeX to sort glossary entries---this may take a while
-[10
+[11
 
 ]
 Underfull \hbox (badness 10000) in alignment at lines 208--208
 [] []
  []
 
-[11
+[12
 
 
-] [12]
+] [13]
 Chapter 1.
 --------------------
  1. Introduction
@@ -2226,28 +2226,65 @@ Chapter 4.
 --------------------
  4. Co-Simulation
 --------------------
-(./chapters/4_ImplementationAndResults.tex) [67
+(./chapters/4_ImplementationAndResults.tex
+File: Images/CoSimDesignSimplified.png Graphic file (type bmp)
+<Images/CoSimDesignSimplified.png>
+ [67
 
-] [68]
+]
+File: Images/SystemCdesign.png Graphic file (type bmp)
+<Images/SystemCdesign.png>
+File: Images/SystemCdesign_CRC.png Graphic file (type bmp)
+<Images/SystemCdesign_CRC.png>
+ [68]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 92.
+
+File: Images/CrcBlockDiagram.png Graphic file (type bmp)
+<Images/CrcBlockDiagram.png>
+[69]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 152.
+
+File: Images/CRC_write.png Graphic file (type bmp)
+<Images/CRC_write.png>
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 159.
+
+File: Images/CRC_read.png Graphic file (type bmp)
+<Images/CRC_read.png>
+File: Images/CoSimDesign.png Graphic file (type bmp)
+<Images/CoSimDesign.png>
+[70]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 214.
+
+File: Images/AppTimeDiagram.png Graphic file (type bmp)
+<Images/AppTimeDiagram.png>
+) [71] [72] [73]
 Chapter 5.
 --------------------
  5. Case Of Study
 --------------------
-(./chapters/5_CaseOfStudy.tex) [69
+(./chapters/5_CaseOfStudy.tex) [74
 
 ]
 Chapter 6.
 --------------------
  6. Conclusions
 --------------------
-(./chapters/6_Conclusion.tex) [70
+(./chapters/6_Conclusion.tex) [75
 
 ]
 Chapter 7.
 --------------------
  7. Future Work
 --------------------
-(./chapters/7_Future_work.tex) [71
+(./chapters/7_Future_work.tex) [76
 
 ]
 Overfull \hbox (121.17819pt too wide) in paragraph at lines 290--290
@@ -2262,23 +2299,23 @@ K. C. T. G. I. C. P. K. C. T. G. I. C. S. P. C. T. G. I. C. I. S. C. T. G. I. C
 l.290 \end
           {document}
 ? 
-[72
+[77
 
 
-] [73] [74] [75]
+] [78] [79] [80]
 Overfull \hbox (8.47098pt too wide) in paragraph at lines 290--290
 []\TU/NewsGotT(0)/m/n/12 D. R. Jefferson, “  Virtual time,” \TU/NewsGotT(0)/m/i
 t/12 ACM Transactions on Programming Languages and Systems (TOPLAS)\TU/NewsGotT
 (0)/m/n/12 ,
  []
 
-[76]
+[81]
 Overfull \hbox (0.1712pt too wide) in paragraph at lines 290--290
 \TU/NewsGotT(0)/m/it/12 IEEE International Symposium on Performance Analysis of
  Systems & Software\TU/NewsGotT(0)/m/n/12 , IEEE, 2007, pp. 23–
  []
 
-[77] [78] (./main.aux)
+[82] [83] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2291,7 +2328,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F4326357AA53B669501E4E4C006F73A6;9400.
+(rerunfilecheck)             Checksum: 0EB0E3819DBB8367792DE698241DADAC;9292.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                main
@@ -2302,12 +2339,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52195 strings out of 475161
- 1076207 string characters out of 5766720
- 2175497 words of memory out of 5000000
- 73179 multiletter control sequences out of 15000+600000
- 568632 words of font info for 98 fonts, out of 8000000 for 9000
+ 52331 strings out of 475161
+ 1079648 string characters out of 5766720
+ 2177685 words of memory out of 5000000
+ 73307 multiletter control sequences out of 15000+600000
+ 568638 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 110i,18n,107p,2346b,5784s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 110i,18n,107p,2346b,5782s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (94 pages).
+Output written on main.pdf (100 pages).

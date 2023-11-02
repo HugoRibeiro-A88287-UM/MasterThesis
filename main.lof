@@ -64,6 +64,12 @@
 \contentsline {figure}{\numberline {3.22}{\ignorespaces Repetitions algorithm results}}{65}{figure.caption.154}%
 \contentsline {figure}{\numberline {3.23}{\ignorespaces New quantum definition in the synchronization process}}{66}{figure.caption.156}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Co-simulation design}}{68}{figure.caption.160}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces CRC block diagram}}{69}{figure.caption.163}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces CRC write operation}}{71}{figure.caption.165}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Co-simulation design}}{71}{figure.caption.171}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces CRC read operation}}{72}{figure.caption.166}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Application execution timely diagram}}{73}{figure.caption.173}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

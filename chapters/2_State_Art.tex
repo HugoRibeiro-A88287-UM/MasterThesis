@@ -643,7 +643,7 @@ One characteristic of QEMU is its loosely timed coding style, which provides hig
 	 \label{fig_gem5VSQEMU}
 \end{figure}
 
-Another platform already mention is SystemC \cite{systemC}. It is a set of C++ classes and macros which provide an event-driven simulation interface for system and hardware design. Its main purpose is to provide a C++-based standard for designers and architects who need to address complex systems that are a hybrid between hardware and software. Furthermore, it can be used also as an \gls{hdl}, still, it may require an evaluation due to its syntactical overhead compared to other options like Verilog or VHDL. It also supports \gls{tlm}-2.0, which allows to model the communication as function calls. Events are applied to an entire transaction payload, rather than to individual bus signals, and at protocol phase
+Another platform already mentioned is SystemC \cite{systemC}. It is a set of C++ classes and macros which provide an event-driven simulation interface for system and hardware design. Its main purpose is to provide a C++-based standard for designers and architects who need to address complex systems that are a hybrid between hardware and software. Furthermore, it can be used also as an \gls{hdl}, still, it may require an evaluation due to its syntactical overhead compared to other options like Verilog or VHDL. It also supports \gls{tlm}-2.0, which allows us to model the communication as function calls. Events are applied to an entire transaction payload, rather than to individual bus signals, and at protocol phase
 boundaries, rather than at clock edges \cite{wieman2012overview}. Thus, the simulations have much better performance, 100-10000 times faster, when compared to the cycle-accurate version. The main advantages are its standardization in the industry, lots of documentation and work, and the capability to quickly simulate hardware and software systems on different levels of abstraction. Contrarily, it is not so flexible, hence, it requires external modules to complement itself, e.g., it can not perform cycle-accurate simulations, and most of the modules/\glspl{ip} are not free of charge, meaning extra costs. 
 
 
@@ -699,13 +699,13 @@ Within this dissertation, only neural networks will be considered. They can be d
 \label{tab_compararionBNN_ANN_table}
 \end{table}
 
-Like the human brain, \glspl{ann} also needs to learn. There are three ways to train a \gls{ann}, which are also inspired by human actions. Supervised learning is a method that teaches the \gls{nn} by providing the outputs for certain inputs. The predicted outputs are compared to the real ones, and then weights are adjusted according to the error. In the real world, it can be compared to heating food. The human knows how much warm wants his food, but he cannot calculate how much time should it be warming in the microwave. Thus, it predicts a time, and based on what result, he redefines the time.
+Like the human brain, \glspl{ann} also needs to learn. There are three ways to train a \gls{ann}, which are also inspired by human actions. Supervised learning is a method that teaches the \gls{nn} by providing the outputs for certain inputs. The predicted outputs are compared to the real ones, and then weights are adjusted according to the error. In the real world, it can be compared to heating food. The human knows how warm wants his food, but he cannot calculate how much time should it be warming in the microwave. Thus, it predicts a time, and based on what result, he redefines the time.
 
-In the opposite way, unsupervised learning is a technique where the \gls{nn} only knows the inputs. The training is done only with the input information, being a good solution for clustering or density problems, where the data is categorized based on similarities. Humans face problems like this as well. For instance, when it is required for a person to sort apples, the color can be a characteristic to distinguish them. 
+In the opposite way, unsupervised learning is a technique where the \gls{nn} only knows the inputs. The training is done only with the input information, which is a good solution for clustering or density problems, where the data is categorized based on similarities. Humans face problems like this as well. For instance, when it is required for a person to sort apples, the color can be a characteristic to distinguish them. 
 
-The last method is the reinforced \gls{nn}. There is an agent that controls the outputs of the system. The \gls{nn} may receive a reward or a penalty for each action it performs. With this information, it adapts its behavior to receive the fewer penalties possible. A comparison can be made to a relationship between a mother and her son, where the mother supervises the actions of her son, and reward or alert him when he does something.
+The last method is the reinforced \gls{nn}. There is an agent that controls the outputs of the system. The \gls{nn} may receive a reward or a penalty for each action it performs. With this information, it adapts its behavior to receive the fewest penalties possible. A comparison can be made to a relationship between a mother and her son, where the mother supervises the actions of her son, and reward or alert him when he does something.
 
-Also, \glspl{ann} can be classified into two different classes. The Feed-Forward \glspl{nn} and the Recurrent \glspl{nn}. In the first one, the information pursuers a linear path, where the output of a neuron will be the input of another. The other way around, the output of a neuron is used as input of the same neuron, being appropriate for non-linear applications. 
+Also, \glspl{ann} can be classified into two different classes. The Feed-Forward \glspl{nn} and the Recurrent \glspl{nn}. In the first one, the information pursuers a linear path, where the output of one neuron will be the input of another. The other way around, the output of a neuron is used as input of the same neuron, which is appropriate for non-linear applications. 
 
 \subsection{Learning Rules}
 
@@ -719,7 +719,7 @@ As illustrated in the \autoref{fig_ComparationBNN_ANN}, in a \gls{ann} the input
     \item Outstar learning rule (Grossberg learning)
 \end{itemize}
 
-For this thesis, only the delta learning rule or \gls{lsm} algorithm will be considered. It was introduced by Widrow and Hoff in 1960 in \cite{widrow1960adaptive}, and its objective is to minimize the sum of squares of the linear errors over the training set. Additionally, a typical neuron used in \glspl{nn} is the "ADAptive LInear NEuron" or ADALINE. It consists of an adaptive linear combiner cascaded with a hard-limiting quantizer, which generates a binary output (-1 or 1) used, e.g., for classification problems. A schematic can be seen in the figure below. If it is removed, the output will be analog, which may be useful, for instance, to noise canceling applications \cite{widrow1985adaptive}. Further, it is possible to have multiple layers of neurons to address more complex systems (Multiple ADAptive LInear NEuron, or MADALINE).
+For this thesis, only the delta learning rule or \gls{lsm} algorithm will be considered. It was introduced by Widrow and Hoff in 1960 in \cite{widrow1960adaptive}, and its objective is to minimize the sum of squares of the linear errors over the training set. Additionally, a typical neuron used in \glspl{nn} is the "ADAptive LInear NEuron" or ADALINE. It consists of an adaptive linear combiner cascaded with a hard-limiting quantizer, which generates a binary output (-1 or 1) used, e.g., for classification problems. A schematic can be seen in the figure below. If it is removed, the output will be analog, which may be useful, for instance, to noise-canceling applications \cite{widrow1985adaptive}. Further, it is possible to have multiple layers of neurons to address more complex systems (Multiple ADAptive LInear NEuron, or MADALINE).
 
 \begin{figure}[H]
 	\centering
@@ -739,7 +739,7 @@ Where $Wi$ is the weight associated with the input i, $k$ defines the time, $\mu
 
 \subsection{Machine Learning in Simulation}
 
-\gls{ml} and simulation are two different topics that can complement each other. For example, when evaluating risk management, where the behavior of the system is based on causal relationships, hidden dependencies, etc. \cite{mitchell2017natural}, a combination of both worlds could be beneficial.  L. von Rueden in \cite{von2020combining} presents a work where defines three subfields when combining both, simulation-assisted \gls{ml}, machine-learning assisted simulation, and hybrid.
+\gls{ml} and simulation are two different topics that can complement each other. For example, when evaluating risk management, where the behavior of the system is based on causal relationships, hidden dependencies, etc. \cite{mitchell2017natural}, a combination of both worlds could be beneficial.  L. von Rueden in \cite{von2020combining} presents a work that defines three subfields when combining both, simulation-assisted \gls{ml}, machine-learning-assisted simulation, and hybrid.
 
 \begin{figure}[H]
 	\centering
@@ -752,9 +752,9 @@ Machine learning in simulation is often used to detect patterns in data or suppo
 
 \section{Co-Simulation}
 
-The development of truly complex engineered systems that integrate physical, software and network aspects are on the rise \cite{gomes2017co}. The simulation of these all together is not reliable, hence the need of dividing the system into different teams arises. Each one develops a part of the final solution, that, in the end, is integrated to the others. Different abstraction layers may demand distinct simulation tools, as some are finely tuned for specific domains, yielding results that closely mock real-world behavior. The \autoref{fig_DomainsComplexSystem} shows an example the different domains in a complex system. 
+The development of truly complex engineered systems that integrate physical, software and network aspects is on the rise \cite{gomes2017co}. The simulation of these all together is not reliable, hence the need to divide the system into different teams arises. Each one develops a part of the final solution, that, in the end, is integrated into the others. Different abstraction layers may demand distinct simulation tools, as some are finely tuned for specific domains, yielding results that closely mock real-world behavior. The \autoref{fig_DomainsComplexSystem} shows an example of different domains in a complex system. 
 
-Normally, each part is tested and verified alone, that is, without iterations from other modules \cite{gomes2017co}. However, information of another part of the system may be needed, for example, a wave input to produce a sound. A possible solution can be the generation of local files containing the necessary information, nevertheless interactions are not thoroughly tested. This may create validation failures, which can result in delay in the development and extra costs in the development.
+Normally, each part is tested and verified alone, that is, without iterations from other modules \cite{gomes2017co}. However, information on another part of the system may be needed, for example, a wave input to produce a sound. A possible solution can be the generation of local files containing the necessary information nevertheless, interactions are not thoroughly tested. This may create validation failures, which can result in delays in the development and extra costs in the development.
 
 \begin{figure}[]
 	\centering
@@ -763,7 +763,7 @@ Normally, each part is tested and verified alone, that is, without iterations fr
 	 \label{fig_DomainsComplexSystem}
 \end{figure}
 
-Co-simulation is proposed as a solution to overcome the latter issue \cite{gomes2017co}. It consists in the composition of simulators where they execute concurrently, with one providing information to the others and vice versa. This approach is used in different domains, as shown in the \autoref{fig_CoSimDifApps}. To have the co-simulation environment it is required an \gls{api} that creates the interface between the simulators like LibSystemCTLM-SoC, which contains various SystemC/\gls{tlm}-2.0 modules that enable co-simulation of Xilinx QEMU, SystemC/\gls{tlm}-2.0 and \gls{rtl} \cite{XilinxLibsystemctlm-SOC}. If no \gls{api} is provided, the simulator can also be extended to allow such interactions, as long
+Co-simulation is proposed as a solution to overcome the latter issue \cite{gomes2017co}. It consists of a combination of simulators that execute concurrently, with one providing information to the others and vice versa. This approach is used in different domains, as shown in the \autoref{fig_CoSimDifApps}. To have the co-simulation environment it is required an \gls{api} that creates the interface between the simulators like LibSystemCTLM-SoC, which contains various SystemC/\gls{tlm}-2.0 modules that enable co-simulation of Xilinx QEMU, SystemC/\gls{tlm}-2.0 and \gls{rtl} \cite{XilinxLibsystemctlm-SOC}. If no \gls{api} is provided, the simulator can also be extended to allow such interactions, as long
 as it is open-source.
 
 \begin{figure}[]
@@ -773,7 +773,7 @@ as it is open-source.
 	 \label{fig_CoSimDifApps}
 \end{figure}
 
-One of the challenges when running a \gls{des} co-simulation is the synchronization. As previous mention, there are different iterations of different abstraction levels, which can result in temporal misalignment. In other words, causality error can happen due to a distinct time granularity. This problem is similar to the one faced when executing a parallel simulation, and the solutions applied to address them are remarkably consistent. 
+One of the challenges when running a \gls{des} co-simulation is synchronization. As previously mentioned, there are different iterations of different abstraction levels, which can result in temporal misalignment. In other words, causality error can happen due to a distinct time granularity. This problem is similar to the one faced when executing a parallel simulation, and the solutions applied to address them are remarkably consistent. 
 
 
 \subsection{Gem5 and SystemC}
