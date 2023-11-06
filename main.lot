@@ -3,13 +3,14 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {2.1}{\ignorespaces Example of a sequence of events in a supermarket}}{19}{table.caption.51}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Overview of the supported architectures in gem5 \blx@tocontentsinit {0}\cite {hempelsimulation}}}{27}{table.caption.65}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Overview of the supported architectures in Gem5 \blx@tocontentsinit {0}\cite {hempelsimulation}}}{27}{table.caption.65}%
 \contentsline {table}{\numberline {2.3}{\ignorespaces Overview of the different works regarding the quantum definition}}{32}{table.caption.89}%
 \contentsline {table}{\numberline {2.4}{\ignorespaces Comparison table between a biological and an artificial neuron}}{36}{table.caption.98}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {3.1}{\ignorespaces System Configurations}}{43}{table.caption.112}%
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Reverse operation}}{70}{table.caption.164}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces TLM wrapper commands}}{74}{table.caption.193}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -28,7 +28,7 @@
 \contentsline {figure}{\numberline {2.24}{\ignorespaces Atomic mode}}{28}{figure.caption.67}%
 \contentsline {figure}{\numberline {2.25}{\ignorespaces Timing mode}}{28}{figure.caption.68}%
 \contentsline {figure}{\numberline {2.26}{\ignorespaces Simple system configuration diagram}}{29}{figure.caption.70}%
-\contentsline {figure}{\numberline {2.27}{\ignorespaces Example of scheduling events in gem5 \blx@tocontentsinit {0}\cite {pargem5}}}{31}{figure.caption.88}%
+\contentsline {figure}{\numberline {2.27}{\ignorespaces Example of scheduling events in Gem5 \blx@tocontentsinit {0}\cite {pargem5}}}{31}{figure.caption.88}%
 \contentsline {figure}{\numberline {2.28}{\ignorespaces Final assessment charts \blx@tocontentsinit {0}\cite {morales2016evaluating}}}{33}{figure.caption.91}%
 \contentsline {figure}{\numberline {2.29}{\ignorespaces Modelling solutions spectrum \blx@tocontentsinit {0}\cite {herrera2020running}}}{33}{figure.caption.92}%
 \contentsline {figure}{\numberline {2.30}{\ignorespaces Feature comparison between simulators \blx@tocontentsinit {0}\cite {akram2016comparison}}}{34}{figure.caption.93}%
@@ -38,7 +38,7 @@
 \contentsline {figure}{\numberline {2.34}{\ignorespaces Subfields of combining \gls {ml} and simulation \blx@tocontentsinit {0}\cite {von2020combining}}}{38}{figure.caption.103}%
 \contentsline {figure}{\numberline {2.35}{\ignorespaces Different domains of a complex system}}{39}{figure.caption.105}%
 \contentsline {figure}{\numberline {2.36}{\ignorespaces Research publications of co-simulation applications over five years\blx@tocontentsinit {0}\cite {gomes2017co}}}{40}{figure.caption.106}%
-\contentsline {figure}{\numberline {2.37}{\ignorespaces SystemC and gem5 interoperability \blx@tocontentsinit {0}\cite {menard2017system}}}{40}{figure.caption.108}%
+\contentsline {figure}{\numberline {2.37}{\ignorespaces SystemC and Gem5 interoperability \blx@tocontentsinit {0}\cite {menard2017system}}}{40}{figure.caption.108}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Quantum definition in the synchronization process}}{42}{figure.caption.110}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Bubble sort example}}{43}{figure.caption.114}%
@@ -66,10 +66,14 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Co-simulation design}}{68}{figure.caption.160}%
 \contentsline {figure}{\numberline {4.3}{\ignorespaces CRC block diagram}}{69}{figure.caption.163}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces CRC write operation}}{71}{figure.caption.165}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Co-simulation design}}{71}{figure.caption.171}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces CRC read operation}}{72}{figure.caption.166}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Application execution timely diagram}}{73}{figure.caption.173}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces CRC read operation}}{70}{figure.caption.165}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces CRC write operation}}{71}{figure.caption.166}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Redefinition of \textit {BasicPioDevice} functions}}{73}{figure.caption.190}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces TLM wrapper payload definition}}{73}{figure.caption.192}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces TLM wrapper in Gem5}}{75}{figure.caption.194}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces TLM wrapper in SystemC}}{76}{figure.caption.195}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Co-simulation design}}{77}{figure.caption.198}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Application execution timely diagram}}{77}{figure.caption.200}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

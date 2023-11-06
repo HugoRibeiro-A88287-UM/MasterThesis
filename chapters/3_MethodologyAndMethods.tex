@@ -3,7 +3,7 @@
 % O que vai fazer neste capitulo
 % 
 
-The development of par-gem5 \cite{pargem5} solved one problem of gem5 \cite{TheGem5Simulator}, which is the low performance even with a power full host machine. As exhibited in the \autoref{subsec:pargem5}, the accuracy is no longer perfect, and a trade-off between these occurs. Concerning the current works on this subject, none of them fulfilled the three characteristics presented in the \autoref{tab_OverviewDynamicQuantum}, therefore they can not be employed in the par-gem5. 
+The development of par-gem5 \cite{pargem5} solved one problem of Gem5 \cite{TheGem5Simulator}, which is the low performance even with a power full host machine. As exhibited in the \autoref{subsec:pargem5}, the accuracy is no longer perfect, and a trade-off between these occurs. Concerning the current works on this subject, none of them fulfilled the three characteristics presented in the \autoref{tab_OverviewDynamicQuantum}, therefore they can not be employed in the par-gem5. 
 
 To overcome these limitations and find the optimal quantum automatically, there were developed some algorithms in the scope of this dissertation, and in this chapter, they will be described and explained in detail. These algorithms are called: ADALINE, increment, \glsxtrfull{pc}, and repetition. As the name suggests, the first one is based on the ADALINE \gls{nn}. The following is used by the previous to dynamically adapt the increment value. \gls{pc} algorithm analyses the executed instructions to identify if their execution may result in inaccuracy. These two provide support for the remaining ones, meaning they cannot function independently. The last one tries to identify loops within the execution of the simulation to accordingly adapt the quantum.  
 

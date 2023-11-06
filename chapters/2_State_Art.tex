@@ -1,5 +1,5 @@
 
-This chapter establishes the needed concepts to accomplish and understand this work. First of all, it will start with the simulation topic, what it is, and why it is so important. Embedded systems and machine learning are briefly contextualized, highlighting the connection they share with the previous topic. Then, simulation types and modes are introduced, with a special focus on the ones that will be used in this dissertation. Finally, the gem5 simulator is presented in detail, since it is the framework where all the development will be done.
+This chapter establishes the needed concepts to accomplish and understand this work. First of all, it will start with the simulation topic, what it is, and why it is so important. Embedded systems and machine learning are briefly contextualized, highlighting the connection they share with the previous topic. Then, simulation types and modes are introduced, with a special focus on the ones that will be used in this dissertation. Finally, the Gem5 simulator is presented in detail, since it is the framework where all the development will be done.
 
 
 \section{Simulation}
@@ -281,7 +281,7 @@ The software version typically employs instruction-accurate simulation, where co
 	 \label{fig_FSSsoftware}
 \end{figure}
 
-The hardware model must be defined for the software simulation, thus hardware modules may or may not be available for the target machine. It requires the selection of a simulator that aligns with the application scenario or offers the flexibility to expand the range of supported hardware modules, such as QEMU \cite{theQEMUsimulator} and gem5 \cite{TheGem5Simulator}.
+The hardware model must be defined for the software simulation, thus hardware modules may or may not be available for the target machine. It requires the selection of a simulator that aligns with the application scenario or offers the flexibility to expand the range of supported hardware modules, such as QEMU \cite{theQEMUsimulator} and Gem5 \cite{TheGem5Simulator}.
 
 As modern embedded and integrated systems become increasingly complex, an escalating number of design companies are embracing virtual prototyping methods \cite{UltraFastVPs}. \Glspl{vp} should follow this trend, that is, as embedded systems are becoming more complex, \glspl{vp} should be faster yet accurate, so they can be a reliable option.
 
@@ -369,7 +369,7 @@ Continuous simulation is used for modeling systems with continuous or analog beh
 
 \section{Simulation Modes}
 
-Different \glspl{fss} can use different modes to perform the simulation. These modes have an impact on the performance and accuracy of the simulation. For example, while gem5 is limited to sequential simulation \cite{TheGem5Simulator}, QEMU offers the flexibility to be used in both sequential and parallel simulation \cite{QEMUDoc}. Depending on the application and the requirements of the project one option can be better than another.
+Different \glspl{fss} can use different modes to perform the simulation. These modes have an impact on the performance and accuracy of the simulation. For example, while Gem5 is limited to sequential simulation \cite{TheGem5Simulator}, QEMU offers the flexibility to be used in both sequential and parallel simulation \cite{QEMUDoc}. Depending on the application and the requirements of the project one option can be better than another.
 
 According to \cite{parallelTypes}, there are two dominant approaches to advance time within a simulation, asynchronous and synchronous methods. In the first one, each thread communicates with the others in a way that each one can determine when it is secure to execute an event. The number of synchronizations can be reduced by far, although knowledge about the communication behavior of models and deadlock mechanisms, such as roll-back, is required. The second one uses global synchronization times to synchronize all threads. Between these times, all events that will be executed between them can be parallelized. This approach is simpler, nevertheless, it may incur high simulation overhead.
 
@@ -449,9 +449,9 @@ As peer with Fujimoto in \cite{PDESfujimoto}, there are two mechanisms to solve 
 
 \section{Gem5}
 
-One available \gls{fss} used in academia and industry is the gem5 simulator \cite{TheGem5Simulator}\cite{Thegem5simulatorV2}. It has its roots in 2011, from the merge between M5 \cite{TheM5Simulator}, a \gls{cpu} simulation framework, and the multifacet \gls{gems} toolset \cite{TheGEMS}. With this combination, it is possible to use the best of both frameworks, the effective support of multiple \glspl{isa} and the cache memory and cache coherence models. It is also the result of the work between AMD, ARM, HP, MIPS, Princeton, MIT, the Universities of Michigan, Texas, Wisconsin, and many other institutions.
+One available \gls{fss} used in academia and industry is the Gem5 simulator \cite{TheGem5Simulator}\cite{Thegem5simulatorV2}. It has its roots in 2011, from the merge between M5 \cite{TheM5Simulator}, a \gls{cpu} simulation framework, and the multifacet \gls{gems} toolset \cite{TheGEMS}. With this combination, it is possible to use the best of both frameworks, the effective support of multiple \glspl{isa} and the cache memory and cache coherence models. It is also the result of the work between AMD, ARM, HP, MIPS, Princeton, MIT, the Universities of Michigan, Texas, Wisconsin, and many other institutions.
 
-In addition, gem5 came to overcome a demand in the market at the time. The main highlights are the flexible framework for researchers to evaluate their design in several different ways; Licensing terms that allow researchers and academia to work together without the pressure of revealing proprietary information, in the industry case, or not getting credits for their contributions; Defined code style that ensures the code quality remains good to new collaborators understand faster and better the code \cite{TheGem5Simulator}. 
+In addition, Gem5 came to overcome a demand in the market at the time. The main highlights are the flexible framework for researchers to evaluate their design in several different ways; Licensing terms that allow researchers and academia to work together without the pressure of revealing proprietary information, in the industry case, or not getting credits for their contributions; Defined code style that ensures the code quality remains good to new collaborators understand faster and better the code \cite{TheGem5Simulator}. 
 
 This section will explain in detail what are its capabilities and how can it be used. Then will be presented a work done by the \gls{ice} team of the \gls{rwth} Aachen University, which will be the reference work for this dissertation. To conclude, other simulators will be given to have a wide perspective of what exists in the market and when and where one can be better than another. 
 
@@ -466,7 +466,7 @@ Gem5 is a \gls{des} platform that has as its main goal to be a community tool fo
 	 \label{fig_tradeoffTable}
 \end{figure}
 
-As mentioned in the introduction of this section, one characteristic of gem5 is flexibility. Several simulation configurations allow an adaptation to fit the requirements of the project or the level of wanted detail. A project where scalability is a must-have feature, for example, will not require a detailed \gls{cpu} model. The \gls{cpu} models will be explained with more detail in \autoref{subsec::SimCap}. 
+As mentioned in the introduction of this section, one characteristic of Gem5 is flexibility. Several simulation configurations allow an adaptation to fit the requirements of the project or the level of wanted detail. A project where scalability is a must-have feature, for example, will not require a detailed \gls{cpu} model. The \gls{cpu} models will be explained with more detail in \autoref{subsec::SimCap}. 
 
 In this simulator, components can be rearranged, parameterized, extended, or replaced easily to suit the project's needs. This is possible thanks to its pervasive object-oriented design, with the mix of Python and C++. All major components, like the memory, are SimObjects and share common behaviors for configuration, initialization, statistics, and serialization. Moreover, a user can create a customize SimObject, increasing even more the flexibility. To do that, it is required to define in a Python file the SimObject’s parameters, such as instantiation, naming, etc., and in the C++ files define its behavior.
 
@@ -486,13 +486,13 @@ Another remarkable characteristic is the support of different \glspl{isa}, count
 \multicolumn{1}{|l|}{x86} & \multicolumn{1}{l|}{Medium} & \multicolumn{1}{l|}{Linux, BSD} &  \\ \cline{1-3}
  &  &  & 
 \end{tabular}
-\caption{Overview of the supported architectures in gem5 \cite{hempelsimulation}}
+\caption{Overview of the supported architectures in Gem5 \cite{hempelsimulation}}
 \label{tab_ISAsupport}
 \end{table}
 
 Furthermore, it is also possible to simulate more than one computer system in various ways. It is done by instantiating another system and connecting it via a network interface, creating a client/server pair that communicates with the TPC/IP protocol. The results of the simulation keep deterministic, in other words, for a particular input, it will produce always the same output. 
 
-Gem5 uses other tools to perform specific jobs. The most important ones are the pybind11 \cite{jakob2019pybind11}, a lightweight header-only library that exposes C++ types in Python and vice versa, and SCons \cite{knight2002scons}, an open-source software construction tool that orchestrates the construction of software in a way that solves several problems compared to the other build tools. With the SCons scripts present in gem5 is possible to build different binaries for different purposes. 
+Gem5 uses other tools to perform specific jobs. The most important ones are the pybind11 \cite{jakob2019pybind11}, a lightweight header-only library that exposes C++ types in Python and vice versa, and SCons \cite{knight2002scons}, an open-source software construction tool that orchestrates the construction of software in a way that solves several problems compared to the other build tools. With the SCons scripts present in Gem5 is possible to build different binaries for different purposes. 
 
 \begin{itemize}
     \item \textbf{Debug:} This mode has no optimizations, and thus it is the slowest one. It is mostly used when the opt version does not provide enough detail in the debug session. 
@@ -527,11 +527,11 @@ The in-order and O3 models are "execute-in-execute" models, which means that ins
 
 Gem5 can operate either in \gls{fs} and \gls{se} mode. The \gls{fs} is more complex and complete, in a way that it supports interrupts, exceptions, \gls{io} devices, and so on. As the name suggests, the \gls{se} simulates the system calls, like write(). This characteristic can be a bottleneck to multi-thread applications, nevertheless results in a faster simulation. If the workload has lots of \gls{io} iterations or \gls{os} services, the \gls{fs} is the proper choice, otherwise the \gls{se} can be considered, even because some \glspl{isa} do not support the \gls{fs} mode yet. 
 
-Another important capability is the support to the classic and ruby memory system, due to the integration of both works (M5 and GEMS). On one hand, the classic system is fast and easy to configure. On the other hand, the ruby system is more flexible and accurate. Gem5 also offers an extension for the simple version named Garnet. At the time, gem5 supports HeteroGarnet or Garnet 3.0 which brings improvements compared to the previous version, for example, it can enable accurate simulation of emerging interconnect systems. 
+Another important capability is the support to the classic and ruby memory system, due to the integration of both works (M5 and GEMS). On one hand, the classic system is fast and easy to configure. On the other hand, the ruby system is more flexible and accurate. Gem5 also offers an extension for the simple version named Garnet. At the time, Gem5 supports HeteroGarnet or Garnet 3.0 which brings improvements compared to the previous version, for example, it can enable accurate simulation of emerging interconnect systems. 
 
 %Ver o paper das cache
 
-Even though gem5 is a very flexible simulator, accordingly to \cite{TheGem5Simulator}, there are other capabilities the developers want to include. A first-class power model, full cross-product \gls{isa}/\gls{cpu}/memory system support, and parallelization are some examples.  It is evident that there is still much work to be done, but compared to the first review, there are lots of advances and improvements, like the support for the RISC-V architecture and the \gls{kvm} \cite{Thegem5simulatorV2}. 
+Even though Gem5 is a very flexible simulator, accordingly to \cite{TheGem5Simulator}, there are other capabilities the developers want to include. A first-class power model, full cross-product \gls{isa}/\gls{cpu}/memory system support, and parallelization are some examples.  It is evident that there is still much work to be done, but compared to the first review, there are lots of advances and improvements, like the support for the RISC-V architecture and the \gls{kvm} \cite{Thegem5simulatorV2}. 
 
 
 %CPU, memory, cache, ISAs, Execution modes, Devices
@@ -540,7 +540,7 @@ Even though gem5 is a very flexible simulator, accordingly to \cite{TheGem5Simul
 
 \subsection{Usage}
 
-To start using gem5 it is necessary two things. First of all, the simulator's binary for the wanted \gls{isa} is necessary. As mentioned before, there are three different types of binaries, therefore they should be chosen mindfully. Then, it is mandatory the definition of the system. It describes which parts the \gls{soc} consists of and how they are connected. Gem5 provides in its tutorials the simplest system a developer can use, and it is presented in the following picture.
+To start using Gem5 it is necessary two things. First of all, the simulator's binary for the wanted \gls{isa} is necessary. As mentioned before, there are three different types of binaries, therefore they should be chosen mindfully. Then, it is mandatory the definition of the system. It describes which parts the \gls{soc} consists of and how they are connected. Gem5 provides in its tutorials the simplest system a developer can use, and it is presented in the following picture.
 
 \begin{figure}[H]
 	\centering
@@ -569,12 +569,12 @@ All the configuration is performed in a Python script, while the functionality o
 
 \end{lstlisting}
 
-Finally, to run gem5, the command should first have the directory of the binary, and then the directory of the script. Furthermore, it can have more arguments to specify the system or the simulation modes, e.g. the \gls{cpu} model.
+Finally, to run Gem5, the command should first have the directory of the binary, and then the directory of the script. Furthermore, it can have more arguments to specify the system or the simulation modes, e.g. the \gls{cpu} model.
 
 \subsection{Par-gem5}
 \label{subsec:pargem5}
 
-A huge problem of gem5 is its speed. At the moment, its official version only offers a single-threaded simulation. Even with the best \gls{cpu} or the fastest memory on the host machine, the simulation can not get close to one \gls{mips}, which results in long execution times. For instance, while the SPEC2017 integer benchmark can take ten minutes in a host computer, with gem5 the same workload can take more than two years \cite{pargem5}. As referred in the \autoref{subsec::SimCap}, parallelize gem5 is one desired feature to have, however, more than ten years passed and there are no developments on this topic, only the support for \gls{kvm}. 
+A huge problem of Gem5 is its speed. At the moment, its official version only offers a single-threaded simulation. Even with the best \gls{cpu} or the fastest memory on the host machine, the simulation can not get close to one \gls{mips}, which results in long execution times. For instance, while the SPEC2017 integer benchmark can take ten minutes in a host computer, with Gem5 the same workload can take more than two years \cite{pargem5}. As referred in the \autoref{subsec::SimCap}, parallelize Gem5 is one desired feature to have, however, more than ten years passed and there are no developments on this topic, only the support for \gls{kvm}. 
 
 Par-gem5 \cite{pargem5} arises to solve this problem. It was developed by the \gls{ice} team of the \gls{rwth} Aachen University, with the collaboration of Huawei. It utilizes the multi-threading capabilities of the host system through a modified conservative, synchronous \gls{pdes} approach, which allows the execution to be dispatch to multiple simulation threads that to run independently from the rest of the system for a time $t_{\Delta q}$ – the so-called quantum or quanta. At the time, only dist-gem5 \cite{dist-gem5}, a work that focuses on simulating distributed systems connected via a \gls{nic}, has implemented a parallel extension. Nonetheless, its application is very strict, since can only be used in this type of system, thus par-gem5 comes to overlap this problem and be a generalized parallel version.
 
@@ -583,7 +583,7 @@ In the initialization phase, each \gls{cpu} is assigned to a dedicated event que
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.7\linewidth]{Images/SchedulingEventGem5.png}
- 	\caption{Example of scheduling events in gem5 \cite{pargem5}}
+ 	\caption{Example of scheduling events in Gem5 \cite{pargem5}}
 	 \label{fig_SchedulingEventGem5}
 \end{figure}
 
@@ -623,7 +623,7 @@ In the context of \gls{pdes}, Jünger developed a method whose principle is to c
 %Integrar isto
 %https://community.arm.com/arm-research/b/articles/posts/running-trusted-firmware-a-on-gem5
 
-Like gem5 other simulators are used for the same purpose. This subsection will discuss some of them, their advantages and disadvantages compared to the simulator under study, to have a better perspective of what is the offer about this subject at the moment. 
+Like Gem5 other simulators are used for the same purpose. This subsection will discuss some of them, their advantages and disadvantages compared to the simulator under study, to have a better perspective of what is the offer about this subject at the moment. 
 
 Starting with QEMU (Quick EMUlator) \cite{theQEMUsimulator}, as the name suggests, it is a versatile full-system emulator that can emulate various architectures, including x86, ARM, PowerPC, and more. As explained earlier in the \autoref{subSec::EmbeddedSim}, there is a difference between an emulator and a simulator, yet QEMU was considered due to other similarities, like the open source availability, the support to different architectures, and the active development community. José Morales in \cite{morales2016evaluating} compared these two simulators in detail and, in the end, the conclusion of his study com be summed up in the next figure.
 
@@ -647,7 +647,7 @@ Another platform already mentioned is SystemC \cite{systemC}. It is a set of C++
 boundaries, rather than at clock edges \cite{wieman2012overview}. Thus, the simulations have much better performance, 100-10000 times faster, when compared to the cycle-accurate version. The main advantages are its standardization in the industry, lots of documentation and work, and the capability to quickly simulate hardware and software systems on different levels of abstraction. Contrarily, it is not so flexible, hence, it requires external modules to complement itself, e.g., it can not perform cycle-accurate simulations, and most of the modules/\glspl{ip} are not free of charge, meaning extra costs. 
 
 
-Ayaz Akram and Lina Sawalha developed a work where a comparison of x86 computer architecture simulators is done \cite{akram2016comparison}. In this study are evaluated four simulators: gem5 \cite{TheGem5Simulator}, Multi2Sim \cite{ubal2012multi2sim}, Sniper \cite{carlson2011sniper}, and PTLsim \cite{yourst2007ptlsim}. The authors selected these simulators based on their diverse design approaches regarding the level of detail and abstraction. All of them are modern simulators that are actively being developed, except for PTLsim, which is currently not undergoing active development but is still widely utilized. The following image presents a features comparison between the previous simulators and ZSim \cite{sanchez2013zsim}. 
+Ayaz Akram and Lina Sawalha developed a work where a comparison of x86 computer architecture simulators is done \cite{akram2016comparison}. In this study are evaluated four simulators: Gem5 \cite{TheGem5Simulator}, Multi2Sim \cite{ubal2012multi2sim}, Sniper \cite{carlson2011sniper}, and PTLsim \cite{yourst2007ptlsim}. The authors selected these simulators based on their diverse design approaches regarding the level of detail and abstraction. All of them are modern simulators that are actively being developed, except for PTLsim, which is currently not undergoing active development but is still widely utilized. The following image presents a features comparison between the previous simulators and ZSim \cite{sanchez2013zsim}. 
 
 \begin{figure}[H]
 	\centering
@@ -656,7 +656,7 @@ Ayaz Akram and Lina Sawalha developed a work where a comparison of x86 computer 
 	 \label{fig_ComparationTableSimulators}
 \end{figure}
 
-In their work, these platforms were tested with three different benchmarks. In the end, was possible to conclude that gem5 is a good option when very detailed results and multiple \glspl{isa} support are wanted. Sniper is specifically designed for multi-core simulations and is considered the most accurate among the simulators examined. However, it lacks the capability to generate detailed performance statistics for the simulated system and is comparatively less flexible than the other simulators. Then, if the focus is a CPU-GPU architecture simulation, Multi2Sim proves to be a great preference. Finally, PTLsim did not get a best-case scenario to be used, nevertheless, it is the base of other x86 diverse simulators, such as the MARSSx86 simulator \cite{patel2011marss}.
+In their work, these platforms were tested with three different benchmarks. In the end, was possible to conclude that Gem5 is a good option when very detailed results and multiple \glspl{isa} support are wanted. Sniper is specifically designed for multi-core simulations and is considered the most accurate among the simulators examined. However, it lacks the capability to generate detailed performance statistics for the simulated system and is comparatively less flexible than the other simulators. Then, if the focus is a CPU-GPU architecture simulation, Multi2Sim proves to be a great preference. Finally, PTLsim did not get a best-case scenario to be used, nevertheless, it is the base of other x86 diverse simulators, such as the MARSSx86 simulator \cite{patel2011marss}.
 
 \section{Machine Learning}
 
@@ -780,11 +780,11 @@ One of the challenges when running a \gls{des} co-simulation is synchronization.
 
 SystemC is being widely used in the industry and research hardware design space exploration. \cite{menard2017system}. Nonetheless, there is a notable scarcity of precise, freely available, adaptable, and lifelike SystemC models for contemporary \glspl{cpu}. Christian Menard in \cite{menard2017system} developed an \gls{api} that allows full interoperability between the two simulators. 
 
-\autoref{fig_SystemCGem5_CoSim} presents three possible scenarios for the co-simulation environment. The issue here is that achieving this co-simulation requires compiling gem5 as a library and then using it in SystemC. This does not fully adhere to the previously mentioned co-simulation definition because the two simulators are not running simultaneously in separate processes. This limitation can lead to verification failures as direct inputs from other simulators to gem5 are not possible.
+\autoref{fig_SystemCGem5_CoSim} presents three possible scenarios for the co-simulation environment. The issue here is that achieving this co-simulation requires compiling Gem5 as a library and then using it in SystemC. This does not fully adhere to the previously mentioned co-simulation definition because the two simulators are not running simultaneously in separate processes. This limitation can lead to verification failures as direct inputs from other simulators to Gem5 are not possible.
 
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.7\linewidth]{Images/SystemCGem5_CoSim.png}
- 	\caption{SystemC and gem5 interoperability \cite{menard2017system}}
+ 	\caption{SystemC and Gem5 interoperability \cite{menard2017system}}
 	 \label{fig_SystemCGem5_CoSim}
 \end{figure}

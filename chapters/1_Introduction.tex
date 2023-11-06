@@ -8,7 +8,7 @@ Thus, these simulation tools are useful for the design of modern massively paral
 
 \section{Motivation}
 
-Gem5 is one \gls{fss} that cannot only execute a simulation with multiple threads. To solve this, the \gls{ice} \gls{rwth} Aachen team developed par-gem5 \cite{pargem5}, a parallel version of the atomic mode of gem5, that exploits the multithreading capabilities of modern host systems. It’s based on a synchronous \gls{pdes} which allows the parallelization of the system. Synchronizations are done periodically, according a defined time, so-called quantum or quanta.
+Gem5 is one \gls{fss} that cannot only execute a simulation with multiple threads. To solve this, the \gls{ice} \gls{rwth} Aachen team developed par-gem5 \cite{pargem5}, a parallel version of the atomic mode of Gem5, that exploits the multithreading capabilities of modern host systems. It’s based on a synchronous \gls{pdes} which allows the parallelization of the system. Synchronizations are done periodically, according a defined time, so-called quantum or quanta.
 
 High quantum allow for high simulation speeds, but negatively impact the simulation’s accuracy, or, in the worst case, even break the system’s functionality. If the quanta is too small, the accuracy is perfect, although the simulation performance will be unsatisfactory. Thus, there is a tradeoff between accuracy and performance, and finding an optimal quantum is one of the main challenges when running synchronous \gls{pdes}.
 

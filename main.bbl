@@ -49,50 +49,24 @@
 
   \entry{terascaleComputing}{article}{}
     \name{author}{1}{}{%
-      {{hash=MAICNCCTGICDNJCTGICAKCTGICPKCTGICSPCTGICISCTGICASVCTGICCTG}{%
+      {{hash=MADNJAKPKSPISASVNC}{%
          family={Mani\bibnamedelima Azimi},
          familyi={M\bibinitperiod\bibinitdelim A\bibinitperiod},
-         suffix={Corporate Technology\bibnamedelima Group},
-         suffixi={C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
-  G\bibinitperiod},
-         given={Intel Corporation Naveen Cherukuri Corporate Technology Group
-  Intel Corporation D. N. Jayasimha Corporate Technology Group Intel
-  Corporation Akhilesh Kumar Corporate Technology Group Intel Corporation
-  Partha Kundu Corporate Technology Group Intel Corporation Seungjoon Park
-  Corporate Technology Group Intel Corporation Ioannis Schoinas Corporate
-  Technology Group Intel Corporation Aniruddha S. Vaidya Corporate Technology
-  Group Intel Corporation\bibnamedelima .},
-         giveni={I\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
-  N\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
-  C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
-  G\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim
-  C\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim
-  N\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim
-  C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
-  G\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim
-  C\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim
-  K\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
-  T\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim
-  I\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
-  P\bibinitperiod\bibinitdelim K\bibinitperiod\bibinitdelim
-  C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
-  G\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim
-  C\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
-  P\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
-  T\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim
-  I\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
-  I\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
-  C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
-  G\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim
-  C\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim
-  S\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim
-  C\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
-  G\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim
-  C\bibinitperiod\bibinitdelim \bibinitperiod},
+         suffix={Naveen\bibnamedelima Cherukuri},
+         suffixi={N\bibinitperiod\bibinitdelim C\bibinitperiod},
+         given={D.\bibnamedelima N. Jayasimha Akhilesh Kumar Partha Kundu
+  Seungjoon Park Ioannis Schoinas Aniruddha S.\bibnamedelima Vaidya},
+         giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim
+  J\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim
+  K\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim
+  K\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
+  P\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim
+  S\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim
+  S\bibinitperiod\bibinitdelim V\bibinitperiod},
       }}%
     }
-  \strng{namehash}{MACTGICNCCTGICDNJCTGICAKCTGICPKCTGICSPCTGICISCTGICASVCTGIC1}
-  \strng{fullhash}{MACTGICNCCTGICDNJCTGICAKCTGICPKCTGICSPCTGICISCTGICASVCTGIC1}
+    \strng{namehash}{MANCDNJAKPKSPISASV1}
+    \strng{fullhash}{MANCDNJAKPKSPISASV1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{number}{3}
@@ -187,7 +161,7 @@
       }}%
     }
     \list{publisher}{1}{%
-      {John Wiley & Sons, Inc.}%
+      {John Wiley \& Sons, Inc.}%
     }
     \strng{namehash}{RS1}
     \strng{fullhash}{RS1}

@@ -41,6 +41,7 @@
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{graphbox}
+\usepackage{outlines}
 
 \setabbreviationstyle[acronym]{long-short}
 
@@ -91,7 +92,32 @@
     tabsize=2
 }
 
+\makeatletter
+\lst@InstallKeywords k{attributes}{attributestyle}\slshape{attributestyle}{}ld
+\makeatother
+
+\lstdefinestyle{customasm}{
+    belowcaptionskip=1\baselineskip,
+    frame=single, 
+    frameround=tttt,
+    xleftmargin=\parindent,
+    language=C,
+    basicstyle=\footnotesize\ttfamily,
+    commentstyle=\itshape\color{green!40!black},
+    keywordstyle=\color{blue!80!black},
+    identifierstyle=\color{red!80!black},
+    tabsize=4,
+    numbers=left,
+    numbersep=8pt,
+    stepnumber=1,
+    numberstyle=\tiny\color{gray}, 
+    columns = fullflexible,
+    morekeywords={ ldr, lsr, lsl, orr, str, LSR, LSL, LDR, ORR, STR},
+}
+
 \lstset{style=mystyle}
+\renewcommand\lstlistingname{Code}
+\renewcommand\lstlistlistingname{Code}
 
 \setcounter{biburllcpenalty}{7000}
 \setcounter{biburlucpenalty}{8000}
