@@ -72,8 +72,16 @@
 \contentsline {figure}{\numberline {4.7}{\ignorespaces TLM wrapper payload definition}}{73}{figure.caption.192}%
 \contentsline {figure}{\numberline {4.8}{\ignorespaces TLM wrapper in Gem5}}{75}{figure.caption.194}%
 \contentsline {figure}{\numberline {4.9}{\ignorespaces TLM wrapper in SystemC}}{76}{figure.caption.195}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Co-simulation design}}{77}{figure.caption.198}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Application execution timely diagram}}{77}{figure.caption.200}%
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Class diagram for the \gls {crc} \gls {api}}}{77}{figure.caption.197}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Class diagram for the \gls {crc} \gls {api}}}{78}{figure.caption.200}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces \gls *{crc} validation test results}}{80}{figure.caption.241}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Co-simulation design}}{80}{figure.caption.243}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces State machine diagram for the memory integrity test}}{81}{figure.caption.244}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Sequence diagram diagram for the memory comparison}}{82}{figure.caption.245}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Application execution timely diagram}}{83}{figure.caption.247}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Success memory integrity test}}{83}{figure.caption.248}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Application execution timely diagram with a failure}}{84}{figure.caption.250}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Success memory integrity test}}{84}{figure.caption.251}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Success memory integrity test}}{85}{figure.caption.252}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
