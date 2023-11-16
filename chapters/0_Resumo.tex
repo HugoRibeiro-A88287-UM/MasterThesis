@@ -1,8 +1,15 @@
 
 
-Nos ultimos anos, a complexidade dos MPSoCs tem crescido exponencialmente, contudo as ferrementas de simulacao destes nao tem seguido este crescimento, principalmente devido ao seu tipo de simulacao sequencial. Nesse sentido, os tempos de simulacao aumentam sempre que um novo MPSoCs é desenvolvido. A equipa do ICE RWTH Aachen desenvolvou uma versao simulacao paralela to modo atomico do Gem5. Esse modo é baseado numa simulacao paralela sincrona de eventos discretos (PDES) que permite cada thread de simulacao executar independentemente do resto do sistema por um tempo $t_{\Delta q}$, cujo nome é quantum.
+Nos ultimos anos, a complexidade dos MPSoCs tem crescido exponencialmente, contudo as ferrementas de simulacao destes nao tem seguido este 
+crescimento, principalmente devido ao seu tipo de simulacao sequencial. Nesse sentido, os tempos de simulacao aumentam sempre que um novo 
+MPSoCs é desenvolvido. A equipa do ICE RWTH Aachen desenvolvou uma versao simulacao paralela to modo atomico do Gem5. Esse modo é baseado 
+numa simulacao paralela sincrona de eventos discretos (PDES) que permite cada thread de simulacao executar independentemente do resto do 
+sistema por um tempo $t_{\Delta q}$, cujo nome é quantum.
 
-Esta dissertacao tem como objetivo solucionar o problema de encontrar o quantum otimo, ou seja, o quantum que permita obter o melhor trade-off entre a performance e a precisao do simulacao. De momento, a versao oficial do Gem5 apenas permite a defenicao de um quantum estatico, pelo que este nao pode ser alterado durante o decorrer da simulacao, porém um quantum dinamico consegue ultrapassar as limitacoes do anterior. Portanto, o principal objetivoo é desenvolver um algoritmo flexivel que consiga operar independentemente do benchmark utilizado. 
+Esta dissertacao tem como objetivo solucionar o problema de encontrar o quantum otimo, ou seja, o quantum que permita obter o melhor 
+trade-off entre a performance e a precisao do simulacao. De momento, a versao oficial do Gem5 apenas permite a defenicao de um quantum 
+estático, pelo que este nao pode ser alterado durante o decorrer da simulacao, porém um quantum dinamico consegue ultrapassar as limitacoes 
+do anterior. Portanto, o principal objetivoo é desenvolver um algoritmo flexivel que consiga operar independentemente do benchmark utilizado. 
 
 \paragraph{}\textbf{Palavras-chave:Simulacao Paralela de Eventos Discretos, Gem5, Simulacao de Sistemas Completos, Quantum} 
 

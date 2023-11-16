@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  9 NOV 2023 18:12
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  16 NOV 2023 12:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1596,14 +1596,7 @@ Package csquotes Info: ... found 'babel' package.
 LaTeX Warning: Unused global option(s):
     [footinclude,headinclude].
 
-(./main.aux
-
-LaTeX Warning: Label `fig_gem5VSQEMU' multiply defined.
-
-
-LaTeX Warning: Label `fig_AdalineSquematic' multiply defined.
-
-)
+(./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 174.
@@ -1900,13 +1893,13 @@ File: misc/DIREITOS-DE-AUTOR.pdf Graphic file (type pdf)
 
 
 ] (./chapters/0_Abstract.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1958,7 +1951,7 @@ Chapter 1.
 (./chapters/1_Introduction.tex [1
 
 
-]) [2]
+] [2]) [3]
 Chapter 2.
 --------------------
  2. State of the Art
@@ -1968,140 +1961,144 @@ File: Images/simulation_evolution_graph.png Graphic file (type bmp)
 <Images/simulation_evolution_graph.png>
 File: Images/ZION_MarketResearch.png Graphic file (type bmp)
 <Images/ZION_MarketResearch.png>
- [3
+ [4
 
 ]
 File: Images/VitualSimulation_ramification.png Graphic file (type bmp)
 <Images/VitualSimulation_ramification.png>
- [4] [5] [6]
+ [5] [6] [7]
 File: Images/TypicalEmbeddedSystem.png Graphic file (type bmp)
 <Images/TypicalEmbeddedSystem.png>
- [7]
+ [8]
 File: Images/OS_overview.png Graphic file (type bmp)
 <Images/OS_overview.png>
- [8]
+ [9]
 File: Images/ConcorrencyProcess.png Graphic file (type bmp)
 <Images/ConcorrencyProcess.png>
- [9]
+ [10]
 File: Images/ProcessAndThread.png Graphic file (type bmp)
 <Images/ProcessAndThread.png>
 File: Images/ContextSwitch.png Graphic file (type bmp)
 <Images/ContextSwitch.png>
- [10]
+ [11]
 File: Images/BeforeMutex.png Graphic file (type bmp)
 <Images/BeforeMutex.png>
- [11]
+ [12]
 File: Images/AfterMutex.png Graphic file (type bmp)
 <Images/AfterMutex.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 191--193
+Underfull \hbox (badness 10000) in paragraph at lines 318--323
 
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 194--196
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 324--326
 
  []
 
 File: Images/Waterfall.png Graphic file (type bmp)
 <Images/Waterfall.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--210
+Underfull \hbox (badness 10000) in paragraph at lines 341--344
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--213
+Underfull \hbox (badness 10000) in paragraph at lines 345--347
 
  []
 
 File: Images/V-Model.png Graphic file (type bmp)
 <Images/V-Model.png>
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 225--227
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 365--367
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--230
+Underfull \hbox (badness 10000) in paragraph at lines 368--370
 
  []
 
 File: Images/agileModel.png Graphic file (type bmp)
 <Images/agileModel.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 240--242
+Underfull \hbox (badness 10000) in paragraph at lines 384--388
 
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 243--245
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 389--391
 
  []
 
 File: Images/SpiralModel.png Graphic file (type bmp)
 <Images/SpiralModel.png>
-[15]
+[16]
 
 Package glossaries-extra Warning: Base acronym command \acrfull should not be u
-sed with new abbreviation definitions. Use \glsxtrfull instead on input line 26
-4.
+sed with new abbreviation definitions. Use \glsxtrfull instead on input line 42
+0.
 
 
 Package glossaries-extra Warning: Base acronym command \acrlong should not be u
-sed with new abbreviation definitions. Use \glsxtrlong instead on input line 26
-4.
+sed with new abbreviation definitions. Use \glsxtrlong instead on input line 42
+0.
 
 
 Package glossaries-extra Warning: Base acronym command \acrshort should not be 
 used with new abbreviation definitions. Use \glsxtrshort instead on input line 
-264.
+420.
 
 
 Package glossaries-extra Warning: Base acronym command \acrfull should not be u
-sed with new abbreviation definitions. Use \glsxtrfull instead on input line 26
-4.
+sed with new abbreviation definitions. Use \glsxtrfull instead on input line 42
+0.
 
 
 Package glossaries-extra Warning: Base acronym command \acrlong should not be u
-sed with new abbreviation definitions. Use \glsxtrlong instead on input line 26
-4.
+sed with new abbreviation definitions. Use \glsxtrlong instead on input line 42
+0.
 
 
 Package glossaries-extra Warning: Base acronym command \acrshort should not be 
 used with new abbreviation definitions. Use \glsxtrshort instead on input line 
-264.
+420.
 
 File: Images/FSShardware.png Graphic file (type bmp)
 <Images/FSShardware.png>
 File: Images/FSSsoftware.png Graphic file (type bmp)
 <Images/FSSsoftware.png>
-[16] [17]
+[17] [18]
 File: Images/DES_Scheme.png Graphic file (type bmp)
 <Images/DES_Scheme.png>
- [18] [19]
+ [19] [20]
 File: Images/DesVsCes.png Graphic file (type bmp)
 <Images/DesVsCes.png>
- [20]
+ [21]
 File: Images/SequentialSimulation.png Graphic file (type bmp)
 <Images/SequentialSimulation.png>
 File: Images/SequentialSimulationTD.png Graphic file (type bmp)
 <Images/SequentialSimulationTD.png>
- [21] [22]
+ [22]
+
+LaTeX Warning: Citation 'SystemC' on page 23 undefined on input line 648.
+
+[23]
 File: Images/ParallelSimulation.png Graphic file (type bmp)
 <Images/ParallelSimulation.png>
- [23]
+ [24]
 File: Images/CausalityError.png Graphic file (type bmp)
 <Images/CausalityError.png>
- [24] [25]
+ [25] [26]
 File: Images/tradeoffTable.png Graphic file (type bmp)
 <Images/tradeoffTable.png>
- [26] [27]
+ [27] [28]
 File: Images/AtomicMode.png Graphic file (type bmp)
 <Images/AtomicMode.png>
 File: Images/TimingMode.png Graphic file (type bmp)
 <Images/TimingMode.png>
- [28]
+ [29]
 File: Images/simple_config.png Graphic file (type bmp)
 <Images/simple_config.png>
 
@@ -2109,67 +2106,68 @@ File: Images/simple_config.png Graphic file (type bmp)
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 554.
- [29]
+nput line 877.
+ [30]
 File: Images/SchedulingEventGem5.png Graphic file (type bmp)
 <Images/SchedulingEventGem5.png>
 
-[30] [31]
+[31] [32]
 File: Images/gem5VSQEMU.png Graphic file (type bmp)
 <Images/gem5VSQEMU.png>
- [32]
+ [33]
 File: Images/SimulationComparation.png Graphic file (type bmp)
 <Images/SimulationComparation.png>
- [33]
+ [34]
 File: Images/ComparationTableSimulators.png Graphic file (type bmp)
 <Images/ComparationTableSimulators.png>
- [34]
+ [35]
 File: Images/TypesOfML.png Graphic file (type bmp)
 <Images/TypesOfML.png>
+ [36]
 File: Images/ComparationBNN_ANN.png Graphic file (type bmp)
 <Images/ComparationBNN_ANN.png>
- [35]
+
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 687.
+               Default added (so using `tbp') on input line 1085.
 
-[36]
+[37]
 File: Images/AdalineSquematic.png Graphic file (type bmp)
 <Images/AdalineSquematic.png>
- [37]
+ [38]
 File: Images/SimAndML.png Graphic file (type bmp)
 <Images/SimAndML.png>
- [38]
+ [39]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 759.
+               Default added (so using `tbp') on input line 1194.
 
 File: Images/DomainsComplexSystem.png Graphic file (type bmp)
 <Images/DomainsComplexSystem.png>
+[40]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 769.
+               Default added (so using `tbp') on input line 1209.
 
 File: Images/CoSimDifApps.png Graphic file (type bmp)
 <Images/CoSimDifApps.png>
-[39]
 File: Images/SystemCGem5_CoSim.png Graphic file (type bmp)
 <Images/SystemCGem5_CoSim.png>
-) [40]
+) [41] [42]
 Chapter 3.
 --------------------
- 3. Pareleliammscpvsdj vbsuidb
+ 3. Dynamic Quantum Extension
 --------------------
 (./chapters/3_MethodologyAndMethods.tex
 File: Images/GlobalSyncEventStatic.png Graphic file (type bmp)
 <Images/GlobalSyncEventStatic.png>
- [41
+ [43
 
-] [42]
+] [44]
 File: Images/bubble_sort.png Graphic file (type bmp)
 <Images/bubble_sort.png>
- [43]
-Overfull \hbox (2.61136pt too wide) in paragraph at lines 89--90
+ [45]
+Overfull \hbox (2.61136pt too wide) in paragraph at lines 114--118
 []\TU/NewsGotT(0)/m/n/12 The pseudo-applications are the \TU/NewsGotT(0)/b/n/12
  Block Tridiagonal (BT)\TU/NewsGotT(0)/m/n/12 , \TU/NewsGotT(0)/b/n/12 Scalar P
 entadiagonal (SP)\TU/NewsGotT(0)/m/n/12 , and \TU/NewsGotT(0)/b/n/12 Lower-
@@ -2177,15 +2175,15 @@ entadiagonal (SP)\TU/NewsGotT(0)/m/n/12 , and \TU/NewsGotT(0)/b/n/12 Lower-
 
 File: Images/AdaptiveNoiseCancellationScheme.png Graphic file (type bmp)
 <Images/AdaptiveNoiseCancellationScheme.png>
-[44]
+[46]
 
-LaTeX Font Warning: Command \Large invalid in math mode on input line 111.
-
-
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 113.
+LaTeX Font Warning: Command \Large invalid in math mode on input line 152.
 
 
-[45]
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 154.
+
+
+[47]
 File: Images/AF1.png Graphic file (type bmp)
 <Images/AF1.png>
 File: Images/AF2.png Graphic file (type bmp)
@@ -2194,10 +2192,10 @@ File: Images/AF3.png Graphic file (type bmp)
 <Images/AF3.png>
 File: Images/ResetSystemADALINE.png Graphic file (type bmp)
 <Images/ResetSystemADALINE.png>
- [46]
+ [48]
 File: Images/TDL.png Graphic file (type bmp)
 <Images/TDL.png>
- [47]
+ [49]
 File: Images/ResetVsHost.png Graphic file (type bmp)
 <Images/ResetVsHost.png>
 File: Images/ADALINE_v1.png Graphic file (type bmp)
@@ -2206,10 +2204,10 @@ File: Images/ADALINE_v1.png Graphic file (type bmp)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[48]
+[50]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 205.
+               Default added (so using `tbp') on input line 279.
 
 File: Images/Performance_ADA.png Graphic file (type bmp)
 <Images/Performance_ADA.png>
@@ -2217,7 +2215,7 @@ File: Images/Accuracy_ADA.png Graphic file (type bmp)
 <Images/Accuracy_ADA.png>
 File: Images/Host_ADA.png Graphic file (type bmp)
 <Images/Host_ADA.png>
-[49] [50]
+[51] [52]
 File: Images/ADALINE_v2.png Graphic file (type bmp)
 <Images/ADALINE_v2.png>
 File: Images/incAlgorithm_graph.png Graphic file (type bmp)
@@ -2226,102 +2224,97 @@ File: Images/incAlgorithm_graph.png Graphic file (type bmp)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[51]
+[53]
 
-LaTeX Font Warning: Command \Large invalid in math mode on input line 266.
+LaTeX Font Warning: Command \Large invalid in math mode on input line 357.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 268.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 359.
 
 
 File: Images/incAlgorithm_flowchart.png Graphic file (type bmp)
 <Images/incAlgorithm_flowchart.png>
-[52]
+[54]
 File: Images/Performance_ADA.png Graphic file (type bmp)
 <Images/Performance_ADA.png>
 File: Images/Accuracy_ADA.png Graphic file (type bmp)
 <Images/Accuracy_ADA.png>
 File: Images/Host_ADA.png Graphic file (type bmp)
 <Images/Host_ADA.png>
- [53] [54]
+ [55] [56]
 File: Images/PCAlgorithm.png Graphic file (type bmp)
 <Images/PCAlgorithm.png>
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[55]
+[57]
 File: Images/PCAlgrithm_noCut.png Graphic file (type bmp)
 <Images/PCAlgrithm_noCut.png>
 File: Images/PCAlgrithm_Cut.png Graphic file (type bmp)
 <Images/PCAlgrithm_Cut.png>
- [56] [57]
+ [58] [59]
 File: Images/Performance_ADA.png Graphic file (type bmp)
 <Images/Performance_ADA.png>
 File: Images/Accuracy_ADA.png Graphic file (type bmp)
 <Images/Accuracy_ADA.png>
 File: Images/Host_ADA.png Graphic file (type bmp)
 <Images/Host_ADA.png>
- [58] [59]
+ [60] [61]
 File: Images/ADA_and_REP.png Graphic file (type bmp)
 <Images/ADA_and_REP.png>
 File: Images/ADA_and_REP.png Graphic file (type bmp)
 <Images/ADA_and_REP.png>
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[60]
-File: Images/FTH_algorithm.png Graphic file (type bmp)
-<Images/FTH_algorithm.png>
- [61]
-File: Images/Repetition_flowchart.png Graphic file (type bmp)
-<Images/Repetition_flowchart.png>
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [62]
+File: Images/FTH_algorithm.png Graphic file (type bmp)
+<Images/FTH_algorithm.png>
+ [63]
+File: Images/Repetition_flowchart.png Graphic file (type bmp)
+<Images/Repetition_flowchart.png>
+ [64]
 File: Images/Repetition_flowchart_quantum.png Graphic file (type bmp)
 <Images/Repetition_flowchart_quantum.png>
- [63]
 File: Images/Performance_ADA.png Graphic file (type bmp)
 <Images/Performance_ADA.png>
 File: Images/Accuracy_ADA.png Graphic file (type bmp)
 <Images/Accuracy_ADA.png>
 File: Images/Host_ADA.png Graphic file (type bmp)
 <Images/Host_ADA.png>
- [64] [65]
+ [65] [66] [67]
 File: Images/NewGlobalSyncEventStatic.png Graphic file (type bmp)
 <Images/NewGlobalSyncEventStatic.png>
-) [66]
+) [68]
 Chapter 4.
 --------------------
- 4. Co-Simulation
+ 4. Case of Study
 --------------------
 (./chapters/4_CaseOfStudy.tex
 File: Images/CoSimDesignSimplified.png Graphic file (type bmp)
 <Images/CoSimDesignSimplified.png>
- [67
+ [69
 
 ]
 File: Images/SystemCdesign.png Graphic file (type bmp)
 <Images/SystemCdesign.png>
 File: Images/SystemCdesign_CRC.png Graphic file (type bmp)
 <Images/SystemCdesign_CRC.png>
- [68]
+ [70]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 92.
 
 File: Images/CrcBlockDiagram.png Graphic file (type bmp)
 <Images/CrcBlockDiagram.png>
-[69]
+[71]
 File: Images/CRC_read.png Graphic file (type bmp)
 <Images/CRC_read.png>
 File: Images/CRC_write.png Graphic file (type bmp)
 <Images/CRC_write.png>
- [70] [71]
+ [72] [73]
 (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
@@ -2332,84 +2325,88 @@ File: Images/CrcReadFunction.png Graphic file (type bmp)
 <Images/CrcReadFunction.png>
 File: Images/CrcWriteFunction.png Graphic file (type bmp)
 <Images/CrcWriteFunction.png>
- [72]
+ [74]
 File: Images/TLM_Wrapper_Payload.png Graphic file (type bmp)
 <Images/TLM_Wrapper_Payload.png>
 
-[73]
+[75]
 File: Images/TLMWrapper_Gem5.png Graphic file (type bmp)
 <Images/TLMWrapper_Gem5.png>
- [74]
+ [76]
 File: Images/TLMWrapper_SystemC.png Graphic file (type bmp)
 <Images/TLMWrapper_SystemC.png>
- [75] [76]
+ [77] [78]
 File: Images/CRC_API_Class_Diagram.png Graphic file (type bmp)
 <Images/CRC_API_Class_Diagram.png>
- [77]
+ [79]
 File: Images/CoSimDesign_Validation.png Graphic file (type bmp)
 <Images/CoSimDesign_Validation.png>
- [78]
+ [80]
 File: Images/Validation_Results.png Graphic file (type bmp)
 <Images/Validation_Results.png>
- [79]
+ [81]
 File: Images/CoSimDesign.png Graphic file (type bmp)
 <Images/CoSimDesign.png>
 File: Images/MemoryIntegrity_StateDiagram.png Graphic file (type bmp)
 <Images/MemoryIntegrity_StateDiagram.png>
- [80]
+ [82]
 File: Images/MemoryIntegrity_CPU0SequenceDiagram.png Graphic file (type bmp)
 <Images/MemoryIntegrity_CPU0SequenceDiagram.png>
- [81]
+ [83]
 File: Images/AppTimeDiagram.png Graphic file (type bmp)
 <Images/AppTimeDiagram.png>
- [82]
+ [84]
 File: Images/Success_MemoryIntegrity.png Graphic file (type bmp)
 <Images/Success_MemoryIntegrity.png>
- [83]
+ [85]
 File: Images/AppTimeDiagramFailure.png Graphic file (type bmp)
 <Images/AppTimeDiagramFailure.png>
+File: Images/Failure_MemoryIntegrity1.png Graphic file (type bmp)
+<Images/Failure_MemoryIntegrity1.png>
+File: Images/Failure_MemoryIntegrity2.png Graphic file (type bmp)
+<Images/Failure_MemoryIntegrity2.png>
+ [86]
 
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 560.
 
-LaTeX Warning: Reference `' on page 84 undefined on input line 522.
-
-
-LaTeX Warning: Reference `' on page 84 undefined on input line 522.
-
-File: Images/Success_MemoryIntegrity.png Graphic file (type bmp)
-<Images/Success_MemoryIntegrity.png>
-File: Images/Success_MemoryIntegrity.png Graphic file (type bmp)
-<Images/Success_MemoryIntegrity.png>
-[84]) [85]
+File: Images/Performance_CO_SIM.png Graphic file (type bmp)
+<Images/Performance_CO_SIM.png>
+File: Images/Accuracy_CO_SIM.png Graphic file (type bmp)
+<Images/Accuracy_CO_SIM.png>
+File: Images/Host_CO_SIM.png Graphic file (type bmp)
+<Images/Host_CO_SIM.png>
+[87] [88]) [89]
 Chapter 5.
 --------------------
  5. Conclusions
 --------------------
-(./chapters/5_Conclusion.tex) [86
+(./chapters/5_Conclusion.tex) [90
 
 ]
 Chapter 6.
 --------------------
  6. Future Work
 --------------------
-(./chapters/6_Future_work.tex) [87
+(./chapters/6_Future_work.tex) [91
 
-] [88
+] [92
 
 
-] [89] [90] [91]
+] [93] [94] [95]
 Overfull \hbox (8.47098pt too wide) in paragraph at lines 312--312
 []\TU/NewsGotT(0)/m/n/12 D. R. Jefferson, “  Virtual time,” \TU/NewsGotT(0)/m/i
 t/12 ACM Transactions on Programming Languages and Systems (TOPLAS)\TU/NewsGotT
 (0)/m/n/12 ,
  []
 
-[92]
+[96]
 Overfull \hbox (0.1712pt too wide) in paragraph at lines 312--312
 \TU/NewsGotT(0)/m/it/12 IEEE International Symposium on Performance Analysis of
  Systems & Software\TU/NewsGotT(0)/m/n/12 , IEEE, 2007, pp. 23–
  []
 
-[93] [94] (./main.aux)
+[97] [98] (./main.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2418,11 +2415,8 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9576ECA15D1C2492730671E2102814AB;9361.
+(rerunfilecheck)             Checksum: 29A7AAF059ED0E77248BECEE1E7165A1;9365.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                main
@@ -2433,12 +2427,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52868 strings out of 475161
- 1090425 string characters out of 5766720
- 2238186 words of memory out of 5000000
- 73821 multiletter control sequences out of 15000+600000
- 568665 words of font info for 100 fonts, out of 8000000 for 9000
+ 52916 strings out of 475161
+ 1092067 string characters out of 5766720
+ 2238302 words of memory out of 5000000
+ 73864 multiletter control sequences out of 15000+600000
+ 568669 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  110i,18n,107p,2346b,5783s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (111 pages).
+Output written on main.pdf (115 pages).

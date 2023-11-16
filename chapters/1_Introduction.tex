@@ -1,31 +1,80 @@
 %General Introduction about the thesis
 
-A normal industrial design process is divided into five stages: define, ideate, prototype, production and deliver. One characteristic of this process is its non-linearity. There are an interaction between the ideate, prototype, and production stages, so-called interaction design. This happens because problems or upgrades can be found, leading to step back in the design process \cite{ProductDesignSteps}.
+A normal industrial design process is divided into five stages: define, ideate, prototype, production and deliver. One characteristic of this 
+process is its non-linearity. There is an interaction between the ideate, prototype, and production stages, the so-called interaction design. This 
+happens because problems or upgrades can be found, leading to a step back in the design process \cite{ProductDesignSteps}.
 
-One example where this design process happens is in the development of an \gls{asic}. As the name suggests, an \gls{asic} is used for specific applications where dedicated hardware is required, for example, a critical system of a car. After the design, it's developed the prototype, on which will be running tests, or benchmarks, in order to understand if the developed \gls{asic} satisfy all the requirements. Only in this stage it's possible to obtain some indicators such as power consumption or compute performance to evaluate if \gls{swapc} requirements match. However, with \glspl{vp} or \glspl{fss} it's possible to have those without the physical prototype. Therefore, the time to market can be accelerated because problems or upgrades can be spotted much sooner.
+One example where this design process happens is in the development of an \gls{asic}. As the name suggests, an \gls{asic} is used for specific 
+applications where dedicated hardware is required, for example, a critical system of a car. After the design, the prototype is developed, on 
+which will be running tests, or benchmarks, in order to understand if the developed \gls{asic} satisfies all the requirements. Only in this stage, 
+it is possible to obtain some indicators such as power consumption or compute performance to evaluate if \gls{swapc} requirements match. However, 
+with \glspl{vp} or \glspl{fss} it is possible to have those without the physical prototype. Therefore, the time to market can be accelerated 
+because problems or upgrades can be spotted much sooner.
 
-Thus, these simulation tools are useful for the design of modern massively parallel and complex multi-core systems. Nevertheless, the major problem is that, typically, many of these simulators can't execute a parallel simulation, in other words, they only execute the workload in one thread. Also, the complexity of the new systems increases due to the integration of more and more applications on a single chip \cite{terascaleComputing}, leading to unacceptable simulation times, for example, the case of the SPEC2017 integer benchmark, where it may take up to two years to complete the simulation \cite{pargem5}.
+Thus, these simulation tools are useful for the design of modern massively parallel and complex multi-core systems. Nevertheless, the major 
+problem is that, typically, many of these simulators cannot execute a parallel simulation, in other words, they only execute the workload in one 
+thread. Also, the complexity of the new systems increases due to the integration of more and more applications on a single chip 
+\cite{terascaleComputing}, leading to unacceptable simulation times, for example, the case of the SPEC2017 integer benchmark, where it may 
+take up to two years to complete the simulation \cite{pargem5}.
 
 \section{Motivation}
 
-Gem5 is one \gls{fss} that cannot only execute a simulation with multiple threads. To solve this, the \gls{ice} \gls{rwth} Aachen team developed par-gem5 \cite{pargem5}, a parallel version of the atomic mode of Gem5, that exploits the multithreading capabilities of modern host systems. It’s based on a synchronous \gls{pdes} which allows the parallelization of the system. Synchronizations are done periodically, according a defined time, so-called quantum or quanta.
+Gem5 is one \gls{fss} that cannot only execute a simulation with multiple threads. To solve this, the \gls{ice} \gls{rwth} Aachen team developed 
+par-gem5 \cite{pargem5}, a parallel version of the atomic mode of Gem5, that exploits the multithreading capabilities of modern host systems. 
+It is based on a synchronous \gls{pdes} which allows the parallelization of the system. Synchronizations are done periodically, according to a 
+defined time, so-called quantum or quanta.
 
-High quantum allow for high simulation speeds, but negatively impact the simulation’s accuracy, or, in the worst case, even break the system’s functionality. If the quanta is too small, the accuracy is perfect, although the simulation performance will be unsatisfactory. Thus, there is a tradeoff between accuracy and performance, and finding an optimal quantum is one of the main challenges when running synchronous \gls{pdes}.
+High quantum allows for high simulation speeds but negatively impacts the simulation's accuracy, or, in the worst case, can even break the system's 
+functionality. If the quanta is too small, the accuracy is perfect, although the simulation performance will be unsatisfactory. Thus, there is a 
+tradeoff between accuracy and performance, and finding an optimal quantum is one of the main challenges when running synchronous \gls{pdes}.
 
-In the current state of par-gem5 (and as in other frameworks), the quantum is set once and then kept for the rest of the simulation. This brings several different problems. First of all, to know which is the best quantum, it's necessary to do the simulation in order to obtain the simulation results, and further evaluate if it was the best choice or not. Moreover, the quantum varies simulation to simulation, therefore one can be the best for a case, but for another not so much. All this try-and-error consumes a lot of time, thus this isn't the optimal option. 
+In the current state of par-gem5 (and as in other frameworks), the quantum is set once and then kept for the rest of the simulation. This brings 
+several different problems. First of all, to know which is the best quantum, it is necessary to do the simulation in order to obtain the simulation 
+results, and further evaluate if it was the best choice or not. Moreover, the quantum varies from simulation to simulation, therefore one can be the 
+best for one case, but for another not so much. All this try-and-error consumes a lot of time, thus this is not the optimal option. 
 
 \section{Goals and Contributions}
 
-A dynamic quantum could address these issues by adjusting the quantum value for each simulation in real time, leading to improved results. This approach is particularly beneficial for typical benchmarks that consist of multiple phases with distinct compute and synchronization characteristics, that is, for the computational part, the quantum can be increase, for the synchronization part, the quantum should be reduced. 
+A dynamic quantum could address these issues by adjusting the quantum value for each simulation in real-time, leading to improved results. 
+This approach is particularly beneficial for typical benchmarks that consist of multiple phases with distinct computing and synchronization 
+characteristics, that is, for the computational part, the quantum can be increased, for the synchronization part, the quantum should be reduced. 
 
-In the context of par-gem5, with dissertation development it will be possible to automatic tune to the best quantum, without any user inputs or feedback. Furthermore, the quantum adaptation must be "on-the-fly” and be independent of the simulated system or benchmark, hence the algorithm must be flexible. 
+In the context of par-gem5, with dissertation development, it will be possible to automatically tune to the best quantum, without any user inputs or 
+feedback. Furthermore, the quantum adaptation must be "on-the-fly” and be independent of the simulated system or benchmark, hence the algorithm 
+must be flexible. 
 
-On top of that, the simulator, in the end of the benchmark execution, should give feedback to the user, by the creation of a statistics document. It also must include information related to the adaptive quantum, for example, the mean of the used quantums, by the reason of understanding how the algorithm performed.
+On top of that, the simulator, at the end of the benchmark execution, should give feedback to the user, by the creation of a statistics document. 
+It also must include information related to the adaptive quantum, for example, the mean of the used quantum, by the reason of understanding how 
+the algorithm performed.
 
- In the end, the dynamic quantum should bring more advantages than the static version. It is expected that this algorithm solves the problem of finding the best compromise between performance and accuracy, allowing speedups in different simulations, and making it possible to simulate massively parallel and complex systems faster, without a break in the accuracy. 
+ In the end, the dynamic quantum should bring more advantages than the static version. It is expected that this algorithm solves the problem of 
+ finding the best compromise between performance and accuracy, allowing speedups in different simulations, and making it possible to simulate 
+ massively parallel and complex systems faster, without a break in the accuracy. 
 
- Regarding an industry point of view, this work will grant a faster development of new products, in such a way companies can be the market leaders of the technology. Time-to-market can is optimized since the product is finished earlier, giving a room of maneuver to commercialize it at the right moment, increasing the revenues.
+ From an industry point of view, this work will grant a faster development of new products, in such a way companies can be the market leaders 
+ of the technology. Time-to-market can be optimized since the product is finished earlier, giving room for maneuvering to commercialize it at the 
+ right moment, and increasing the revenues.
  
 \section{Dissertation Outline}
 
-This section I will write when the thesis structure is approved
+This document provides the development of a simulation extension that allows par-gem5 to automatically address the best quantum for the desired 
+benchmark, together with a case study. Its content was divided into six chapters, which are going to be briefly described.
+
+The second chapter introduces the concepts and methodologies used. The reader will receive notions about simulation in a general view, where 
+later these will be specified in the embedded systems context. Themes such as simulation modes, simulation methodologies, and simulation tools 
+will be covered, with special attention to Gem5, the framework on which this dissertation will focus. \gls{ml} will be exploited, having in 
+consideration \glspl{nn} and the simulation context. Finally, co-simulation practices are discussed, emphasizing their significance in the 
+simulation world.
+
+The third chapter presents the developed work done regarding the dynamic quantum. It starts by giving a short explanation of the used benchmarks
+to test the algorithms. Then, the four developed algorithms will be covered, providing an insight into what the need to develop 
+such algorithms and how they actually work. It ends with the final version, where a direct comparison with the static mode is made. The 
+simulation results will be provided over the chapter in order to help the reader have a better idea of the algorithm's evolution.
+
+The fourth chapter contains the case study, providing a practical example of how this technique might be useful. It was based on a \gls{crc} 
+peripheral, which is used for communication error detection and memory integrity checks. Since in a real-world scenario, there are other 
+devices to manage, the co-simulation was tested alongside other tasks.
+
+The final chapter discusses the results and concludes regarding the developed work. It also includes future work, where can be found a set of 
+aspects on which this work can have continuity and further improve par-gem5. 
+
