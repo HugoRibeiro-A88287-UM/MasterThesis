@@ -21,13 +21,14 @@ $t_{\Delta q}$ - the so-called quantum. Although this is a huge improvement, it 
 This dissertation aims to solve the problem of finding the optimal quantum, which can lead to the best trade-off between accuracy and 
 performance. Nowadays, par-gem5 is bound to a static quantum which cannot be changed during run-time however, an adaptive version can overcome 
 this limitation. It was conceptualized and developed a flexible algorithm that can operate independently of the used benchmark and system.
-Further, it was also tested and verified its functionality in a co-simulation environment. In the end, (...)
+Further, it was also tested and verified its functionality in a co-simulation environment.
+
+In the end, the dynamic version of the quantum choice brings greater benefits when compared with the present. It was possible to achieve, 
+on average, a performance gain of almost 10\%, only sacrificing 0.5\% of accuracy. Nevertheless, when a-priori information about the 
+test is given, the tradeoff can be improved with the static approach. It becomes possible to calculate the optimal quantum before 
+initiating the simulation, obtaining higher performances. If perfect accuracy is a requirement, the sequential version must be used, 
+since the usage of both methods implies a loss in accuracy. Also, simulations with a single simulated core should always be 
+executed with the later mode.
 
 
-\paragraph{}\textbf{Keywords: Parallel Discrete Event Simulation, Gem5, Full-
-System Simulation, Quantum}
-\begin{comment}
-\glsreset{FPGA}
-\end{comment}
-
-% taking into account the existing solutions.
+\paragraph{}\textbf{Keywords: Parallel Discrete Event Simulation, Gem5, Full-System Simulation, Quantum}

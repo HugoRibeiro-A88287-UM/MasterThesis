@@ -1,5 +1,75 @@
-Final ADALINE tests running in Niko's computer
 
-Wrinting also
 
-Co-simulation topic is almost done, CRC pheripherial is done and functional
+This chapter concludes this dissertation, summarizing the former developed work, and giving up some topics that could be
+interesting for future work.
+
+From a general perspective, this project development contributed to solve the principal problem verified in par-gem5, which is the 
+quantum definition to get the best tradeoff between performance and accuracy. With this advancement, hardware developers do not 
+need to study and understand in detail the target system and the benchmarks since the introduced dynamic version is able to 
+automatically tune to the best synchronization time. For this reason, the dissertation goals were accomplished. 
+
+\section{Developed Work}
+
+Concerning the development work, all algorithms were used in the final approach, except for the repetition one. The ADALINE with 
+the main algorithm, and the increment and \gls{pc} as support for a better quantum adjustment. Due to its overhead in the 
+simulation performance and weak accuracy gain, the repetition algorithm was excluded from the final solution.
+
+
+%talk about the simulation results of the final algorithm
+Several tests were performed to evaluate it. In the end, it can be concluded the use of the dynamic version for the quantum choice brings 
+greater benefits. When the NPB BT, LU, and SP with 32 and 64 simulated cores are not considered, there are gains in performance almost 
+reaching 10\%, only sacrificing 0.5\% of accuracy. As mentioned on \autoref{cap:NPB}, the previous tests have a particular characteristic, 
+which is they executed nonlinear partial differential equations. This workload does not require interprocess communications, thus 
+quantum can be increased without losing significant accuracy. The dynamic algorithm was designed to make it harder to increase the 
+quantum value as the number of cores increases, due to the conclusions obtained in the par-gem5 \cite*{pargem5} work. For this reason, 
+this type of benchmark obtains a meaningful drop in performance when more than 16 cores are being simulated. However, the 
+algorithm's design must be flexible, in a way that all benchmarks can have the best performance within accuracy limits. 
+
+In conclusion, the better algorithm depends on the a-priori available information. If there is nothing about it, the dynamic version should be 
+used because, even if the performance might be lower than it could be, it is guaranteed that accuracy will be above 95\%. On the other side,
+knowing the details of the benchmark enables us to calculate the optimal quantum before initiating the simulation. It is important to 
+remember that when increasing the quantum, while performance as a function of the quantum behaves similarly to a sigmoidal, inaccuracy 
+grows linearly \cite*{BeyondQuantumTDSim}.
+
+The case study provided a better understanding of how a co-simulation environment works. The implementation and validation of the 
+\gls{crc} device was done successfully, passing all the requirements. In addition, as part of the case study, 
+memory integrity tests were designed and performed, where either for the success or the failure modeling, the expected results matched
+with the real ones. On the other part, it was possible to verify that the dynamic quantum yielded improved results even with a significant 
+time consumption in the communication between tools. Further, accuracy was always above 99\%, enchanting its performance. 
+
+
+In the final analysis, it is important to mention that the usage of par-gem5, and consequently the dynamic quantum, has an accuracy cost. If 
+perfect accuracy is mandatory, sequential mode should be selected. Also, simulations with a single simulated core should always be 
+executed with the later mode. It was concluded that parallelization with only one simulated core results in a loss of accuracy 
+without a significant gain in performance.
+
+
+\section{Future Work}
+
+Concerning future work, there are some aspects where improvements and new additions can be developed in order to have a more robust 
+and versatile algorithm.
+
+The first aspect is the execution of more benchmarks. Although the algorithm was tested with a set of different and distinct benchmarks, 
+more tests are required to have more performance results. These may reveal points where it can be improved, either with the development
+of a new support algorithm or with a better tunning of the available parameters. PARSEC, SPEC2017, and STREAM are some examples of 
+benchmarks where experiments can be conducted. 
+
+The second aspect is the adaptation for the timing \gls{cpu} model. A future work of par-gem5 \cite{pargem5} is to extend this solution 
+to the timing mode, thus the developed approach should also function in this condition. Only the \gls{pc} algorithm requires an 
+adaptation, due to its \gls{pc} analysis. The timing mode uses multiple events to model a transaction, which makes it difficult
+to perform a correct examination of the executed instructions. In-order, and \gls{o3} demand an adaptation as well however, until 
+the present date, no publications have been made on this matter regarding par-gem5.
+
+Another point is the usage of other targets. The developed algorithm was designed to tackle any target board nevertheless, as 
+aforementioned, only VExpress\_gem5 was used for all the tests. Different boards with different characteristics may highlight flaws
+that could not be spotted with the present one. Such usage may require its design and development in the platform, 
+with the creation of all the necessary devices and connections. 
+
+Finally, improvements in the co-simulation environment can be implemented. The main problem observed was the time consumption in the 
+communication between tools. From a host time perspective, the workload on the memory comparison task corresponds to 87 \% of the 
+whole simulation, where 82.2\% of this value, on average, corresponds to the waiting time for the payload response. As part of the solution
+to speed up co-simulation, other \glspl*{ipc} techniques can be used, like shared memory. Although it is the 
+fastest \gls{ipc} available, it is the unsafest one due to the lack of permission verifications hence, for this reason, a careful 
+design must be employed. Nevertheless, it might not be enough to solve the problem, and other techniques must be considered, for example, 
+the replacement of the blocking transport for \gls{dmi} in SystemC, which opens the possibility of new work. 
+

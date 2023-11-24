@@ -1,8 +1,9 @@
 
 This chapter establishes the needed concepts to accomplish and understand this work. First of all, it will start with the simulation topic, what 
-it is, and why it is so important. Embedded systems and machine learning are briefly contextualized, highlighting the connection they share with 
+it is, and why it is so important. Embedded systems are briefly contextualized, highlighting the connection they share with 
 the previous topic. Then, simulation types and modes are introduced, with a special focus on the ones that will be used in this dissertation. 
-Finally, the Gem5 simulator is presented in detail, since it is the framework where all the development will be done.
+The Gem5 simulator will be presented in detail since it is the framework where all the development will be done. To conclude, machine learning 
+and co-simulation will end this chapter, providing a short view of these topics in the project's context.
 
 
 \section{Simulation}
@@ -36,9 +37,9 @@ simulation and why is it necessary. In the following points, this will be covere
 \subsection{Definition}
 \label{subsec:WhatIsSimulation}
 
-Accordingly the Cambridge dictionary, simulation can be defined as \emph{a situation or event that seems real but is not real, used especially 
-in order to help people deal with such situations or events}. Moreover, simulation can be also defined, in a more general way, as 
-\emph{an imitation of a system} \cite{SimulationBook}. Therefore, simulation is not exclusively confined to computers but also encompasses a 
+Accordingly the Cambridge dictionary, simulation can be defined as \emph{"a situation or event that seems real but is not real, used especially 
+in order to help people deal with such situations or events"}. Moreover, simulation can be also defined, in a more general way, as 
+\emph{"an imitation of a system"} \cite{SimulationBook}. Therefore, simulation is not exclusively confined to computers but also encompasses a 
 diverse range of applications, whether physical or virtual. For instance, in the automotive industry, each new model that is designed must 
 undergo a security test. One of the numerous examinations performed involves simulating a car crash into a wall and assessing the driver's 
 resulting damages. As a result, conclusive determinations can be made, specifically in this case, regarding whether the car has successfully 
@@ -75,8 +76,8 @@ simulates its behavior in a virtual environment. In this way, it is possible to 
 without the need for physical testing, thereby saving time and resources. It is used, for example, in the development of an embedded system. 
 Without it, it would be mandatory to have the physical prototype to evaluate if the system matches all the requirements. 
 
-This dissertation will focus on computer architecture simulation. Therefore, the concept of simulation can be redefined as \emph{the imitation 
-of the operation of a real-world process or system over time} \cite{banks1999introduction}. The computer architecture itself becomes the system 
+This dissertation will focus on computer architecture simulation. Therefore, the concept of simulation can be redefined as \emph{"the imitation 
+of the operation of a real-world process or system over time"} \cite{banks1999introduction}. The computer architecture itself becomes the system 
 under study, and simulation enables the user to explore its capabilities and limitations in a simulated environment.
 
 \subsection{Importance of Simulation}
@@ -96,7 +97,7 @@ before mass production. Thus, a prototype is built so tests can be made. However
 cases, the prototype can be improved, so the developers need to go through the process again. A new cycle begins, which means spending more time 
 and money. Simulation can solve this problem in the way that development and testing can be done in parallel. In other words, while the developers 
 are creating the chip, it can be tested in simulation, even without the physical prototype. Moreover, simulation is flexible, which means small 
-changes can be done easily, and it is controlled, that is, it can control the experimental conditions in the way direct comparisons can be done, 
+changes can be done easily, is controlled, that is, it can control the experimental conditions in the way direct comparisons can be done, 
 and is transparent, so there are no subjective results.
 
 In terms of drawbacks, it is possible that the development team consists solely of individuals specialized in \gls{cpu} chip design. Therefore, 
@@ -146,7 +147,7 @@ other. Specifically, the processor requires the memory to access the data that n
 processing on its own. Therefore, the existence of both components is essential for the development of a functional embedded system. The \gls{dma} 
 is a very important part of an embedded system. It is a hardware mechanism that allows peripheral components to transfer their \gls{io} data 
 directly to and from main memory without the need to involve the system processor. Thus, the significance of this lies in its ability to avoid 
-a substantial processor overhead \cite{LinuxDeviceDrivers}. \glsxtrfull{asic}, as the name suggests, is used for specific applications where 
+a substantial processor overhead \cite{LinuxDeviceDrivers}. \gls{asic}, as the name suggests, is used for specific applications where 
 dedicated hardware is required. It can reduce significantly the execution time of certain applications \cite{FPGAaccelaration3} 
 \cite{FPGAaccelaration2} \cite{FPGAaccelaration}. For this reason, many systems require dedicated hardware however, it will become a smaller 
 fraction as time passes \cite{camposano1996embedded}. \gls{gpio}, \gls{adc}, and \gls{dac} are examples of parts that establish an interface 
@@ -811,7 +812,7 @@ at the same time, supports multiple devices, two different network models, and d
 
 While the event queue is responsible for executing its associated events, the \gls{cpu} is answerable to schedule the events, thereby, it is 
 possible to keep running the simulation even if no \glspl{cpu} are working. There are four types of \gls{cpu} models. Atomic simple, timing 
-simple, in-order, and out-of-order (O3). The atomic and timing models are the simplest ones. The main difference between them can be seen in 
+simple, in-order, and \gls{o3}. The atomic and timing models are the simplest ones. The main difference between them can be seen in 
 the figures below. Meanwhile the first completes all memory accesses immediately, which makes it a proper option for tasks like 
 fast-forwarding (a technique used to warm up micro-architectural state), the timing mode models the timing of memory accesses, providing a more 
 accurate simulation.
@@ -1059,7 +1060,7 @@ like \cite{bachute2021autonomous}. The following picture shows some of the commo
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.9\linewidth]{Images/TypesOfML.png}
- 	\caption{Some \gls{ml} algorithms \cite{mahesh2020machine}}
+ 	\caption{Examples of \gls{ml} algorithms \cite{mahesh2020machine}}
 	 \label{fig_TypesOfML}
 \end{figure}
 

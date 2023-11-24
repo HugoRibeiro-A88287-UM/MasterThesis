@@ -17,7 +17,7 @@ the \gls{crc} peripheral is used to maintain a specific memory state and verify 
 Furthermore, the board will not be only engaged in this iteration, as in a real-world scenario, it has additional peripherals to manage. 
 Hence, as a proof-of-concept, parallel tasks will be included in the execution.
 
-\section{CRC peripheral} %Software development
+\section{CRC Peripheral} %Software development
 
 As mentioned earlier in this dissertation, co-simulation involves the integration of multiple simulation tools from different
 domains. Because of that, it is required to develop a system that could execute and communicate among them. The following picture
@@ -63,7 +63,9 @@ is a requirement, and with this idea in mind, the subsequent design was develope
 \end{figure}
 
 
-SystemC design is composed of three main components. The initiator, the bus, and the targets. Beginning with the first, it serves as the initial 
+SystemC design is composed of three main components, which will communicate under the blocking transport method. 
+The initiator, the bus, and the targets.
+Beginning with the first, it serves as the initial 
 point of interaction for the tool, as it handles incoming frames received through the remote port. The remote port operates independently 
 of the initiator, enabling asynchronous reception and transmission of bytes through the receiver and transmit buffers, respectively.
 Additionally, it also performs an interpretation of the received trama and creates the \gls{tlm} transaction. It analyses various 
@@ -243,7 +245,7 @@ device's information. It is required due to the possibility of various devices i
 which is mandatory by the compiler to understand the available SimObjects. Here should be discriminated the SimObject, that is, 
 the Python file, the SimObject's source file, and the debug flags, if presented.
 
-\subsection{TLM wrapper}
+\subsection{TLM Wrapper}
 \label{subsec::TLMwrapper}
 
 Although Gem5 and SystemC are two frameworks that use C++, they cannot communicate directly with each other. Gem5 is unable to 
@@ -302,7 +304,7 @@ frameworks.
 	% \label{fig_TLM_Wrapper_Payload}
 \end{figure}
 
-\subsection{Application interface}
+\subsection{Application Interface}
 
 At this point, the user on the application side can write and read directly from memory without any restriction. However, it can be
 dangerous, in the way that the user can, by mistake, do an unpermitted operation. For example, write in reversed memory, causing a
@@ -328,17 +330,17 @@ control the device.
 
 After the software development, the next step was to simulate and validate it. For this purpose, it was developed a validation test where
 all features of the device will be tested. Two cores will be employed for this purpose: one will be dedicated to the 
-\gls*{crc}, while the other will execute the bubble-sort benchmark. The simulation will be conducted in sequential mode since 
+\gls{crc}, while the other will execute the bubble-sort benchmark. The simulation will be conducted in sequential mode since 
 the main objective is not performance, but accuracy.
 
 
-\subsection{CRC peripheral validation} 
+\subsection{CRC Peripheral Validation} 
 
 In order to validate the peripheral, a design of the co-simulation environment was made, as presented in the image 
-\ref{fig_CoSimDesign_Validation}. It will be used one \gls*{crc} and the \gls*{uart}, to communicate with the user by the terminal.
+\ref{fig_CoSimDesign_Validation}. It will be used one \gls{crc} and the \gls{uart}, to communicate with the user by the terminal.
 As referred, \gls{uart} is already implemented, hence it only requires its initialization and configuration. For the test, it will be used the 
-\gls*{uart}0, which is present in the memory map from 0x1C090000 to 0x1C09FFFF.
-Regarding the remote connections, each device has one dedicated port. To connect to the \gls*{uart}, the m5term can be utilized. It is
+\gls{uart}0, which is present in the memory map from 0x1C090000 to 0x1C09FFFF.
+Regarding the remote connections, each device has one dedicated port. To connect to the \gls{uart}, the m5term can be utilized. It is
 a dedicated program that allows the user to connect to the simulated console interface. When executing the simulation, this program does not
 launch automatically, therefore it must be manually called, with \textit{./m5term <host> <port>}.
 
@@ -405,14 +407,14 @@ conclude that the peripheral passed the validation since every expected output m
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.8\linewidth]{Images/Validation_Results.png} 
- 	\caption{\gls*{crc} validation test results}
+ 	\caption{\gls{crc} validation test results}
 	\label{fig_Validation_Results}
 \end{figure}
 
 
-\section{Memory integrity}
+\section{Memory Integrity}
 
-With the \gls*{crc}'s validation, it is possible to simulate the scenario as described earlier. Similar to the validation test, 
+With the \gls{crc}'s validation, it is possible to simulate the scenario as described earlier. Similar to the validation test, 
 from the application point of view, the system will execute 2 distinct jobs. \gls{cpu}0 will be responsible for 
 performing the memory integrity checks, while the remaining ones will execute a bubble sort algorithm, as presented in 
 the \autoref{fig_CoSimDesign}.
@@ -425,7 +427,7 @@ the \autoref{fig_CoSimDesign}.
 \end{figure}
 
 When the benchmark starts, there is the creation of the intended \glspl{cpu}. Each one has an ID, that allows one to identify
-themselves. To conduct the memory integrity test, \gls*{cpu}0 will start initializing the \gls*{crc} and the memory that will 
+themselves. To conduct the memory integrity test, \gls{cpu}0 will start initializing the \gls{crc} and the memory that will 
 be utilized to compare. Afterward, periodically, it will perform a memory comparison, having two possible outcomes. Or everything
 is all right, and the operation is a success. Or there is a flaw and the simulation ends immediately. A detailed view can be 
 observed in \ref{fig_MemoryIntegrity_CPU0SequenceDiagram}. 
@@ -452,7 +454,7 @@ objective is not to evaluate the bubble-sort algorithm.
 	\label{fig_MemoryIntegrity_CPU0SequenceDiagram}
 \end{figure}
 
-\subsection{Success modeling}
+\subsection{Success Modeling}
 
 In the first memory integrity test, the perfect scenario will be simulated, in other words, the memory will operate without any failures, 
 ensuring a well-functioning system. As represented in the \autoref{fig_MemoryIntegrity_StateDiagram}, there will be an interval between both 
@@ -487,8 +489,8 @@ designated tasks and the last memory gives positive feedback.
 
 	\begin{itemize}
 		\item Simulation mode = sequential
-		\item Reverse input \gls*{crc} = REV\_HALF\_WORD\_IN
-		\item Reverse output \gls*{crc} = REV\_WORD\_OUT
+		\item Reverse input \gls{crc} = REV\_HALF\_WORD\_IN
+		\item Reverse output \gls{crc} = REV\_WORD\_OUT
 		\item Polynomial = 0x04C11DB7
 	\end{itemize}
 
@@ -503,10 +505,10 @@ designated tasks and the last memory gives positive feedback.
 \end{figure}
 
 
-\subsection{Fault modeling}
+\subsection{Fault Modeling}
 
 In opposition to the first, this test will simulate a corrupted memory scenario, as shown in the \autoref{fig_AppTimeDiagramFailure}. 
-In order to achieve that, a failure will be injected into the memory with the \gls{gdb} tool. \gls*{gdb} is a debugger 
+In order to achieve that, a failure will be injected into the memory with the \gls{gdb} tool. \gls{gdb} is a debugger 
 that is supported by Gem5 and SystemC. It offers a variety of features but, for this purpose, the \textit{set var} command will be utilized. 
 This command allows a value modification of a variable in real-time thus, in this way, the failure can be simulated.
 
@@ -520,7 +522,7 @@ This command allows a value modification of a variable in real-time thus, in thi
 
 The test will be done under the same conditions as the previous one nevertheless, in this case, for comprehensive debugging capabilities, 
 the debug version of the gem5 binary will be employed. In the end, the workload is expected to finish with an error from Gem5, and it can occur 
-in two different moments. Either when the \gls*{cpu}1-N are still running, or when these already completed their tasks. Both cases  
+in two different moments. Either when the \gls{cpu}1-N are still running, or when these already completed their tasks. Both cases  
 will be tested, and in either case, the program should terminate promptly. The \autoref{fig_Failure_MemoryIntegrity} demonstrates the obtained 
 results, and it can be concluded that the system behaves in accordance with expectations.
 
