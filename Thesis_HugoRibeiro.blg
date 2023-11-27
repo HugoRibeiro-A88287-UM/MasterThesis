@@ -2,11 +2,6 @@ This is BibTeX, Version 0.99d (TeX Live 2023)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Thesis_HugoRibeiro.aux
 The style file: biblatex.bst
-Case mismatch error between cite keys SystemC and systemC
----line 480 of file Thesis_HugoRibeiro.aux
- : \citation{SystemC
- :                  }
-I'm skipping whatever remains of this command
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
@@ -791,4 +786,4 @@ warning$ -- 0
 while$ -- 11996
 width$ -- 0
 write$ -- 3156
-(There were 362 error messages)
+(There were 361 error messages)

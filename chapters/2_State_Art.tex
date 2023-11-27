@@ -233,7 +233,7 @@ within the process, which are called \textbf{threads}. Threads are essential for
 \begin{enumerate}
     \item They have the ability for the parallel entities to share address space and all of its data among themselves
 
-    \item They are lightweight and easier/faster to create and destroy than processes (Around 10–100 times faster)
+    \item They are lightweight and easier/faster to create and destroy than processes (Around 10-100 times faster)
 
     \item They can increase performance when there is substantial computing and \gls{io} because it allows these activities to overlap
 
@@ -254,19 +254,19 @@ registers and stack, representing the \gls{cpu} state for each task. \autoref{fi
 
 With threads can also be applied concurrency, in order to have parallelism and better computational performance. As processes, the scheduler 
 defines which task will be executed. There are four states: run (the task is in execution at that time), ready (the task is not running at the 
-moment but it’s ready), wait (the task is waiting for data), and null (the task is created or killed). \autoref{fig_ConcorrencyProcess} can also 
+moment but it is ready), wait (the task is waiting for data), and null (the task is created or killed). \autoref{fig_ConcorrencyProcess} can also 
 be applied to this context.
 
-Nevertheless, in reality, it is not like that. When a task is running and another replaces it, there are some steps to pursue. First of all, it 
+Nevertheless, in reality, when a task is running and another replaces it, there are some steps to pursue. First of all, it 
 is necessary to save the \gls{cpu} state of the running task. After that, the scheduler needs to select another to get running. Then, it restores 
 the context of the selected one, so it can transfer the execution control. All this process is called \textbf{\gls{cs}}. The time consumption of 
-the \glspl{cs} are a problem, as present in the figure below however, the benefits of having concurrency, as explained earlier in this section, 
+the \glspl{cs} are a problem, as present in the figure below. However, the benefits of having concurrency, as explained earlier in this section, 
 are massive, and thus the trade-off is positive.
 
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=1\linewidth]{Images/ContextSwitch.png}
- 	\caption{ \glsxtrfull{cs} }
+ 	\caption{ Context switch }
 	 \label{fig_ContextSwitch}
 \end{figure}
 
@@ -296,7 +296,7 @@ in the figure, task B will read 0x0000 even though task A was using the variable
 another, this issue can be a serious problem. This problem is called \textbf{race conditions}, and it is more critical with the increasing 
 parallelism due to increasing numbers of cores.
 
-To avoid that were created \textbf{the task synchronization objects}. The most important methods are semaphores and mutexes. The first one can be 
+To avoid that were created \textbf{task synchronization objects}. The most important methods are semaphores and mutexes. The first one can be 
 divided into binary semaphores and counter semaphores, and they are useful methods to synchronize interrupts with a given task. The second one is 
 a shared variable that can be in one of two states: owned or free. Binary semaphores and mutexes share many characteristics. Both can be utilized 
 for mutual exclusion, ensuring that only one thread accesses a shared resource at a time, but only the first can be used for synchronization 
@@ -309,8 +309,8 @@ for mutual exclusion, ensuring that only one thread accesses a shared resource a
 	 \label{fig_AfterMutex}
 \end{figure}
 
-Now, both tasks, before using the shared variable, need to take the mutex. If the mutex was already taken (first trial of task B), the resource 
-is blocked, meaning it is unavailable until the owner releases the mutex. 
+Now, both tasks, before using the shared variable, need to take the mutex. If the mutex was already taken (first trial of task B), 
+the task will receive a blocked resource response, meaning it is unavailable until the owner releases the mutex. 
 
 
 \subsection{Development Models}
@@ -369,7 +369,7 @@ Other variations try to improve these downsides. Some examples are the shark too
 \textbf{Agile Model}
 \newline
 
-There are lots of agile techniques, however, they share common characteristics, including iterative development and a focus on interaction, 
+Although there are lots of agile techniques, they share common characteristics, including iterative development and a focus on interaction, 
 communication, and the reduction of resource-intensive intermediate artifacts \cite{waterfallAndAgile}. Therefore, this model states that the 
 project should be divided into mini-projects to remove unnecessary activities that waste time and effort. These mini-projects have requirements 
 analysis, design, implementation, and test \cite{waterfallAndAgile}, and should not exceed 30 days \cite{AgileModel}. In the end, all are 
@@ -382,7 +382,7 @@ combined to obtain the final project.
 	 \label{fig_Agile}
 \end{figure}
 
-\autoref{fig_Agile} shows the agile model. In the review stage, an important aspect of this model happens, which is customer interaction. 
+\autoref{fig_Agile} shows the agile model. In the review stage, an important aspect happens, which is customer interaction. 
 The customer adaptively specifies his requirements for the next release based on the observation of the current release, rather than speculating 
 at the start of the project \cite{SpiralModel}. 
 \newline
@@ -419,8 +419,8 @@ overall development process.
 Therefore, simulation in the context of embedded systems is essential since the system can be tested without having the physical prototype, and 
 some requirements, such as cache hits/misses, and computer performance, can be evaluated \cite{pargem5}. A simulator of this type is commonly 
 referred to as a \acrfull{fss} or a \acrfull{vp}, and they can be described as a computer architecture simulator that simulates software in an 
-electronic system, being this independent of the nature of the host computer. Usually, this term is mixed with emulation because it can also 
-run software tests inside flexible, software-defined environments. Although, an emulator goes beyond by simulating both software and hardware 
+electronic system, being this independent of the nature of the host computer. Usually, this term is mixed with emulation because although it 
+can also run software tests inside flexible, software-defined environments, an emulator goes beyond by simulating both software and hardware 
 configurations, being useful to test how software interacts with underlying hardware or a combination of hardware and software.
 
 There are two types of \glspl{fss}, full system hardware simulator and full system software simulator. The hardware version offers a 
@@ -449,7 +449,7 @@ that runs faster. Because of that, the hardware is not described in \gls{hdl}, u
 	 \label{fig_FSSsoftware}
 \end{figure}
 
-The hardware model must be defined for the software simulation, thus hardware modules may or may not be available for the target machine. It 
+The hardware model must be defined for the software simulation, thus these may or may not be available for the target machine. It 
 requires the selection of a simulator that aligns with the application scenario or offers the flexibility to expand the range of supported hardware 
 modules, such as QEMU \cite{theQEMUsimulator} and Gem5 \cite{TheGem5Simulator}.
 
@@ -458,7 +458,7 @@ methods \cite{UltraFastVPs}. \Glspl{vp} should follow this trend, that is, as em
 faster yet accurate, so they can be a reliable option.
 
 The problem is \glspl{vp} are not following this evolution, which results in low performance, and thus high simulation times \cite{pargem5} 
-\cite{UltraFastVPs} \cite{optimizingTD}. Several works try to solve the problem, although none of them have been able to 
+\cite{UltraFastVPs} \cite{optimizingTD}. Although several works try to solve the problem, none of them have been able to 
 provide an effective solution.
 
  
@@ -473,7 +473,7 @@ provide an effective solution.
 
 Simulations, while valuable, cannot guarantee 100\% reliability due to certain scenarios that may be challenging to evaluate. For instance, 
 certain physical phenomenon modeling may not be fully accurate when compared with real-world behavior. However, to enhance reliability, an 
-emulator should strive to accurately represent real-world conditions. \gls{des} aligns with these requirements by simulating system dynamics 
+simulator should strive to accurately represent real-world conditions. \gls{des} aligns with these requirements by simulating system dynamics 
 event by event and providing comprehensive performance reports.
 
 A \gls{des} can be defined as a simulation technique where state changes (events) happen at discrete instances in time. Events take zero time 
@@ -578,7 +578,7 @@ roll-back, is required. The second one uses global synchronization times to sync
 be executed between them can be parallelized. This approach is simpler, nevertheless, it may incur high simulation overhead.
 
 This section will present the two available modes, the sequential and the parallel. Nonetheless, it will also explain 
-the \glsxtrfull{td} technique, since both can use it in order to obtain more performance. Moreover, all further context will be related to 
+the \gls{td} technique, since both can use it in order to obtain more performance. Moreover, all further context will be related to 
 the \gls{des} technique and the synchronous approach.
 
 \subsection{Sequential Simulation}
@@ -587,8 +587,8 @@ Sequential simulation, or \gls{sdes}, is the most simple and accurate simulation
 executes at its simulation time, resulting in a perfect simulation without any error. 
 
 Going into detail, the simulator runs the process corresponding or sensitive to an event that should be executed at a specific timestamp. This 
-process will run until a certain time when another event must be executed, and it is not related to the process in execution. In this process 
-exchange, there is a \glsxtrfull{cs}, where happens a synchronization with the rest of the system. All variables are updated, thus, when a 
+process will run until a certain time when another event must be executed, and it is not related to the process in execution. In this 
+exchange, there is a \gls{cs}, where happens a synchronization with the rest of the system. All variables are updated, thus, when a 
 process reads or writes a variable, it accesses the state of the variable as it would be at the current simulation time. The coming image shows 
 a sequential simulation with two different processes.
 
@@ -600,14 +600,14 @@ a sequential simulation with two different processes.
 \end{figure}
 
 Picture a scenario of a dual-core system with two processes where each event corresponds to an execution of an instruction with constant 
-time (five nanoseconds), and each \gls{cs} takes one nanosecond. If the emulation lasts for one minute, ten seconds would be just for \glspl{cs}. 
-It is visible that it spends a lot of time simulation time, and it tends to get worse if more processes are needed. The overhead of the event 
+time (five nanoseconds), and each \gls{cs} takes one nanosecond. If the simulation lasts for one minute, ten seconds would be just for \glspl{cs}. 
+It is visible that it spends a lot of simulation time, and it tends to get worse if more processes are needed. The overhead of the event 
 scheduling and process context switching become the dominant factor in simulation speed, leading to a huge host time.
 
 \subsection{Temporal Decoupling}
 
 A technique used by SystemC, which is a standard C++ class
-library for system and hardware design, to improve the performance is \glsxtrfull{td} \cite{systemC}. \gls{td} is a technique where individual 
+library for system and hardware design, to improve performance is \gls{td} \cite{systemC}. \gls{td} is a technique where individual 
 processes are permitted to run ahead in a local time, without actually advancing simulation time, until they reach the point when they need to 
 synchronize with the rest of the system. This time slice, from the beginning of the execution until the synchronization, is called 
 \textbf{quantum}. The usage of \gls{td} may result in a faster simulation in some cases since it increases the data and code locality and 
@@ -630,8 +630,8 @@ This interaction could involve reading or updating a variable that belongs to an
 current value and proceed, sacrificing accuracy or request synchronization and continue its process when the simulation time aligns with its 
 local time. Proceeding with the current value entails making assumptions about communication and timing within the modeled system. It assumes 
 there will be no adverse consequences when sampling or updating the value either too early or too late. Typically, this assumption holds in 
-the context of a virtual platform simulation, where the software stack is designed to be independent of the intricate timing intricacies of 
-the underlying hardware.
+the context of a virtual platform simulation, where the software stack is designed to be independent of the underlying hardware 
+timing intricacies.
 
 Each process is responsible for evaluating whether it can progress beyond the current simulation time without compromising the functionality 
 of the model. This is a SystemC characteristic because it guarantees functional congruency with the standard semantics of the simulator thus, 
@@ -646,7 +646,7 @@ speed will be sacrificed as more \glspl{cs} are occurring. On the opposite side,
 timing inconsistencies, which can lead, in the worst case, to a crash in the simulator. Hence, this value must be chosen carefully in order to 
 have a fast yet accurate simulation.  
 
-The SystemC reference manual \cite{SystemC} enforces that some processes cannot be temporally decoupled due to their characteristics, thus 
+The SystemC reference manual \cite{systemC} enforces that some processes cannot be temporally decoupled due to their characteristics, thus 
 they might become a simulation speed bottleneck. 
 
 From here onwards, whenever the word "quantum" is mentioned, it refers to the global quantum.
@@ -659,7 +659,7 @@ same time. The next figure shows the speed difference between the two modes.
 
 \begin{figure}[H]
 	\centering
- 	\includegraphics[width=0.8\linewidth]{Images/ParallelSimulation.png}
+ 	\includegraphics[width=1\linewidth]{Images/ParallelSimulation.png}
  	\caption{Sequential VS parallel simulation with and without \gls{td}}
 	 \label{fig_ParallelSimulation}
 \end{figure}
@@ -667,8 +667,8 @@ same time. The next figure shows the speed difference between the two modes.
 Continuing the previous scenario, with the parallel mode, the simulation can be fully optimized in a way that each process can have its 
 execution thread. For this reason, the performance of the simulation increases a lot. In this case, for the same number of executed processes, 
 the parallelized version was able to reduce eighteen nanoseconds of host time, which means a reduction of 50\%. With \gls{td}, the gain was 
-small compared to the approach without it, however, if more processes were used, the gain would be much higher. But it does not only offer 
-advantages. Several challenges make achieving \gls{pdes} difficult. Typical problems are load imbalance, limited parallel work, and causality 
+pushed further when compared to the approach without it. However, it does not only offer advantages due to the 
+several challenges that make achieving \gls{pdes} difficult. Typical problems are load imbalance, limited parallel work, and causality 
 errors \cite{yoga2019parallelism} \cite{zhou1992sequential}. 
 
 When working with tasks there is always the problem of balancing the workload among them to make an efficient use of today's multicore 
@@ -680,26 +680,27 @@ example, but in programs with thousands \gls{loc}, it is a challenging job. \cit
 works that help to detect and measure the work imbalance.
 
 It is rational to think that, after observing \autoref{fig_ParallelSimulation}, more parallelism will provide an even faster simulation, but 
-this is not true. Normally programs can be parallelized until some point, like this example, it is possible to simulate this system with four 
-cores, however, it is clear the extra two cores will not be executing anything, because there are no more processes to run. For this reason, 
-the performance will not be improved. It can happen the opposite, that is, it being even worse \cite{scabilityIssue}. Some works identify 
+this is not true. Normally programs can be parallelized until some point, like the previous example.
+It is possible to simulate this system with four 
+cores however, it is clear extra cores will not execute anything because there are no more processes to run. For this reason, 
+the performance will not be improved, and the opposite can happen, that is, it becomes even worse \cite{scabilityIssue}. Some works identify 
 this scalability problem to show the programmer how it can be improved \cite{scalabilityProblem} \cite{scalabilityProblem2}.
 
 The last problem arises when there are causality errors. Causality errors happen when one event in the future affects an event in the past. 
 Sequential simulation ensures that event B will execute after event A if the timestamp of event A is smaller than the timestamp of event B. 
-In this mode that cannot happen, and if event B can change the state variables used by event A, a causality error happens. The following image 
+In this mode that cannot happen, and if event B tries to change the state variables used by event A, a causality error happens. The following image 
 illustrates the previous scenario, with events colored in green denoting "in execution," and events in gray indicating "scheduled".
 
 \begin{figure}[H]
 	\centering
- 	\includegraphics[width=0.8\linewidth]{Images/CausalityError.png}
+ 	\includegraphics[width=0.85\linewidth]{Images/CausalityError.png}
  	\caption{The causality problem}
 	 \label{fig_causalityError}
 \end{figure}
 
 When the simulation starts, event A is executed. Meanwhile, it triggers event B, which has an event timestamp of five nanoseconds. In the 
 sequential mode, since it executes one event at a time, this is not a problem. In the parallel version, it can be, because each execution 
-thread has its own time. Can be that one thread is ahead of another, e.g. thread 1, which is executing process A, is at three nanoseconds, 
+thread has its own time. Can happen that one thread is ahead of another, e.g. thread 1, which is executing process A, is at three nanoseconds, 
 and thread 2, which is executing process B, is at ten nanoseconds, and when event A schedules event B to five nanoseconds, this event will 
 not be executed for the reason that a \gls{des} cannot execute events in the past. On top of that, as mentioned before, if event B modifies 
 the state variables of event C, the problem arises. 
@@ -722,7 +723,7 @@ approaches are \cite{busnot2020standard} and \cite{optimist2}. For \cite{dist-ge
 
 \section{Gem5}
 
-One available \gls{fss} used in academia and industry is the Gem5 simulator \cite{TheGem5Simulator}\cite{Thegem5simulatorV2}. It has its roots 
+One available \gls{fss} used in academia and industry is the Gem5 simulator \cite{TheGem5Simulator}\cite{Thegem5simulatorV2}. It had its roots 
 in 2011, from the merge between M5 \cite{TheM5Simulator}, a \gls{cpu} simulation framework, and the multifacet \gls{gems} toolset \cite{TheGEMS}. 
 With this combination, it is possible to use the best of both frameworks, the effective support of multiple \glspl{isa} and the cache memory 
 and cache coherence models. It is also the result of the work between AMD, ARM, HP, MIPS, Princeton, MIT, the Universities of Michigan, Texas, 
@@ -730,7 +731,7 @@ Wisconsin, and many other institutions.
 
 In addition, Gem5 came to overcome a demand in the market at the time. The main highlights are the flexible framework for researchers to 
 evaluate their design in several different ways; Licensing terms that allow researchers and academia to work together without the pressure 
-of revealing proprietary information, in the industry case, or not getting credits for their contributions; Defined code style that ensures 
+of revealing the proprietary information, in the industry case, or not getting credits for their contributions; Defined code style that ensures 
 the code quality remains good so new collaborators understand faster and better the code \cite{TheGem5Simulator}. 
 
 This section will explain in detail what are its capabilities and how can it be used. Then will be presented a work done by the \gls{ice} team 
@@ -810,7 +811,7 @@ As shown in the \autoref{fig_tradeoffTable}, this simulator provides different f
 Those are the support for different \glspl{isa}, \gls{cpu} models, and execution modes. Also, it has the capability of modeling multiple systems 
 at the same time, supports multiple devices, two different network models, and different cache coherence protocols \cite{TheGem5Simulator}.
 
-While the event queue is responsible for executing its associated events, the \gls{cpu} is answerable to schedule the events, thereby, it is 
+While the event queue is responsible for executing its associated events, the \gls{cpu} is answerable to schedule the events thereby, it is 
 possible to keep running the simulation even if no \glspl{cpu} are working. There are four types of \gls{cpu} models. Atomic simple, timing 
 simple, in-order, and \gls{o3}. The atomic and timing models are the simplest ones. The main difference between them can be seen in 
 the figures below. Meanwhile the first completes all memory accesses immediately, which makes it a proper option for tasks like 
@@ -835,9 +836,9 @@ The in-order and O3 models are "execute-in-execute" models, which means that ins
 dependencies have been resolved. For this reason, those are highly accurate.
 
 Gem5 can operate either in \gls{fs} and \gls{se} mode. The \gls{fs} is more complex and complete, in a way that it supports interrupts, 
-exceptions, \gls{io} devices, and so on. As the name suggests, the \gls{se} simulates the system calls, like write(). This characteristic can 
-be a bottleneck to multi-thread applications, nevertheless results in a faster simulation. If the workload has lots of \gls{io} iterations or 
-\gls{os} services, the \gls{fs} is the proper choice, otherwise the \gls{se} can be considered, even because some \glspl{isa} do not support 
+exceptions, \gls{io} devices, and so on. As the name suggests, the \gls{se} simulates system calls, like write(). This characteristic can 
+be a bottleneck to multi-thread applications nevertheless, results in a faster simulation. If the workload has lots of \gls{io} iterations or 
+\gls{os} services, the \gls{fs} is the proper choice, otherwise the \gls{se} may be considered, even because some \glspl{isa} do not support 
 the \gls{fs} mode yet. 
 
 Another important capability is the support to the classic and ruby memory system, due to the integration of both works (M5 and GEMS). On one 
@@ -860,9 +861,9 @@ the support for the RISC-V architecture and the \gls{kvm} \cite{Thegem5simulator
 \subsection{Usage}
 
 To start using Gem5 it is necessary two things. First of all, the simulator's binary for the wanted \gls{isa} is necessary. As mentioned before, 
-there are three different types of binaries, therefore they should be chosen mindfully. Then, it is mandatory the definition of the system. 
-It describes which parts the \gls{soc} consists of and how they are connected. Gem5 provides in its tutorials the simplest system a developer 
-can use, and it is presented in the following picture.
+there are three different types of binaries, therefore it should be chosen mindfully. Then, it is mandatory the definition of the system. 
+It describes the components comprising the \gls{soc} and details their interconnections. 
+Gem5 provides in its tutorials the simplest system a developer can use, and it is presented in the following picture.
 
 \begin{figure}[H]
 	\centering
@@ -872,8 +873,10 @@ can use, and it is presented in the following picture.
 \end{figure}
 
 All the configuration is performed in a Python script, while the functionality of the simulator is implemented in C++. Making changes to the 
-latter requires creating a new binary, whereas in the former case, it does not. The next code shows what the Python script should have to 
-instantiate and execute the simulation. 
+latter requires creating a new binary, whereas in the former case, it does not. The next code demonstrates the instantiation 
+required in the Python script to execute the simulation
+
+\pagebreak
 
 \begin{lstlisting}[language=Python, caption=Script to instantiate and execute the simulation]
     #create the system to simulate
@@ -902,15 +905,15 @@ have more arguments to specify the system or the simulation modes, e.g. the \gls
 A huge problem of Gem5 is its speed. At the moment, its official version only offers a single-threaded simulation. Even with the best 
 \gls{cpu} or the fastest memory on the host machine, the simulation can not get close to one \gls{mips}, which results in long execution 
 times. For instance, while the SPEC2017 integer benchmark can take ten minutes in a host computer, with Gem5 the same workload can take more 
-than two years \cite{pargem5}. As referred in the \autoref{subsec::SimCap}, parallelize Gem5 is one desired feature to have, however, more than 
+than two years \cite{pargem5}. As referred in the \autoref{subsec::SimCap}, parallelize Gem5 is one desired feature to have however, more than 
 ten years passed and there are no developments on this topic, only the support for \gls{kvm}. 
 
 Par-gem5 \cite{pargem5} arises to solve this problem. It was developed by the \gls{ice} team of the \gls{rwth} Aachen University, with the 
 collaboration of Huawei. It utilizes the multi-threading capabilities of the host system through a modified conservative, synchronous 
 \gls{pdes} approach, which allows the execution to be dispatched to multiple simulation threads that run independently from the rest of 
-the system for a time $t_{\Delta q}$ – the so-called quantum or quanta. At the time, only dist-gem5 \cite{dist-gem5}, a work that focuses 
+the system for a time $t_{\Delta q}$ - the so-called quantum or quanta. At the time, only dist-gem5 \cite{dist-gem5}, a work that focuses 
 on simulating distributed systems connected via a \gls{nic}, has implemented a parallel extension. Nonetheless, its application is very strict, 
-since can only be used in this type of system, thus par-gem5 comes to overlap this problem and be a generalized parallel version.
+since can only be used in this type of system thus, par-gem5 comes to overlap this problem and be a generalized parallel version.
 
 In the initialization phase, each \gls{cpu} is assigned to a dedicated event queue, and all other objects are assigned to the default event 
 queue (q0). Thereby, the total number of threads will be the number of cores plus one. This version cannot be classified either as conservative 
@@ -924,7 +927,7 @@ or optimistic for the reason that it allows causality errors to occur.
 \end{figure}
 
 Scenario A represents the typical sequential simulation, and scenario B the par-gem5 scheduling method. When an event is scheduled to another 
-\gls{cpu}, it can be either executed or postponed to the following synchronization. The event is postponed when its timestamp has passed. 
+\gls{cpu}, it can either be executed or postponed to the following synchronization. The event is postponed when its timestamp has passed. 
 Consequently, it can lead to a chronologically incorrect execution order of events, affecting the simulation's accuracy, or in the worst case, 
 flaws in the functionality of the simulated system. Nevertheless, in \cite{pargem5} is proven that the inaccuracy can be kept within a single-digit 
 percentage.
@@ -1020,7 +1023,7 @@ model the communication as function calls. Events are applied to an entire trans
 the protocol phase
 boundaries, rather than at clock edges \cite{wieman2012overview}. Thus, the simulations have much better performance, 100-10000 times faster, 
 when compared to the cycle-accurate version. The main advantages are its standardization in the industry, lots of documentation and work, and 
-the capability to quickly simulate hardware and software systems on different levels of abstraction. Contrarily, it is not so flexible, hence, 
+the capability to quickly simulate hardware and software systems on different levels of abstraction. Contrarily, it is not so flexible hence, 
 it requires external modules to complement itself, e.g., it can not perform cycle-accurate simulations, and most of the modules/\glspl{ip} are 
 not free of charge, meaning extra costs. 
 
@@ -1043,15 +1046,15 @@ In their work, these platforms were tested with three different benchmarks. In t
 when very detailed results and multiple \glspl{isa} support are wanted. Sniper is specifically designed for multi-core simulations and is 
 considered the most accurate among the simulators examined. However, it lacks the capability to generate detailed performance statistics for 
 the simulated system and is comparatively less flexible than the other simulators. Then, if the focus is a CPU-GPU architecture simulation, 
-Multi2Sim proves to be a great preference. Finally, PTLsim did not get a best-case scenario to be used, nevertheless, it is the base of other 
+Multi2Sim proves to be a great preference. Finally, PTLsim did not get a best-case scenario to be used nevertheless, it is the base of other 
 x86 diverse simulators, such as the MARSSx86 simulator \cite{patel2011marss}.
 
 \section{Machine Learning}
 
 \glsxtrfull{ml} is at present-day an extremely important subject, encompassing applications in both smaller devices like watches and larger 
 ones such as cars.  Autonomous driving is one example of what can be done with machine learning \cite{bachute2021autonomous}. Although this 
-theme emerged recently, with the evolution of computers, in 1959 it was first defined by Arthur Samuel, who says that it is a field of computer 
-science that gives computers the ability to learn without being explicitly programmed \cite{samuel1959some}. 
+theme emerged recently, with the evolution of computers, it was first defined by Arthur Samuel in 1959, who states that 
+\textit{ it is a field of computer science that gives computers the ability to learn without being explicitly programmed }\cite{samuel1959some}. 
 
 There are various types of \gls{ml} algorithms, such as classification, error cancellation, and prediction. Depending on the project 
 requirements, these algorithms can be utilized individually or combined in a manner that complements each other to address complex problems, 
@@ -1066,7 +1069,7 @@ like \cite{bachute2021autonomous}. The following picture shows some of the commo
 
 Within this dissertation, only neural networks will be considered. They can be divided into \glsxtrfullpl{ann} and \glsxtrfullpl{bnn}. 
 A \gls{bnn} is a network of neurons that are connected by axons and dendrites, and the connections between neurons are made by synapses. 
-A \gls{ann} will be explained in detail in the next subsection. Also, it will be presented how \gls{ml} can be applied to simulation and the 
+An \gls{ann} will be explained in detail in the next subsection. Also, it will be presented how \gls{ml} can be applied to simulation and the 
 improvements it brought. 
 
 \subsection{Artificial Neural Networks}
@@ -1089,8 +1092,8 @@ to another, how it adjusts the importance of several inputs, and so on. \autoref
 \cline{1-2}
 \multicolumn{1}{|c|}{\cellcolor[HTML]{9B9B9B}\textbf{BNN}} & \multicolumn{1}{c|}{\cellcolor[HTML]{9B9B9B}\textbf{ANN}} &  \\ \cline{1-2}
 \multicolumn{1}{|c|}{Dendrites} & \multicolumn{1}{c|}{Inputs} &  \\ \cline{1-2}
-\multicolumn{1}{|c|}{Soma / Body Cell} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Summing and Activation\\ Junction\end{tabular}} &  \\ \cline{1-2}
-\multicolumn{1}{|c|}{Synapses} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Weights or\\ Interconnections\end{tabular}} &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{Soma / Body cell} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Summing and activation\\ junction\end{tabular}} &  \\ \cline{1-2}
+\multicolumn{1}{|c|}{Synapses} & \multicolumn{1}{c|}{\begin{tabular}[c]{@{}c@{}}Weights or\\ interconnections\end{tabular}} &  \\ \cline{1-2}
 \multicolumn{1}{|c|}{Axon} & \multicolumn{1}{c|}{Output} &  \\ \cline{1-2}
 \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & 
 \end{tabular}
@@ -1098,15 +1101,16 @@ to another, how it adjusts the importance of several inputs, and so on. \autoref
 \label{tab_compararionBNN_ANN_table}
 \end{table}
 
-Like the human brain, \glspl{ann} also needs to learn. There are three ways to train a \gls{ann}, which are also inspired by human actions. 
+Like the human brain, \glspl{ann} also needs to learn. There are three ways to train an \gls{ann}, which are also inspired by human actions. 
 Supervised learning is a method that teaches the \gls{nn} by providing the outputs for certain inputs. The predicted outputs are compared to 
 the real ones, and then weights are adjusted according to the error. In the real world, it can be compared to heating food. The human knows 
-how warm wants his food, but he cannot calculate how much time should it be warming in the microwave. Thus, it predicts a time, and based on 
-what result, he redefines the time.
+how warm wants his food, but he cannot calculate how much time should it be warming in the microwave. Thus, he makes a prediction, and based on 
+what result, time may be redefined.
 
 In the opposite way, unsupervised learning is a technique where the \gls{nn} only knows the inputs. The training is done only with the input 
-information, which is a good solution for clustering or density problems, where the data is categorized based on similarities. Humans face 
-problems like this as well. For instance, when it is required for a person to sort apples, the color can be a characteristic to distinguish them. 
+information, which is a good solution for clustering or density problems, where the data is categorized based on similarities. A great example
+is when it is required for a person to sort apples. Since there is no information, for instance, the person uses the color 
+to distinguish them and perform the sort operation. 
 
 The last method is the reinforced \gls{nn}. There is an agent that controls the outputs of the system. The \gls{nn} may receive a reward or a 
 penalty for each action it performs. With this information, it adapts its behavior to receive the fewest penalties possible. A comparison can 
@@ -1119,7 +1123,7 @@ neuron is used as input of the same neuron, which is appropriate for non-linear 
 
 \subsection{Learning Rules}
 
-As illustrated in the \autoref{fig_ComparationBNN_ANN}, in a \gls{ann} the inputs, before summing, suffer an adjustment by the synaptic weights. 
+As illustrated in the \autoref{fig_ComparationBNN_ANN}, in an \gls{ann} the inputs, before summing, suffer an adjustment by the synaptic weights. 
 To define these weights, learning rules are used, that is, self-adaptive equations that update the weights and bias levels of neurons, enabling 
 a neural network to learn from its input data and enhance its performance. There are diverse types of learning \cite{haykin2009neural}. Some 
 examples are:
@@ -1182,7 +1186,7 @@ other contexts \cite{von2020combining}.
 \section{Co-Simulation}
 
 The development of truly complex engineered systems that integrate physical, software and network aspects is on the rise \cite{gomes2017co}. 
-The simulation of these all together is not reliable, hence the need to divide the system into different teams arises. Each one develops a 
+The simulation of these all together is not reliable hence, the need to divide the system into different teams arises. Each one develops a 
 part of the final solution, that, in the end, is integrated into the others. Different abstraction layers may demand distinct simulation tools, 
 as some are finely tuned for specific domains, yielding results that closely mock real-world behavior. The \autoref{fig_DomainsComplexSystem} 
 shows an example of different domains in a complex system. 
@@ -1215,25 +1219,25 @@ as it is open-source.
 \end{figure}
 
 One of the challenges when running a \gls{des} co-simulation is synchronization. As previously mentioned, there are different 
-iterations of different abstraction levels, which can result in temporal misalignment. In other words, causality error can happen due to a 
+iterations of different abstraction levels, which can result in temporal misalignment. In other words, causality errors can happen due to a 
 distinct time granularity. This problem is similar to the one faced when executing a parallel simulation, and the solutions applied to address 
 them are remarkably consistent. 
 
 
 \subsection{Gem5 and SystemC}
 
-SystemC is being widely used in the industry and research hardware design space exploration. \cite{menard2017system}. Nonetheless, there 
+SystemC is being widely used in the industry and research hardware design space exploration \cite{menard2017system}. Nonetheless, there 
 is a notable scarcity of precise, freely available, adaptable, and lifelike SystemC models for contemporary \glspl{cpu}. Christian Menard 
 in \cite{menard2017system} developed an \gls{api} that allows full interoperability between the two simulators. 
 
-\autoref{fig_SystemCGem5_CoSim} presents three possible scenarios for the co-simulation environment. The issue here is that achieving 
+In the paper, there are presented three possible scenarios for the co-simulation environment. The issue here is that achieving 
 this co-simulation requires compiling Gem5 as a library and then using it in SystemC. This does not fully adhere to the previously mentioned 
 co-simulation definition because the two simulators are not running simultaneously in separate processes. This limitation can lead to 
 verification failures as direct inputs from other simulators to Gem5 are not possible.
 
-\begin{figure}[H]
-	\centering
- 	\includegraphics[width=0.7\linewidth]{Images/SystemCGem5_CoSim.png}
- 	\caption{SystemC and Gem5 interoperability \cite{menard2017system}}
-	 \label{fig_SystemCGem5_CoSim}
-\end{figure}
+% \begin{figure}[H]
+% 	\centering
+%  	\includegraphics[width=0.7\linewidth]{Images/SystemCGem5_CoSim.png}
+%  	\caption{SystemC and Gem5 interoperability \cite{menard2017system}}
+% 	 \label{fig_SystemCGem5_CoSim}
+% \end{figure}
