@@ -14,7 +14,7 @@ CRC-32, and CRC-CCIT \cite{borrelli2001ieee}
 Another application for the \gls{crc} is the storage integrity. Due to defective components or electromagnetic fields,
 bits can change their value without notice. In the presented case study, this scenario will be explored, where 
 the \gls{crc} peripheral is used to maintain a specific memory state and verify if there have been any changes. 
-Furthermore, the board will not be only engaged in this iteration, as in a real-world scenario, it has additional peripherals to manage. 
+Furthermore, the board will not be only engaged in this operation, as in a real-world scenario, it has additional peripherals to manage. 
 Hence, as a proof-of-concept, parallel tasks will be included in the execution.
 
 \section{CRC Peripheral} %Software development
@@ -39,7 +39,7 @@ took significant reference from the STM32 microcontroller family's reference man
 
 \subsection{SystemC}
 
-The peripheral development was carried out using the SystemC tool. In this example, just the \gls{crc} will be simulated although, it has
+The peripheral development was carried out using the SystemC tool. In this example, just the \gls{crc} will be simulated, although it has
 the capability to simulate more than just one peripheral. For instance, picture a scenario where the workload also requires an \gls{adc}.
 This device is also not included in the VExpress\_gem5 board, so its implementation would be required. For this reason, flexibility
 is a requirement, and with this idea in mind, the subsequent design was developed.
@@ -79,7 +79,7 @@ target\_ID, which will be utilized by the bus to identify the targets.
 
 Lastly, the targets are the peripherals, that can be different from each other, as mentioned in the previous example. These receive the 
 \gls{tlm} commands and act accordingly. Since in this dissertation, the focus will be the \gls{crc}, a single target will be implemented
-thus, the \autoref{fig_SystemCdesign_geral} can be redefined to the \autoref{fig_SystemCdesign_CRC}. This peripheral will have the following
+thus, the \autoref{fig_SystemCdesign_geral} can be redefined to the \autoref{fig_SystemCdesign_CRC}. The peripheral will have the following
 characteristics \cite{referenceManualRM0385}. 
 
 \begin{itemize}
@@ -439,13 +439,9 @@ observed in \ref{fig_MemoryIntegrity_CPU0SequenceDiagram}.
 	\label{fig_MemoryIntegrity_StateDiagram}
 \end{figure}
 
-The bubble-sort test run in the remaining instaciated cores. The test will run a pre-defined number of iterations, and 
-once all the cores have completed their tasks, the simulation will conclude successfully. At the first moment, the array 
-is initialized with random numbers, where the lower and bigger numbers are saved in separate values. Then, the bubble-sort 
-the algorithm is executed. To ensure that the simulation ran smoothly, the program compares the first and last values of 
-the sorted array with previously saved values. If there is a match, the execution is considered successful. In case of a 
-mismatch, a failure is detected, and a notification is sent to the user. However, the simulation continues since the primary 
-objective is not to evaluate the bubble-sort algorithm. 
+The bubble-sort test run in the remaining instaciated cores. Detail information about this benchmark can be found on \autoref{cap:BM_BS}.
+If its workload is concluded successfully and still there are memory verifications to carry out, the simulation continues since 
+the primary objective is not to evaluate the bubble-sort algorithm. 
 
 \begin{figure}[H]
 	\centering
@@ -471,7 +467,7 @@ tasks, and this can be different from each other (\ref{fig_AppTimeDiagram}).
 To perform this benchmark, the following parameters were defined. After completing the bubble-sort workload, the system executes a final 
 memory check to ensure that no problems occurred between the last one, allowing the simulation to conclude safely. The simulation results are 
 available in the subsequent images. As expected, the system executed normally the benchmark without any problems. Both \glspl{cpu} conclude the 
-designated tasks and the last memory gives positive feedback. 
+designated tasks and the last memory comparison gives positive feedback. 
 
 \hspace{1.5cm}
 
@@ -556,7 +552,7 @@ previous chapter (\ref{subsec::finalAlgorithm}).
 
 To assess the advantages of par-gem5 and the dynamic quantum, a series of tests were conducted with various configurations. Compared to the prior 
 ones, the differences will be resumed to the simulation modes, with the addition of static and dynamic parallel modes, and the number of simulated 
-cores, which will range from 4, 8, 16, 32, to 64 cores. The next figures exhibit the results obtained. 
+cores, which will range from 2, 4, 8, 16, 32, to 64 cores. The next figures exhibit the results obtained. 
 
 
 \begin{figure}[]
@@ -587,8 +583,8 @@ cores, which will range from 4, 8, 16, 32, to 64 cores. The next figures exhibit
 
 The graphs illustrate the gains in comparison to the sequential simulation. Observing the images can be settled that the parallel version, either 
 with the static or dynamic version had a better performance. With 64 simulated cores, the gains of the dynamic version overpassed 250\%. 
-In fact, it can be affirmed that the performance gains grow with the increasing number of cores. When this happens, the amount of workload 
-also rises, meaning a higher time spent. In terms of accuracy, the static version had almost a perfect result, while the dynamic one had 
+In fact, it can be affirmed that the performance gains grow with the increasing number of cores, due to the rise of workload amount. 
+In terms of accuracy, the static version had almost a perfect result, while the dynamic one had 
 a maximum inaccuracy of 0,98\% nevertheless, it is considerably far from the 5\%. Finally, as a consequence of the previously mentioned gains,
 the host time was reduced, getting, in the majority of the cases, at least a reduction of 40\%. 
 
