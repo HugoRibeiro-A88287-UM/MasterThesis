@@ -3087,6 +3087,86 @@
     \field{journaltitle}{GitHub}
   \endentry
 
+  \entry{komalan2018main}{inproceedings}{}
+    \true{moreauthor}
+    \true{morelabelname}
+    \name{author}{10}{}{%
+      {{hash=KM}{%
+         family={Komalan},
+         familyi={K\bibinitperiod},
+         given={Manu},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=ROH}{%
+         family={Rock},
+         familyi={R\bibinitperiod},
+         given={Oh\bibnamedelima Hyung},
+         giveni={O\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Hartmann},
+         familyi={H\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Sakhare},
+         familyi={S\bibinitperiod},
+         given={Sushil},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Tenllado},
+         familyi={T\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=GJI}{%
+         family={G{\'o}mez},
+         familyi={G\bibinitperiod},
+         given={Jos{\'e}\bibnamedelima Ignacio},
+         giveni={J\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+      {{hash=KGS}{%
+         family={Kar},
+         familyi={K\bibinitperiod},
+         given={Gouri\bibnamedelima Sankar},
+         giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Furnemont},
+         familyi={F\bibinitperiod},
+         given={Arnaud},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CF}{%
+         family={Catthoor},
+         familyi={C\bibinitperiod},
+         given={Francky},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Senni},
+         familyi={S\bibinitperiod},
+         given={Sophiane},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{KM+1}
+    \strng{fullhash}{KMROHHMSSTCGJIKGSFACFSS+1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2018 Design, Automation \& Test in Europe Conference \&
+  Exhibition (DATE)}
+    \field{pages}{103\bibrangedash 108}
+    \field{title}{Main memory organization trade-offs with DRAM and STT-MRAM
+  options based on gem5-NVMain simulation frameworks}
+    \field{year}{2018}
+  \endentry
+
   \entry{menard2017system}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=MC}{%

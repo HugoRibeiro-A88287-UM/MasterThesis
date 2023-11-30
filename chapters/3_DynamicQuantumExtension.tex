@@ -593,7 +593,7 @@ loop, as shown in the figure below.
 \end{figure}
 
 In this case, the faster pointer is the \gls{pc}, and the slower one is the FTHptr. A match occurs when both are pointing to the same memory at 
-the same time. To delve further into the process, loop delineation can be achieved through two methods. Firstly, an analysis can be conducted on 
+the same time. Going into the process in detail, loop delineation can be achieved through two methods. Firstly, an analysis can be conducted on 
 the preceding instruction to precisely define the loop boundaries. Alternatively, after the initial match, the FTHptr remains in the same position 
 while the \gls{pc} continues execution. When they match once more, the loop becomes well-defined. In terms of performance, it is trivial the 
 second approach is more underweight, reason why it was chosen. After the detection, it is necessary to keep track of the \gls{pc}, as mentioned 

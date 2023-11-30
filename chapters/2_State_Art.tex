@@ -1213,7 +1213,7 @@ as it is open-source.
 
 \begin{figure}[]
 	\centering
- 	\includegraphics[width=0.7\linewidth]{Images/CoSimDifApps.png}
+ 	\includegraphics[width=0.6\linewidth]{Images/CoSimDifApps.png}
  	\caption{Research publications of co-simulation applications over five years\cite{gomes2017co}}
 	 \label{fig_CoSimDifApps}
 \end{figure}
@@ -1224,11 +1224,17 @@ distinct time granularity. This problem is similar to the one faced when executi
 them are remarkably consistent. 
 
 
-\subsection{Gem5 and SystemC}
+\subsection{Co-Simulation on Gem5}
+
+Until the present date, few works have used gem5 in a co-simulation environment. The primary reason for this could be that official 
+support is available only for SystemC \cite{Thegem5simulatorV2}. However, the open-source nature of Gem5 allows for extensions and 
+integrations of additional tools. An example of that is the work developed by Manu Komalan in \cite{komalan2018main}, where gem5 and NVMain 
+work together to obtain a good simulation accuracy.
 
 SystemC is being widely used in the industry and research hardware design space exploration \cite{menard2017system}. Nonetheless, there 
 is a notable scarcity of precise, freely available, adaptable, and lifelike SystemC models for contemporary \glspl{cpu}. Christian Menard 
-in \cite{menard2017system} developed an \gls{api} that allows full interoperability between the two simulators. 
+in \cite{menard2017system} developed an \gls{api} that allows full interoperability between the two simulators, which is now part of the 
+official version of Gem5 \cite{Thegem5simulatorV2}. 
 
 In the paper, there are presented three possible scenarios for the co-simulation environment. The issue here is that achieving 
 this co-simulation requires compiling Gem5 as a library and then using it in SystemC. This does not fully adhere to the previously mentioned 

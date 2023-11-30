@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  28 NOV 2023 18:08
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  30 NOV 2023 18:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2297,7 +2297,7 @@ File: Images/Host_FINAL.png Graphic file (type bmp)
  [66] [67]) [68]
 Chapter 4.
 --------------------
- 4. Case of Study
+ 4. Co-Simulation on Gem5
 --------------------
 (./chapters/4_CaseOfStudy.tex
 File: Images/CoSimDesignSimplified.png Graphic file (type bmp)
@@ -2307,21 +2307,11 @@ File: Images/CoSimDesignSimplified.png Graphic file (type bmp)
 ]
 File: Images/SystemCdesign.png Graphic file (type bmp)
 <Images/SystemCdesign.png>
-File: Images/SystemCdesign_CRC.png Graphic file (type bmp)
-<Images/SystemCdesign_CRC.png>
- [70]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 94.
-
-File: Images/CrcBlockDiagram.png Graphic file (type bmp)
-<Images/CrcBlockDiagram.png>
-[71]
-File: Images/CRC_read.png Graphic file (type bmp)
-<Images/CRC_read.png>
-File: Images/CRC_write.png Graphic file (type bmp)
-<Images/CRC_write.png>
- [72] [73]
+File: Images/CoSimReadOperation.png Graphic file (type bmp)
+<Images/CoSimReadOperation.png>
+File: Images/CoSimWriteOperation.png Graphic file (type bmp)
+<Images/CoSimWriteOperation.png>
+ [70] [71]
 (/usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
@@ -2332,50 +2322,74 @@ File: Images/CrcReadFunction.png Graphic file (type bmp)
 <Images/CrcReadFunction.png>
 File: Images/CrcWriteFunction.png Graphic file (type bmp)
 <Images/CrcWriteFunction.png>
- [74]
+ [72]
 File: Images/TLM_Wrapper_Payload.png Graphic file (type bmp)
 <Images/TLM_Wrapper_Payload.png>
 
-[75]
+[73]
 File: Images/TLMWrapper_Gem5.png Graphic file (type bmp)
 <Images/TLMWrapper_Gem5.png>
- [76]
+ [74]
 File: Images/TLMWrapper_SystemC.png Graphic file (type bmp)
 <Images/TLMWrapper_SystemC.png>
- [77] [78]
+ [75]
+
+LaTeX Warning: Citation 'peterson1961cyclic' on page 76 undefined on input line
+ 218.
+
+
+LaTeX Warning: Citation 'borrelli2001ieee' on page 76 undefined on input line 2
+23.
+
+[76]
+File: Images/SystemCdesign_CRC.png Graphic file (type bmp)
+<Images/SystemCdesign_CRC.png>
+ [77]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 257.
+
+File: Images/CrcBlockDiagram.png Graphic file (type bmp)
+<Images/CrcBlockDiagram.png>
+[78]
+File: Images/CRC_read.png Graphic file (type bmp)
+<Images/CRC_read.png>
+File: Images/CRC_write.png Graphic file (type bmp)
+<Images/CRC_write.png>
+ [79]
 File: Images/CRC_API_Class_Diagram.png Graphic file (type bmp)
 <Images/CRC_API_Class_Diagram.png>
- [79]
+ [80]
 File: Images/CoSimDesign_Validation.png Graphic file (type bmp)
 <Images/CoSimDesign_Validation.png>
- [80]
+ [81]
 File: Images/Validation_Results.png Graphic file (type bmp)
 <Images/Validation_Results.png>
- [81]
+ [82]
 File: Images/CoSimDesign.png Graphic file (type bmp)
 <Images/CoSimDesign.png>
 File: Images/MemoryIntegrity_StateDiagram.png Graphic file (type bmp)
 <Images/MemoryIntegrity_StateDiagram.png>
- [82]
+ [83]
 File: Images/MemoryIntegrity_CPU0SequenceDiagram.png Graphic file (type bmp)
 <Images/MemoryIntegrity_CPU0SequenceDiagram.png>
- [83]
+ [84]
 File: Images/AppTimeDiagram.png Graphic file (type bmp)
 <Images/AppTimeDiagram.png>
- [84]
+ [85]
 File: Images/Success_MemoryIntegrity.png Graphic file (type bmp)
 <Images/Success_MemoryIntegrity.png>
- [85]
+ [86]
 File: Images/AppTimeDiagramFailure.png Graphic file (type bmp)
 <Images/AppTimeDiagramFailure.png>
 File: Images/Failure_MemoryIntegrity1.png Graphic file (type bmp)
 <Images/Failure_MemoryIntegrity1.png>
 File: Images/Failure_MemoryIntegrity2.png Graphic file (type bmp)
 <Images/Failure_MemoryIntegrity2.png>
- [86]
+ [87]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 558.
+               Default added (so using `tbp') on input line 588.
 
 File: Images/Performance_CO_SIM.png Graphic file (type bmp)
 <Images/Performance_CO_SIM.png>
@@ -2383,30 +2397,30 @@ File: Images/Accuracy_CO_SIM.png Graphic file (type bmp)
 <Images/Accuracy_CO_SIM.png>
 File: Images/Host_CO_SIM.png Graphic file (type bmp)
 <Images/Host_CO_SIM.png>
-[87] [88]) [89]
+[88] [89]) [90]
 Chapter 5.
 --------------------
  5. Conclusions
 --------------------
-(./chapters/5_Conclusion.tex [90
+(./chapters/5_Conclusion.tex [91
 
-] [91]) [92] [93
+] [92]) [93] [94
 
 
-] [94] [95] [96]
+] [95] [96] [97]
 Overfull \hbox (8.47098pt too wide) in paragraph at lines 312--312
 []\TU/NewsGotT(0)/m/n/12 D. R. Jefferson, “  Virtual time,” \TU/NewsGotT(0)/m/i
 t/12 ACM Transactions on Programming Languages and Systems (TOPLAS)\TU/NewsGotT
 (0)/m/n/12 ,
  []
 
-[97]
+[98]
 Overfull \hbox (0.1712pt too wide) in paragraph at lines 312--312
 \TU/NewsGotT(0)/m/it/12 IEEE International Symposium on Performance Analysis of
  Systems & Software\TU/NewsGotT(0)/m/n/12 , IEEE, 2007, pp. 23–
  []
 
-[98] [99] (./Thesis_HugoRibeiro.aux)
+[99] [100] (./Thesis_HugoRibeiro.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2415,8 +2429,17 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `Thesis_HugoRibeiro.out' has not changed.
-(rerunfilecheck)             Checksum: 34B3BBC9F44DBF041704DA24440D514D;9506.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `Thesis_HugoRibeiro.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Thesis_HugoRibeiro.out':
+(rerunfilecheck)             Before: 3495448DD3B97FA8B10FC58A47AC58CF;9585
+(rerunfilecheck)             After:  470DFAB10D5744B9CF3377F916D079AC;9572.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                Thesis_HugoRibeiro
@@ -2427,12 +2450,12 @@ Package logreq Info: Writing requests to 'Thesis_HugoRibeiro.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53101 strings out of 475161
- 1096450 string characters out of 5766720
- 2240383 words of memory out of 5000000
- 74043 multiletter control sequences out of 15000+600000
+ 53111 strings out of 475161
+ 1096774 string characters out of 5766720
+ 2237994 words of memory out of 5000000
+ 74051 multiletter control sequences out of 15000+600000
  568670 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 110i,18n,107p,2346b,5783s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 110i,18n,107p,2346b,5784s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Thesis_HugoRibeiro.pdf (116 pages).
+Output written on Thesis_HugoRibeiro.pdf (117 pages).
