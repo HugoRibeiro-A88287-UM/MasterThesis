@@ -64,12 +64,10 @@
 \contentsline {subsection}{\numberline {4.1.3}TLM Wrapper}{73}{subsection.187}%
 \contentsline {section}{\numberline {4.2}CRC as a Case Study}{77}{section.192}%
 \contentsline {subsection}{\numberline {4.2.1}Peripheral Development}{77}{subsection.193}%
-\contentsline {subsection}{\numberline {4.2.2}Peripheral Validation}{80}{subsection.200}%
-\contentsline {subsection}{\numberline {4.2.3}Memory Integrity}{83}{subsection.243}%
-\contentsline {subsection}{\numberline {4.2.4}Success Modeling}{85}{subsection.247}%
-\contentsline {subsection}{\numberline {4.2.5}Fault Modeling}{87}{subsection.250}%
-\contentsline {section}{\numberline {4.3}Dynamic Quantum Integration}{88}{section.254}%
-\contentsline {chapter}{\numberline {5}Conclusions}{91}{chapter.256}%
-\contentsline {section}{\numberline {5.1}Developed Work}{91}{section.257}%
-\contentsline {section}{\numberline {5.2}Future Work}{92}{section.258}%
-\contentsline {chapter}{References}{94}{section*.259}%
+\contentsline {subsection}{\numberline {4.2.2}Peripheral Validation}{80}{subsection.199}%
+\contentsline {subsection}{\numberline {4.2.3}Memory Integrity}{83}{subsection.242}%
+\contentsline {section}{\numberline {4.3}Dynamic Quantum Integration}{87}{section.251}%
+\contentsline {chapter}{\numberline {5}Conclusions}{90}{chapter.253}%
+\contentsline {section}{\numberline {5.1}Developed Work}{90}{section.254}%
+\contentsline {section}{\numberline {5.2}Future Work}{91}{section.255}%
+\contentsline {chapter}{References}{93}{section*.256}%

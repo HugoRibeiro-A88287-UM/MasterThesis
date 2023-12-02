@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  30 NOV 2023 18:30
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  2 DEC 2023 17:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2332,31 +2332,24 @@ File: Images/TLMWrapper_Gem5.png Graphic file (type bmp)
  [74]
 File: Images/TLMWrapper_SystemC.png Graphic file (type bmp)
 <Images/TLMWrapper_SystemC.png>
- [75]
-
-LaTeX Warning: Citation 'peterson1961cyclic' on page 76 undefined on input line
- 218.
-
-
-LaTeX Warning: Citation 'borrelli2001ieee' on page 76 undefined on input line 2
-23.
-
-[76]
+ [75] [76]
 File: Images/SystemCdesign_CRC.png Graphic file (type bmp)
 <Images/SystemCdesign_CRC.png>
  [77]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 257.
+               Default added (so using `tbp') on input line 258.
 
 File: Images/CrcBlockDiagram.png Graphic file (type bmp)
 <Images/CrcBlockDiagram.png>
 [78]
-File: Images/CRC_read.png Graphic file (type bmp)
-<Images/CRC_read.png>
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 319.
+
 File: Images/CRC_write.png Graphic file (type bmp)
 <Images/CRC_write.png>
- [79]
+[79]
 File: Images/CRC_API_Class_Diagram.png Graphic file (type bmp)
 <Images/CRC_API_Class_Diagram.png>
  [80]
@@ -2370,26 +2363,34 @@ File: Images/CoSimDesign.png Graphic file (type bmp)
 <Images/CoSimDesign.png>
 File: Images/MemoryIntegrity_StateDiagram.png Graphic file (type bmp)
 <Images/MemoryIntegrity_StateDiagram.png>
- [83]
 File: Images/MemoryIntegrity_CPU0SequenceDiagram.png Graphic file (type bmp)
 <Images/MemoryIntegrity_CPU0SequenceDiagram.png>
- [84]
+ [83]
+Underfull \hbox (badness 10000) in paragraph at lines 475--477
+
+ []
+
 File: Images/AppTimeDiagram.png Graphic file (type bmp)
 <Images/AppTimeDiagram.png>
- [85]
+[84]
 File: Images/Success_MemoryIntegrity.png Graphic file (type bmp)
 <Images/Success_MemoryIntegrity.png>
- [86]
+
+Underfull \hbox (badness 10000) in paragraph at lines 527--529
+
+ []
+
+[85]
 File: Images/AppTimeDiagramFailure.png Graphic file (type bmp)
 <Images/AppTimeDiagramFailure.png>
 File: Images/Failure_MemoryIntegrity1.png Graphic file (type bmp)
 <Images/Failure_MemoryIntegrity1.png>
 File: Images/Failure_MemoryIntegrity2.png Graphic file (type bmp)
 <Images/Failure_MemoryIntegrity2.png>
- [87]
+ [86]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 588.
+               Default added (so using `tbp') on input line 582.
 
 File: Images/Performance_CO_SIM.png Graphic file (type bmp)
 <Images/Performance_CO_SIM.png>
@@ -2397,30 +2398,30 @@ File: Images/Accuracy_CO_SIM.png Graphic file (type bmp)
 <Images/Accuracy_CO_SIM.png>
 File: Images/Host_CO_SIM.png Graphic file (type bmp)
 <Images/Host_CO_SIM.png>
-[88] [89]) [90]
+[87] [88]) [89]
 Chapter 5.
 --------------------
  5. Conclusions
 --------------------
-(./chapters/5_Conclusion.tex [91
+(./chapters/5_Conclusion.tex [90
 
-] [92]) [93] [94
+] [91]) [92] [93
 
 
-] [95] [96] [97]
+] [94] [95] [96]
 Overfull \hbox (8.47098pt too wide) in paragraph at lines 312--312
 []\TU/NewsGotT(0)/m/n/12 D. R. Jefferson, “  Virtual time,” \TU/NewsGotT(0)/m/i
 t/12 ACM Transactions on Programming Languages and Systems (TOPLAS)\TU/NewsGotT
 (0)/m/n/12 ,
  []
 
-[98]
+[97]
 Overfull \hbox (0.1712pt too wide) in paragraph at lines 312--312
 \TU/NewsGotT(0)/m/it/12 IEEE International Symposium on Performance Analysis of
  Systems & Software\TU/NewsGotT(0)/m/n/12 , IEEE, 2007, pp. 23–
  []
 
-[99] [100] (./Thesis_HugoRibeiro.aux)
+[98] [99] (./Thesis_HugoRibeiro.aux)
  ***********
 LaTeX2e <2023-06-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2429,17 +2430,8 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Thesis_HugoRibeiro.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Thesis_HugoRibeiro.out':
-(rerunfilecheck)             Before: 3495448DD3B97FA8B10FC58A47AC58CF;9585
-(rerunfilecheck)             After:  470DFAB10D5744B9CF3377F916D079AC;9572.
+Package rerunfilecheck Info: File `Thesis_HugoRibeiro.out' has not changed.
+(rerunfilecheck)             Checksum: 9C8FE61374C662754359B7C5B6DC9D67;9296.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                Thesis_HugoRibeiro
@@ -2450,12 +2442,12 @@ Package logreq Info: Writing requests to 'Thesis_HugoRibeiro.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53111 strings out of 475161
- 1096774 string characters out of 5766720
- 2237994 words of memory out of 5000000
+ 53110 strings out of 475161
+ 1096951 string characters out of 5766720
+ 2237940 words of memory out of 5000000
  74051 multiletter control sequences out of 15000+600000
  568670 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  110i,18n,107p,2346b,5784s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Thesis_HugoRibeiro.pdf (117 pages).
+Output written on Thesis_HugoRibeiro.pdf (116 pages).

@@ -139,6 +139,7 @@ STR   r1, [r0, r2]       // Store table entry
 	\end{subfigure}
 		
 	\caption{Redefinition of \textit{BasicPioDevice} functions}
+	\label{fig_Gem5ReadWrite}
 \end{figure}
  
 To implement a device in Gem5, a few aspects are mandatory. First of all, the peripheral's Python interface. In this document, it is 
@@ -238,12 +239,12 @@ the \autoref{fig_SystemCdesign_CRC}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{Images/SystemCdesign_CRC.png}
+	\includegraphics[width=0.5\textwidth]{Images/SystemCdesign_CRC.png}
 	\caption{SystemC design with CRC}
 	\label{fig_SystemCdesign_CRC}
 \end{figure}
 
-The peripheral's characteristics can be observed in the bullet points below, and the \autoref{fig_CrcBlockDiagram} demonstrates how it will function.
+The peripheral's characteristics can be observed in the bullet points below, and \autoref{fig_CrcBlockDiagram} demonstrates how it will function.
 
 \begin{itemize}
 	\item CRC-32 (Ethernet) polynomial: 0x4C11DB7
@@ -256,7 +257,7 @@ The peripheral's characteristics can be observed in the bullet points below, and
 
 \begin{figure}[]
 	\centering
- 	\includegraphics[width=0.6\linewidth]{Images/CrcBlockDiagram.png}
+ 	\includegraphics[width=0.65\linewidth]{Images/CrcBlockDiagram.png}
  	\caption{CRC block diagram}
 	 \label{fig_CrcBlockDiagram}
 \end{figure}
@@ -311,18 +312,11 @@ It is important to mention that modifications in this register when a \gls{crc} 
 compromise the output value. To conclude the available registers, are missing the CRC\_INIT and CRC\_IDR, which are used to initialize 
 the \gls{crc} calculator in the reset, and to hold a temporary 8-bit value related to \gls{crc} calculation, respectively. 
 
-Finally, the \autoref{fig_CRC_read} and \autoref{fig_CRC_write} demonstrate how the peripheral will behave depending on the defined settings 
-and desired operation. Before any execution, offset/size out-of-bounds, and permissions are verified to maintain the device's integrity. The 
-functionality of these parameters will be explained further. 
+Finally, the write command must be redefined to adhere to the peripheral characteristics, as demonstrated in \autoref{fig_CRC_write}.
+Since the read operation does not require a specific behavior depending on the desired registers, the aforementioned template does not demand any
+action.   
 
-\begin{figure}[H]
-	\centering
- 	\includegraphics[width=0.8\linewidth]{Images/CRC_read.png} 
- 	\caption{CRC read operation}
-	 \label{fig_CRC_read}
-\end{figure}
-
-\begin{figure}[t!]
+\begin{figure}[]
 	\centering
  	\includegraphics[width=0.7\linewidth]{Images/CRC_write.png}
  	\caption{CRC write operation}
@@ -330,19 +324,15 @@ functionality of these parameters will be explained further.
 \end{figure}
 
 
-Gem5
-
-Since the understudy device is 
-not available on this board, its implementation will be done in this memory region. In accordance with the remaining devices, 
-the memory from 0x10030000 to 0x1003FFFF will be reserved for SystemC \gls{crc}.
-
-
-%\subsection{Application Interface}
+Moving to Gem5, the first aspect to take care of is the definition of the memory region. Following the previously defined rule, for the understudy device 
+memory will be reserved from 0x10030000 to 0x1003FFFF. Then, the \gls{pte} entry must be created, with the \textit{DEVICE\_ADDR} parameter equal to 
+the beginning of the device's memory, which is 0x10030000. The last part is the implementation of the write and read functions. Concerning the 
+template present in the \autoref{fig_Gem5ReadWrite}, no modifications were needed to integrate this peripheral, therefore these were employed. 
 
 At this point, the user on the application side can write and read directly from memory without any restriction. However, it can be
 dangerous, in the way that the user can, by mistake, do an unpermitted operation. For example, write in reversed memory, causing a
 segmentation fault. To avoid this, it was developed an \gls{api} for the application side. Similar to STM32 microcontrollers that 
-utilize the HAL library, the \gls{crc} device will also have its own hardware abstraction layer. This layer is designed to expedite 
+utilize the HAL library, the \gls{crc} device will also have its own hardware abstraction layer. This layer is designed to speed up 
 development and enhance code clarity.
 
 \begin{figure}[H]
@@ -370,7 +360,7 @@ the main objective is not performance, but accuracy.
 It will be used one \gls{crc} and the \gls{uart}, to communicate with the user by the terminal.
 As referred, \gls{uart} is already implemented, hence it only requires its initialization and configuration. For the test, it will be used the 
 \gls{uart}0, which is present in the memory map from 0x1C090000 to 0x1C09FFFF.
-Regarding the remote connections, each device has one dedicated port. To connect to the \gls{uart}, the m5term can be utilized. It is
+To connect to the \gls{uart}, the m5term can be utilized. It is
 a dedicated program that allows the user to connect to the simulated console interface. When executing the simulation, this program does not
 launch automatically, therefore it must be manually called, with \textit{./m5term <host> <port>}.
 
@@ -444,7 +434,8 @@ conclude that the peripheral passed the validation since every expected output m
 
 \subsection{Memory Integrity}
 
-With the \gls{crc}'s validation, it is possible to simulate the scenario as described earlier. Similar to the validation test, 
+With the \gls{crc}'s validation, it is possible to simulate the scenario described at the beginning of this section. 
+Similar to the validation test, 
 from the application point of view, the system will execute 2 distinct jobs. \gls{cpu}0 will be responsible for 
 performing the memory integrity checks, while the remaining ones will execute a bubble sort algorithm, as presented in 
 the \autoref{fig_CoSimDesign}.
@@ -473,6 +464,7 @@ The bubble-sort test run in the remaining instaciated cores. Detail information 
 If its workload is concluded successfully and still there are memory verifications to carry out, the simulation continues since 
 the primary objective is not to evaluate the bubble-sort algorithm. 
 
+
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.7\linewidth]{Images/MemoryIntegrity_CPU0SequenceDiagram.png}
@@ -480,7 +472,8 @@ the primary objective is not to evaluate the bubble-sort algorithm.
 	\label{fig_MemoryIntegrity_CPU0SequenceDiagram}
 \end{figure}
 
-\subsection{Success Modeling}
+\textbf{Success Modeling}
+\newline
 
 In the first memory integrity test, the perfect scenario will be simulated, in other words, the memory will operate without any failures, 
 ensuring a well-functioning system. As represented in the \autoref{fig_MemoryIntegrity_StateDiagram}, there will be an interval between both 
@@ -531,7 +524,8 @@ designated tasks and the last memory comparison gives positive feedback.
 \end{figure}
 
 
-\subsection{Fault Modeling}
+\textbf{Fault Modeling}
+\newline
 
 In opposition to the first, this test will simulate a corrupted memory scenario, as shown in the \autoref{fig_AppTimeDiagramFailure}. 
 In order to achieve that, a failure will be injected into the memory with the \gls{gdb} tool. \gls{gdb} is a debugger 
