@@ -31,8 +31,9 @@ knowing the details of the benchmark enables us to calculate the optimal quantum
 remember that when increasing the quantum, while performance as a function of the quantum behaves similarly to a sigmoidal, inaccuracy 
 grows linearly \cite*{BeyondQuantumTDSim}.
 
-The case study provided a better understanding of how a co-simulation environment works. The implementation and validation of the 
-\gls{crc} device was done successfully, passing all the requirements. In addition, as part of the case study, 
+The developed co-simulation interface between SystemC and Gem5 provided a new work environment between the two platforms. Both can communicate
+easily and to multiple targets within the same simulation. As a case study to validate this cooperation, the \gls{crc} device was chosen, 
+passing all the requirements successfully. In addition, as part of the case study, 
 memory integrity tests were designed and performed, where either for the success or the failure modeling, the expected results matched
 with the real ones. On the other part, it was possible to verify that the dynamic quantum yielded improved results even with a significant 
 time consumption in the communication between tools. Further, accuracy was always above 99\%, enchanting its performance. 
