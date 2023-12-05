@@ -37,37 +37,37 @@
 \contentsline {section}{\numberline {2.7}Co-Simulation}{40}{section.104}%
 \contentsline {subsection}{\numberline {2.7.1}Co-Simulation on Gem5}{41}{subsection.107}%
 \contentsline {chapter}{\numberline {3}Dynamic Quantum Extension}{42}{chapter.108}%
-\contentsline {section}{\numberline {3.1}Benchmarks}{42}{section.110}%
-\contentsline {subsection}{\numberline {3.1.1}Bare-metal Bubble Sort}{43}{subsection.112}%
-\contentsline {subsection}{\numberline {3.1.2}NPB}{44}{subsection.114}%
-\contentsline {section}{\numberline {3.2}ADALINE}{45}{section.115}%
-\contentsline {subsection}{\numberline {3.2.1}Adaptive Filter}{46}{subsection.118}%
-\contentsline {subsection}{\numberline {3.2.2}TDL}{48}{subsection.121}%
-\contentsline {subsection}{\numberline {3.2.3}Quantum Increment}{49}{subsection.124}%
-\contentsline {subsection}{\numberline {3.2.4}Results}{50}{subsection.126}%
-\contentsline {section}{\numberline {3.3}Increment Algorithm}{52}{section.128}%
-\contentsline {subsection}{\numberline {3.3.1}Results}{54}{subsection.133}%
-\contentsline {section}{\numberline {3.4}PC Algorithm}{56}{section.135}%
-\contentsline {subsection}{\numberline {3.4.1}Forecast}{57}{subsection.137}%
-\contentsline {subsection}{\numberline {3.4.2}Increment Algorithm Update}{58}{subsection.141}%
-\contentsline {subsection}{\numberline {3.4.3}Results}{59}{subsection.142}%
-\contentsline {section}{\numberline {3.5}Repetition Algorithm}{61}{section.144}%
-\contentsline {subsection}{\numberline {3.5.1}Hare-Tortoise Algorithm}{61}{subsection.146}%
-\contentsline {subsection}{\numberline {3.5.2}Quantum Calculation}{63}{subsection.149}%
-\contentsline {subsection}{\numberline {3.5.3}Results}{64}{subsection.151}%
-\contentsline {section}{\numberline {3.6}Final Algorithm}{66}{section.153}%
-\contentsline {subsection}{\numberline {3.6.1}Results}{66}{subsection.155}%
-\contentsline {chapter}{\numberline {4}Co-Simulation on Gem5}{69}{chapter.157}%
-\contentsline {section}{\numberline {4.1}Framework Proposal}{69}{section.158}%
-\contentsline {subsection}{\numberline {4.1.1}SystemC}{70}{subsection.160}%
-\contentsline {subsection}{\numberline {4.1.2}Gem5}{71}{subsection.163}%
-\contentsline {subsection}{\numberline {4.1.3}TLM Wrapper}{73}{subsection.187}%
-\contentsline {section}{\numberline {4.2}CRC as a Case Study}{77}{section.192}%
-\contentsline {subsection}{\numberline {4.2.1}Peripheral Development}{77}{subsection.193}%
-\contentsline {subsection}{\numberline {4.2.2}Peripheral Validation}{80}{subsection.199}%
-\contentsline {subsection}{\numberline {4.2.3}Memory Integrity}{83}{subsection.242}%
-\contentsline {section}{\numberline {4.3}Dynamic Quantum Integration}{87}{section.251}%
-\contentsline {chapter}{\numberline {5}Conclusions}{90}{chapter.253}%
-\contentsline {section}{\numberline {5.1}Developed Work}{90}{section.254}%
-\contentsline {section}{\numberline {5.2}Future Work}{91}{section.255}%
-\contentsline {chapter}{References}{93}{section*.256}%
+\contentsline {section}{\numberline {3.1}Introduction}{42}{section.109}%
+\contentsline {subsection}{\numberline {3.1.1}Par-gem5 Changes}{43}{subsection.112}%
+\contentsline {subsection}{\numberline {3.1.2}Benchmarks}{44}{subsection.113}%
+\contentsline {section}{\numberline {3.2}ADALINE}{46}{section.115}%
+\contentsline {subsection}{\numberline {3.2.1}Adaptive Filter}{47}{subsection.118}%
+\contentsline {subsection}{\numberline {3.2.2}TDL}{49}{subsection.121}%
+\contentsline {subsection}{\numberline {3.2.3}Quantum Increment}{50}{subsection.124}%
+\contentsline {subsection}{\numberline {3.2.4}Results}{51}{subsection.126}%
+\contentsline {section}{\numberline {3.3}Increment Algorithm}{53}{section.128}%
+\contentsline {subsection}{\numberline {3.3.1}Results}{55}{subsection.133}%
+\contentsline {section}{\numberline {3.4}PC Algorithm}{57}{section.135}%
+\contentsline {subsection}{\numberline {3.4.1}Forecast}{58}{subsection.137}%
+\contentsline {subsection}{\numberline {3.4.2}Increment Algorithm Update}{59}{subsection.141}%
+\contentsline {subsection}{\numberline {3.4.3}Results}{60}{subsection.142}%
+\contentsline {section}{\numberline {3.5}Repetition Algorithm}{62}{section.144}%
+\contentsline {subsection}{\numberline {3.5.1}Hare-Tortoise Algorithm}{62}{subsection.146}%
+\contentsline {subsection}{\numberline {3.5.2}Quantum Calculation}{64}{subsection.149}%
+\contentsline {subsection}{\numberline {3.5.3}Results}{65}{subsection.151}%
+\contentsline {section}{\numberline {3.6}Final Algorithm}{67}{section.153}%
+\contentsline {subsection}{\numberline {3.6.1}Results}{67}{subsection.155}%
+\contentsline {chapter}{\numberline {4}Co-Simulation on Gem5}{70}{chapter.158}%
+\contentsline {section}{\numberline {4.1}Framework Proposal}{70}{section.159}%
+\contentsline {subsection}{\numberline {4.1.1}SystemC}{71}{subsection.161}%
+\contentsline {subsection}{\numberline {4.1.2}Gem5}{72}{subsection.164}%
+\contentsline {subsection}{\numberline {4.1.3}TLM Wrapper}{74}{subsection.188}%
+\contentsline {section}{\numberline {4.2}CRC as a Case Study}{78}{section.193}%
+\contentsline {subsection}{\numberline {4.2.1}Peripheral Development}{78}{subsection.194}%
+\contentsline {subsection}{\numberline {4.2.2}Peripheral Validation}{81}{subsection.200}%
+\contentsline {subsection}{\numberline {4.2.3}Memory Integrity}{84}{subsection.243}%
+\contentsline {section}{\numberline {4.3}Dynamic Quantum Integration}{88}{section.252}%
+\contentsline {chapter}{\numberline {5}Conclusions}{91}{chapter.254}%
+\contentsline {section}{\numberline {5.1}Developed Work}{91}{section.255}%
+\contentsline {section}{\numberline {5.2}Future Work}{92}{section.256}%
+\contentsline {chapter}{References}{94}{section*.257}%

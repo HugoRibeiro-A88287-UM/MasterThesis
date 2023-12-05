@@ -18,8 +18,8 @@ simulation performance and weak accuracy gain, the repetition algorithm was excl
 %talk about the simulation results of the final algorithm
 Several tests were performed to evaluate it. In the end, it can be concluded the use of the dynamic version for the quantum choice brings 
 greater benefits. When the NPB BT, LU, and SP with 32 and 64 simulated cores are not considered, there are gains in performance almost 
-reaching 10\%, only sacrificing 0.5\% of accuracy. As mentioned on \autoref{cap:NPB}, the previous tests have a particular characteristic, 
-which is they executed nonlinear partial differential equations. This workload does not require interprocess communications thus, 
+reaching 10\%, only sacrificing 0.5\% of accuracy. As mentioned on \autoref{cap:BM}, the previous tests have a particular characteristic, 
+which is they executed nonlinear partial differential equations. This workload does not require inter-process communications thus, 
 quantum can be increased without losing significant accuracy. The dynamic algorithm was designed to make it harder to increase the 
 quantum value as the number of cores increases, due to the conclusions obtained in the par-gem5 \cite*{pargem5} work. For this reason, 
 this type of benchmark obtains a meaningful drop in performance when more than 16 cores are being simulated. However, the 

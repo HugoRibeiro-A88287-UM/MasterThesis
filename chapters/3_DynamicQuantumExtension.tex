@@ -11,31 +11,22 @@ increment value. \gls{pc} algorithm analyses the executed instructions to identi
 support for the remaining ones, meaning they cannot function independently. The last one tries to identify loops within the execution of the 
 simulation to accordingly adapt the quantum.
 
-The following sections will outline the advantages and disadvantages of each algorithm, consistently comparing their performance with the 
-previous scenario. In the last section, the final algorithm will be exposed, comparing its results with the static version already present in the
+The first section will present an introduction to the developed extension, where the changes in par-gem5 and the used benchmarks will be exploited.
+After that, the remaining sections will outline the advantages and disadvantages of each algorithm, consistently comparing their performance with the 
+previous scenario. In the last one, the final algorithm will be exposed, comparing its results with the static version already present in the
 par-gem5.
 
-\begin{figure}[]
-	\centering
- 	\includegraphics[width=0.35\linewidth]{Images/GlobalSyncEventStatic.png}
- 	\caption{Quantum definition in the synchronization process}
-	 \label{fig_GlobalSyncEventStatic}
-\end{figure}
 
-In the current state of par-gem5, the quantum attribution is done as presented in the \autoref{fig_GlobalSyncEventStatic}. The simulator enters a synchronization state 
-that establishes whether the simulation should continue or not. If affirmative, the next synchronization is scheduled for the current time plus 
-the pre-defined quantum. If not, it finishes the workload. The red rectangle defines the zone where the adaptive quantum should be implemented, 
-in a way that the schedule function will use, for the next synchronization event, the quantum resulting from the algorithm. 
+\section{Introduction}
 
-\section{Benchmarks}
+Before going into the algorithms' design, a brief introduction about the changes in par-gem5 and the used benchmarks must be done. These changes 
+were done to integrate the usage of the dynamic quantum, and to better evaluate, at the end of the simulation, its performance. 
 
-When an engineer designs an \gls{asic}, for example, in the end, he needs to verify if the project meets the requirements. Therefore, the engineer 
-needs to execute tests, or benchmarks, to perform the evaluation. They are designed to measure performance, capabilities, efficiency, 
-and other system components. There are different types of benchmarks, each one emphasizing an area of interest. 
-Some examples are \gls{cpu}, network, and storage. 
-
-In the context of this dissertation, it will be used two \gls{cpu} benchmarks, the bare-metal bubble sort and the \gls{npb}. The host and the 
-target systems have the configurations present in the \autoref{tab:hostSystemConfig} and \autoref{tab:targetSystemConfig} respectively.   
+Since the main objective is to evaluate the algorithms' execution, it is necessary to know exactly what type of tests these will be facing. Some 
+workloads focus more on performance, while others prioritize inter-process communications, for example. Moreover, the host and target systems
+configurations must also be provided, as different configurations may result in different performance results. Thereby, 
+the \autoref{tab:hostSystemConfig} and \autoref{tab:targetSystemConfig} show the utilized setup for both host and target systems, respectively, 
+for all executed benchmarks.
 
 \begin{table}[!htb]
     \caption{System Configurations}
@@ -70,8 +61,64 @@ target systems have the configurations present in the \autoref{tab:hostSystemCon
     \end{minipage} 
 \end{table}
 
-\subsection{Bare-metal Bubble Sort}
-\label{cap:BM_BS}
+In the current state of par-gem5, the quantum attribution is done as presented in the \autoref{fig_GlobalSyncEventStatic}. The simulator enters a synchronization state 
+that establishes whether the simulation should continue or not. If affirmative, the next synchronization is scheduled for the current time plus 
+the pre-defined quantum. If not, it finishes the workload. The red rectangle defines the zone where the adaptive quantum should be implemented, 
+in a way that the schedule function will use, for the next synchronization event, the quantum resulting from the algorithm. 
+
+\begin{figure}[]
+	\centering
+ 	\includegraphics[width=0.35\linewidth]{Images/GlobalSyncEventStatic.png}
+ 	\caption{Quantum definition in the synchronization process}
+	 \label{fig_GlobalSyncEventStatic}
+\end{figure}
+
+
+\subsection{Par-gem5 Changes}
+
+To integrate the dynamic quantum two changes were done on the original version of par-gem5. The first and most important one is the creation 
+of the \textit{QuantumMode}, and the other is the inclusion of more simulation statistics, particularly regarding the dynamic algorithm. 
+
+Par-gem5 has two possible simulation modes, sequential and parallel with a static quantum. When the user chooses a parallel mode, 
+the simulator already knows that it will use a static quantum. If the user previously provides a value, it will be applied as the new 
+synchronization time otherwise, a default value is selected (1 microsecond). By adding the dynamic version, the user needs to specify which one
+will be employed, hence the prior approach does not work.
+
+Concerning this, the \textit{QuantumMode} type was created to adhere to the new situation. This variable type can have two states, static or 
+dynamic, representing the two available versions. To integrate it into the simulator and be able to recognize it, a couple of steps were done. 
+First of all, in the \textit{params.py} file, the \textit{QuantumMode} was defined and added to the list of the simulator's available types. After 
+that, the \textit{quantum.py} file was created to implement the name translation, due to the fact that the names used on the user side are 
+different from the simulator side. Then, in the \textit{Root.py} file, it was added the \textit{QuantumMode} parameter in order to allow the user 
+to select the desired option. By last, the \textit{simulate.cc} was modified to be able to select between the two versions. Furthermore, an 
+alteration was required on the \textit{QuantumGlobalSyncEvent} to be capable of identifying, in the synchronization process, which version 
+is being used. 
+
+At the end of each simulation, par-gem5 provides a set of statistics that reflect the behavior of the performed simulation. Examples are 
+the number of quanta with at least one postponed event (\textit{errQuanta}), the absolute error of par-gem5 in seconds (\textit{errSimSeconds}), 
+and the number of events postponed (\textit{eventsPostponed}). However, to have a better view of how the dynamic algorithm was executed, 
+the \textit{quantumMean} and \textit{DynReset} statistics were included in the final simulation results. 
+
+The first, as the name suggests, refers to the mean of applied quantum. During the simulation, the dynamic algorithm may vary the quantum 
+value over the simulation process hence, it may be useful to have an idea of how the simulation was conducted. For instance, if the workload was 
+focused on performance and the \textit{quantumMean} gives a small value, it might be a sign that something went badly. The development of a 
+dynamic algorithm can be another example since this data can reveal if, in some tests, the quantum was or was not the most adequate.
+
+The \textit{DynReset} gives information about how many times the dynamic algorithm had to reset. This might happen when the dynamic system 
+becomes unstable, providing illogical quantum values. Later in this chapter will be explained better this concept. 
+
+\subsection{Benchmarks}
+\label{cap:BM}
+
+When an engineer designs an \gls{asic}, for example, in the end, he needs to verify if the project meets the requirements. Therefore, the engineer 
+needs to execute tests, or benchmarks, to perform the evaluation. They are designed to measure performance, capabilities, efficiency, 
+and other system components. There are different types of benchmarks, each one emphasizing an area of interest. 
+Some examples are \gls{cpu}, network, and storage. 
+
+In the context of this dissertation, it will be used two \gls{cpu} benchmarks, the bare-metal bubble sort and the \gls{npb}.
+\newline
+
+\textbf{Bare-metal Bubble Sort}
+\newline
 
 The main objective of this benchmark, as implied by its name, is to rearrange an array in such a way that elements with higher values are 
 positioned at the top. The algorithm employed for this task is quite straightforward. It involves a loop that iterates through the input list, 
@@ -97,9 +144,10 @@ This benchmark operates in a bare-metal environment, which means it is implement
 setup, the program runs directly on the hardware without the mediation or assistance of an operating system. This approach is often chosen for 
 performance-critical or resource-constrained applications where direct control over the hardware is necessary, and there is no need for the 
 additional services and abstractions provided by an operating system.
+\newline
 
-\subsection{NPB}
-\label{cap:NPB}
+\textbf{NPB}
+\newline
 
 \gls{npb} \cite{bailey1994parallel} is a group of a small set of programs designed to help the performance evaluation of parallel 
 supercomputers. In total, there are eight benchmark specifications, five kernels, and three pseudo-applications. The kernel benchmarks are:
@@ -128,6 +176,8 @@ mathematical problems.
 Moreover, \gls{npb} implemented benchmark classes, that is, the problem size of each workload can be modified. There were implemented 8 problem 
 sizes (S, W, A, B, C, D, E, and F), where S is the smaller one and F is the bigger one. In the context of this dissertation, only the W size 
 will be considered.
+
+
 
 \section{ADALINE}
 
@@ -736,12 +786,32 @@ Moving to accuracy, in all workloads, the dynamic approach only exceeded the 5\%
 version performed worst, having six occurrences. In the remaining cases, on average, there was an increment of 0.5\% of inaccuracy when 
 using the developed algorithm.
 
+It is important to mention that, in the dynamic case, all of these occurrences are related to 
+simulation issues inherent in par-gem5 nature. In other words, the sum/subtraction of the sequential target time with the 
+worst-case scenario may give a smaller/higher value than the obtained target time. \autoref{fig_pargem5_Issue} demonstrates the previously described 
+scenario. The target time obtained must be within the maximum inaccuracy, which sometimes does not verify. In these cases, the simulation result 
+should not be considered, and for this reason, the dynamic version occurrences were discarded. Meanwhile, the static version also had cases regarding 
+this subject but does not represent its totality. %Casos do static, numero concreto
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Images/pargem5_Issue1.png}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.8\textwidth]{Images/pargem5_Issue2.png}
+    \end{subfigure}
+
+    \caption{Simulation issue in par-gem5}
+	\label{fig_pargem5_Issue}
+\end{figure}
+
 Finally, in terms of host time, the results are again very positive for the dynamic version. Until 4 simulated cores, only one case did not 
 show improvements, and in the left cases, the major part show also gains. There are still situations where it does not verify, 
 especially when 32 and 64 simulated cores. However, it is crucial to emphasize that accuracy should exceed 95\%, a criterion that is 
 not met in certain cases, such as NPB IS.
-
-
 
 
 
