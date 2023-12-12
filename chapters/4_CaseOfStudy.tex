@@ -1,19 +1,27 @@
 
-This chapter presents a co-simulation environment using gem5 and SystemC. Since none of the previously mentioned works fully adhere to this 
-topic, it was designed and developed an interface where both frameworks can work in parallel. Further, it was selected a 
+This chapter presents a communication interface for different simulator domains. These will be integrated into Gem5 and SystemC, representing 
+a new contribution since no existing solutions are present in the current state of the art. Further, it was selected a 
 case study, which serves as a stimulus for system design and demonstrates 
-the practical application of the developed work. The chosen case study focuses on the \gls{crc} peripheral,
-which is present in several microcontroller families, such as STM32 \cite{referenceManualRM0385} or Xilinx Zynq \cite{xilinx2014zynq} 
-nevertheless, VExpress\_gem5, which is a board introduced by Gem5, does not include it.
+the practical application of the developed work. The chosen case study focuses on the \gls{crc} peripheral, developed on SystemC which interfaces 
+as an external peripheral on gem5's board. 
 
-In conclusion, par-gem5 with both static and dynamic versions will be tested with the developed interface. The previous tests, which were all done 
-in the sequential mode, will be the reference for these. The main objective is to determine which approach is better in the different situations.
-
+To close the chapter, par-gem5 with both static and dynamic versions will be tested with the developed interface. 
+All preceding tests, which were conducted in sequential mode, will be used as an evaluation reference. At the end, the 
+better approach for various situations will be selected.
 
 \section{Framework Proposal}
 
 As mentioned earlier in this dissertation, co-simulation involves the integration of multiple simulation tools from different
-domains. Because of that, it is required to develop a system that could execute and communicate among them. The following picture
+domains. Therefore, it is required to develop a system that could execute and communicate among them. This system must adhere to three key 
+aspects to ensure a well-functioning environment. The first one is data integrity. Both tools must respect the defined data exchange standards 
+otherwise, data may become corrupted, creating a failure in the simulation. The second aspect is data exchange. Proper delineation of the 
+interface where data will flow is important as well. Missing this may result in faulty communication channels. The last one is the synchronization 
+between both simulators, since improper synchronization may lead to causality errors.
+
+Regarding these concerns, it was proposed the framework presented in the following picture. %Continuar seguindo as dicas do Rui
+
+
+The following picture
 demonstrates how the different tools will communicate with each other.
 
 \begin{figure}[H]
@@ -84,6 +92,10 @@ consists of a motherboard and two daughterboards. The system provides a range of
 On-chip devices include the Generic Interrupt Controller (GIC), an LCD controller, and system timers.
 Off-chip devices contain the Keyboard and Mouse Interface (KMI), Real-Time Clock (RTC), and \gls{uart}. 
 The platform's memory map is divided into the next sections.
+
+present in several microcontroller families, such as STM32 \cite{referenceManualRM0385} or Xilinx Zynq \cite{xilinx2014zynq} 
+nevertheless, VExpress\_gem5, which is a board introduced by Gem5, does not include it.
+
 
 \def\mydots{\xleaders\hbox to0.25em{\hfill.\hfill}\hfill}
 

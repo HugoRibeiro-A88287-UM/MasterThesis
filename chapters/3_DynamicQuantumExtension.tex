@@ -317,7 +317,7 @@ trade-off, wherein performance is compromised. To strike the optimal balance, it
 should occur when no errors are detected in the system. \autoref{fig_ADALINE_v1} presents the flowchart for the ADALINE-based algorithm.
 
 \begin{figure}[H]
- 	\includegraphics[width=0.4\linewidth]{Images/ADALINE_v1.png}
+ 	\includegraphics[width=0.32\linewidth]{Images/ADALINE_v1.png}
  	\caption{ADALINE flowchart}
 	 \label{fig_ADALINE_v1}
 \end{figure}
@@ -329,6 +329,7 @@ with a high value the accuracy may be ruined. According to \cite{pargem5}, the q
 two thus, it was chosen to use an increment 10 times lower. This value enables a significant balance without causing any harm.
 
 \subsection{Results}
+\label{sec:ADALINE_results}
 
 The aforementioned benchmarks executed the developed algorithm with different numbers of cores. The results obtained are depicted in the 
 \autoref{fig:results_ADA}. 
@@ -394,7 +395,7 @@ The new flowchart is represented in the next figure.
 
 \begin{figure}[H]
 	\centering
- 	\includegraphics[width=0.4\linewidth]{Images/ADALINE_v2.png}
+ 	\includegraphics[width=0.32\linewidth]{Images/ADALINE_v2.png}
  	\caption{ADALINE-based and step ladder algorithms combined}
 	 \label{fig_ADALINE_v2}
 \end{figure}
@@ -578,7 +579,7 @@ the quantum was reduced, triggering the flag.
 \subsection{Results}
 
 The results of the bare-metal bubble-sort and \glspl{npb} benchmarks execution are presented in the \autoref{fig:results_ADAINCPC}. As previously, 
-A-SL refers to the results of the combination of the ADALINE-based and step ladder algorithms, and A-SL-IFP points to the 
+A-SL refers to the results of the combination of the ADALINE-based and step ladder algorithms, and IFP points to the 
 \gls{ifp} algorithm intervention results.
 
 As expected, there was a drop in the performance gain when compared to the previous. This was about 5\%, which in practice, 
@@ -707,41 +708,101 @@ The quantum starts with the minimum value, which is the clock period, and increm
 
 \subsection{Results}
 
-\autoref{fig:results_ADAINCPCREP} exhibits the results of the executed benchmarks with the previous (A-SL-IFP) and new (LD) configurations. 
+\autoref{fig:results_ADAINCPCREP} exhibits the results of the executed benchmarks with the previous (IFP) and new (LD) configurations. 
+When compared with the previous algorithm, the new one does not bring a better tradeoff between performance and accuracy. 
+In reality, it is the opposite, that is, the loop detection action resulted in a loss of benefits. 
+
 
 \begin{figure}[H]
 \centering
 \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.8\textwidth]{Images/Performance_ADA.png}
+    \includegraphics[width=0.8\textwidth]{Images/Performance_REP.png}
     \caption{ Performance gain}
     \label{fig:Performance_ADAINCPCREP}
 \end{subfigure}
 \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.8\textwidth]{Images/Accuracy_ADA.png}
+    \includegraphics[width=0.8\textwidth]{Images/Accuracy_REP.png}
     \caption{ Accuracy lost}
     \label{fig:Accuracy_ADAINCPCREP}
 \end{subfigure}
 \begin{subfigure}{\textwidth}
     \centering
-    \includegraphics[width=0.8\textwidth]{Images/Host_ADA.png}
+    \includegraphics[width=0.8\textwidth]{Images/Host_REP.png}
     \caption{ Host time save}
     \label{fig:Host_ADAINCPCREP}
 \end{subfigure}
         
-\caption{Repetitions algorithm results}
+\caption{Loop detection algorithm results}
 \label{fig:results_ADAINCPCREP}
 \end{figure}
 
+Performance, and consequently, host time were the ones that experienced the most decline. Nearly every simulated scenario exhibited it, 
+with particular emphasis on the NPB EP case, where the loss was around 97\%. Overall, the performance drop was, on average, almost 40\%, 
+representing in host time, also on average, a reduction of 3\%. Although it is a small value compared to the previous one, it can reflect a huge 
+difference, like the case of NPB LU with 16 simulated cores. In percentage, the host time difference is almost 2.5\% however, 
+the actual time difference is 1433 seconds, that is, almost 24 minutes. 
+
+On the accuracy side, the gains were not as evident as expected. In some cases, there was a growth in the inaccuracy, having inclusively overpassed
+the 5\% limit in the two cases. There are also others where there was a reduction, for example, the NPB FT with 16 cores and the NPB MG with 32 
+cores. Negative inaccuracy is still present due to the exposed reasons in the section \ref{sec:ADALINE_results}. 
+
+In the final analysis, the performance sacrifice does not reflect a relevant gain in accuracy. Nevertheless, there is one case, NPB CG, where until 
+eight simulated cores, the performance was a little bit better than the approach presented in the last section. Concerning this exception, a deeper look 
+was done at this benchmark using the perf, a performance analysis tool for Linux that provides a framework for both hardware and software-level 
+features. After analysing the NPB CG, the result present in the \autoref{fig_NPBCG_CycleAnalysis} was obtained. 
+
+\begin{figure}[H]
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{Images/NPBCG_CycleAnalysis.png}
+        \caption{ NPB CG performance analysis}
+        \label{fig_NPBCG_CycleAnalysis}
+    \end{subfigure}
+    \begin{subfigure}{\textwidth}
+        \centering
+        \includegraphics[width=0.6\textwidth]{Images/NPBCG_MostTimeSpentRegion.png}
+        \caption{ Region of greatest time cost in NPB CG}
+        \label{fig_NPBCG_MostTimeSpentRegion}
+    \end{subfigure}
+\end{figure}
+
+It is evident that there is a specific part within this benchmark where the simulator consumes the major processing time. This part is 
+exposed in the \autoref{fig_NPBCG_MostTimeSpentRegion}. If all percentages that are associated with an instruction with a green or red color 
+were summed, the outcome would be nearly 94\% of time spent. Examining the benchmark's source code can be identified the previous region, which is 
+shown below. 
 
 
-%Usar os resultados que já tenho, Verificar se está tudo
+\begin{lstlisting}[language=C, caption={Source code of NPB CG snippet}, label=CodeNpbCgSnippet]
+//---------------------------------------------------------------------
+//  q = A.p
+//  The partition submatrix-vector multiply: use workspace W
+//---------------------------------------------------------------------
+for (cgit = 1; cgit <= cgitmax; cgit++) 
+{
+    //...//
 
-%COnclusão é que a performance e muito sacrificada
+    for (j = 0; j < lastrow - firstrow + 1; j++) 
+    {
+        sum = 0.0;
 
-%O caso do CG e caso unico, explicar porque com prints que tenho guardadas
-%Falar da natureza do CG algorithm
+        for (k = rowstr[j]; k < rowstr[j+1]; k++) 
+        {
+            sum = sum + a[k]*p[colidx[k]];
+        }
+
+        q[j] = sum;
+    }
+
+    //...//
+}
+\end{lstlisting}
+
+Upon the code examination, it is evident that three nested loops perform repetitive tasks. In other words, there are no conditional 
+statements to modify the workflow path, which does not happen on the remaining benchmarks. Thereby, it can be stated that this type of 
+workload takes advantage of this approach, obtaining better results. For this reason, this algorithm should not be discarded, as potential 
+future optimizations designed for specific tasks may necessitate this approach.
 
 \section{Improved Baseline Algorithm}
 \label{subsec::finalAlgorithm}
@@ -770,19 +831,19 @@ The next graphs present a comparison between the improved baseline algorithm and
     \centering
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=0.8\textwidth]{Images/Performance_FINAL.png}
+        \includegraphics[width=0.82\textwidth]{Images/Performance_FINAL.png}
         \caption{ Performance gain}
         \label{fig:Performance_FINAL}
     \end{subfigure}
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=0.8\textwidth]{Images/Accuracy_FINAL.png}
+        \includegraphics[width=0.82\textwidth]{Images/Accuracy_FINAL.png}
         \caption{ Accuracy lost}
         \label{fig:Accuracy_FINAL}
     \end{subfigure}
     \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=0.8\textwidth]{Images/Host_FINAL.png}
+        \includegraphics[width=0.82\textwidth]{Images/Host_FINAL.png}
         \caption{ Host time save}
         \label{fig:Host_FINAL}
     \end{subfigure}
@@ -799,14 +860,14 @@ tests, the gain average would be almost 10\%.
 
 Moving to accuracy, in all workloads, the dynamic approach only exceeded the 5\% inaccuracy in two cases. On the other hand, the static 
 version performed worst, having six occurrences. In the remaining cases, on average, there was an increment of 0.5\% of inaccuracy when 
-using the developed algorithm.
+using the developed algorithm. As previously discussed, the issue of negative inaccuracy persists in both approaches, as has been observed thus far.
 
 It is important to mention that, in the dynamic case, all of these occurrences are related to 
 simulation issues inherent in par-gem5 nature. In other words, the sum/subtraction of the sequential target time with the 
 worst-case scenario may give a smaller/higher value than the obtained target time. \autoref{fig_pargem5_Issue} demonstrates the previously described 
 scenario. The target time obtained must be within the maximum inaccuracy, which sometimes does not verify. In these cases, the simulation result 
-should not be considered, and for this reason, the dynamic version occurrences were discarded. Meanwhile, the static version also had cases regarding 
-this subject but does not represent its totality. %Casos do static, numero concreto
+should not be considered, and for this reason, the dynamic version occurrences were discarded. Meanwhile, the static version exhibited similar cases, 
+with two of six representing this particular situation. 
 
 \begin{figure}[H]
     \centering
