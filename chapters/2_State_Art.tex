@@ -2,7 +2,7 @@
 This chapter establishes the needed concepts to accomplish and understand this work. First of all, it will start with the simulation topic, what 
 it is, and why it is so important. Embedded systems are briefly contextualized, highlighting the connection they share with 
 the previous topic. Then, simulation types and modes are introduced, with a special focus on the ones that will be used in this dissertation. 
-The Gem5 simulator will be presented in detail since it is the framework where all the development will be done. To conclude, machine learning 
+Gem5 will be presented in detail since it is the simulator where all the development will be done. To conclude, machine learning 
 and co-simulation will end this chapter, providing a short view of these topics in the project's context.
 
 
@@ -725,12 +725,12 @@ approaches are \cite{busnot2020standard} and \cite{optimist2}. For \cite{dist-ge
 \section{Gem5}
 
 One available \gls{fss} used in academia and industry is the Gem5 simulator \cite{TheGem5Simulator}\cite{Thegem5simulatorV2}. It had its roots 
-in 2011, from the merge between M5 \cite{TheM5Simulator}, a \gls{cpu} simulation framework, and the multifacet \gls{gems} toolset \cite{TheGEMS}. 
-With this combination, it is possible to use the best of both frameworks, the effective support of multiple \glspl{isa} and the cache memory 
+in 2011, from the merge between M5 \cite{TheM5Simulator}, and the multifacet \gls{gems} toolset \cite{TheGEMS}. 
+With this combination, it is possible to use the best of both tools, the effective support of multiple \glspl{isa} and the cache memory 
 and cache coherence models. It is also the result of the work between AMD, ARM, HP, MIPS, Princeton, MIT, the Universities of Michigan, Texas, 
 Wisconsin, and many other institutions.
 
-In addition, Gem5 came to overcome a demand in the market at the time. The main highlights are the flexible framework for researchers to 
+In addition, Gem5 came to overcome a demand in the market at the time. The main highlights are the flexible tool for researchers to 
 evaluate their design in several different ways; Licensing terms that allow researchers and academia to work together without the pressure 
 of revealing the proprietary information, in the industry case, or not getting credits for their contributions; Defined code style that ensures 
 the code quality remains good so new collaborators understand faster and better the code \cite{TheGem5Simulator}. 
@@ -879,7 +879,7 @@ required in the Python script to execute the simulation
 
 \pagebreak
 
-\begin{lstlisting}[language=Python, caption=Script to instantiate and execute the simulation]
+\begin{lstlisting}[style=customPython, caption=Script to instantiate and execute the simulation]
     #create the system to simulate
     system = MySystem ( opts )
 

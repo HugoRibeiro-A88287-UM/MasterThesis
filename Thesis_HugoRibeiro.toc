@@ -59,15 +59,15 @@
 \contentsline {subsection}{\numberline {3.6.1}Results}{69}{subsection.179}%
 \contentsline {chapter}{\numberline {4}Co-Simulation on Gem5}{72}{chapter.182}%
 \contentsline {section}{\numberline {4.1}Framework Proposal}{72}{section.183}%
-\contentsline {subsection}{\numberline {4.1.1}SystemC}{73}{subsection.185}%
-\contentsline {subsection}{\numberline {4.1.2}Gem5}{74}{subsection.188}%
-\contentsline {subsection}{\numberline {4.1.3}TLM Wrapper}{76}{subsection.212}%
+\contentsline {subsection}{\numberline {4.1.1}Remote Port}{73}{subsection.185}%
+\contentsline {subsection}{\numberline {4.1.2}SystemC}{77}{subsection.190}%
+\contentsline {subsection}{\numberline {4.1.3}Gem5}{78}{subsection.193}%
 \contentsline {section}{\numberline {4.2}CRC as a Case Study}{80}{section.217}%
-\contentsline {subsection}{\numberline {4.2.1}Peripheral Development}{80}{subsection.218}%
-\contentsline {subsection}{\numberline {4.2.2}Peripheral Validation}{83}{subsection.224}%
+\contentsline {subsection}{\numberline {4.2.1}Peripheral Development}{81}{subsection.218}%
+\contentsline {subsection}{\numberline {4.2.2}Peripheral Validation}{84}{subsection.224}%
 \contentsline {subsection}{\numberline {4.2.3}Memory Integrity}{86}{subsection.267}%
-\contentsline {section}{\numberline {4.3}Dynamic Quantum Integration}{90}{section.276}%
-\contentsline {chapter}{\numberline {5}Conclusions}{93}{chapter.278}%
-\contentsline {section}{\numberline {5.1}Developed Work}{93}{section.279}%
-\contentsline {section}{\numberline {5.2}Future Work}{94}{section.280}%
-\contentsline {chapter}{References}{96}{section*.281}%
+\contentsline {section}{\numberline {4.3}Dynamic Quantum Integration}{91}{section.276}%
+\contentsline {chapter}{\numberline {5}Conclusions}{94}{chapter.278}%
+\contentsline {section}{\numberline {5.1}Developed Work}{94}{section.279}%
+\contentsline {section}{\numberline {5.2}Future Work}{95}{section.280}%
+\contentsline {chapter}{References}{97}{section*.281}%

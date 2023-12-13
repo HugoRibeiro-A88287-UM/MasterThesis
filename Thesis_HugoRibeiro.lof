@@ -64,25 +64,25 @@
 \contentsline {figure}{\numberline {3.24}{\ignorespaces Improved baseline and static mode comparison}}{70}{figure.caption.180}%
 \contentsline {figure}{\numberline {3.25}{\ignorespaces Simulation issue in par-gem5}}{71}{figure.caption.181}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces High-level proposal design}}{72}{figure.caption.184}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces General SystemC design}}{73}{figure.caption.186}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Flowcharts of the available commands}}{74}{figure.caption.187}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Redefinition of \textit {BasicPioDevice} functions}}{76}{figure.caption.211}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces TLM wrapper payload definition}}{76}{figure.caption.213}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces TLM wrapper in Gem5}}{78}{figure.caption.215}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces TLM wrapper in SystemC}}{79}{figure.caption.216}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces SystemC design with CRC}}{80}{figure.caption.219}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces CRC block diagram}}{81}{figure.caption.220}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces CRC write operation}}{82}{figure.caption.222}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Class diagram for the \gls {crc} \gls {api}}}{83}{figure.caption.223}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Class diagram for the \gls {crc} \gls {api}}}{84}{figure.caption.225}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces \gls {crc} validation test results}}{85}{figure.caption.266}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Co-simulation design}}{86}{figure.caption.268}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces State machine diagram for the memory integrity test}}{86}{figure.caption.269}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Sequence diagram diagram for the memory comparison}}{87}{figure.caption.270}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Application execution timely diagram}}{88}{figure.caption.271}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Success memory integrity test}}{88}{figure.caption.272}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Application execution timely diagram with a failure}}{89}{figure.caption.273}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Failure memory integrity test}}{90}{figure.caption.275}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Co-simulation results}}{91}{figure.caption.277}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces High-level proposal design}}{73}{figure.caption.184}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces TLM wrapper payload definition}}{73}{figure.caption.186}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces TLM wrapper in Gem5}}{75}{figure.caption.188}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces TLM wrapper in SystemC}}{76}{figure.caption.189}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces General SystemC design}}{77}{figure.caption.191}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Flowcharts of the available commands}}{78}{figure.caption.192}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Redefinition of \textit {BasicPioDevice} functions}}{80}{figure.caption.216}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces SystemC design with CRC}}{81}{figure.caption.219}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces CRC block diagram}}{82}{figure.caption.220}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces CRC write operation}}{83}{figure.caption.222}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Class diagram for the \gls {crc} \gls {api}}}{84}{figure.caption.223}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Validation co-simulation environment}}{85}{figure.caption.225}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces \gls {crc} validation test results}}{86}{figure.caption.266}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Case study co-simulation environment}}{87}{figure.caption.268}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces State machine diagram for the memory integrity test}}{87}{figure.caption.269}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Sequence diagram diagram for the memory comparison}}{88}{figure.caption.270}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Application execution timely diagram}}{89}{figure.caption.271}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces Success memory integrity test}}{89}{figure.caption.272}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Application execution timely diagram with a failure}}{90}{figure.caption.273}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Failure memory integrity test}}{91}{figure.caption.275}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Co-simulation results}}{92}{figure.caption.277}%
 \addvspace {10\p@ }

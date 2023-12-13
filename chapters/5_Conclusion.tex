@@ -10,10 +10,9 @@ automatically tune to the best synchronization time. For this reason, the disser
 
 \section{Developed Work}
 
-Concerning the development work, all algorithms were used in the final approach, except for the repetition one. The ADALINE with 
-the main algorithm, and the increment and \gls{pc} as support for a better quantum adjustment. Due to its overhead in the 
-simulation performance and weak accuracy gain, the repetition algorithm was excluded from the final solution.
-
+Concerning the development work, all algorithms were used in the final approach, except for the repetition one. Due to its overhead in the 
+simulation performance and weak accuracy gain, the repetition algorithm was excluded from the final solution. However, it was shown 
+that it can be an option when the workload has lots of repetitive tasks, enabling specific optimizations.
 
 %talk about the simulation results of the final algorithm
 Several tests were performed to evaluate it. In the end, it can be concluded the use of the dynamic version for the quantum choice brings 
@@ -23,13 +22,16 @@ which is they executed nonlinear partial differential equations. This workload d
 quantum can be increased without losing significant accuracy. The dynamic algorithm was designed to make it harder to increase the 
 quantum value as the number of cores increases, due to the conclusions obtained in the par-gem5 \cite*{pargem5} work. For this reason, 
 this type of benchmark obtains a meaningful drop in performance when more than 16 cores are being simulated. However, the 
-algorithm's design must be flexible, in a way that all benchmarks can have the best performance within accuracy limits. 
+algorithm's design must be flexible, in a way that all benchmarks can have the best performance within accuracy limits.
+
+Negative inaccuracy may continue to be present, as a consequence of par-gem5 use. The dynamic quantum development was not able to solve this
+issue, making necessary a deeper analysis of par-gem5 design in order to find the problem. 
 
 In conclusion, the better algorithm depends on the a-priori available information. If there is nothing about it, the dynamic version should be 
 used because, even if the performance might be lower than it could be, it is guaranteed that accuracy will be above 95\%. On the other side,
 knowing the details of the benchmark enables us to calculate the optimal quantum before initiating the simulation. It is important to 
 remember that when increasing the quantum, while performance as a function of the quantum behaves similarly to a sigmoidal, inaccuracy 
-grows linearly \cite*{BeyondQuantumTDSim}.
+grows linearly \cite*{BeyondQuantumTDSim}. 
 
 The developed co-simulation interface between SystemC and Gem5 provided a new work environment between the two platforms. Both can communicate
 easily and to multiple targets within the same simulation. As a case study to validate this cooperation, the \gls{crc} device was chosen, 
@@ -37,7 +39,6 @@ passing all the requirements successfully. In addition, as part of the case stud
 memory integrity tests were designed and performed, where either for the success or the failure modeling, the expected results matched
 with the real ones. On the other part, it was possible to verify that the dynamic quantum yielded improved results even with a significant 
 time consumption in the communication between tools. Further, accuracy was always above 99\%, enchanting its performance. 
-
 
 In the final analysis, it is important to mention that the usage of par-gem5, and consequently the dynamic quantum, has an accuracy cost. If 
 perfect accuracy is mandatory, sequential mode should be selected. Also, simulations with a single simulated core should always be 

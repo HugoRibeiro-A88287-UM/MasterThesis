@@ -18,11 +18,9 @@ otherwise, data may become corrupted, creating a failure in the simulation. The 
 interface where data will flow is important as well. Missing this may result in faulty communication channels. The last one is the synchronization 
 between both simulators, since improper synchronization may lead to causality errors.
 
-Regarding these concerns, it was proposed the framework presented in the following picture. %Continuar seguindo as dicas do Rui
-
-
-The following picture
-demonstrates how the different tools will communicate with each other.
+Regarding these concerns, it was proposed the framework presented in the following picture. It will be composed of three interfaces: Gem5, SystemC, 
+and remote port. Gem5 and SystemC are two simulators already introduced in the state-of-the-art chapter. The remote port interface was defined to 
+allow communication between the tools.
 
 \begin{figure}[H]
 	\centering
@@ -31,9 +29,87 @@ demonstrates how the different tools will communicate with each other.
 	 \label{fig_CoSimDesignSimplified}
 \end{figure}
 
-The communication will be established using a remote port, utilizing the TCP/IP \gls{ipc} protocol. It was chosen due to its 
-application independence and its versatility for various applications and purposes. The remote connection must be created and connected before 
-the beginning of the simulation, in a way that transactions occur. Each hardware device will have a unique connection to avoid concurrency problems.
+It exchanges data utilizing the TCP/IP \gls{ipc} protocol, due to its application independence and its versatility for various applications 
+and purposes. The remote connection must be created and connected before the beginning of the simulation, in a way that transactions occur. 
+As shown in the previous figure, each hardware device will have a unique connection to avoid concurrency problems. Furthermore, each simulator 
+will perform distinct tasks on the remote port interface, necessitating unique definitions for each.
+
+\subsection{Remote Port} 
+\label{subsec::TLMwrapper}
+
+As already mentioned, the remote port interface will establish the communication between Gem5 and SystemC.
+Although they are two simulators that use C++, they cannot communicate directly with each other. Gem5 is unable to 
+interpret the \gls{tlm} commands, just as SystemC doesn't understand gem5 packages. For these reasons,
+this interface will require a wrapper to enable communication between the two platforms. 
+The wrapper will be available in both tools, and every transaction must be created regarding its definition otherwise, 
+data integrity may be compromised. 
+
+\begin{figure}[H]
+	\centering
+ 	\includegraphics[width=0.8\linewidth]{Images/TLM_Wrapper_Payload.png} 
+ 	\caption{TLM wrapper payload definition}
+	% \label{fig_TLM_Wrapper_Payload}
+\end{figure}
+
+
+The main part of the wrapper is the payload definition. It provides coherent communication between platforms, keeps the transactions
+easy to understand, and improves efficiency. For this case, its definition can be found in the prior image. Each operation must 
+have a command and a slot, the reason why both have the color red. TCP/IP reads and writes eight bits at a time. Consequently, even if 
+the command list does not utilize all the bits, a byte is allocated for its size. The list of commands can be found on
+\autoref{tab_TLMwrapperCMD}. The slot is used as an ID. Regarding the \autoref{fig_CoSimDesignSimplified}, each peripheral has a remote 
+connection associated hence, with this, is possible to decode the port where the transaction should be done. Offset and size are 
+marked as blue since they are mandatory for both read and write operations. 
+Data is with green color because only is necessary for the write action. Four bytes are demanded for these parameters, due to the 32-bit
+processor present in the VExpress\_gem5 board.
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{lll}
+	\cline{1-2}
+	\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Bits}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Command}} &  \\ \cline{1-2}
+	\multicolumn{1}{|l|}{00} & \multicolumn{1}{l|}{TLM\_INIT} &  \\ \cline{1-2}
+	\multicolumn{1}{|l|}{01} & \multicolumn{1}{l|}{TLM\_CLOSE} &  \\ \cline{1-2}
+	\multicolumn{1}{|l|}{10} & \multicolumn{1}{l|}{TLM\_READ} &  \\ \cline{1-2}
+	\multicolumn{1}{|l|}{11} & \multicolumn{1}{l|}{TLM\_WRITE} &  \\ \cline{1-2}
+	 &  & 
+	\end{tabular}%
+	\caption{TLM wrapper commands}
+	\label{tab_TLMwrapperCMD}
+\end{table}
+
+Every transaction is kept up with a response, TLM\_ACK (0) for success, or TLM\_NACK (1) for error, and the operation latency, which is 
+required to maintain the synchronization between the simulators. In the case of reading, is added the bytes of the selected memory region. 
+The next figures demonstrate how the wrapper is implemented in both tools. First of all, it is mandatory to initialize the remote port interface.
+To accomplish that, Gem5 must start with the \textit{TLM\_INIT}, and wait for a positive response from SystemC. Only after that, the remote port 
+is available, and write and read operations can flow. Closing the remote port follows a similar path. Gem5 must call the \textit{TLM\_CLOSE}, and 
+wait for \textit{TLM\_ACK} from SystemC. The wrapper always verifies if the remote port is available for transactions, and in case of an error, it 
+returns a permission-denied notification. 
+
+In read-and-write operations, the device's availability is crucial to maintain the tools synchronized. Picture a scenario where Gem5 sends 
+two write requests and each write operation takes four clock cycles. When Gem5 executes the first request, SystemC will return a latency of 
+four clock cycles. Consequently, whether another attempt is made in the next clock cycle, the device will still be processing the first one, 
+resulting in a synchronization conflict. For this reason, if the device is unavailable, the busy notification is returned, indicating a need to 
+retry the operation later.
+
+In SystemC, while \textit{TLM\_INIT} and \textit{TLM\_CLOSE} are identical to Gem5 ones in the way of operating, \textit{TLM\_READ} and 
+\textit{TLM\_WRITE} have some differences. First of all, instead of sending the trama, it receives it and verifies if the received slot is accessible.
+After that, executes the \gls{tlm} operation where it can result in an error, for example, the offset crossed the device's boundaries, or in 
+a success process, returning to Gem5 the respective data.
+
+
+\begin{figure}[H]
+	\centering
+ 	\includegraphics[width=0.8\linewidth]{Images/TLMWrapper_Gem5.png} 
+ 	\caption{TLM wrapper in Gem5}
+	% \label{fig_TLM_Wrapper_Payload}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+ 	\includegraphics[width=0.7\linewidth]{Images/TLMWrapper_SystemC.png} 
+ 	\caption{TLM wrapper in SystemC}
+	% \label{fig_TLM_Wrapper_Payload}
+\end{figure}
 
 \subsection{SystemC}
 
@@ -119,7 +195,7 @@ nevertheless, VExpress\_gem5, which is a board introduced by Gem5, does not incl
 It is possible to notice that the Gem5-specific peripherals memory region is not fully occupied, therefore hardware should be implemented 
 in this memory region. In accordance with the remaining devices, each peripheral should occupy 0xFFFF of memory space, unless it requires
 more space. In this case, another block of 0xFFFF should be used until its needs are fulfilled. After planning this, Gem5 must recognize 
-this hardware to enable communication with the other framework. 
+this hardware to enable communication with the other simulator. 
 To achieve that, every peripheral should be defined and added to the list of off-chip devices in the 
 board's configuration. In addition, it is also required to create a \gls{pte} for each device, which can be done by following the
 code on \ref{templatePTE}. However, it's important to note that even after this process, the devices are only recognized as part of the 
@@ -168,65 +244,6 @@ continue until a connection is made. As soon as it happens, an init function is 
 device's information. It is required due to the possibility of various devices in SystemC. The last point is the \textit{Sconscript} file, 
 which is mandatory by the compiler to understand the available SimObjects. Here should be discriminated the SimObject, that is, 
 the Python file, the SimObject's source file, and the debug flags, if presented.
-
-\subsection{TLM Wrapper}
-\label{subsec::TLMwrapper}
-
-Although Gem5 and SystemC are two frameworks that use C++, they cannot communicate directly with each other. Gem5 is unable to 
-interpret the \gls{tlm} commands, just as SystemC doesn't understand gem5 packages. For these reasons,
-it is necessary a wrapper to enable communication between the two platforms. This will be available in both, and every transaction must
-pass through it otherwise, the channel could be corrupted. 
-
-\begin{figure}[H]
-	\centering
- 	\includegraphics[width=0.8\linewidth]{Images/TLM_Wrapper_Payload.png} 
- 	\caption{TLM wrapper payload definition}
-	% \label{fig_TLM_Wrapper_Payload}
-\end{figure}
-
-
-The main part of the wrapper is the payload definition. It provides coherent communication between platforms, keeps the transactions
-easy to understand, and improves efficiency. For this case, its definition can be found in the prior image. Each operation must 
-have a command and a slot, the reason why both have the color red. TCP/IP reads and writes eight bits at a time 
-consequently, even if the command list does not use all the bits, a byte is allocated for their size. The list of commands can be found on
-\autoref{tab_TLMwrapperCMD}. The slot is used as an ID. Regarding the \autoref{fig_CoSimDesignSimplified}, each peripheral has a remote 
-connection associated hence, with this, is possible to decode the port where the transaction should be done. Offset and size are 
-marked as blue since they are mandatory for both read and write operations. 
-Data is with green color because only is necessary for the write action. Four bytes are demanded for these parameters, due to the 32-bit
-processor present in the VExpress\_gem5 board.
-
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{lll}
-	\cline{1-2}
-	\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Bits}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Command}} &  \\ \cline{1-2}
-	\multicolumn{1}{|l|}{00} & \multicolumn{1}{l|}{TLM\_INIT} &  \\ \cline{1-2}
-	\multicolumn{1}{|l|}{01} & \multicolumn{1}{l|}{TLM\_CLOSE} &  \\ \cline{1-2}
-	\multicolumn{1}{|l|}{10} & \multicolumn{1}{l|}{TLM\_READ} &  \\ \cline{1-2}
-	\multicolumn{1}{|l|}{11} & \multicolumn{1}{l|}{TLM\_WRITE} &  \\ \cline{1-2}
-	 &  & 
-	\end{tabular}%
-	\caption{TLM wrapper commands}
-	\label{tab_TLMwrapperCMD}
-\end{table}
-
-Every transaction is kept up with a response, TLM\_ACK (0) for success, or TLM\_NACK (1) for error, and the operation latency. 
-In the case of reading, is added the bytes of the selected memory region. The next figures demonstrate how the wrapper is implemented in both 
-frameworks.
-
-\begin{figure}[H]
-	\centering
- 	\includegraphics[width=0.8\linewidth]{Images/TLMWrapper_Gem5.png} 
- 	\caption{TLM wrapper in Gem5}
-	% \label{fig_TLM_Wrapper_Payload}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
- 	\includegraphics[width=0.7\linewidth]{Images/TLMWrapper_SystemC.png} 
- 	\caption{TLM wrapper in SystemC}
-	% \label{fig_TLM_Wrapper_Payload}
-\end{figure}
 
 \section{CRC as a Case Study}
 
@@ -331,7 +348,7 @@ Finally, the write command must be redefined to adhere to the peripheral charact
 Since the read operation does not require a specific behavior depending on the desired registers, the aforementioned template does not demand any
 action.   
 
-\begin{figure}[]
+\begin{figure}[ht!]
 	\centering
  	\includegraphics[width=0.7\linewidth]{Images/CRC_write.png}
  	\caption{CRC write operation}
@@ -381,8 +398,8 @@ launch automatically, therefore it must be manually called, with \textit{./m5ter
 
 \begin{figure}[H]
 	\centering
- 	\includegraphics[width=0.8\linewidth]{Images/CoSimDesign_Validation.png} 
- 	\caption{Class diagram for the \gls{crc} \gls{api}}
+ 	\includegraphics[width=1\linewidth]{Images/CoSimDesign_Validation.png} 
+ 	\caption{Validation co-simulation environment}
 	\label{fig_CoSimDesign_Validation}
 \end{figure}
 
@@ -397,7 +414,7 @@ outputs are:
 	\item Reset was done with success!
 \end{enumerate}
 
-\begin{lstlisting}[language=C, caption={CRC validation code}, label=validationCodeCRC]
+\begin{lstlisting}[style=customC, caption={CRC validation code}, label=validationCodeCRC]
 CRC_SC_INIT();
 
 CRC_SC_SET_REVERSE_OUTPUT(REV_WORD_OUT);
@@ -458,7 +475,7 @@ the \autoref{fig_CoSimDesign}.
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=1\linewidth]{Images/CoSimDesign.png}
- 	\caption{Co-simulation design}
+ 	\caption{Case study co-simulation environment}
 	 \label{fig_CoSimDesign}
 \end{figure}
 

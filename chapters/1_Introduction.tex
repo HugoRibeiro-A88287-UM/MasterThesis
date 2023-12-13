@@ -28,7 +28,7 @@ High quantum allows for high simulation speeds but negatively impacts the simula
 functionality. If the quanta is too small, the accuracy is perfect, although the simulation performance will be unsatisfactory. Thus, there is a 
 tradeoff between accuracy and performance, and finding an optimal quantum is one of the main challenges when running synchronous \gls{pdes}.
 
-In the current state of par-gem5 (and as in other frameworks), the quantum is set once and then kept for the rest of the simulation. This brings 
+In the current state of par-gem5 (and as in other simulators), the quantum is set once and then kept for the rest of the simulation. This brings 
 several different problems. First of all, to know which is the best quantum, it is necessary to do the simulation in order to obtain the simulation 
 results, and further evaluate if it was the best choice or not. Moreover, the quantum varies from simulation to simulation, therefore one can be the 
 best for one case, but for another not so much. All this try-and-error consumes a lot of time, thus this is not the optimal option. 
@@ -62,7 +62,7 @@ benchmark, together with a case study. Its content was divided into six chapters
 
 The second chapter introduces the concepts and methodologies used. The reader will receive notions about simulation in a general view, where 
 later these will be specified in the embedded systems context. Themes such as simulation modes, simulation methodologies, and simulation tools 
-will be covered, with special attention to Gem5, the framework on which this dissertation will focus. \gls{ml} will be exploited, having in 
+will be covered, with special attention to Gem5, the simulator on which this dissertation will focus. \gls{ml} will be exploited, having in 
 consideration \glspl{nn} and the simulation context. Finally, co-simulation practices are discussed, emphasizing their significance in the 
 simulation world.
 
