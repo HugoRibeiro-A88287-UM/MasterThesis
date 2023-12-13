@@ -6,15 +6,15 @@ the practical application of the developed work. The chosen case study focuses o
 as an external peripheral on gem5's board. 
 
 To close the chapter, par-gem5 with both static and dynamic versions will be tested with the developed interface. 
-All preceding tests, which were conducted in sequential mode, will be used as an evaluation reference. At the end, the 
-better approach for various situations will be selected.
+The obtained results will be presented and compared to the ones conducted in sequential mode in order to have an evaluation reference. 
+Concerning the results, an approach will be selected, being it the preferred to address other situations. 
 
 \section{Framework Proposal}
 
-As mentioned earlier in this dissertation, co-simulation involves the integration of multiple simulation tools from different
+Earlier in this dissertation co-simulation was introduced. It involves the integration of multiple simulation tools from different
 domains. Therefore, it is required to develop a system that could execute and communicate among them. This system must adhere to three key 
 aspects to ensure a well-functioning environment. The first one is data integrity. Both tools must respect the defined data exchange standards 
-otherwise, data may become corrupted, creating a failure in the simulation. The second aspect is data exchange. Proper delineation of the 
+otherwise, data may become corrupted, creating a failure in the simulation. The second aspect is data exchange. A proper delineation of the 
 interface where data will flow is important as well. Missing this may result in faulty communication channels. The last one is the synchronization 
 between both simulators, since improper synchronization may lead to causality errors.
 
@@ -79,6 +79,7 @@ processor present in the VExpress\_gem5 board.
 
 Every transaction is kept up with a response, TLM\_ACK (0) for success, or TLM\_NACK (1) for error, and the operation latency, which is 
 required to maintain the synchronization between the simulators. In the case of reading, is added the bytes of the selected memory region. 
+
 The next figures demonstrate how the wrapper is implemented in both tools. First of all, it is mandatory to initialize the remote port interface.
 To accomplish that, Gem5 must start with the \textit{TLM\_INIT}, and wait for a positive response from SystemC. Only after that, the remote port 
 is available, and write and read operations can flow. Closing the remote port follows a similar path. Gem5 must call the \textit{TLM\_CLOSE}, and 
@@ -93,8 +94,9 @@ retry the operation later.
 
 In SystemC, while \textit{TLM\_INIT} and \textit{TLM\_CLOSE} are identical to Gem5 ones in the way of operating, \textit{TLM\_READ} and 
 \textit{TLM\_WRITE} have some differences. First of all, instead of sending the trama, it receives it and verifies if the received slot is accessible.
-After that, executes the \gls{tlm} operation where it can result in an error, for example, the offset crossed the device's boundaries, or in 
-a success process, returning to Gem5 the respective data.
+After that, it executes the respective \gls{tlm} operation, which can result in an error, for example, 
+the offset crossed the device's boundaries, or in a successful process, returning to Gem5 the respective data. Further in this chapter, these 
+operations will be explained in detail. 
 
 
 \begin{figure}[H]
@@ -139,7 +141,7 @@ at the beginning of the simulation. Gem5's board is a 32-bit processor, meaning 
 target\_ID, which will be utilized by the bus to identify the targets.
 
 Lastly, the targets are the peripherals, which can be different from each other. These receive the 
-\gls{tlm} commands and act accordingly. The next images demonstrate how peripherals respond to write and read commands 
+\gls{tlm} commands and act accordingly. The next images demonstrate how peripherals respond to \gls{tlm} write and read operations. 
 
 \begin{figure}[H]
 	\centering
@@ -163,15 +165,11 @@ At the end of each operation, the correspondent latency is returned, which may v
 
 \subsection{Gem5}
 
-As aforementioned, Gem5 has available as a target platform the VExpress\_gem5 board. It is based on the ARM Versatile Express RS1, which 
+Gem5 has available as a target platform the VExpress\_gem5 board. It is based on the ARM Versatile Express RS1, which 
 consists of a motherboard and two daughterboards. The system provides a range of both on-chip and off-chip devices.
 On-chip devices include the Generic Interrupt Controller (GIC), an LCD controller, and system timers.
 Off-chip devices contain the Keyboard and Mouse Interface (KMI), Real-Time Clock (RTC), and \gls{uart}. 
 The platform's memory map is divided into the next sections.
-
-present in several microcontroller families, such as STM32 \cite{referenceManualRM0385} or Xilinx Zynq \cite{xilinx2014zynq} 
-nevertheless, VExpress\_gem5, which is a board introduced by Gem5, does not include it.
-
 
 \def\mydots{\xleaders\hbox to0.25em{\hfill.\hfill}\hfill}
 
@@ -247,7 +245,9 @@ the Python file, the SimObject's source file, and the debug flags, if presented.
 
 \section{CRC as a Case Study}
 
-To validate the developed interface was chosen, as a case study, the \gls{crc} peripheral. 
+To validate the developed interface, the \gls{crc} peripheral was chosen as a case study since it is not available on Gem5's target board.
+This selection was based on its presence in several microcontroller families, such as STM32 \cite{referenceManualRM0385} or Xilinx Zynq \cite{xilinx2014zynq}.
+
 The \gls{crc} was created in 1961 by William Wesley Peterson \cite{peterson1961cyclic}. As the name suggests, 
 it utilizes systematic cyclic codes to encode messages by incorporating a fixed-length check value. In the end, his work
 contributed significantly to simplifying and enhancing the detection of accidental errors/changes in communication 
