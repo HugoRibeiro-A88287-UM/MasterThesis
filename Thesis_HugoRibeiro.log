@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  13 DEC 2023 20:22
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  14 DEC 2023 23:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1894,21 +1894,31 @@ File: misc/DIREITOS-DE-AUTOR.pdf Graphic file (type pdf)
 
 
 ] (./chapters/0_Abstract.tex
-LaTeX Font Info:    Trying to load font information for U+msa on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 19.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
 
 
 (/usr/local/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) [3
+))
+Overfull \hbox (0.38992pt too wide) in paragraph at lines 39--226
+[] [][] \TU/NewsGotT(0)/b/n/12 Keywords: \TU/NewsGotT(0)/m/n/12 Parallel Discre
+te Event Simulation, Gem5, Full-System Simulation, Quantum, Co-Simulation
+ []
 
-]
-(./chapters/0_Resumo.tex) [4
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--226
+
+ []
+
+[3
+
+] (./chapters/0_Resumo.tex) [4
 
 ] (./Thesis_HugoRibeiro.toc [5
 
@@ -1979,9 +1989,9 @@ File: Images/ConcorrencyProcess.png Graphic file (type bmp)
  [10]
 File: Images/ProcessAndThread.png Graphic file (type bmp)
 <Images/ProcessAndThread.png>
+ [11]
 File: Images/ContextSwitch.png Graphic file (type bmp)
 <Images/ContextSwitch.png>
- [11]
 File: Images/BeforeMutex.png Graphic file (type bmp)
 <Images/BeforeMutex.png>
  [12]
@@ -2015,9 +2025,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 346--348
 
  []
 
+[14]
 File: Images/V-Model.png Graphic file (type bmp)
 <Images/V-Model.png>
-[14]
+
 Underfull \hbox (badness 10000) in paragraph at lines 366--368
 
  []
@@ -2029,12 +2040,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 369--371
 
 File: Images/agileModel.png Graphic file (type bmp)
 <Images/agileModel.png>
-
+[15]
 Underfull \hbox (badness 10000) in paragraph at lines 385--389
 
  []
 
-[15]
+
 Underfull \hbox (badness 10000) in paragraph at lines 390--392
 
  []
@@ -2074,9 +2085,10 @@ used with new abbreviation definitions. Use \glsxtrshort instead on input line
 
 File: Images/FSShardware.png Graphic file (type bmp)
 <Images/FSShardware.png>
+[17]
 File: Images/FSSsoftware.png Graphic file (type bmp)
 <Images/FSSsoftware.png>
-[17] [18]
+ [18]
 File: Images/DES_Scheme.png Graphic file (type bmp)
 <Images/DES_Scheme.png>
  [19] [20]
@@ -2451,7 +2463,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Thesis_HugoRibeiro.out' has not changed.
-(rerunfilecheck)             Checksum: 729E066B0E69E3AD5826476A9FF64941;9685.
+(rerunfilecheck)             Checksum: C9582BEA94E4ECF6A03A67A92C44B15B;9844.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                Thesis_HugoRibeiro
@@ -2464,7 +2476,7 @@ Package logreq Info: Writing requests to 'Thesis_HugoRibeiro.run.xml'.
 Here is how much of TeX's memory you used:
  53244 strings out of 475161
  1099909 string characters out of 5766720
- 2264438 words of memory out of 5000000
+ 2263892 words of memory out of 5000000
  74178 multiletter control sequences out of 15000+600000
  568674 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191

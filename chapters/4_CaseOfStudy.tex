@@ -19,8 +19,8 @@ interface where data will flow is important as well. Missing this may result in 
 between both simulators, since improper synchronization may lead to causality errors.
 
 Regarding these concerns, it was proposed the framework presented in the following picture. It will be composed of three interfaces: Gem5, SystemC, 
-and remote port. Gem5 and SystemC are two simulators already introduced in the state-of-the-art chapter. The remote port interface was defined to 
-allow communication between the tools.
+and remote port. Gem5 and SystemC are two simulators already introduced in the state-of-the-art chapter however, other simulators could be used. 
+The remote port interface was defined to allow communication between the tools.
 
 \begin{figure}[H]
 	\centering
@@ -34,7 +34,7 @@ and purposes. The remote connection must be created and connected before the beg
 As shown in the previous figure, each hardware device will have a unique connection to avoid concurrency problems. Furthermore, each simulator 
 will perform distinct tasks on the remote port interface, necessitating unique definitions for each.
 
-\subsection{Remote Port} 
+\subsection{Remote Port Interface} 
 \label{subsec::TLMwrapper}
 
 As already mentioned, the remote port interface will establish the communication between Gem5 and SystemC.
@@ -113,7 +113,7 @@ operations will be explained in detail.
 	% \label{fig_TLM_Wrapper_Payload}
 \end{figure}
 
-\subsection{SystemC}
+\subsection{SystemC Interface}
 
 The peripheral development was carried out using the SystemC tool. It has the capability to simulate multiple hardware devices at the same time, 
 and these can be different from each other. In order to integrate this flexibility, the subsequent design was developed.
@@ -163,7 +163,7 @@ The first step is to verify the offset/size out-of-bounds, and permissions in a 
 in this process, the desired operation is done otherwise, an error response is created, reporting where the problem was. 
 At the end of each operation, the correspondent latency is returned, which may vary regarding the desired work. 
 
-\subsection{Gem5}
+\subsection{Gem5 Interface}
 
 Gem5 has available as a target platform the VExpress\_gem5 board. It is based on the ARM Versatile Express RS1, which 
 consists of a motherboard and two daughterboards. The system provides a range of both on-chip and off-chip devices.
@@ -245,7 +245,7 @@ the Python file, the SimObject's source file, and the debug flags, if presented.
 
 \section{CRC as a Case Study}
 
-To validate the developed interface, the \gls{crc} peripheral was chosen as a case study since it is not available on Gem5's target board.
+To stimulate the developed interface, the \gls{crc} peripheral was chosen as a case study since it is not available on Gem5's target board.
 This selection was based on its presence in several microcontroller families, such as STM32 \cite{referenceManualRM0385} or Xilinx Zynq \cite{xilinx2014zynq}.
 
 The \gls{crc} was created in 1961 by William Wesley Peterson \cite{peterson1961cyclic}. As the name suggests, 
@@ -370,7 +370,7 @@ development and enhance code clarity.
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.7\linewidth]{Images/CRC_API_Class_Diagram.png} 
- 	\caption{Class diagram for the \gls{crc} \gls{api}}
+ 	\caption{Class diagram for the CRC API}
 	% \label{fig_TLM_Wrapper_Payload}
 \end{figure}
 
@@ -459,7 +459,7 @@ conclude that the peripheral passed the validation since every expected output m
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.8\linewidth]{Images/Validation_Results.png} 
- 	\caption{\gls{crc} validation test results}
+ 	\caption{CRC validation test results}
 	\label{fig_Validation_Results}
 \end{figure}
 

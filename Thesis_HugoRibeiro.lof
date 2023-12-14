@@ -6,7 +6,7 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Market research report by ZION about simulation \blx@tocontentsinit {0}\cite {zionMarketResearch}}}{5}{figure.caption.18}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Taxonomy of virtual simulations (Adapt from \blx@tocontentsinit {0}\cite {verkuyl2022virtual})}}{6}{figure.caption.20}%
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Typical embedded system (adapted from \blx@tocontentsinit {0}\cite {camposano1996embedded})}}{8}{figure.caption.24}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Layers of an \gls {os} \blx@tocontentsinit {0}\cite {OSbook} }}{10}{figure.caption.31}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Layers of an OS \blx@tocontentsinit {0}\cite {OSbook} }}{10}{figure.caption.31}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Concurrency between processes }}{10}{figure.caption.32}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Process and threads block diagram }}{11}{figure.caption.37}%
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Context switch }}{12}{figure.caption.38}%
@@ -14,15 +14,15 @@
 \contentsline {figure}{\numberline {2.10}{\ignorespaces Two different tasks using the same resource with mutex }}{13}{figure.caption.40}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces The waterfall model}}{14}{figure.caption.42}%
 \contentsline {figure}{\numberline {2.12}{\ignorespaces The V-Model}}{15}{figure.caption.43}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces The agile model}}{15}{figure.caption.44}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces The agile model}}{16}{figure.caption.44}%
 \contentsline {figure}{\numberline {2.14}{\ignorespaces The spiral model \blx@tocontentsinit {0}\cite {SpiralModel3}}}{16}{figure.caption.45}%
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Full system hardware simulator \blx@tocontentsinit {0}\cite {TypesOfFSS}}}{17}{figure.caption.47}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Full system hardware simulator \blx@tocontentsinit {0}\cite {TypesOfFSS}}}{18}{figure.caption.47}%
 \contentsline {figure}{\numberline {2.16}{\ignorespaces Full system software simulator \blx@tocontentsinit {0}\cite {TypesOfFSS}}}{18}{figure.caption.48}%
 \contentsline {figure}{\numberline {2.17}{\ignorespaces Supermarket flow schematic}}{19}{figure.caption.50}%
 \contentsline {figure}{\numberline {2.18}{\ignorespaces Updating state over simulated time in continuous and discrete simulation \blx@tocontentsinit {0}\cite {helal2008hybrid}}}{21}{figure.caption.53}%
 \contentsline {figure}{\numberline {2.19}{\ignorespaces Example of a sequential simulation}}{22}{figure.caption.56}%
 \contentsline {figure}{\numberline {2.20}{\ignorespaces The principal of temporal decoupling}}{23}{figure.caption.58}%
-\contentsline {figure}{\numberline {2.21}{\ignorespaces Sequential VS parallel simulation with and without \gls {td}}}{24}{figure.caption.60}%
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Sequential VS parallel simulation with and without TD}}{24}{figure.caption.60}%
 \contentsline {figure}{\numberline {2.22}{\ignorespaces The causality problem}}{25}{figure.caption.61}%
 \contentsline {figure}{\numberline {2.23}{\ignorespaces Speed vs. accuracy spectrum \blx@tocontentsinit {0}\cite {TheGem5Simulator}}}{27}{figure.caption.64}%
 \contentsline {figure}{\numberline {2.24}{\ignorespaces Atomic mode}}{29}{figure.caption.67}%
@@ -32,19 +32,19 @@
 \contentsline {figure}{\numberline {2.28}{\ignorespaces Final assessment charts \blx@tocontentsinit {0}\cite {morales2016evaluating}}}{34}{figure.caption.91}%
 \contentsline {figure}{\numberline {2.29}{\ignorespaces Modelling solutions spectrum \blx@tocontentsinit {0}\cite {herrera2020running}}}{34}{figure.caption.92}%
 \contentsline {figure}{\numberline {2.30}{\ignorespaces Feature comparison between simulators \blx@tocontentsinit {0}\cite {akram2016comparison}}}{35}{figure.caption.93}%
-\contentsline {figure}{\numberline {2.31}{\ignorespaces Examples of \gls {ml} algorithms \blx@tocontentsinit {0}\cite {mahesh2020machine}}}{36}{figure.caption.95}%
+\contentsline {figure}{\numberline {2.31}{\ignorespaces Examples of ML algorithms \blx@tocontentsinit {0}\cite {mahesh2020machine}}}{36}{figure.caption.95}%
 \contentsline {figure}{\numberline {2.32}{\ignorespaces Comparison diagram between a biological and an artificial neuron}}{37}{figure.caption.97}%
 \contentsline {figure}{\numberline {2.33}{\ignorespaces Schematic of ADALINE \blx@tocontentsinit {0}\cite {widrow1960adaptive}}}{39}{figure.caption.100}%
-\contentsline {figure}{\numberline {2.34}{\ignorespaces Subfields of combining \gls {ml} and simulation \blx@tocontentsinit {0}\cite {von2020combining}}}{39}{figure.caption.103}%
+\contentsline {figure}{\numberline {2.34}{\ignorespaces Subfields of combining ML and simulation \blx@tocontentsinit {0}\cite {von2020combining}}}{39}{figure.caption.103}%
 \contentsline {figure}{\numberline {2.35}{\ignorespaces Different domains of a complex system}}{40}{figure.caption.105}%
 \contentsline {figure}{\numberline {2.36}{\ignorespaces Research publications of co-simulation applications over five years\blx@tocontentsinit {0}\cite {gomes2017co}}}{41}{figure.caption.106}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces High-level diagram of par-gem5 operation mode}}{43}{figure.caption.109}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Bubble sort example}}{45}{figure.caption.114}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces \gls {anc} scheme}}{46}{figure.caption.116}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces ANC scheme}}{46}{figure.caption.116}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Control action with different learning rate values}}{48}{figure.caption.119}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Reset system in ADALINE-based algorithm}}{48}{figure.caption.120}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces \gls {tdl} working method}}{49}{figure.caption.122}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces TDL working method}}{49}{figure.caption.122}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Reset vs. Host}}{50}{figure.caption.123}%
 \contentsline {figure}{\numberline {3.8}{\ignorespaces ADALINE flowchart}}{51}{figure.caption.125}%
 \contentsline {figure}{\numberline {3.9}{\ignorespaces ADALINE-based algorithm results}}{52}{figure.caption.127}%
@@ -52,9 +52,9 @@
 \contentsline {figure}{\numberline {3.11}{\ignorespaces Example of the increment value evolution with a threshold}}{54}{figure.caption.130}%
 \contentsline {figure}{\numberline {3.12}{\ignorespaces Step ladder algorithm flowchart}}{55}{figure.caption.132}%
 \contentsline {figure}{\numberline {3.13}{\ignorespaces Dynamic increment results}}{56}{figure.caption.134}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces \gls {ifp} Algorithm}}{58}{figure.caption.136}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces IFP Algorithm}}{58}{figure.caption.136}%
 \contentsline {figure}{\numberline {3.15}{\ignorespaces Possible scenarios after the forecast}}{59}{figure.caption.140}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces \gls {ifp} algorithm results}}{61}{figure.caption.143}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces IFP algorithm results}}{61}{figure.caption.143}%
 \contentsline {figure}{\numberline {3.17}{\ignorespaces Quantum definition with loop detection algorithm}}{62}{figure.caption.145}%
 \contentsline {figure}{\numberline {3.18}{\ignorespaces Hare-Tortoise Algorithm}}{63}{figure.caption.147}%
 \contentsline {figure}{\numberline {3.19}{\ignorespaces Loop detection flowchart}}{64}{figure.caption.148}%
@@ -74,9 +74,9 @@
 \contentsline {figure}{\numberline {4.8}{\ignorespaces SystemC design with CRC}}{81}{figure.caption.219}%
 \contentsline {figure}{\numberline {4.9}{\ignorespaces CRC block diagram}}{82}{figure.caption.220}%
 \contentsline {figure}{\numberline {4.10}{\ignorespaces CRC write operation}}{83}{figure.caption.222}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Class diagram for the \gls {crc} \gls {api}}}{84}{figure.caption.223}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Class diagram for the CRC API}}{84}{figure.caption.223}%
 \contentsline {figure}{\numberline {4.12}{\ignorespaces Validation co-simulation environment}}{85}{figure.caption.225}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces \gls {crc} validation test results}}{86}{figure.caption.266}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces CRC validation test results}}{86}{figure.caption.266}%
 \contentsline {figure}{\numberline {4.14}{\ignorespaces Case study co-simulation environment}}{87}{figure.caption.268}%
 \contentsline {figure}{\numberline {4.15}{\ignorespaces State machine diagram for the memory integrity test}}{87}{figure.caption.269}%
 \contentsline {figure}{\numberline {4.16}{\ignorespaces Sequence diagram diagram for the memory comparison}}{88}{figure.caption.270}%
