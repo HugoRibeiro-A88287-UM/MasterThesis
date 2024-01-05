@@ -11,10 +11,10 @@ Concerning the results, an approach will be selected, being it the preferred to 
 
 \section{Framework Proposal}
 
-Earlier in this dissertation co-simulation was introduced. It involves the integration of multiple simulation tools from different
+As previously mentioned on \autoref{cap:SoA}, co-simulation involves the integration of multiple simulation tools from different
 domains. Therefore, it is required to develop a system that could execute and communicate among them. This system must adhere to three key 
 aspects to ensure a well-functioning environment. The first one is data integrity. Both tools must respect the defined data exchange standards 
-otherwise, data may become corrupted, creating a failure in the simulation. The second aspect is data exchange. A proper delineation of the 
+otherwise, data may become corrupted, creating a failure in the simulation ecosystem. The second aspect is data exchange. A proper delineation of the 
 interface where data will flow is important as well. Missing this may result in faulty communication channels. The last one is the synchronization 
 between both simulators, since improper synchronization may lead to causality errors.
 
@@ -25,12 +25,12 @@ The remote port interface was defined to allow communication between the tools.
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.8\linewidth]{Images/CoSimDesignSimplified.png}
- 	\caption{High-level proposal design}
+ 	\caption{High-level proposal design of the framework}
 	 \label{fig_CoSimDesignSimplified}
 \end{figure}
 
 It exchanges data utilizing the TCP/IP \gls{ipc} protocol, due to its application independence and its versatility for various applications 
-and purposes. The remote connection must be created and connected before the beginning of the simulation, in a way that transactions occur. 
+and purposes. Furthermore, this type of connection can be used remotely, by having multiple simulators running on different machines.  
 As shown in the previous figure, each hardware device will have a unique connection to avoid concurrency problems. Furthermore, each simulator 
 will perform distinct tasks on the remote port interface, necessitating unique definitions for each.
 
@@ -52,37 +52,41 @@ data integrity may be compromised.
 \end{figure}
 
 
-The main part of the wrapper is the payload definition. It provides coherent communication between platforms, keeps the transactions
-easy to understand, and improves efficiency. For this case, its definition can be found in the prior image. Each operation must 
-have a command and a slot, the reason why both have the color red. TCP/IP reads and writes eight bits at a time. Consequently, even if 
-the command list does not utilize all the bits, a byte is allocated for its size. The list of commands can be found on
-\autoref{tab_TLMwrapperCMD}. The slot is used as an ID. Regarding the \autoref{fig_CoSimDesignSimplified}, each peripheral has a remote 
-connection associated hence, with this, is possible to decode the port where the transaction should be done. Offset and size are 
-marked as blue since they are mandatory for both read and write operations. 
-Data is with green color because only is necessary for the write action. Four bytes are demanded for these parameters, due to the 32-bit
-processor present in the VExpress\_gem5 board.
+The main part of the wrapper is the payload definition. It provides a unique definition to transport data and perform operations, 
+keeps the transactions easy to understand, and improves efficiency. For this case, its definition can be found in the prior image. 
+It can be divided into three sections: the remote port header, marked with red; the preamble data, marked with blue; and the data, marked with green. 
+It is important to mention that the remote port's design was done regarding a 32-bit machine, reason why the data address, data size, and data value 
+parameters have a four-byte length.
+
+Every operation must begin with the payload header, which is composed of a command and a slot. The command indicates the operation to execute, and
+its list can be found on \autoref{tab_TLMwrapperCMD}. The slot is used as an ID to decode where the operation should be done. 
+As shown in \autoref{fig_CoSimDesignSimplified}, each hardware module connected to a remote port has a number associated, which can be indexed by 
+the slot. Preamble data comes after the header, and it indicates the location where the execution will take place in the selected hardware. 
+The data address or offset points to the desired hardware address and the data size specifies the action range. The data is required in 
+the case of writing, since the new value must be known. 
+
 
 \begin{table}[h!]
 	\centering
-	\begin{tabular}{lll}
-	\cline{1-2}
-	\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Bits}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Command}} &  \\ \cline{1-2}
-	\multicolumn{1}{|l|}{00} & \multicolumn{1}{l|}{TLM\_INIT} &  \\ \cline{1-2}
-	\multicolumn{1}{|l|}{01} & \multicolumn{1}{l|}{TLM\_CLOSE} &  \\ \cline{1-2}
-	\multicolumn{1}{|l|}{10} & \multicolumn{1}{l|}{TLM\_READ} &  \\ \cline{1-2}
-	\multicolumn{1}{|l|}{11} & \multicolumn{1}{l|}{TLM\_WRITE} &  \\ \cline{1-2}
+	\begin{tabular}{llll}
+	\cline{1-3}
+	\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Bits}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Command}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Required Sections}} \\ \cline{1-3}
+	\multicolumn{1}{|l|}{00} & \multicolumn{1}{l|}{TLM\_INIT} & \multicolumn{1}{l|}{Header} \\ \cline{1-3}
+	\multicolumn{1}{|l|}{01} & \multicolumn{1}{l|}{TLM\_CLOSE} & \multicolumn{1}{l|}{Header} \\ \cline{1-3}
+	\multicolumn{1}{|l|}{10} & \multicolumn{1}{l|}{TLM\_READ} & \multicolumn{1}{l|}{Header | Preamble data} \\ \cline{1-3}
+	\multicolumn{1}{|l|}{11} & \multicolumn{1}{l|}{TLM\_WRITE} & \multicolumn{1}{l|}{Header | Preamble data | Data} \\ \cline{1-3}
 	 &  & 
 	\end{tabular}%
 	\caption{TLM wrapper commands}
 	\label{tab_TLMwrapperCMD}
 \end{table}
 
-Every transaction is kept up with a response, TLM\_ACK (0) for success, or TLM\_NACK (1) for error, and the operation latency, which is 
-required to maintain the synchronization between the simulators. In the case of reading, is added the bytes of the selected memory region. 
+Every transaction is followed up with a response, TLM\_ACK (0) for success, or TLM\_NACK (1) for error, and the operation latency, which is 
+required to maintain the synchronization between the simulators. 
 
 The next figures demonstrate how the wrapper is implemented in both tools. First of all, it is mandatory to initialize the remote port interface.
 To accomplish that, Gem5 must start with the \textit{TLM\_INIT}, and wait for a positive response from SystemC. Only after that, the remote port 
-is available, and write and read operations can flow. Closing the remote port follows a similar path. Gem5 must call the \textit{TLM\_CLOSE}, and 
+is available, and write and read operations can proceed. Closing the remote port follows a similar path. Gem5 must call the \textit{TLM\_CLOSE}, and 
 wait for \textit{TLM\_ACK} from SystemC. The wrapper always verifies if the remote port is available for transactions, and in case of an error, it 
 returns a permission-denied notification. 
 
@@ -93,7 +97,7 @@ resulting in a synchronization conflict. For this reason, if the device is unava
 retry the operation later.
 
 In SystemC, while \textit{TLM\_INIT} and \textit{TLM\_CLOSE} are identical to Gem5 ones in the way of operating, \textit{TLM\_READ} and 
-\textit{TLM\_WRITE} have some differences. First of all, instead of sending the trama, it receives it and verifies if the received slot is accessible.
+\textit{TLM\_WRITE} have some differences. First of all, instead of sending the transaction, it receives it and verifies if the received slot is accessible.
 After that, it executes the respective \gls{tlm} operation, which can result in an error, for example, 
 the offset crossed the device's boundaries, or in a successful process, returning to Gem5 the respective data. Further in this chapter, these 
 operations will be explained in detail. 
@@ -113,10 +117,23 @@ operations will be explained in detail.
 	% \label{fig_TLM_Wrapper_Payload}
 \end{figure}
 
+In the end, the wrapper can be described as presented in the \autoref{fig_TLM_Wrapper_ClassDiagram}. TLM\_Socket provides an abstraction 
+for socket write and read processes. Both have a dependency relationship since the TLM\_Wrapper depends on the TLM\_Socket functions to 
+be able to communicate. When a remote port is initialized, an identification number is returned, and it is stored in the data\_fd variable. 
+In this way, it is possible to associate the slot with the respective remote port, providing coherent communication. When a closing 
+the remote port, this variable is reset to its default value. 
+
+\begin{figure}[!ht]
+	\centering
+ 	\includegraphics[width=0.7\linewidth]{Images/TLM_Wrapper_ClassDiagram.png} 
+ 	\caption{TLM wrapper class diagram}
+	\label{fig_TLM_Wrapper_ClassDiagram}
+\end{figure}
+
 \subsection{SystemC Interface}
 
-The peripheral development was carried out using the SystemC tool. It has the capability to simulate multiple hardware devices at the same time, 
-and these can be different from each other. In order to integrate this flexibility, the subsequent design was developed.
+The peripheral development was carried out using the SystemC tool. It has the capability to simulate multiple and different hardware devices 
+at the same time. In order to integrate this flexibility, the subsequent design was developed.
 
 \begin{figure}[H]
 	\centering
@@ -128,17 +145,17 @@ and these can be different from each other. In order to integrate this flexibili
 
 SystemC design is composed of three main components, which will communicate under the blocking transport method. 
 The initiator, the bus, and the targets.
-Beginning with the first, it serves as the initial 
-point of interaction for the tool, as it handles incoming frames received through the remote port. The remote port operates independently 
+The first serves as the initial 
+point of interaction for the tool since it handles incoming frames received through the remote port. The remote port operates independently 
 of the initiator, enabling asynchronous reception and transmission of bytes through the receiver and transmit buffers, respectively.
-Additionally, it also performs an interpretation of the received trama and creates the \gls{tlm} transaction. It analyses various 
+Additionally, it also performs an interpretation of the received transaction and creates the \gls{tlm} transaction. It analyses various 
 parameters such as the operation type, the desired target, and the memory region, among others, with the help of \gls{tlm} wrapper, 
 which will presented later on.
 
-The bus is responsible for forwarding the \gls{tlm} transaction to the right target. Each target has a unique ID, that is attributed to it 
-at the beginning of the simulation. Gem5's board is a 32-bit processor, meaning that each transaction is 32-bit in length. However, SystemC 
-\gls{tlm} transactions are 64-bit width, leaving 32 bits unused. Before the transmission, the initiator uses these bytes to set the 
-target\_ID, which will be utilized by the bus to identify the targets.
+The bus is responsible for forwarding the \gls{tlm} transaction to the correct target. Each target has a unique ID, that is assigned 
+at the beginning of the simulation. As previously mentioned, the preamble data and data were designed for a 32-bit architecture, however 
+SystemC \gls{tlm} transactions are 64-bit width, leaving 32 bits unused. Before the transmission, the initiator uses these bytes to set the 
+target ID, which will be utilized by the bus to identify the targets.
 
 Lastly, the targets are the peripherals, which can be different from each other. These receive the 
 \gls{tlm} commands and act accordingly. The next images demonstrate how peripherals respond to \gls{tlm} write and read operations. 
@@ -161,43 +178,23 @@ Lastly, the targets are the peripherals, which can be different from each other.
 
 The first step is to verify the offset/size out-of-bounds, and permissions in a way that the device's integrity is maintained. If no errors occurred 
 in this process, the desired operation is done otherwise, an error response is created, reporting where the problem was. 
-At the end of each operation, the correspondent latency is returned, which may vary regarding the desired work. 
+At the end of each operation, the correspondent latency is returned, which may vary regarding the desired work. The latency is used to inform the 
+other simulator how long it should wait until a new operation can be done. An example concerning this can be seen in the above subsection.  
 
 \subsection{Gem5 Interface}
 
-Gem5 has available as a target platform the VExpress\_gem5 board. It is based on the ARM Versatile Express RS1, which 
-consists of a motherboard and two daughterboards. The system provides a range of both on-chip and off-chip devices.
-On-chip devices include the Generic Interrupt Controller (GIC), an LCD controller, and system timers.
-Off-chip devices contain the Keyboard and Mouse Interface (KMI), Real-Time Clock (RTC), and \gls{uart}. 
-The platform's memory map is divided into the next sections.
+Gem5 can integrate different boards with different characteristics. Nevertheless, the steps for integrating a device remain the same across 
+all boards. 
 
-\def\mydots{\xleaders\hbox to0.25em{\hfill.\hfill}\hfill}
+The first step is the identification of available memory in the \gls{mcu}'s \gls{mmio}, and reserve the required memory for the device. 
+Most microcontrollers have a lot of unused \gls{mmio} available, enabling the addition or testing of boards or \glspl{mcu} with new 
+peripherals while retaining most of the original \gls{mcu}.
 
-\begin{outline}[enumerate]
-	\1 Boot memory 						\mydots 	0x00000000 to 0x03FFFFFF
-	\1 Reserved							\mydots 	0x04000000 to 0x0FFFFFFF
-	\1 Off-chip peripherals				\mydots 	0x10000000 to 0x1FFFFFFF
-		\2 Gem5-specific peripherals	\mydots 	0x10000000 to 0x13FFFFFF
-			\3 Energy controller 		\mydots 	0x10000000 to 0x1000FFFF
-			\3 Pseudo-ops				\mydots		0x10010000 to 0x1001FFFF
-			\3 MHU						\mydots		0x10020000 to 0x1002FFFF
-		\2 Reserved 					\mydots 	0x14000000 to 0x17FFFFFF
-		\2 VRAM							\mydots		0x18000000 to 0x19FFFFFF
-		\2 Reserved 					\mydots		0x1A000000 to 0x1BFFFFFF
-		\2 Peripheral block 1			\mydots		0x1C000000 to 0x1FFFFFFF
-	\1 On-chip  peripherals				\mydots 	0x20000000 to 0x3FFFFFFF
-	\1 PCI memory 						\mydots 	0x40000000 to 0x7FFFFFFF
-	\1 DRAM								\mydots 	0x80000000 to 0xFFFFFFFF
-\end{outline}
-
-It is possible to notice that the Gem5-specific peripherals memory region is not fully occupied, therefore hardware should be implemented 
-in this memory region. In accordance with the remaining devices, each peripheral should occupy 0xFFFF of memory space, unless it requires
-more space. In this case, another block of 0xFFFF should be used until its needs are fulfilled. After planning this, Gem5 must recognize 
-this hardware to enable communication with the other simulator. 
+After planning this, Gem5 must recognize this hardware to enable communication with the other simulator. 
 To achieve that, every peripheral should be defined and added to the list of off-chip devices in the 
 board's configuration. In addition, it is also required to create a \gls{pte} for each device, which can be done by following the
-code on \ref{templatePTE}. However, it's important to note that even after this process, the devices are only recognized as part of the 
-VExpress\_gem5 board, as their implementation still needs to be completed.
+code on \ref{templatePTE}. However, it's important to note that after this process, the devices are only recognized as part of the 
+board, and their implementation still needs to be completed.
 
 \hspace{1cm}
 
@@ -216,14 +213,14 @@ STR   r1, [r0, r2]       // Store table entry
 	\centering
 	\begin{subfigure}{0.4\textwidth}
 		\includegraphics[width=0.7\textwidth]{Images/CrcReadFunction.png}
- 		\caption[1\textwidth]{CRC read flowchart} 
+ 		\caption[1\textwidth]{Device's read flowchart} 
 	 	\label{fig_CrcReadFunction}
 	\end{subfigure}
 	\hspace{1cm}
 	\begin{subfigure}{0.4\textwidth}
 		\centering
 		\includegraphics[width=0.7\textwidth]{Images/CrcWriteFunction.png}
-		\caption[1\textwidth]{CRC write flowchart}
+		\caption[1\textwidth]{Device's write flowchart}
 		\label{fig_CrcWriteFunction}
 	\end{subfigure}
 		
@@ -231,21 +228,24 @@ STR   r1, [r0, r2]       // Store table entry
 	\label{fig_Gem5ReadWrite}
 \end{figure}
  
-To implement a device in Gem5, a few aspects are mandatory. First of all, the peripheral's Python interface. In this document, it is 
-described the type, where implementation is, and, optionally, some parameters to be customized. In this context, these can be
-the port number, for the remote connection, or the action time delay. In second place, is the implementation itself. Gem5 has implemented 
-a device template, that is present in the class \textit{BasicPioDevice}. By inheriting this, the default configurations are placed 
-nevertheless, read, and write functions still need to be defined, as these change from device to device. The figures \ref{fig_CrcReadFunction} and \ref{fig_CrcWriteFunction}
-present its implementation. Further, other aspects must be present, like the device registers, the socket\_ID, and the remote 
-port functions(listen, accept, and detach). The remote connection is done before the simulation starts, meaning that it does not
-continue until a connection is made. As soon as it happens, an init function is called to state the initialization, with the 
-device's information. It is required due to the possibility of various devices in SystemC. The last point is the \textit{Sconscript} file, 
-which is mandatory by the compiler to understand the available SimObjects. Here should be discriminated the SimObject, that is, 
-the Python file, the SimObject's source file, and the debug flags, if presented.
+To implement a device in Gem5, a few aspects are mandatory. First of all, the peripheral interface, which describes the type, 
+where the implementation is, and, optionally, some parameters to be customized. In this context, these can be
+the port number, for the remote connection, or the action time delay. 
+In second place, is the implementation itself. To accomplish this, the class \textit{BasicPioDevice} should be used. It is the base class 
+which all devices sensitive to an address range inherit from. It abstracts all the device's implementation, from the creation of the SimObject 
+to memory access protocols. Still, it is required to define the read and write operations, as these change from device to device. 
+The figures \ref{fig_CrcReadFunction} and \ref{fig_CrcWriteFunction} present a template for this implementation. Both start evaluating if
+the peripheral is available or not. If it is negative, a busy notification is returned informing that it is not available at the 
+moment. Otherwise, the respective operation is performed, returning the amount of time spent.
+
+The last step is the connection to the remote port interface. The connection process is the following: Firstly, a socket must be created; 
+After that, the simulator listens to the socket and waits until a connection is made; Finally, it verifies if the other interfaces are ready 
+by initializing the co-simulation environment. If it receives a positive response, the simulation can proceed, else the simulation is aborted. 
+Note that all this process is done before the actual benchmark starts. 
 
 \section{CRC as a Case Study}
 
-To stimulate the developed interface, the \gls{crc} peripheral was chosen as a case study since it is not available on Gem5's target board.
+To stimulate the developed interface, the \gls{crc} peripheral was chosen as a case study.
 This selection was based on its presence in several microcontroller families, such as STM32 \cite{referenceManualRM0385} or Xilinx Zynq \cite{xilinx2014zynq}.
 
 The \gls{crc} was created in 1961 by William Wesley Peterson \cite{peterson1961cyclic}. As the name suggests, 
@@ -258,16 +258,14 @@ CRC-32, and CRC-CCIT \cite{borrelli2001ieee}
 Another application for the \gls{crc} is the storage integrity. Due to defective components or electromagnetic fields,
 bits can change their value without notice. In the presented case study, this scenario will be explored, where 
 the \gls{crc} peripheral is used to maintain a specific memory state and verify if there have been any changes. 
-Furthermore, the board will not be only engaged in this operation, as in a real-world scenario, it has additional peripherals to manage. 
-Hence, as a proof-of-concept, parallel tasks will be included in the execution.
+Furthermore, the board will not be only engaged in this operation, because in real-world scenarios, it has additional functionalities 
+besides memory verification. Hence, as a proof-of-concept, parallel tasks will be included in the execution.
 
-It is worth noting that the design process took as reference the STM32 microcontroller family's reference manual \cite{referenceManualRM0385}.
+\subsection{Peripheral Development on SystemC}
 
-\subsection{Peripheral Development}
-
-The \gls{crc} development was required in both simulators. Starting with SystemC, first of all, it was defined which hardware will take place.
-In this example, since the focus will be the \gls{crc}, only it will be simulated. Hence, \autoref{fig_SystemCdesign_geral} can be redefined to 
-the \autoref{fig_SystemCdesign_CRC}.
+The development of the \gls{crc} peripheral was done in SystemC, which took as a reference the STM32 microcontroller family's 
+reference manual \cite{referenceManualRM0385}. As presented in the figure below, the \autoref{fig_SystemCdesign_geral} was redefined to 
+the present case study. The initiator will only have one remote port associated since only one device will be simulated.
 
 \begin{figure}[H]
 	\centering
@@ -276,7 +274,7 @@ the \autoref{fig_SystemCdesign_CRC}.
 	\label{fig_SystemCdesign_CRC}
 \end{figure}
 
-The peripheral's characteristics can be observed in the bullet points below, and \autoref{fig_CrcBlockDiagram} demonstrates how it will function.
+From the module datasheet, the peripheral is characterized by the following:  
 
 \begin{itemize}
 	\item CRC-32 (Ethernet) polynomial: 0x4C11DB7
@@ -294,7 +292,8 @@ The peripheral's characteristics can be observed in the bullet points below, and
 	 \label{fig_CrcBlockDiagram}
 \end{figure}
 
-First of all, the user needs to write the input value 
+
+Regarding the \autoref{fig_CrcBlockDiagram}, the module working principle is as follows. First of all, the user needs to write the input value 
 in the data register (CRC\_DR). After four \gls{crc} clock cycles, the correspondent \gls{crc} value is fully calculated, and its
 value is stored in the CRC\_DR. In this case, the \gls{crc} frequency will be equal to the \gls{cpu}. The data width must be 32-bit, 
 hence whether the user needs a \gls{crc} for five bytes, for example, two different computations will be needed. 
@@ -341,8 +340,9 @@ the hardware. An example of a reverse operation can be found on \autoref{tab:CRC
 
 By default, the polynomial coefficients are defined by 0x4C11DB7 nevertheless, it can be fully programmable through the CRC\_POL register.
 It is important to mention that modifications in this register when a \gls{crc} computation is ongoing are not permitted, as it would 
-compromise the output value. To conclude the available registers, are missing the CRC\_INIT and CRC\_IDR, which are used to initialize 
-the \gls{crc} calculator in the reset, and to hold a temporary 8-bit value related to \gls{crc} calculation, respectively. 
+compromise the output value. To complete the list of available registers, there are the CRC\_INIT and CRC\_IDR.  
+These registers are used to initialize the \gls{crc} calculator during reset and to hold a temporary 8-bit value related to \gls{crc} 
+calculation, respectively.
 
 Finally, the write command must be redefined to adhere to the peripheral characteristics, as demonstrated in \autoref{fig_CRC_write}.
 Since the read operation does not require a specific behavior depending on the desired registers, the aforementioned template does not demand any
@@ -355,11 +355,42 @@ action.
 	 \label{fig_CRC_write}
 \end{figure}
 
+\subsection{Peripheral Development on Gem5}
 
-Moving to Gem5, the first aspect to take care of is the definition of the memory region. Following the previously defined rule, for the understudy device 
-memory will be reserved from 0x10030000 to 0x1003FFFF. Then, the \gls{pte} entry must be created, with the \textit{DEVICE\_ADDR} parameter equal to 
-the beginning of the device's memory, which is 0x10030000. The last part is the implementation of the write and read functions. Concerning the 
+For the subsequent tests, the selected target platform was the VExpress\_gem5 board. It is based on the ARM Versatile Express RS1, which 
+consists of a motherboard and two daughterboards. The system provides a range of both on-chip and off-chip devices.
+On-chip devices include the Generic Interrupt Controller (GIC), an LCD controller, and system timers.
+Off-chip devices contain the Keyboard and Mouse Interface (KMI), Real-Time Clock (RTC), and \gls{uart}. 
+The platform's memory map is divided into the next sections.
+
+\def\mydots{\xleaders\hbox to0.25em{\hfill.\hfill}\hfill}
+
+\begin{outline}[enumerate]
+	\1 Boot memory 						\mydots 	0x00000000 to 0x03FFFFFF
+	\1 Reserved							\mydots 	0x04000000 to 0x0FFFFFFF
+	\1 Off-chip peripherals				\mydots 	0x10000000 to 0x1FFFFFFF
+		\2 Gem5-specific peripherals	\mydots 	0x10000000 to 0x13FFFFFF
+			\3 Energy controller 		\mydots 	0x10000000 to 0x1000FFFF
+			\3 Pseudo-ops				\mydots		0x10010000 to 0x1001FFFF
+			\3 MHU						\mydots		0x10020000 to 0x1002FFFF
+		\2 Reserved 					\mydots 	0x14000000 to 0x17FFFFFF
+		\2 VRAM							\mydots		0x18000000 to 0x19FFFFFF
+		\2 Reserved 					\mydots		0x1A000000 to 0x1BFFFFFF
+		\2 Peripheral block 1			\mydots		0x1C000000 to 0x1FFFFFFF
+	\1 On-chip  peripherals				\mydots 	0x20000000 to 0x3FFFFFFF
+	\1 PCI memory 						\mydots 	0x40000000 to 0x7FFFFFFF
+	\1 DRAM								\mydots 	0x80000000 to 0xFFFFFFFF
+\end{outline}
+
+The first aspect to take care of is the definition of the memory region. In accordance with the remaining devices, each peripheral should 
+occupy 0xFFFF of memory space, unless it requires more space. In this case, another block of 0xFFFF should be used until its needs are fulfilled. 
+Following the previously defined rule, for the understudy device memory will be reserved from 0x10030000 to 0x1003FFFF.
+
+Then, the \gls{pte} entry must be created, with the \textit{DEVICE\_ADDR} parameter equal to the beginning of the device's memory, which 
+is 0x10030000. The last part is the implementation of the write and read functions. Concerning the 
 template present in the \autoref{fig_Gem5ReadWrite}, no modifications were needed to integrate this peripheral, therefore these were employed. 
+
+\subsection{Application API}
 
 At this point, the user on the application side can write and read directly from memory without any restriction. However, it can be
 dangerous, in the way that the user can, by mistake, do an unpermitted operation. For example, write in reversed memory, causing a

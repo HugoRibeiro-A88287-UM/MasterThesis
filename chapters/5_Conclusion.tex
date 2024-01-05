@@ -3,15 +3,16 @@
 This chapter concludes this dissertation, summarizing the former developed work, and giving up some topics that could be
 interesting for future work.
 
-From a general perspective, this project development contributed to solve the principal problem verified in par-gem5, which is the 
-quantum definition to get the best tradeoff between performance and accuracy. With this advancement, hardware developers do not 
-need to study and understand in detail the target system and the benchmarks since the introduced dynamic version is able to 
-automatically tune to the best synchronization time. For this reason, the dissertation goal was accomplished. 
+From a general perspective, this project development contributed to solving the principal problem verified in par-gem5, which is the 
+quantum definition to get the best tradeoff between performance and accuracy. Further, it provided a flexible and well-functioning framework 
+that enables the interaction between different tools. With this advancement, developers are no longer required to study and understand 
+the target system and benchmarks in detail. Gem5 can now be utilized in co-simulation environments more frequently.
+For this reason, the dissertation goal was accomplished. 
 
 \section{Developed Work}
 
-Concerning the development work, all algorithms were used in the final approach, except for the repetition one. Due to its overhead in the 
-simulation performance and weak accuracy gain, the repetition algorithm was excluded from the final solution. However, it was shown 
+Concerning the dynamic quantum development, all algorithms were used in the final approach, except for the repetition one. Due to its overhead in the 
+simulation performance and weak accuracy gain, it was excluded from the final solution. However, it was shown 
 that it can be an option when the workload has lots of repetitive tasks, enabling specific optimizations.
 
 %talk about the simulation results of the final algorithm
@@ -27,11 +28,14 @@ algorithm's design must be flexible, in a way that all benchmarks can have the b
 Negative inaccuracy may continue to be present, as a consequence of par-gem5 use. The dynamic quantum development was not able to solve this
 issue, making necessary a deeper analysis of par-gem5 design in order to find the problem. 
 
-In conclusion, the better algorithm depends on the a-priori available information. If there is nothing about it, the dynamic version should be 
+In conclusion, the better algorithm depends on the a-priori available information. If there is no information available, the dynamic version should be 
 used because, even if the performance might be lower than it could be, it is guaranteed that accuracy will be above 95\%. On the other side,
 knowing the details of the benchmark enables us to calculate the optimal quantum before initiating the simulation. It is important to 
 remember that when increasing the quantum, while performance as a function of the quantum behaves similarly to a sigmoidal, inaccuracy 
-grows linearly \cite*{BeyondQuantumTDSim}. 
+grows linearly \cite*{BeyondQuantumTDSim}. If perfect accuracy is mandatory, the sequential mode should be selected since the usage of par-gem5 
+implies an accuracy cost. Also, simulations with a single simulated core should always be 
+executed with the later mode. It was concluded that parallelization with only one simulated core results in a loss of accuracy 
+without a significant gain in performance.
 
 The developed co-simulation interface provided a new work environment between two different tools. Gem5 and SystemC were chosen to validate 
 this, and the result was positive. Data integrity, data exchange, and synchronization between the tools were maintained during all the simulations. 
@@ -41,16 +45,10 @@ memory integrity tests were designed and performed, where either for the success
 with the real ones. On the other part, it was possible to verify that the dynamic quantum yielded improved results even with a significant 
 time consumption in the communication between tools. Further, accuracy was always above 99\%, enchanting its performance. 
 
-In the final analysis, it is important to mention that the usage of par-gem5, and consequently the dynamic quantum, has an accuracy cost. If 
-perfect accuracy is mandatory, sequential mode should be selected. Also, simulations with a single simulated core should always be 
-executed with the later mode. It was concluded that parallelization with only one simulated core results in a loss of accuracy 
-without a significant gain in performance.
-
-
 \section{Future Work}
 
-Concerning future work, there are some aspects where improvements and new additions can be developed in order to have a more robust 
-and versatile algorithm.
+Concerning future work, there are some aspects where improvements and new additions can be developed to have either an 
+algorithm or a framework more robust and versatile.
 
 The first aspect is the execution of more benchmarks. Although the algorithm was tested with a set of different and distinct benchmarks, 
 more tests are required to have more performance results. These may reveal points where it can be improved, either with the development

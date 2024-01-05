@@ -129,6 +129,48 @@
     \field{year}{2023}
   \endentry
 
+  \entry{gomes2017co}{article}{}
+    \name{author}{5}{}{%
+      {{hash=GC}{%
+         family={Gomes},
+         familyi={G\bibinitperiod},
+         given={Cl{\'a}udio},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Thule},
+         familyi={T\bibinitperiod},
+         given={Casper},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Broman},
+         familyi={B\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=LPG}{%
+         family={Larsen},
+         familyi={L\bibinitperiod},
+         given={Peter\bibnamedelima Gorm},
+         giveni={P\bibinitperiod\bibinitdelim G\bibinitperiod},
+      }}%
+      {{hash=VH}{%
+         family={Vangheluwe},
+         familyi={V\bibinitperiod},
+         given={Hans},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{GC+1}
+    \strng{fullhash}{GCTCBDLPGVH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Co-simulation: State of the art}
+    \field{journaltitle}{arXiv preprint arXiv:1702.00686}
+    \field{year}{2017}
+  \endentry
+
   \entry{zionMarketResearch}{misc}{}
     \name{author}{1}{}{%
       {{hash=RZM}{%
@@ -3024,48 +3066,6 @@
   paper}
     \field{volume}{1085}
     \field{year}{2018}
-  \endentry
-
-  \entry{gomes2017co}{article}{}
-    \name{author}{5}{}{%
-      {{hash=GC}{%
-         family={Gomes},
-         familyi={G\bibinitperiod},
-         given={Cl{\'a}udio},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=TC}{%
-         family={Thule},
-         familyi={T\bibinitperiod},
-         given={Casper},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=BD}{%
-         family={Broman},
-         familyi={B\bibinitperiod},
-         given={David},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=LPG}{%
-         family={Larsen},
-         familyi={L\bibinitperiod},
-         given={Peter\bibnamedelima Gorm},
-         giveni={P\bibinitperiod\bibinitdelim G\bibinitperiod},
-      }}%
-      {{hash=VH}{%
-         family={Vangheluwe},
-         familyi={V\bibinitperiod},
-         given={Hans},
-         giveni={H\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{GC+1}
-    \strng{fullhash}{GCTCBDLPGVH1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Co-simulation: State of the art}
-    \field{journaltitle}{arXiv preprint arXiv:1702.00686}
-    \field{year}{2017}
   \endentry
 
   \entry{XilinxLibsystemctlm-SOC}{misc}{}
