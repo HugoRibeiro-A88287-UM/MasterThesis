@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  5 JAN 2024 17:51
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  8 JAN 2024 12:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2353,21 +2353,29 @@ File: Images/CRC_write.png Graphic file (type bmp)
 File: Images/CRC_API_Class_Diagram.png Graphic file (type bmp)
 <Images/CRC_API_Class_Diagram.png>
  [85]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 422.
+
+File: Images/Validation_test_diagram.png Graphic file (type bmp)
+<Images/Validation_test_diagram.png>
+File: Images/Validation_SystemC.png Graphic file (type bmp)
+<Images/Validation_SystemC.png>
+[86]
 File: Images/CoSimDesign_Validation.png Graphic file (type bmp)
 <Images/CoSimDesign_Validation.png>
- [86]
+ [87]
 File: Images/Validation_Results.png Graphic file (type bmp)
 <Images/Validation_Results.png>
- [87]
 File: Images/CoSimDesign.png Graphic file (type bmp)
 <Images/CoSimDesign.png>
+ [88]
 File: Images/MemoryIntegrity_StateDiagram.png Graphic file (type bmp)
 <Images/MemoryIntegrity_StateDiagram.png>
- [88]
 File: Images/MemoryIntegrity_CPU0SequenceDiagram.png Graphic file (type bmp)
 <Images/MemoryIntegrity_CPU0SequenceDiagram.png>
  [89]
-Underfull \hbox (badness 10000) in paragraph at lines 538--540
+Underfull \hbox (badness 10000) in paragraph at lines 553--555
 
  []
 
@@ -2377,7 +2385,7 @@ File: Images/AppTimeDiagram.png Graphic file (type bmp)
 File: Images/Success_MemoryIntegrity.png Graphic file (type bmp)
 <Images/Success_MemoryIntegrity.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 590--592
+Underfull \hbox (badness 10000) in paragraph at lines 605--607
 
  []
 
@@ -2391,7 +2399,7 @@ File: Images/Failure_MemoryIntegrity2.png Graphic file (type bmp)
  [92]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 645.
+               Default added (so using `tbp') on input line 661.
 
 File: Images/Performance_CO_SIM.png Graphic file (type bmp)
 <Images/Performance_CO_SIM.png>
@@ -2431,11 +2439,8 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `Thesis_HugoRibeiro.out' has not changed.
-(rerunfilecheck)             Checksum: 5904F21FF4EF2F50109604689FFA557E;10262.
+(rerunfilecheck)             Checksum: 706B5C407CAC1C264F8E7699763128C4;10262.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                Thesis_HugoRibeiro
@@ -2446,10 +2451,10 @@ Package logreq Info: Writing requests to 'Thesis_HugoRibeiro.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53330 strings out of 475161
- 1101463 string characters out of 5766720
- 2274849 words of memory out of 5000000
- 74263 multiletter control sequences out of 15000+600000
+ 53349 strings out of 475161
+ 1102141 string characters out of 5766720
+ 2239034 words of memory out of 5000000
+ 74280 multiletter control sequences out of 15000+600000
  568676 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  110i,18n,107p,2346b,5784s stack positions out of 10000i,1000n,20000p,200000b,200000s

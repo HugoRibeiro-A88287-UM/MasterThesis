@@ -415,11 +415,35 @@ control the device.
 \subsection{Peripheral Validation}
 
 After development, the next step was to simulate and validate the peripheral. For this purpose, it was developed a validation test where
-all features of the device will be tested. Two cores will be employed for this purpose: one will be dedicated to the 
+all features of the device will be tested. At the first moment, the device will be tested isolated, that is, without the remote port and Gem5 
+interactions, as present in \autoref{fig_Validation_test_diagram}. After that, it will be tested in a co-simulation environment, as shown in the 
+\autoref{fig_CoSimDesign_Validation}. 
+
+\begin{figure}[]
+	\centering
+ 	\includegraphics[width=0.5\linewidth]{Images/Validation_test_diagram.png} 
+ 	\caption{CRC peripheral validation}
+	\label{fig_Validation_test_diagram}
+\end{figure}
+
+The designed validation test can be divided into three parts. In the first one, the reverse output will be tested. Then, the settings will 
+change, and the calculation will use a reverse input and a different polynomial. To conclude, the reset function will be checked. 
+By executing this benchmark, every functionality of the peripheral is tested. At the end of the simulation, the expected return values are 
+0x22CC4488 for the first part and 0xC66CE444 for the second part. The final output will be the result of the reset operation. 
+
+With this into account, the test was executed in the firstly mentioned condition, obtaining the results demonstrated in the figure below. As 
+expected, the obtained results matched with the expected ones, concluding that the peripheral is working properly. 
+
+\begin{figure}[H]
+	\centering
+ 	\includegraphics[width=0.9\linewidth]{Images/Validation_SystemC.png} 
+ 	\caption{CRC peripheral validation results}
+\end{figure}
+
+Moving to the co-simulation validation test, two cores will be employed in gem5's simulation for this purpose: one will be dedicated to the 
 \gls{crc}, while the other will execute the bubble-sort benchmark. The simulation will be conducted in sequential mode since 
 the main objective is not performance, but accuracy.
 
-\autoref{fig_CoSimDesign_Validation} presents the design of the co-simulation environment. 
 It will be used one \gls{crc} and the \gls{uart}, to communicate with the user by the terminal.
 As referred, \gls{uart} is already implemented, hence it only requires its initialization and configuration. For the test, it will be used the 
 \gls{uart}0, which is present in the memory map from 0x1C090000 to 0x1C09FFFF.
@@ -434,16 +458,7 @@ launch automatically, therefore it must be manually called, with \textit{./m5ter
 	\label{fig_CoSimDesign_Validation}
 \end{figure}
 
-The application will run the code present in \ref{validationCodeCRC}. It can be divided into three parts. In the first one, the reverse 
-output will be tested. Then, the settings will change, and the calculation will use a reverse input and a different polynomial. To
-conclude, the reset function will be checked. By executing this benchmark, every functionality of the peripheral is tested. The expected
-outputs are:
-
-\begin{enumerate}
-	\item Return from CRC\_DR: 0x22CC4488
-	\item Return from CRC\_DR: 0xC66CE444
-	\item Reset was done with success!
-\end{enumerate}
+The application will run the code present in \ref{validationCodeCRC}, which describes the previous validation test. 
 
 \begin{lstlisting}[style=customC, caption={CRC validation code}, label=validationCodeCRC]
 CRC_SC_INIT();
@@ -637,9 +652,10 @@ host time. In the co-simulation itself, the use of par-gem5 would not provide gr
 is the most time-consuming aspect. On the other hand, the remaining workload would take advantage of the parallel mode, as verified in the 
 previous chapter (\ref{subsec::finalAlgorithm}). 
 
-To assess the advantages of par-gem5 and the dynamic quantum, a series of tests were conducted with various configurations. Compared to the prior 
-ones, the differences will be resumed to the simulation modes, with the addition of static and dynamic parallel modes, and the number of simulated 
-cores, which will range from 2, 4, 8, 16, 32, to 64 cores. The next figures exhibit the results obtained. 
+To assess the advantages of par-gem5 and the dynamic quantum during co-simulation, a series of tests were conducted with various configurations. 
+Compared to the prior ones, the differences will be resumed to the simulation modes, with the addition of static and dynamic parallel modes, 
+and the number of simulated cores, which will range from 2, 4, 8, 16, 32, to 64 cores. Further, the same setup of the previous section was used  
+to perform this new set of tests (\autoref{fig_CoSimDesign}). The next figures exhibit the results obtained. 
 
 
 \begin{figure}[]
@@ -680,10 +696,10 @@ From these benchmarks other conclusions can be taken. Depending on the benchmark
 the parallel ones. It was verified that when the parallel tasks have considerable time consumption, the parallel mode gives more advantages 
 since it can accelerate these, keeping the inaccuracy below 5\%. On the opposite way, if the communication between tools is where the simulation 
 spends most of the time, the sequential mode will fit better, as it has a greater tradeoff between accuracy and performance. Further, the delay
-times between the tasks also play a significant role. In cases where $t_{CoSim} >>> t_{ParTask}$, the parallel version is the most appropriate
+times between the tasks also play a significant role. In cases where $T_{CoSim} >>> T_{ParTask}$, the parallel version is the most appropriate
 otherwise, the sequential one should be chosen. 
 
-In the end, it is trivial that to decide which mode is better, apriori information about the workload is needed.
+In the end, to decide which mode is better for a certain workload, apriori information is needed.
 If it does not exist, either because there is no documentation or the access to the source code is restricted, the better simulation mode to use, 
 based on this case study, is the parallel mode with a dynamic quantum. The reason is that it had always an inaccuracy below 5\% and 
 had a higher performance gain when compared to the sequential version. Nevertheless, if perfect accuracy is the main requirement, the 

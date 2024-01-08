@@ -5,21 +5,27 @@ interesting for future work.
 
 From a general perspective, this project development contributed to solving the principal problem verified in par-gem5, which is the 
 quantum definition to get the best tradeoff between performance and accuracy. Further, it provided a flexible and well-functioning framework 
-that enables the interaction between different tools. With this advancement, developers are no longer required to study and understand 
-the target system and benchmarks in detail. Gem5 can now be utilized in co-simulation environments more frequently.
+that enables the interaction between different tools. With these advancements, it is no longer required to study and understand 
+the target system and benchmarks in detail, and Gem5 can now be utilized in co-simulation environments more frequently.
 For this reason, the dissertation goal was accomplished. 
 
 \section{Developed Work}
 
-Concerning the dynamic quantum development, all algorithms were used in the final approach, except for the repetition one. Due to its overhead in the 
-simulation performance and weak accuracy gain, it was excluded from the final solution. However, it was shown 
+Concerning the dynamic quantum development, there were designed and tested four different algorithms. 
+The ADALINE-based algorithm demonstrated the capability to adapt the quantum without any prior information and proved to be lightweight.
+The Step Ladder usage enabled a higher performance gain in the majority of the cases, decreasing host time. 
+\gls{ifp} allowed a deeper analysis of the simulation flow, highlighting potential regions where accuracy could be affected. 
+The Loop Detection algorithm provided loop identification while executing the benchmark, creating the possibility of adapting the quantum 
+for the best value. 
+After gathering all the results, it was settled to integrate all algorithms into the final approach, with the exception of the repetition algorithm.
+Due to its overhead in the simulation performance and weak accuracy gain, it was excluded from the final solution. However, it was shown 
 that it can be an option when the workload has lots of repetitive tasks, enabling specific optimizations.
 
 %talk about the simulation results of the final algorithm
 Several tests were performed to evaluate it. In the end, it can be concluded the use of the dynamic version for the quantum choice brings 
 greater benefits. When the NPB BT, LU, and SP with 32 and 64 simulated cores are not considered, there are gains in performance almost 
 reaching 10\%, only sacrificing 0.5\% of accuracy. As mentioned on \autoref{cap:BM}, the previous tests have a particular characteristic, 
-which is they executed nonlinear partial differential equations. This workload does not require inter-process communications thus, 
+which is they execute nonlinear partial differential equations. This workload does not require inter-process communications thus, 
 quantum can be increased without losing significant accuracy. The dynamic algorithm was designed to make it harder to increase the 
 quantum value as the number of cores increases, due to the conclusions obtained in the par-gem5 \cite*{pargem5} work. For this reason, 
 this type of benchmark obtains a meaningful drop in performance when more than 16 cores are being simulated. However, the 
@@ -44,6 +50,12 @@ passing all the requirements successfully. In addition, as part of the case stud
 memory integrity tests were designed and performed, where either for the success or the failure modeling, the expected results matched
 with the real ones. On the other part, it was possible to verify that the dynamic quantum yielded improved results even with a significant 
 time consumption in the communication between tools. Further, accuracy was always above 99\%, enchanting its performance. 
+
+It is important to mention that this work regarding co-simulation between Gem5 and other tools is very poor, only existing a few works in the 
+literature. Gem5 already has a defined co-simulation environment with SystemC in its official repository nevertheless, it does not 
+fully adhere to the previously mentioned co-simulation definition because the two simulators are not running simultaneously in separate processes.
+For this reason, this work contributes to the first steps in this subject. 
+
 
 \section{Future Work}
 

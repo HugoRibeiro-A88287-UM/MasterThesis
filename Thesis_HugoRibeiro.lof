@@ -77,14 +77,16 @@
 \contentsline {figure}{\numberline {4.10}{\ignorespaces CRC block diagram}}{83}{figure.caption.207}%
 \contentsline {figure}{\numberline {4.11}{\ignorespaces CRC write operation}}{84}{figure.caption.209}%
 \contentsline {figure}{\numberline {4.12}{\ignorespaces Class diagram for the CRC API}}{85}{figure.caption.226}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Validation co-simulation environment}}{86}{figure.caption.228}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces CRC validation test results}}{88}{figure.caption.269}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Case study co-simulation environment}}{88}{figure.caption.271}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces State machine diagram for the memory integrity test}}{89}{figure.caption.272}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Sequence diagram diagram for the memory comparison}}{90}{figure.caption.273}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces Application execution timely diagram}}{91}{figure.caption.274}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Success memory integrity test}}{91}{figure.caption.275}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Application execution timely diagram with a failure}}{92}{figure.caption.276}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Failure memory integrity test}}{93}{figure.caption.278}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Co-simulation results}}{94}{figure.caption.280}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces CRC peripheral validation}}{86}{figure.caption.228}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces CRC peripheral validation results}}{86}{figure.caption.229}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Validation co-simulation environment}}{87}{figure.caption.230}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces CRC validation test results}}{88}{figure.caption.268}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Case study co-simulation environment}}{89}{figure.caption.270}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces State machine diagram for the memory integrity test}}{89}{figure.caption.271}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Sequence diagram diagram for the memory comparison}}{90}{figure.caption.272}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Application execution timely diagram}}{91}{figure.caption.273}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Success memory integrity test}}{91}{figure.caption.274}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Application execution timely diagram with a failure}}{92}{figure.caption.275}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Failure memory integrity test}}{93}{figure.caption.277}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Co-simulation results}}{94}{figure.caption.279}%
 \addvspace {10\p@ }

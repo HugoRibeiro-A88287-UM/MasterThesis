@@ -67,9 +67,9 @@
 \contentsline {subsection}{\numberline {4.2.2}Peripheral Development on Gem5}{83}{subsection.210}%
 \contentsline {subsection}{\numberline {4.2.3}Application API}{85}{subsection.225}%
 \contentsline {subsection}{\numberline {4.2.4}Peripheral Validation}{86}{subsection.227}%
-\contentsline {subsection}{\numberline {4.2.5}Memory Integrity}{88}{subsection.270}%
-\contentsline {section}{\numberline {4.3}Dynamic Quantum Integration}{93}{section.279}%
-\contentsline {chapter}{\numberline {5}Conclusions}{96}{chapter.281}%
-\contentsline {section}{\numberline {5.1}Developed Work}{96}{section.282}%
-\contentsline {section}{\numberline {5.2}Future Work}{97}{section.283}%
-\contentsline {chapter}{References}{99}{section*.284}%
+\contentsline {subsection}{\numberline {4.2.5}Memory Integrity}{88}{subsection.269}%
+\contentsline {section}{\numberline {4.3}Dynamic Quantum Integration}{93}{section.278}%
+\contentsline {chapter}{\numberline {5}Conclusions}{96}{chapter.280}%
+\contentsline {section}{\numberline {5.1}Developed Work}{96}{section.281}%
+\contentsline {section}{\numberline {5.2}Future Work}{97}{section.282}%
+\contentsline {chapter}{References}{99}{section*.283}%

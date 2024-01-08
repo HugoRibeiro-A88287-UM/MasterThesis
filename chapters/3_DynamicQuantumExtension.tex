@@ -4,27 +4,28 @@ full host machine. As exhibited in the \autoref{subsec:pargem5}, the accuracy is
 Concerning the current works on this subject, none of them fulfilled the three characteristics presented in the 
 \autoref{tab_OverviewDynamicQuantum}, therefore they can not be employed in the par-gem5. 
 
-To overcome these limitations and find the optimal quantum automatically, some algorithms in the scope of this dissertation were developed.  
-During the chapter, these algorithms, which are called ADALINE-based, step ladder, \gls{ifp}, and loop detection, will be described 
-and explained in detail. Regarding the overall simulator, as presented in the \autoref{fig_HighLevelPar_gem5OpMode}, 
-these will operate on the synchronization process, more precisely in the quantum definition. 
+To overcome these limitations and find the optimal quantum automatically, this dissertation proposes some algorithms to tackle these limitations.   
+During the chapter, these algorithms, which are named ADALINE-based, Step Ladder, \gls{ifp}, and Loop Detection, will be described 
+and explained in detail. They will operate on the synchronization process, more precisely in the quantum definition, as presented 
+in the \autoref{fig_HighLevelPar_gem5OpMode}.
 
 \begin{figure}[]
 	\centering
  	\includegraphics[width=0.8\linewidth]{Images/HighLevelPar_gem5OpMode.png}
  	\caption{High-level diagram of par-gem5 operation mode}
-	 \label{fig_HighLevelPar_gem5OpMode}
+	\label{fig_HighLevelPar_gem5OpMode}
 \end{figure}
 
 
-All event queues are running independently from each other until they reach the barrier, which is the defined time to execute 
+All event queues (EQs) are running independently from each other until they reach the barrier, which is the defined time to execute 
 synchronization. Due to this independence, each one has its local time thus, the processes will not hit the barrier at the same moment. 
-To avoid parallelism issues, the synchronization process is only executed when all have reached the defined time. When starting this 
+To avoid parallelism issues, the synchronization process is only executed when all have reached the barrier. When starting this 
 process, the simulator verifies if there are more events to carry out and establishes whether the simulation should continue or not.
 If affirmative, the postponed events are scheduled to their respective event queues and the next synchronization is programmed for 
 the current time plus the result from the developed algorithm. If not, it finishes the workload.
 
-The first section will present an introduction to the developed extension, where the changes in par-gem5 and the used benchmarks will be exploited.
+The first section will present an introduction to the developed extension, demonstrating the required modifications to integrate the solution and 
+explaining the used benchmarks. 
 After that, the remaining sections will outline the advantages and disadvantages of each algorithm, consistently comparing their performance with the 
 previous scenario. In the end, an evaluation will be done, resulting in the definition of the definitive algorithm and comparing its results with 
 the static version already present in the par-gem5.
