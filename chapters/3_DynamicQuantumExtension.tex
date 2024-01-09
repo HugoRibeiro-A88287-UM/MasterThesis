@@ -39,7 +39,7 @@ were done to integrate the usage of the dynamic quantum, and to better evaluate,
 
 \subsection{Par-gem5 Changes}
 
-Two changes were made. The first was \textit{QuantumMode}, and the other was the inclusion of more simulation 
+Two changes were made. The first was the addition of a new function mode, and the other was the inclusion of more simulation 
 feedback regarding the dynamic algorithm. 
 
 Par-gem5 has two possible simulation modes, sequential and parallel with a static quantum. When the user chooses a parallel mode, 
@@ -47,12 +47,61 @@ the simulator already knows that the quantum will not change. If the user previo
 synchronization time otherwise, a default value is selected (1 microsecond). By adding the dynamic version, the user needs to specify a new 
 parameter hence, the prior approach does not work.
 
-Concerning this, the \textit{QuantumMode} type was created to adhere to the new situation. This variable type can have two states, static or 
-dynamic, representing the two available versions. To integrate it into the simulator and be able to recognize it, a couple of steps were done. 
-First of all, the \textit{QuantumMode} was defined and added to the list of the simulator's available types. After 
-that, a new file was created to implement the name translation, due to the fact that the names used on the user side are 
-different from the simulator side. At last, the remaining simulator was adapted to be able to select between the two versions, 
+Concerning this, the \textit{QuantumMode} was created to adhere to the new situation. This variable can have two states, static or 
+dynamic, representing the two available versions. To integrate it into the simulator, a couple of steps were done. 
+First of all, the \textit{QuantumMode} was defined and added to the list of the simulator's available types, as shown in the \autoref{SnippetParams}. 
+After that, a new file was created, \autoref{SnippetQuantum}, to implement the name translation, due to the fact that the names used on the user 
+side are different from the simulator side. At last, the remaining simulator was adapted to be able to select between the two versions, 
 including the quantum global synchronization event, which is reasonable for the synchronization process.
+
+\begin{lstlisting}[style=customPython, caption={Snippet of Params.py}, label=SnippetParams]
+                    # (...) #
+    
+class ByteOrder(ScopedEnum):
+"""Enum representing component's byte order (endianness)"""
+
+vals = [
+    'big',
+    'little',
+]
+
+class QuantumMode(ScopedEnum):  
+    """Enum representing quantum available modes"""
+
+    vals = [
+        '_static',
+        '_dynamic'
+    ]
+
+    wrapper_name = 'QuantumMode'
+
+
+# How big does a rounding error need to be before we warn about it?
+frequency_tolerance = 0.001  # 0.1%
+
+                # (...) #
+\end{lstlisting}
+
+\begin{lstlisting}[style=customPython, caption={Quantum.py file}, label=SnippetQuantum]
+import sys
+from m5.util import warn
+from m5.params import QuantumMode
+
+
+def mode(quantum_mode):
+
+    if(quantum_mode == "static"):
+        return '_static'
+
+    elif (quantum_mode == "dynamic"):
+        return '_dynamic'
+    
+    else:
+        raise TypeError("Can't convert '%s' to a quantum_mode" % type(quantum_mode))
+
+__all__ = ['mode']
+\end{lstlisting}
+
 
 At the end of each simulation, par-gem5 provides a set of statistics that reflect the behavior of the performed simulation. Examples are 
 the number of quanta with at least one postponed event (\textit{errQuanta}), the absolute error of par-gem5 in seconds (\textit{errSimSeconds}), 
@@ -399,7 +448,7 @@ The new flowchart is represented in the next figure.
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.32\linewidth]{Images/ADALINE_v2.png}
- 	\caption{ADALINE-based and step ladder algorithms combined}
+ 	\caption{ADALINE-based and Step Ladder algorithms combined}
 	 \label{fig_ADALINE_v2}
 \end{figure}
 
@@ -444,7 +493,7 @@ shown in the subsequent flowchart, and they are used to check if the increment o
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.6\linewidth]{Images/incAlgorithm_flowchart.png}
- 	\caption{Step ladder algorithm flowchart}
+ 	\caption{Step Ladder algorithm flowchart}
 	 \label{fig_incAlgorithm_flowchart}
 \end{figure}
 
@@ -573,7 +622,7 @@ execution of the spotted address, avoiding inaccuracy as the cross-schedule even
 \subsection{Step Ladder Update}
 
 With the development of this new algorithm, there is a new way to verify if the quantum was reduced, meaning the old one was greater 
-than the desirable. For this reason, the step ladder algorithm will also verify this situation, counting as an "inaccuracy problem", contributing 
+than the desirable. For this reason, the Step Ladder algorithm will also verify this situation, counting as an "inaccuracy problem", contributing 
 to the reduction of the increment value.
 
 To determine whether the previous scenario occurred, the quantum value before the \gls{ifp} algorithm's action is stored and compared to the current. 
@@ -584,7 +633,7 @@ the quantum was reduced, triggering the flag.
 \subsection{Results}
 
 The results of the bare-metal bubble-sort and \glspl{npb} benchmarks execution are presented in the \autoref{fig:results_ADAINCPC}. As previously, 
-A-SL refers to the results of the combination of the ADALINE-based and step ladder algorithms, and IFP points to the 
+A-SL refers to the results of the combination of the ADALINE-based and Step Ladder algorithms, and IFP points to the 
 \gls{ifp} algorithm intervention results.
 
 As expected, there was a drop in the performance gain when compared to the previous. This was about 5\%, which in practice, 
@@ -641,7 +690,7 @@ for precise adaptation. The later figure presents how this idea can be integrate
 \begin{figure}[h!]
 	\centering
  	\includegraphics[width=0.55\linewidth]{Images/ADA_and_REP.png}
- 	\caption{Quantum definition with loop detection algorithm}
+ 	\caption{Quantum definition with Loop Detection algorithm}
 	 \label{fig_ADA_and_REP}
 \end{figure}
 
@@ -664,7 +713,7 @@ loop, as shown in the figure below.
 	 \label{fig_FTH_algorithm}
 \end{figure}
 
-The flowchart present in the \autoref{fig_Repetition_flowchart} describes the loop detection flow. 
+The flowchart present in the \autoref{fig_Repetition_flowchart} describes the Loop Detection flow. 
 In this case, the faster pointer is the \gls{pc}, and the slower one is the FTHptr. A match occurs when both are pointing to the same memory at 
 the same time. Going into the process in detail, loop delineation can be achieved through two methods. Firstly, an analysis can be conducted on 
 the preceding memory address to precisely define the loop boundaries. Alternatively, after the initial match, the FTHptr remains in the same position 
@@ -676,7 +725,7 @@ is a mismatch, the loop is discarded and the entire detection process starts aga
 \begin{figure}[h!]
 	\centering
  	\includegraphics[width=0.9\linewidth]{Images/Repetition_flowchart.png}
- 	\caption{Loop detection flowchart}
+ 	\caption{Loop Detection flowchart}
 	 \label{fig_Repetition_flowchart}
 \end{figure}
 
@@ -687,8 +736,8 @@ problem is the difficulty in detecting conditions within loops. All of these can
 may cut the benefits of the algorithm, since these problems can be recurrent in the benchmark. 
 
 Another problem is the multi-thread environment. When more than one \gls{cpu} is active, the \gls{pc} is used by multiple event queues, 
-meaning an unpredictable pointer. In this situation is almost impossible to identify any loop, thus a a restriction that permits the loop 
-detection only when one \gls{cpu} is active was implemented.   
+meaning an unpredictable pointer. In this situation is almost impossible to identify any loop, thus a a restriction that permits the Loop 
+Detection only when one \gls{cpu} is active was implemented.   
 If there is a loop defined and the other \glspl{cpu} wakes up, this is automatically discarded, and the algorithm 
 stops, restarting again when the later condition reverts. 
 
@@ -717,7 +766,7 @@ The quantum starts with the minimum value, which is the clock period, and increm
 
 \autoref{fig:results_ADAINCPCREP} exhibits the results of the executed benchmarks with the previous (IFP) and new (LD) configurations. 
 When compared with the previous algorithm, the new one does not bring a better tradeoff between performance and accuracy. 
-In reality, it is the opposite, that is, the loop detection action resulted in a loss of benefits. 
+In reality, it is the opposite, that is, the Loop Detection action resulted in a loss of benefits. 
 
 
 \begin{figure}[H]
@@ -741,7 +790,7 @@ In reality, it is the opposite, that is, the loop detection action resulted in a
     \label{fig:Host_ADAINCPCREP}
 \end{subfigure}
         
-\caption{Loop detection algorithm results}
+\caption{Loop Detection algorithm results}
 \label{fig:results_ADAINCPCREP}
 \end{figure}
 
@@ -863,7 +912,7 @@ The next graphs present a comparison between the improved baseline algorithm and
 
 Starting with performance, the dynamic version outperformed the other one in most of the cases. Nevertheless, in the cases where it 
 did not happen, in particular, NPB BT, LU, and SP with 32 and 64 simulated cores, the performance difference was huge. 
-This is related to the step ladder design, as previously explained in this chapter. 
+This is related to the Step Ladder design, as previously explained in this chapter. 
 If the previous cases are considered,
 when calculating the mean of performance gain and comparing it with the static version, the result would be circa -9\%. Without the previous 
 tests, the gain average would be almost 10\%. 

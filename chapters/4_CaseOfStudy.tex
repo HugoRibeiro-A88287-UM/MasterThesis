@@ -81,8 +81,8 @@ the case of writing, since the new value must be known.
 	\label{tab_TLMwrapperCMD}
 \end{table}
 
-Every transaction is followed up with a response, TLM\_ACK (0) for success, or TLM\_NACK (1) for error, and the operation latency, which is 
-required to maintain the synchronization between the simulators. 
+Every transaction is followed up with a response, \textit{TLM\_ACK} (0) for success, or \textit{TLM\_NACK} (1) for error, and the operation 
+latency, which is required to maintain the synchronization between the simulators. 
 
 The next figures demonstrate how the wrapper is implemented in both tools. First of all, it is mandatory to initialize the remote port interface.
 To accomplish that, Gem5 must start with the \textit{TLM\_INIT}, and wait for a positive response from SystemC. Only after that, the remote port 
@@ -117,11 +117,11 @@ operations will be explained in detail.
 	% \label{fig_TLM_Wrapper_Payload}
 \end{figure}
 
-In the end, the wrapper can be described as presented in the \autoref{fig_TLM_Wrapper_ClassDiagram}. TLM\_Socket provides an abstraction 
-for socket write and read processes. Both have a dependency relationship since the TLM\_Wrapper depends on the TLM\_Socket functions to 
-be able to communicate. When a remote port is initialized, an identification number is returned, and it is stored in the data\_fd variable. 
-In this way, it is possible to associate the slot with the respective remote port, providing coherent communication. When a closing 
-the remote port, this variable is reset to its default value. 
+In the end, the wrapper can be described as presented in the \autoref{fig_TLM_Wrapper_ClassDiagram}. \textit{TLM\_Socket} provides an abstraction 
+for socket write and read processes. Both have a dependency relationship since the \textit{TLM\_Wrapper} depends on the 
+\textit{TLM\_Socket} functions to be able to communicate. When a remote port is initialized, the socket identification number is returned, 
+and it is stored in the \textit{data\_fd} variable. In this way, it is possible to associate the slot with the respective remote port, providing 
+coherent communication. When closing the remote port, this variable is reset to its default value. 
 
 \begin{figure}[!ht]
 	\centering
@@ -149,8 +149,7 @@ The first serves as the initial
 point of interaction for the tool since it handles incoming frames received through the remote port. The remote port operates independently 
 of the initiator, enabling asynchronous reception and transmission of bytes through the receiver and transmit buffers, respectively.
 Additionally, it also performs an interpretation of the received transaction and creates the \gls{tlm} transaction. It analyses various 
-parameters such as the operation type, the desired target, and the memory region, among others, with the help of \gls{tlm} wrapper, 
-which will presented later on.
+parameters such as the operation type, the desired target, and the memory region, among others, with the help of \textit{TLM\_wrapper}.
 
 The bus is responsible for forwarding the \gls{tlm} transaction to the correct target. Each target has a unique ID, that is assigned 
 at the beginning of the simulation. As previously mentioned, the preamble data and data were designed for a 32-bit architecture, however 
@@ -158,7 +157,7 @@ SystemC \gls{tlm} transactions are 64-bit width, leaving 32 bits unused. Before 
 target ID, which will be utilized by the bus to identify the targets.
 
 Lastly, the targets are the peripherals, which can be different from each other. These receive the 
-\gls{tlm} commands and act accordingly. The next images demonstrate how peripherals respond to \gls{tlm} write and read operations. 
+\gls{tlm} commands and act accordingly. The next images demonstrate how peripherals respond to \textit{TLM\_READ} and \textit{TLM\_WRITE} operations. 
 
 \begin{figure}[H]
 	\centering
@@ -187,8 +186,8 @@ Gem5 can integrate different boards with different characteristics. Nevertheless
 all boards. 
 
 The first step is the identification of available memory in the \gls{mcu}'s \gls{mmio}, and reserve the required memory for the device. 
-Most microcontrollers have a lot of unused \gls{mmio} available, enabling the addition or testing of boards or \glspl{mcu} with new 
-peripherals while retaining most of the original \gls{mcu}.
+Most microcontrollers have a lot of unused \gls{mmio} available, enabling the testing with new peripherals while retaining most of the 
+original \gls{mcu}.
 
 After planning this, Gem5 must recognize this hardware to enable communication with the other simulator. 
 To achieve that, every peripheral should be defined and added to the list of off-chip devices in the 
@@ -232,7 +231,7 @@ To implement a device in Gem5, a few aspects are mandatory. First of all, the pe
 where the implementation is, and, optionally, some parameters to be customized. In this context, these can be
 the port number, for the remote connection, or the action time delay. 
 In second place, is the implementation itself. To accomplish this, the class \textit{BasicPioDevice} should be used. It is the base class 
-which all devices sensitive to an address range inherit from. It abstracts all the device's implementation, from the creation of the SimObject 
+which all devices sensitive to an address range inherit from. It abstracts all device's implementation, from the creation of the SimObject 
 to memory access protocols. Still, it is required to define the read and write operations, as these change from device to device. 
 The figures \ref{fig_CrcReadFunction} and \ref{fig_CrcWriteFunction} present a template for this implementation. Both start evaluating if
 the peripheral is available or not. If it is negative, a busy notification is returned informing that it is not available at the 
@@ -419,7 +418,7 @@ all features of the device will be tested. At the first moment, the device will 
 interactions, as present in \autoref{fig_Validation_test_diagram}. After that, it will be tested in a co-simulation environment, as shown in the 
 \autoref{fig_CoSimDesign_Validation}. 
 
-\begin{figure}[]
+\begin{figure}[H]
 	\centering
  	\includegraphics[width=0.5\linewidth]{Images/Validation_test_diagram.png} 
  	\caption{CRC peripheral validation}
@@ -428,7 +427,7 @@ interactions, as present in \autoref{fig_Validation_test_diagram}. After that, i
 
 The designed validation test can be divided into three parts. In the first one, the reverse output will be tested. Then, the settings will 
 change, and the calculation will use a reverse input and a different polynomial. To conclude, the reset function will be checked. 
-By executing this benchmark, every functionality of the peripheral is tested. At the end of the simulation, the expected return values are 
+By executing this benchmark, every functionality of the peripheral is checked. At the end of the simulation, the expected return values are 
 0x22CC4488 for the first part and 0xC66CE444 for the second part. The final output will be the result of the reset operation. 
 
 With this into account, the test was executed in the firstly mentioned condition, obtaining the results demonstrated in the figure below. As 
@@ -505,7 +504,7 @@ conclude that the peripheral passed the validation since every expected output m
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.8\linewidth]{Images/Validation_Results.png} 
- 	\caption{CRC validation test results}
+ 	\caption{Co-simulation environment validation results}
 	\label{fig_Validation_Results}
 \end{figure}
 

@@ -17,6 +17,41 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
+  \entry{liu2016incremental}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=LB}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Bohan},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={He},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=ZS}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Saichun},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {IEEE}%
+    }
+    \strng{namehash}{LB+1}
+    \strng{fullhash}{LBZHZS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2016 23rd Asia-Pacific Software Engineering Conference
+  (APSEC)}
+    \field{pages}{225\bibrangedash 232}
+    \field{title}{An incremental V-model process for automotive development}
+    \field{year}{2016}
+  \endentry
+
   \entry{ProductDesignSteps}{article}{}
     \name{author}{1}{}{%
       {{hash=SSRPAAFANCOOASP}{%
@@ -896,41 +931,6 @@
     \field{volume}{11}
     \field{journaltitle}{ACM SIGSOFT Software engineering notes}
     \field{year}{1986}
-  \endentry
-
-  \entry{liu2016incremental}{inproceedings}{}
-    \name{author}{3}{}{%
-      {{hash=LB}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={Bohan},
-         giveni={B\bibinitperiod},
-      }}%
-      {{hash=ZH}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={He},
-         giveni={H\bibinitperiod},
-      }}%
-      {{hash=ZS}{%
-         family={Zhu},
-         familyi={Z\bibinitperiod},
-         given={Saichun},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {IEEE}%
-    }
-    \strng{namehash}{LB+1}
-    \strng{fullhash}{LBZHZS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{booktitle}{2016 23rd Asia-Pacific Software Engineering Conference
-  (APSEC)}
-    \field{pages}{225\bibrangedash 232}
-    \field{title}{An incremental V-model process for automotive development}
-    \field{year}{2016}
   \endentry
 
   \entry{TypesOfFSS}{inproceedings}{}

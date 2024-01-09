@@ -39,37 +39,37 @@
 \contentsline {chapter}{\numberline {3}Dynamic Quantum Extension}{42}{chapter.108}%
 \contentsline {section}{\numberline {3.1}Par-gem5 Changes and Benchmarks}{43}{section.110}%
 \contentsline {subsection}{\numberline {3.1.1}Par-gem5 Changes}{43}{subsection.111}%
-\contentsline {subsection}{\numberline {3.1.2}Benchmarks}{44}{subsection.112}%
-\contentsline {section}{\numberline {3.2}ADALINE-Based Algorithm}{46}{section.115}%
-\contentsline {subsection}{\numberline {3.2.1}Adaptive Filter}{47}{subsection.118}%
-\contentsline {subsection}{\numberline {3.2.2}TDL}{49}{subsection.121}%
-\contentsline {subsection}{\numberline {3.2.3}Quantum Increment}{50}{subsection.124}%
-\contentsline {subsection}{\numberline {3.2.4}Results}{51}{subsection.126}%
-\contentsline {section}{\numberline {3.3}Step Ladder Algorithm}{53}{section.128}%
-\contentsline {subsection}{\numberline {3.3.1}Results}{55}{subsection.133}%
-\contentsline {section}{\numberline {3.4}Instruction Flow Prediction Algorithm}{57}{section.135}%
-\contentsline {subsection}{\numberline {3.4.1}Forecast}{58}{subsection.137}%
-\contentsline {subsection}{\numberline {3.4.2}Step Ladder Update}{59}{subsection.141}%
-\contentsline {subsection}{\numberline {3.4.3}Results}{60}{subsection.142}%
-\contentsline {section}{\numberline {3.5}Loop Detection Algorithm}{62}{section.144}%
-\contentsline {subsection}{\numberline {3.5.1}Hare-Tortoise Algorithm}{63}{subsection.146}%
-\contentsline {subsection}{\numberline {3.5.2}Quantum Calculation}{64}{subsection.149}%
-\contentsline {subsection}{\numberline {3.5.3}Results}{65}{subsection.151}%
-\contentsline {section}{\numberline {3.6}Improved Baseline Algorithm}{69}{section.177}%
-\contentsline {subsection}{\numberline {3.6.1}Results}{70}{subsection.179}%
-\contentsline {chapter}{\numberline {4}Co-Simulation on Gem5}{73}{chapter.182}%
-\contentsline {section}{\numberline {4.1}Framework Proposal}{73}{section.183}%
-\contentsline {subsection}{\numberline {4.1.1}Remote Port Interface}{74}{subsection.185}%
-\contentsline {subsection}{\numberline {4.1.2}SystemC Interface}{78}{subsection.191}%
-\contentsline {subsection}{\numberline {4.1.3}Gem5 Interface}{79}{subsection.194}%
-\contentsline {section}{\numberline {4.2}CRC as a Case Study}{81}{section.204}%
-\contentsline {subsection}{\numberline {4.2.1}Peripheral Development on SystemC}{82}{subsection.205}%
-\contentsline {subsection}{\numberline {4.2.2}Peripheral Development on Gem5}{83}{subsection.210}%
-\contentsline {subsection}{\numberline {4.2.3}Application API}{85}{subsection.225}%
-\contentsline {subsection}{\numberline {4.2.4}Peripheral Validation}{86}{subsection.227}%
-\contentsline {subsection}{\numberline {4.2.5}Memory Integrity}{88}{subsection.269}%
-\contentsline {section}{\numberline {4.3}Dynamic Quantum Integration}{93}{section.278}%
-\contentsline {chapter}{\numberline {5}Conclusions}{96}{chapter.280}%
-\contentsline {section}{\numberline {5.1}Developed Work}{96}{section.281}%
-\contentsline {section}{\numberline {5.2}Future Work}{97}{section.282}%
-\contentsline {chapter}{References}{99}{section*.283}%
+\contentsline {subsection}{\numberline {3.1.2}Benchmarks}{45}{subsection.156}%
+\contentsline {section}{\numberline {3.2}ADALINE-Based Algorithm}{47}{section.159}%
+\contentsline {subsection}{\numberline {3.2.1}Adaptive Filter}{48}{subsection.162}%
+\contentsline {subsection}{\numberline {3.2.2}TDL}{50}{subsection.165}%
+\contentsline {subsection}{\numberline {3.2.3}Quantum Increment}{51}{subsection.168}%
+\contentsline {subsection}{\numberline {3.2.4}Results}{52}{subsection.170}%
+\contentsline {section}{\numberline {3.3}Step Ladder Algorithm}{54}{section.172}%
+\contentsline {subsection}{\numberline {3.3.1}Results}{56}{subsection.177}%
+\contentsline {section}{\numberline {3.4}Instruction Flow Prediction Algorithm}{58}{section.179}%
+\contentsline {subsection}{\numberline {3.4.1}Forecast}{59}{subsection.181}%
+\contentsline {subsection}{\numberline {3.4.2}Step Ladder Update}{60}{subsection.185}%
+\contentsline {subsection}{\numberline {3.4.3}Results}{61}{subsection.186}%
+\contentsline {section}{\numberline {3.5}Loop Detection Algorithm}{63}{section.188}%
+\contentsline {subsection}{\numberline {3.5.1}Hare-Tortoise Algorithm}{64}{subsection.190}%
+\contentsline {subsection}{\numberline {3.5.2}Quantum Calculation}{65}{subsection.193}%
+\contentsline {subsection}{\numberline {3.5.3}Results}{66}{subsection.195}%
+\contentsline {section}{\numberline {3.6}Improved Baseline Algorithm}{70}{section.221}%
+\contentsline {subsection}{\numberline {3.6.1}Results}{71}{subsection.223}%
+\contentsline {chapter}{\numberline {4}Co-Simulation on Gem5}{74}{chapter.226}%
+\contentsline {section}{\numberline {4.1}Framework Proposal}{74}{section.227}%
+\contentsline {subsection}{\numberline {4.1.1}Remote Port Interface}{75}{subsection.229}%
+\contentsline {subsection}{\numberline {4.1.2}SystemC Interface}{79}{subsection.235}%
+\contentsline {subsection}{\numberline {4.1.3}Gem5 Interface}{80}{subsection.238}%
+\contentsline {section}{\numberline {4.2}CRC as a Case Study}{82}{section.248}%
+\contentsline {subsection}{\numberline {4.2.1}Peripheral Development on SystemC}{83}{subsection.249}%
+\contentsline {subsection}{\numberline {4.2.2}Peripheral Development on Gem5}{84}{subsection.254}%
+\contentsline {subsection}{\numberline {4.2.3}Application API}{86}{subsection.269}%
+\contentsline {subsection}{\numberline {4.2.4}Peripheral Validation}{87}{subsection.271}%
+\contentsline {subsection}{\numberline {4.2.5}Memory Integrity}{90}{subsection.313}%
+\contentsline {section}{\numberline {4.3}Dynamic Quantum Integration}{95}{section.322}%
+\contentsline {chapter}{\numberline {5}Conclusions}{98}{chapter.324}%
+\contentsline {section}{\numberline {5.1}Developed Work}{98}{section.325}%
+\contentsline {section}{\numberline {5.2}Future Work}{99}{section.326}%
+\contentsline {chapter}{References}{101}{section*.327}%
