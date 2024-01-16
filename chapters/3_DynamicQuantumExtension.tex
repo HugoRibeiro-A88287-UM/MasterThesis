@@ -55,8 +55,7 @@ side are different from the simulator side. At last, the remaining simulator was
 including the quantum global synchronization event, which is reasonable for the synchronization process.
 
 \begin{lstlisting}[style=customPython, caption={Snippet of Params.py}, label=SnippetParams]
-                    # (...) #
-    
+                             # (...) #
 class ByteOrder(ScopedEnum):
 """Enum representing component's byte order (endianness)"""
 
@@ -72,14 +71,11 @@ class QuantumMode(ScopedEnum):
         '_static',
         '_dynamic'
     ]
-
     wrapper_name = 'QuantumMode'
-
 
 # How big does a rounding error need to be before we warn about it?
 frequency_tolerance = 0.001  # 0.1%
-
-                # (...) #
+                             # (...) #
 \end{lstlisting}
 
 \begin{lstlisting}[style=customPython, caption={Quantum.py file}, label=SnippetQuantum]
@@ -87,15 +83,12 @@ import sys
 from m5.util import warn
 from m5.params import QuantumMode
 
-
 def mode(quantum_mode):
 
     if(quantum_mode == "static"):
         return '_static'
-
     elif (quantum_mode == "dynamic"):
         return '_dynamic'
-    
     else:
         raise TypeError("Can't convert '%s' to a quantum_mode" % type(quantum_mode))
 

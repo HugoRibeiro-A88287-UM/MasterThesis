@@ -29,10 +29,11 @@ The remote port interface was defined to allow communication between the tools.
 	 \label{fig_CoSimDesignSimplified}
 \end{figure}
 
-It exchanges data utilizing the TCP/IP \gls{ipc} protocol, due to its application independence and its versatility for various applications 
+Each simulator will perform different tasks, meaning they will operate at different abstraction levels. For this reason, the remote interface is 
+required in order to receive the frames of one simulator and adapt to the other.  
+This exchanges data utilizing the TCP/IP \gls{ipc} protocol, due to its application independence and its versatility for various applications 
 and purposes. Furthermore, this type of connection can be used remotely, by having multiple simulators running on different machines.  
-As shown in the previous figure, each hardware device will have a unique connection to avoid concurrency problems. Furthermore, each simulator 
-will perform distinct tasks on the remote port interface, necessitating unique definitions for each.
+As shown in the previous figure, each hardware device will have a unique connection to avoid concurrency problems. 
 
 \subsection{Remote Port Interface} 
 \label{subsec::TLMwrapper}
@@ -70,18 +71,18 @@ the case of writing, since the new value must be known.
 	\centering
 	\begin{tabular}{llll}
 	\cline{1-3}
-	\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Bits}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Command}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Required Sections}} \\ \cline{1-3}
+	\multicolumn{1}{|l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} CMD Values}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Command}} & \multicolumn{1}{l|}{\cellcolor[HTML]{C0C0C0}{\color[HTML]{000000} Required Sections}} \\ \cline{1-3}
 	\multicolumn{1}{|l|}{00} & \multicolumn{1}{l|}{TLM\_INIT} & \multicolumn{1}{l|}{Header} \\ \cline{1-3}
 	\multicolumn{1}{|l|}{01} & \multicolumn{1}{l|}{TLM\_CLOSE} & \multicolumn{1}{l|}{Header} \\ \cline{1-3}
-	\multicolumn{1}{|l|}{10} & \multicolumn{1}{l|}{TLM\_READ} & \multicolumn{1}{l|}{Header | Preamble data} \\ \cline{1-3}
-	\multicolumn{1}{|l|}{11} & \multicolumn{1}{l|}{TLM\_WRITE} & \multicolumn{1}{l|}{Header | Preamble data | Data} \\ \cline{1-3}
+	\multicolumn{1}{|l|}{10} & \multicolumn{1}{l|}{TLM\_READ} & \multicolumn{1}{l|}{Header + Preamble data} \\ \cline{1-3}
+	\multicolumn{1}{|l|}{11} & \multicolumn{1}{l|}{TLM\_WRITE} & \multicolumn{1}{l|}{Header + Preamble data + Data} \\ \cline{1-3}
 	 &  & 
 	\end{tabular}%
 	\caption{TLM wrapper commands}
 	\label{tab_TLMwrapperCMD}
 \end{table}
 
-Every transaction is followed up with a response, \textit{TLM\_ACK} (0) for success, or \textit{TLM\_NACK} (1) for error, and the operation 
+Every transaction is followed by a response, \textit{TLM\_ACK} (0) for success, or \textit{TLM\_NACK} (1) for error, and the operation 
 latency, which is required to maintain the synchronization between the simulators. 
 
 The next figures demonstrate how the wrapper is implemented in both tools. First of all, it is mandatory to initialize the remote port interface.
@@ -97,7 +98,7 @@ resulting in a synchronization conflict. For this reason, if the device is unava
 retry the operation later.
 
 In SystemC, while \textit{TLM\_INIT} and \textit{TLM\_CLOSE} are identical to Gem5 ones in the way of operating, \textit{TLM\_READ} and 
-\textit{TLM\_WRITE} have some differences. First of all, instead of sending the transaction, it receives it and verifies if the received slot is accessible.
+\textit{TLM\_WRITE} have some differences. First of all, instead of sending the frame, it receives it and verifies if the received slot is accessible.
 After that, it executes the respective \gls{tlm} operation, which can result in an error, for example, 
 the offset crossed the device's boundaries, or in a successful process, returning to Gem5 the respective data. Further in this chapter, these 
 operations will be explained in detail. 
@@ -143,12 +144,10 @@ at the same time. In order to integrate this flexibility, the subsequent design 
 \end{figure}
 
 
-SystemC design is composed of three main components, which will communicate under the blocking transport method. 
-The initiator, the bus, and the targets.
-The first serves as the initial 
+SystemC design is composed of three main components. The initiator, the bus, and the targets. The first serves as the initial 
 point of interaction for the tool since it handles incoming frames received through the remote port. The remote port operates independently 
 of the initiator, enabling asynchronous reception and transmission of bytes through the receiver and transmit buffers, respectively.
-Additionally, it also performs an interpretation of the received transaction and creates the \gls{tlm} transaction. It analyses various 
+Additionally, it also performs an interpretation of the received frame and creates the \gls{tlm} transaction. It analyses various 
 parameters such as the operation type, the desired target, and the memory region, among others, with the help of \textit{TLM\_wrapper}.
 
 The bus is responsible for forwarding the \gls{tlm} transaction to the correct target. Each target has a unique ID, that is assigned 

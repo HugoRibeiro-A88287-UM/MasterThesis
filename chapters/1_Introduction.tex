@@ -4,40 +4,40 @@
 % process is its non-linearity. There is an interaction between the ideate, prototype, and production stages, the so-called interaction design. This 
 % happens because problems or upgrades can be found, leading to a step back in the design process \cite{ProductDesignSteps}.
 
-At the beginning of an embedded system design process, a development model that matches the project requirements must be chosen. 
-For example, in the automotive industry, the most commonly adopted development model is the V-model \cite{liu2016incremental}. This model 
-has the characteristic of being non-linear, which means that allows step-backs in the development process due to potential problems or 
-upgrades \cite{ProductDesignSteps}. 
 
-One example is in the development of an \gls{asic}. As the name suggests, an \gls{asic} is used for specific 
+Designing an embedded system typically adopts a development model that matches the project requirements. 
+For example, in the automotive industry, the most commonly adopted development model is the V-model \cite{liu2016incremental}. This model 
+allows step-backs in the development process due to potential problems or upgrades \cite{ProductDesignSteps}. 
+
+One example of this non-linear characteristic is in the development of an \gls{asic}. As the name suggests, an \gls{asic} is used for specific 
 applications where dedicated hardware is required, for example, a critical system of a car. After the design, the prototype is developed, on 
 which will be running tests, or benchmarks, in order to understand if the developed \gls{asic} satisfies all the requirements. Only in this stage, 
 it is possible to obtain some indicators such as power consumption or compute performance to evaluate if \gls{swapc} requirements match. 
-With \glspl{vp} or \glspl{fss}, on the other hand, it is possible to have those without the physical prototype. 
+With \glspl{vp} or \glspl{fss}, on the other hand, most of the time is possible to have those without the physical prototype. 
 Therefore, the time to market can be accelerated because problems or upgrades can be spotted much sooner.
 
 Although these simulation tools are useful for the design of modern massively parallel and complex multi-core systems, 
-many cannot execute a parallel simulation, in other words, they only execute the workload in one thread. 
+many cannot execute a parallel simulation, in other words, they cannot parallelize simulation workload. 
 As the complexity of the new systems increases, due to the integration of more and more applications on a single chip 
 \cite{terascaleComputing}, simulation time increases.
 For example, in the case of the SPEC2017 integer benchmark, where it may 
 take up to two years to complete the simulation \cite{pargem5}. 
 
-Another problem that simulation has is the communication between different tools. The system's complexity typically implies a simulation in 
+Another challenge in simulation is the communication between different tools. The system's complexity typically implies a simulation in 
 different domains, since the integration of physical, software and network aspects is required \cite{gomes2017co}. Co-simulation is a technique 
-used to model complex systems, simulating the stimulus of other simulators. The problem is that different tools can have different levels 
+used to model complex systems, allowing different stimuli from other simulators. The problem is that different tools can have different levels 
 of abstraction, different communication protocols, etc. making it difficult to execute this technique directly. 
 
 \section{Motivation}
 
-Gem5 is an example of a \gls{fss} that cannot execute a simulation with multiple threads. To solve this, the \gls{ice} \gls{rwth} Aachen team developed 
-par-gem5 \cite{pargem5}, a parallel version of the atomic mode of Gem5, that exploits the multithreading capabilities of modern host systems 
-to parallelize the simulation itself. 
-It is based on a synchronous \gls{pdes} which allows the parallelization of the system. Synchronizations are done periodically, according to a 
-fixed-size time window called quantum or quanta.
+Gem5 is an example of an \gls{fss} that cannot parallelize target workloads during simulation. To solve this, the \gls{ice} \gls{rwth} Aachen team 
+developed par-gem5 \cite{pargem5}, a parallel version of the atomic mode of Gem5, that exploits the multithreading capabilities of modern host 
+systems to parallelize the simulation itself. 
+It is based on a synchronous \glsentryfull{pdes} where synchronizations are done periodically, according to a fixed-size time window called quantum 
+or quanta.
 
 High quantum allows for high simulation speeds but negatively impacts the simulation's accuracy, or, in the worst case, can even break the system's 
-functionality. If the quanta is too small, the accuracy is perfect, although the simulation performance will be unsatisfactory. Thus, there is a 
+functionality. If the quantum is too small, the accuracy is perfect, although the simulation performance will be unsatisfactory. Thus, there is a 
 tradeoff between accuracy and performance, and finding an optimal quantum is one of the main challenges when running synchronous \gls{pdes}.
 
 In the current state of par-gem5 (and as in other simulators), the quantum is set once and then kept for the rest of the simulation. This brings 
@@ -65,13 +65,13 @@ by the creation of a document including information related to the adaptive quan
 
 In the context of co-simulation, a framework will be developed to facilitate the integration of different tools. Its design 
 must be flexible, so it can be used with different simulators, and respect three characteristics in order to have a well-functioning
-environment. These are data integrity, data exchange, and tools synchronization. Additionally, it should be a lightweight framework, 
+environment: data integrity, data exchange, and tool synchronization. Additionally, it should be a lightweight framework, 
 ensuring that simulation overhead is not overly significant.
 
-In the end, this dissertation development will not only provide an algorithm that solves the problem of 
+In the end, this dissertation development will not only aim to provide an algorithm that solves the problem of 
 finding the best compromise between performance and accuracy, making it possible to simulate 
 massively parallel and complex systems faster without a break in the accuracy, but also a co-simulation framework that will enable the use 
-of Gem5 in projects with multiple tools.
+of Gem5 in projects with more application domains.
 
 From an industry point of view, this work will grant a faster development of new products, in such a way companies can be the market leaders 
 of the technology. Time-to-market can be optimized since the product is finished earlier, giving room for maneuvering to commercialize it at the 
@@ -82,16 +82,16 @@ right moment, and increasing the revenues.
 This document provides the development of a simulation extension that allows par-gem5 to automatically address the best quantum for the desired 
 benchmark, together with a co-simulation framework proposal. Its content was divided into six chapters, which are going to be briefly described.
 
-The second chapter introduces the concepts and methodologies used. The reader will receive notions about simulation in a general view, where 
-later these will be specified in the embedded systems context. Themes such as simulation modes, simulation methodologies, and simulation tools 
-will be covered, with special attention to Gem5, the simulator on which this dissertation will focus. \gls{ml} will be exploited, having in 
+The second chapter introduces the concepts and methodologies used. The reader will receive notions about simulation in a general view, which 
+will be specified in the embedded systems context. Topics such as simulation modes, simulation methodologies, and simulation tools 
+will be covered, with special attention to Gem5, the simulator focused on this dissertation. \gls{ml} will be exploited, having in 
 consideration \glspl{nn} and the simulation context. Finally, co-simulation practices are discussed, emphasizing their significance in the 
-simulation world.
+simulation coding.
 
 The third chapter presents the developed work done regarding the dynamic quantum. It starts by giving a short explanation of the used benchmarks
 to test the algorithms and required changes in par-gem5. Then, the four developed algorithms will be covered, providing an insight into the need to develop 
 such algorithms and how they actually work. It ends with the final version, where a direct comparison with the static mode is made. The 
-simulation results will be provided over the chapter in order to help the reader have a better idea of the algorithm's evolution.
+simulation results will be provided throughout the chapter in order to help the reader have a better idea of the algorithm's evolution.
 
 The fourth chapter contains a proposal for a co-simulation environment, providing an interface where the two tools can cooperate. 
 A case study was chosen the validate the developed work, giving a practical example of how this technique might be useful. 

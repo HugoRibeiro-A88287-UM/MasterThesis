@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  9 JAN 2024 16:19
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  10 JAN 2024 16:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2149,29 +2149,29 @@ File: Images/HighLevelPar_gem5OpMode.png Graphic file (type bmp)
 [42
 
 ] [43] [44]
-Underfull \hbox (badness 10000) in paragraph at lines 128--132
+Underfull \hbox (badness 10000) in paragraph at lines 121--125
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
+Underfull \hbox (badness 10000) in paragraph at lines 160--162
 
  []
 
 File: Images/bubble_sort.png Graphic file (type bmp)
 <Images/bubble_sort.png>
 [45]
-Underfull \hbox (badness 10000) in paragraph at lines 190--195
+Underfull \hbox (badness 10000) in paragraph at lines 183--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--198
+Underfull \hbox (badness 10000) in paragraph at lines 189--191
 
  []
 
 [46]
-Overfull \hbox (2.61136pt too wide) in paragraph at lines 218--222
+Overfull \hbox (2.61136pt too wide) in paragraph at lines 211--215
 []\TU/NewsGotT(0)/m/n/12 The pseudo-applications are the \TU/NewsGotT(0)/b/n/12
  Block Tridiagonal (BT)\TU/NewsGotT(0)/m/n/12 , \TU/NewsGotT(0)/b/n/12 Scalar P
 entadiagonal (SP)\TU/NewsGotT(0)/m/n/12 , and \TU/NewsGotT(0)/b/n/12 Lower-
@@ -2181,10 +2181,10 @@ File: Images/AdaptiveNoiseCancellationScheme.png Graphic file (type bmp)
 <Images/AdaptiveNoiseCancellationScheme.png>
 [47]
 
-LaTeX Font Warning: Command \Large invalid in math mode on input line 257.
+LaTeX Font Warning: Command \Large invalid in math mode on input line 250.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 259.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 252.
 
 
 File: Images/AF1.png Graphic file (type bmp)
@@ -2207,7 +2207,7 @@ File: Images/ADALINE_v1.png Graphic file (type bmp)
  [51]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 389.
+               Default added (so using `tbp') on input line 382.
 
 File: Images/Performance_ADA.png Graphic file (type bmp)
 <Images/Performance_ADA.png>
@@ -2223,10 +2223,10 @@ File: Images/incAlgorithm_graph.png Graphic file (type bmp)
 <Images/incAlgorithm_graph.png>
 
 
-LaTeX Font Warning: Command \Large invalid in math mode on input line 476.
+LaTeX Font Warning: Command \Large invalid in math mode on input line 469.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 478.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 471.
 
 
 File: Images/incAlgorithm_flowchart.png Graphic file (type bmp)
@@ -2342,7 +2342,7 @@ File: Images/SystemCdesign_CRC.png Graphic file (type bmp)
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 287.
+               Default added (so using `tbp') on input line 286.
 
 File: Images/CrcBlockDiagram.png Graphic file (type bmp)
 <Images/CrcBlockDiagram.png>
@@ -2372,7 +2372,7 @@ File: Images/MemoryIntegrity_StateDiagram.png Graphic file (type bmp)
 File: Images/MemoryIntegrity_CPU0SequenceDiagram.png Graphic file (type bmp)
 <Images/MemoryIntegrity_CPU0SequenceDiagram.png>
  [91]
-Underfull \hbox (badness 10000) in paragraph at lines 552--554
+Underfull \hbox (badness 10000) in paragraph at lines 551--553
 
  []
 
@@ -2382,7 +2382,7 @@ File: Images/AppTimeDiagram.png Graphic file (type bmp)
 File: Images/Success_MemoryIntegrity.png Graphic file (type bmp)
 <Images/Success_MemoryIntegrity.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 604--606
+Underfull \hbox (badness 10000) in paragraph at lines 603--605
 
  []
 
@@ -2396,7 +2396,7 @@ File: Images/Failure_MemoryIntegrity2.png Graphic file (type bmp)
  [94]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 660.
+               Default added (so using `tbp') on input line 659.
 
 File: Images/Performance_CO_SIM.png Graphic file (type bmp)
 <Images/Performance_CO_SIM.png>
@@ -2437,7 +2437,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `Thesis_HugoRibeiro.out' has not changed.
-(rerunfilecheck)             Checksum: 8C1995670391AAA71291B230B2A4081E;10262.
+(rerunfilecheck)             Checksum: 1224D35F23C31BEE65EB667AD81BD918;10262.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                Thesis_HugoRibeiro
@@ -2448,10 +2448,10 @@ Package logreq Info: Writing requests to 'Thesis_HugoRibeiro.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53365 strings out of 475161
- 1102356 string characters out of 5766720
- 2294093 words of memory out of 5000000
- 74296 multiletter control sequences out of 15000+600000
+ 53327 strings out of 475161
+ 1101791 string characters out of 5766720
+ 2288615 words of memory out of 5000000
+ 74258 multiletter control sequences out of 15000+600000
  568678 words of font info for 100 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  110i,18n,107p,2346b,5784s stack positions out of 10000i,1000n,20000p,200000b,200000s
