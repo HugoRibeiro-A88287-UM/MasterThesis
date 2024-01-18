@@ -1,7 +1,9 @@
 
-The development of par-gem5 \cite{pargem5} solved one problem of Gem5 \cite{TheGem5Simulator}, which is low performance even with a power 
-full host machine. As exhibited in the \autoref{subsec:pargem5}, the accuracy is no longer perfect, and a trade-off between these occurs. 
-Concerning the current works on this subject, none of them fulfilled the three characteristics presented in the 
+The development of par-gem5 \cite{pargem5} tackled the low-performance issue of Gem5 \cite{TheGem5Simulator}. However, as exhibited in the 
+\autoref{subsec:pargem5}, it was possible by sacrificing simulation accuracy, creating a tradeoff between both. 
+The tradeoff is defined by the quantum value, which, in its current state, is set at the beginning of the simulation and remains unchanged 
+throughout. Introducing a dynamic quantum allows the value to be adjusted during the simulation, making it possible to adapt it to the 
+simulation needs. Concerning the current works on this subject, none fulfills the three characteristics presented in the 
 \autoref{tab_OverviewDynamicQuantum}, therefore they can not be employed in the par-gem5. 
 
 To overcome these limitations and find the optimal quantum automatically, this dissertation proposes some algorithms to tackle these limitations.   
@@ -17,30 +19,30 @@ in the \autoref{fig_HighLevelPar_gem5OpMode}.
 \end{figure}
 
 
-All event queues (EQs) are running independently from each other until they reach the barrier, which is the defined time to execute 
-synchronization. Due to this independence, each one has its local time thus, the processes will not hit the barrier at the same moment. 
+All event queues (EQs) are running independently from each other until they reach the synchronization barrier. 
+Due to their independence, each one has its local time thus, the processes will not hit the barrier at the same moment. 
 To avoid parallelism issues, the synchronization process is only executed when all have reached the barrier. When starting this 
 process, the simulator verifies if there are more events to carry out and establishes whether the simulation should continue or not.
 If affirmative, the postponed events are scheduled to their respective event queues and the next synchronization is programmed for 
 the current time plus the result from the developed algorithm. If not, it finishes the workload.
 
-The first section will present an introduction to the developed extension, demonstrating the required modifications to integrate the solution and 
+The chapter will start presenting an introduction to the developed extension, demonstrating the required modifications to integrate the solution and 
 explaining the used benchmarks. 
 After that, the remaining sections will outline the advantages and disadvantages of each algorithm, consistently comparing their performance with the 
 previous scenario. In the end, an evaluation will be done, resulting in the definition of the definitive algorithm and comparing its results with 
-the static version already present in the par-gem5.
+the static version already presented in par-gem5.
 
 
 \section{Par-gem5 Changes and Benchmarks}
 
 
-Before going into the algorithms' design, a brief introduction about the changes in par-gem5 and the used benchmarks must be done. These changes 
-were done to integrate the usage of the dynamic quantum, and to better evaluate, at the end of the simulation, its performance. 
+Before going deeper into the algorithms' design, a brief introduction is made about the changes in par-gem5 and the used benchmarks to test the 
+algorithms. These changes were done to integrate the usage of the dynamic quantum since the current par-gem5 version only supports a static mode. 
 
 \subsection{Par-gem5 Changes}
 
-Two changes were made. The first was the addition of a new function mode, and the other was the inclusion of more simulation 
-feedback regarding the dynamic algorithm. 
+ The first was the addition of a new function mode, 
+and the other was the inclusion of more simulation feedback regarding the dynamic algorithm. 
 
 Par-gem5 has two possible simulation modes, sequential and parallel with a static quantum. When the user chooses a parallel mode, 
 the simulator already knows that the quantum will not change. If the user previously provides a value, it will be applied as the new 

@@ -880,59 +880,6 @@
     \field{year}{1988}
   \endentry
 
-  \entry{SpiralModel2}{article}{}
-    \name{author}{2}{}{%
-      {{hash=AA}{%
-         family={Alshamrani},
-         familyi={A\bibinitperiod},
-         given={Adel},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=BA}{%
-         family={Bahattab},
-         familyi={B\bibinitperiod},
-         given={Abdullah},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{AABA1}
-    \strng{fullhash}{AABA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{number}{1}
-    \field{pages}{106}
-    \field{title}{A comparison between three SDLC models waterfall model,
-  spiral model, and Incremental/Iterative model}
-    \field{volume}{12}
-    \field{journaltitle}{International Journal of Computer Science Issues
-  (IJCSI)}
-    \field{year}{2015}
-  \endentry
-
-  \entry{SpiralModel3}{article}{}
-    \name{author}{1}{}{%
-      {{hash=BB}{%
-         family={Boehm},
-         familyi={B\bibinitperiod},
-         given={Barry},
-         giveni={B\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {ACM New York, NY, USA}%
-    }
-    \strng{namehash}{BB1}
-    \strng{fullhash}{BB1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{number}{4}
-    \field{pages}{14\bibrangedash 24}
-    \field{title}{A spiral model of software development and enhancement}
-    \field{volume}{11}
-    \field{journaltitle}{ACM SIGSOFT Software engineering notes}
-    \field{year}{1986}
-  \endentry
-
   \entry{TypesOfFSS}{inproceedings}{}
     \name{author}{1}{}{%
       {{hash=ZWM}{%
