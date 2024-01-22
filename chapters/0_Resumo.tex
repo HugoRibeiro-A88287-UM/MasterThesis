@@ -1,16 +1,27 @@
 
+\vspace*{-0.5cm}
 
-Nos ultimos anos, a complexidade dos MPSoCs tem crescido exponencialmente, contudo as ferrementas de simulacao destes nao tem seguido este 
-crescimento, principalmente devido ao seu tipo de simulacao sequencial. Nesse sentido, os tempos de simulacao aumentam sempre que um novo 
-MPSoCs é desenvolvido. A equipa do ICE RWTH Aachen desenvolvou uma versao simulacao paralela to modo atomico do Gem5. Esse modo é baseado 
-numa simulacao paralela sincrona de eventos discretos (PDES) que permite cada thread de simulacao executar independentemente do resto do 
-sistema por um tempo $t_{\Delta q}$, cujo nome é quantum.
+Nos últimos anos, a complexidade dos sistemas com múltiplos processadores num \textit{chip} (\glspl{mpsoc}) têm crescido exponencialmente. 
+Contudo, as ferrementas de simulação destes não têm seguido esse crescimento, principalmente devido ao seu tipo de simulação sequencial. 
+Logo, os tempos de simulação aumentam sempre que um novo \gls{mpsoc} é desenvolvido. Nesse sentido, a equipa \gls{ice} da universidade 
+\gls{rwth}, em Aachen, desenvolveu uma versão que possibilita a simulação paralela no modo atómico do Gem5, o par-gem5. Esse modo é baseado 
+numa simulação paralela síncrona de eventos discretos (\gls{pdes}) que permite cada \textit{thread} operar independentemente do 
+resto do sistema por um tempo $t_{\Delta q}$, denominado quantum. Embora este trabalho tenha sido um importante avanço, ainda reside o problema 
+de definir qual o melhor quantum para cada teste. Adicionalmente, à medida que os sistemas crescem em complexidade, a interação entre 
+simuladores distintos aumenta devido há necessidade de avaliar diferente aspetos. 
 
-Esta dissertacao tem como objetivo solucionar o problema de encontrar o quantum otimo, ou seja, o quantum que permita obter o melhor 
-trade-off entre a performance e a precisao do simulacao. De momento, a versao oficial do Gem5 apenas permite a defenicao de um quantum 
-estático, pelo que este nao pode ser alterado durante o decorrer da simulacao, porém um quantum dinamico consegue ultrapassar as limitacoes 
-do anterior. Portanto, o principal objetivoo é desenvolver um algoritmo flexivel que consiga operar independentemente do benchmark utilizado. 
+Esta dissertação tem como objetivo solucionar dois problemas. O primeiro é encontrar o quantum ótimo, ou seja, o quantum que permita obter o 
+melhor compromisso entre desempenho e a precisão de simulação. De momento, o par-gem5 apenas permite a definição de um quantum 
+estático, pelo que este não pode ser alterado durante o decorrer da simulação. Porém, um quantum dinâmico consegue ultrapassar essas limitações. 
+Portanto, foi desenhado e desenvolvido um algoritmo flexível que consegue operar independentemente do teste e o sistema escolhido. O segundo 
+problema é a interação entre o Gem5 e outros simuladores. No seu atual estado, poucos conseguem trabalhar com esta ferramenta. Deste modo, foi 
+proposto um ambiente de co-simulação que permite integrar qualquer simulador. Ainda, um caso de estudo para validar este ambiente foi escolhido. 
 
-\paragraph{}\textbf{Palavras-chave:Simulacao Paralela de Eventos Discretos, Gem5, Simulacao de Sistemas Completos, Quantum} 
+O trabalho desenvolvido resultou num algoritmo que trouxe grandes benefícios quando comparado com a solução atual. Foi possível atingir, 
+em média, aumento de desempenho de 10\% sacrificando apenas 0.5\% de precisão. No entanto, quando existe informação prévia, 
+este compromisso pode ser melhorado com a versão estática logo, esta não deve ser totalmente descartada. Caso seja necessário uma 
+precisão perfeita, o modo sequencial deve de ser utilizado já que os métodos anteriores implicam uma perda de precisão. Além disso, o ambiente 
+de co-simulação proposto permitiu a interação com outros simuladores. Este manteve a integridade dos dados, a troca de dados, e a sincronização 
+entre as ferramentas durante todo o processo. Com este trabalho, uma nova contribuição neste ramo foi desenvolvida.
 
-METER NO WORD PARA CORRIGIR ERROS E ACENTOS
+\paragraph{}\textbf{Palavras-chave:} Simulação Paralela de Eventos Discretos, Gem5, Simulação de Sistemas Completos, Quantum, Co-Simulação

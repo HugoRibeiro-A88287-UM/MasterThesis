@@ -22,8 +22,8 @@ and topics began to flourish, including simulation.
 	 \label{fig_simulation_evolution_graph}
 \end{figure}
 
-Analyzing the market research report by ZION, is possible to conclude that the global virtual training and simulation market size was valued 
-at \$332.6 Billion in 2022 and is projected to reach \$973.4 Billion by 2030.  
+Analyzing the market research report by ZION, it is possible to conclude that the global virtual training and simulation market size was valued 
+at \$332.6 Billion in 2022 and it is projected to reach \$973.4 Billion by 2030.  
 
 \begin{figure}[H]
 	\centering
@@ -48,15 +48,15 @@ met the test's requirements or not.
 
 Hence, simulation is a controlled verification technique that helps to understand how a system would behave in a real situation. As previously 
 mentioned, simulation can be physical or virtual. Nowadays, the last is the preferable one, since it brings huge advantages when compared to the 
-other. First of all, the cost. It is clear that physical simulations, like the one previously described, have a lot of associated costs. The car 
+other. First of all, the cost. It is clear that physical simulations, like the one previously described, have a lot of associated costs: the car 
 that is going to be destroyed, the workers to make sure everything goes as planned and to clear all the wreckage, and even the infrastructure, 
-that require a designated area which involves costs and space. The second reason is time. In a competitive industry, the first to have the 
+that requires a designated area which involves costs and space. The second reason is time. In a competitive industry, the first to have the 
 product in the market can be the one that will have more success. Physical simulation can take a lot of time. It may be necessary, beyond the 
-simulation itself, preparation, post-cleaning, license acquisition, weather conditions, etc. delaying the process. The last factor is the 
-computer's evolution. As noted earlier, its evolution was crucial in the way that more complex simulation environments can be tested and obtain 
-more accurate results.
+simulation itself, preparation, post-cleaning, license acquisition, weather conditions, etc. which delay the process. The last factor is the 
+computer's evolution. As noted earlier, its evolution was crucial in the way that more complex simulation environments can be tested and 
+more accurate results can be obtained.
 
-To elaborate on the concept of virtual simulation, it can be classified into three categories. This classification is illustrated in 
+Looking in detail at the concept of virtual simulation, it can be categorized into three distinct types. It is illustrated in 
 the  \autoref{fig_VitualSimulation_ramification}, which outlines the taxonomy of virtual simulations. 
 
 \begin{figure}[H]
@@ -94,18 +94,18 @@ of a system when changes are made or actions are taken. With simulation models, 
 represent the variability, interconnectedness, and complexity of a wanted system.
 
 Keeping the example of \gls{cpu} chip development, the process goes through various stages and, in the end, it is crucial to test the product 
-before mass production. Thus, a prototype is built so tests can be made. However, building a prototype takes time and money. In the majority of 
-cases, the prototype can be improved, so the developers need to go through the process again. A new cycle begins, which means spending more time 
+before mass production. Thus, a prototype is built so that tests can be made. However, building a prototype takes time and money. In the majority of 
+cases, the prototype can be improved, so that developers need to go through the process again. A new cycle begins, which means spending more time 
 and money. Simulation can solve this problem in the way that development and testing can be done in parallel. In other words, while the developers 
 are creating the chip, it can be tested in simulation, even without the physical prototype. 
 
-Simulation is flexible, which means small changes can be done easily; is controlled, that is, it can control the experimental conditions 
-in the way direct comparisons can be done; and is transparent, so there are no subjective results.
+Simulation is flexible, which means that small changes can be made easily; it is controlled, that is, it can control the experimental conditions 
+in a way that direct comparisons can be done; and it is transparent, ensuring that there are no subjective results.
 
 In terms of drawbacks, the development team may consist only of individuals specialized in \gls{cpu} chip design. Therefore, 
 the team would need to hire a new employee with expertise in simulation to fulfill the requirements. Moreover, it requires powerful computers 
 and a huge sufficient storage capacity, as simulation results can be in the order of dozens of gigabytes. The software to run the simulation and 
-the creation of the model to test require investments. All these aspects represent an enormous investment for the company, where it will not get 
+the creation of the model to test it requires investments. All these aspects represent an enormous investment for the company, where it will not get 
 a direct profit. On top of that, simulations are not 100\% accurate, meaning that they can produce results that are not the correct ones.
 
 Considering all the aspects, simulation brings a lot of benefits when compared to other techniques, such as experimentation in real life. 
@@ -121,7 +121,7 @@ so common and present everywhere that the world without it wouldn't be the same.
 \cite{banks1999introduction} mentioning it as early as the 19th century, it has gained more attention and deeper analysis since the 1980s until 
 nowadays. 
 
-The following topics explain more about how can embedded systems be defined, and which are the development processes used in the industry. 
+The following topics explain more about how can embedded systems can be defined, and which are the development processes used in the industry. 
 In the end, a specific topic about simulation in embedded systems will be covered.
 
 \subsection{Definition}
@@ -151,32 +151,32 @@ is a very important part of an embedded system. It is a hardware mechanism that 
 directly to and from main memory without the need to involve the system processor. Thus, the significance of this lies in its ability to avoid 
 a substantial processor overhead \cite{LinuxDeviceDrivers}. An \gls{asic}, as the name suggests, is used for specific applications where 
 dedicated hardware is required. It can reduce significantly the execution time of certain applications \cite{FPGAaccelaration3} 
-\cite{FPGAaccelaration2} \cite{FPGAaccelaration}. For this reason, many systems require dedicated hardware however, it will become a smaller 
+\cite{FPGAaccelaration2} \cite{FPGAaccelaration}. For this reason, many systems require dedicated hardware, however, it will become a smaller 
 fraction as time passes \cite{camposano1996embedded}. \gls{gpio}, \gls{adc}, and \gls{dac} are examples of parts that establish an interface 
-between the embedded system and the external world, and so they can be needed or not depending on the requirements.
+between the embedded system and the external world, and, therefore, they may be necessary or not, depending on the requirements.
 
 The range of embedded systems is very wide. It starts from low power, like receiving data from \gls{adc} and sending it to a database, to 
-multi-core applications, for example, laptops, smartphones, or even tables. Hence, when designing a system, it is important to comply with 
+multi-core applications, for example, laptops, smartphones, or even tablets. Hence, when designing a system, it is important to comply with 
 the \gls{swapc} constraints, which means that the system can only use the essential resources, commonly referred to as "resource-constrained 
 devices" \cite{swapc}. 
 
 Furthermore, embedded systems should be dependable, that is, they should perform as and when required \cite{iec}. The following characteristics 
-must be fulfilled for dependability nevertheless, different applications can attend better to different topics. In the case of cars, trains, 
+must be fulfilled for dependability, nevertheless, different applications can attend better to different topics. In the case of cars, trains, 
 or planes, the focus should be more on safety, whereas databases or banks should prioritize security.
 
 \begin{enumerate}
     \item \textbf{Reliability:} Continuity of service delivery while in use, e.g., the probability of the system working properly since it 
-	worked after startup
+	worked after startup;
 
     \item \textbf{Maintainability:} Capability to be retained in, or restored to a state to perform as required, under given conditions of 
-	use and maintenance
+	use and maintenance;
 
     \item \textbf{Safety:} Ability to not cause catastrophic effects on the environment as a consequence of a 
-	failure
+	failure;
 
-    \item \textbf{Availability:} Capacity to be in a state to perform as required 
+    \item \textbf{Availability:} Capacity to be in a state to perform as required;
     
-    \item \textbf{Security:} Capability to provide communication confidentiality and authentication
+    \item \textbf{Security:} Capability to provide communication confidentiality and authentication.
     
 \end{enumerate}
 
@@ -233,13 +233,13 @@ handling the remaining tasks would render the process inefficient. Therefore, pr
 within the process, which are called \textbf{threads}. Threads are essential for the following reasons \cite{OSbook}.
 
 \begin{enumerate}
-    \item They have the ability for the parallel entities to share address space and all of its data among themselves
+    \item They have the ability for the parallel entities to share address space and all of its data among themselves;
 
-    \item They are lightweight and easier/faster to create and destroy than processes (Around 10-100 times faster)
+    \item They are lightweight and easier/faster to create and destroy than processes (Around 10-100 times faster);
 
-    \item They can increase performance when there is substantial computing and \gls{io} because it allows these activities to overlap
+    \item They can increase performance when there is substantial computing and \gls{io} because it allows these activities to overlap;
 
-    \item They are useful on systems with multiple \glspl{cpu}, where real parallelism is possible
+    \item They are useful on systems with multiple \glspl{cpu}, where real parallelism is possible.
 \end{enumerate}
 
 Processes are assigned independent memory regions, and the threads within the process share the process memory between them. A process can 
@@ -254,7 +254,7 @@ registers and stack, representing the \gls{cpu} state for each task. \autoref{fi
 	 \label{fig_ProcessAndThread}
 \end{figure}
 
-With threads can also be applied concurrency, in order to have parallelism and better computational performance. Similar to processes, the scheduler 
+with threads, concurrency can also be applied, in order to have parallelism and better computational performance. Similar to processes, the scheduler 
 defines which task will be executed. There are four states: run (the task is in execution at that time), ready (the task is not running at the 
 moment but it is ready), wait (the task is waiting for data), and null (the task is created or killed). \autoref{fig_ConcorrencyProcess} can also 
 be applied to this context.
@@ -262,8 +262,8 @@ be applied to this context.
 Nevertheless, in reality, when a task is running and another replaces it, there are some steps to pursue. First of all, it 
 is necessary to save the \gls{cpu} state of the running task. After that, the scheduler needs to select another to get running. Then, it restores 
 the context of the selected one, so it can transfer the execution control. All this process is called \textbf{\gls{cs}}. The time consumption of 
-the \glspl{cs} are a problem, as present in the figure below. However, the benefits of having concurrency, as explained earlier in this section, 
-are massive, and thus the trade-off is positive.
+the \glspl{cs} is a problem, as present in the figure below. However, the benefits of having concurrency, as explained earlier in this section, 
+are massive, and, thus, the trade-off is positive.
 
 \begin{figure}[H]
 	\centering
@@ -278,11 +278,11 @@ where one, for example, writes in the memory and the others read from it. To con
 transfer and shared data.
 
 Data transfer involves the concepts of writing and reading. The most typical \glspl{ipc} are pipes and message queues. The main difference 
-between both is pipes are uni-directional communication channels, while message queues are bidirectional.
+between both is that pipes are unidirectional communication channels, while message queues are bidirectional.
 
 Shared data is a memory region that is shared by multiple processes. Thus, if a process wants to share data, it only needs to make it 
 available in the shared memory region. For this reason, it is the fastest \gls{ipc} available because the data transfer occurs at the speed of 
-memory access, but it is dangerous because it has the same meaning as global variables, so there is no control to access those. The next figure 
+memory access, but it is dangerous because it has the same meaning as global variables, so there is no control to access them. The next figure 
 shows a possible problem that can happen with shared memory.
 
 \begin{figure}[H]
@@ -298,7 +298,7 @@ in the figure, task B will read 0x0000 even though task A was using the variable
 another, this issue can be a serious problem. This problem is called \textbf{race condition}, and it is more critical with the increasing 
 parallelism due to increasing numbers of cores.
 
-To avoid that were created \textbf{task synchronization objects}. The most important methods are semaphores and mutexes. The first one can be 
+To avoid this, \textbf{task synchronization objects} were created. The most important methods are semaphores and mutexes. The first one can be 
 divided into binary semaphores and counter semaphores, and they are useful methods to synchronize interrupts with a given task. The second one is 
 a shared variable that can be in one of two states: owned or free. Binary semaphores and mutexes share many characteristics. Both can be utilized 
 for mutual exclusion, ensuring that only one thread accesses a shared resource at a time, but only the first can be used for synchronization 
@@ -312,16 +312,16 @@ for mutual exclusion, ensuring that only one thread accesses a shared resource a
 \end{figure}
 
 Now, both tasks, before using the shared variable, need to take the mutex. If the mutex was already taken (first trial of task B), 
-the task will receive a blocked resource response, meaning it is unavailable until the owner releases the mutex. 
+the task will receive a blocked resource response, meaning that it will be unavailable until the owner releases the mutex. 
 
 
 \subsection{Development Models}
 \label{sub_sec::DevModels}
 
 When building an embedded system, several aspects should be taken into account, like its requirements, constraints, and levels of complexity.  
-Therefore one development model that works well for one project may not work well for another with different requirements or constraints. This 
+Therefore, one development model that works well for one project may not work well for another with different requirements or constraints. This 
 section will present some examples of models typically used in the industry and research teams. There are a lot more models with different 
-characteristics, thus before the beginning of the project, all possibilities must be considered.
+characteristics, thus, before the beginning of the project, all possibilities must be considered.
 \newline
 
 \textbf{Waterfall model}
@@ -339,7 +339,7 @@ back \cite{waterfallModel}. \autoref{fig_Waterfall} represents the different sta
 
 Because of this linearity, no previous stages can be reviewed or improved, which makes the traditional waterfall model a good option for projects 
 that have well-defined requirements and a short development cycle. Adetokunbo in \cite{waterfallModel} goes further and states that it is also 
-viable to use it when altering the software after coding is very much prohibited.
+viable to use it when altering the software after coding is strongly prohibited.
 
 Some variations allow for an iterative relationship between phases and even add more phases. Royce in \cite{royce1970winston} presents and 
 explains some of them in detail. 
@@ -349,7 +349,7 @@ explains some of them in detail.
 \newline
 
 The verification and validation model, more known as V-model, is a modified version of the Waterfall method \cite{V-model}. It is non-linear, 
-which means that allows step-backs in the development process. An important aspect of this model is that testing activities like planning, and 
+which means that it allows step-backs in the development process. An important aspect of this model is that testing activities like planning, and 
 test designing happen well before coding, preventing bugs or bad-functional systems \cite{V-model2}. The following picture shows a typical 
 representation of this model.
 
@@ -360,7 +360,7 @@ representation of this model.
 	 \label{fig_V-Model}
 \end{figure}
 
-The main advantages are the proactive tracking of defects in the various phases, cost reduction in the correction of defects since these are 
+The main advantages of this model are the proactive tracking of defects in the various phases, cost reduction in the correction of defects since these are 
 spotted much sooner, and it is simple to understand and apply. On the other hand, it lacks flexibility as any changes require updating the majority 
 of documents, demanding significant time and resources, which can make it challenging for companies to adopt \cite{V-model} \cite{V-model2}. 
 Nevertheless, it is arguably the most traditional model utilized for software test management \cite{mathur2010advancements}.
@@ -374,7 +374,7 @@ Other variations try to improve these downsides. Some examples are the shark too
 Although there are lots of agile techniques, they share common characteristics, including iterative development and a focus on interaction, 
 communication, and the reduction of resource-intensive intermediate artifacts \cite{waterfallAndAgile}. Therefore, this model states that the 
 project should be divided into mini-projects to remove unnecessary activities that waste time and effort. These mini-projects have requirements 
-analysis, design, implementation, and test \cite{waterfallAndAgile}, and should not exceed 30 days \cite{AgileModel}. In the end, all are 
+analysis, design, implementation, and test \cite{waterfallAndAgile}, and should not exceed 30 days \cite{AgileModel}. In the end, all of them are 
 combined to obtain the final project.
 
 \begin{figure}[H]
@@ -423,7 +423,7 @@ some requirements, such as cache hits/misses and computer performance, can be ev
 referred to as a \gls{fss} or a \gls{vp}, and they can be described as a computer architecture simulator that simulates software in an 
 electronic system, being this independent of the nature of the host computer. Usually, this term is mixed with emulation because although it 
 can also run software tests inside flexible software-defined environments, an emulator goes beyond by simulating both software and hardware 
-configurations, being useful to test how software interacts with underlying hardware or a combination of hardware and software.
+configurations, being useful to test how software interacts with underlying hardware or a combination of both.
 
 There are two types of \glspl{fss}, full system hardware simulator and full system software simulator. The hardware version offers a 
 cycle-accurate simulation. As the name suggests, this technique is employed to perform a comprehensive analysis of the simulated embedded system 
@@ -451,23 +451,23 @@ that runs faster. Because of that, the hardware is not described in \gls{hdl}, u
 	 \label{fig_FSSsoftware}
 \end{figure}
 
-The hardware model must be defined for the software simulation, thus these may or may not be available for the target machine. It 
+The hardware model must be defined for the software simulation, thus, these may or may not be available for the target machine. It 
 requires the selection of a simulator that aligns with the application scenario or offers the flexibility to expand the range of supported hardware 
 modules, such as QEMU \cite{theQEMUsimulator} and Gem5 \cite{TheGem5Simulator}.
 
 As modern embedded and integrated systems become increasingly complex, an escalating number of design companies are embracing virtual prototyping 
 methods \cite{UltraFastVPs}. \Glspl{vp} should follow this trend, that is, as embedded systems are becoming more complex, \glspl{vp} should be 
-faster yet accurate, so they can be a reliable option.
+faster yet accurate, so that they can be a reliable option.
 
-The problem is \glspl{vp} are not following this evolution, which results in low performance, and thus high simulation times \cite{pargem5} 
-\cite{UltraFastVPs} \cite{optimizingTD}. Although several works try to solve the problem, none of them have been able to 
+The problem is that \glspl{vp} are not following this evolution, which results in low performance, and, thus, high simulation times \cite{pargem5} 
+\cite{UltraFastVPs} \cite{optimizingTD}. Although several works have tried to solve the problem, none of them have been able to 
 provide an effective solution.
 
  
 
 \section{Discrete Event Simulation}
 
-% The definition of discrete-event simulation can be given as a technique used to simulate the operation of a system by modeling it as a sequence of events that occur over time. Exploiting this definition more in detail, there are concepts that should be define
+% The definition of discrete-event simulation can be given as a technique used to simulate the operation of a system by modeling it as a sequence of events that occur over time. Exploiting this definition more in detail, there are concepts that should be defined
 
 %  An event is an instantaneous occurrence that changes the state of the system. Each event occurs at a particular instant in time and marks a change of state in the system.  
 
@@ -552,7 +552,7 @@ manufacturing processes, and in the establishment of optimum operational policie
 \subsection{Continuous Event Simulation}
 
 Besides \gls{des}, there is another simulation technique, which is the \glsxtrfull{ces}. The perfect one does not exist, since they should be 
-chosen to take into account the application. Therefore a brief explanation will be made to understand when one is better than another.
+chosen to take into account the application. Therefore, a brief explanation will be made to understand when one is better than another.
 
 Continuous simulation is used for modeling systems with continuous or analog behaviors. The state changes are continuous since they are modeled 
 by differential equations. \cite{continousSim1} and \cite{continousSim2} are examples of applications where the authors decided to use this 
@@ -570,10 +570,10 @@ technique.
 
 Different \glspl{fss} can use different modes to perform the simulation. These modes have an impact on the performance and accuracy of the 
 simulation. For example, while Gem5 is limited to sequential simulation \cite{TheGem5Simulator}, QEMU offers the flexibility to be used in both 
-sequential and parallel simulation \cite{QEMUDoc}. Depending on the application and the requirements of the project one option can be better 
+sequential and parallel simulation \cite{QEMUDoc}. Depending on the application and the requirements of the project, one option can be better 
 than another.
 
-According to \cite{parallelTypes}, there are two dominant approaches to advance time within a simulation, asynchronous and synchronous methods. 
+According to \cite{parallelTypes}, there are two dominant approaches to advance time within a simulation: asynchronous and synchronous methods. 
 In the first one, each thread communicates with the others in a way that each one can determine when it is secure to execute an event. The number 
 of synchronizations can be reduced by far, although knowledge about the communication behavior of models and deadlock mechanisms, such as 
 roll-back, is required. The second one uses global synchronization times to synchronize all threads. During these intervals, all events scheduled 
@@ -585,7 +585,7 @@ the \gls{des} technique and the synchronous approach.
 
 \subsection{Sequential Simulation}
 
-Sequential simulation, or \gls{sdes}, is the most simple and accurate simulation mode. It executes the workload sequentially, that is, each event 
+Sequential simulation, or \gls{sdes}, is the simplest and most accurate simulation mode. It executes the workload sequentially, that is, each event 
 executes at its simulation time, resulting in a perfect simulation without any error. 
 
 Going into detail, the simulator runs the process corresponding or sensitive to an event that should be executed at a specific timestamp. This 
@@ -601,7 +601,7 @@ a sequential simulation with two different processes.
 	 \label{fig_SequentialSimulation}
 \end{figure}
 
-Picture a scenario with two processes. One process writes values in the memory and the other reads. Each operation takes five nanoseconds, 
+Imagine a scenario with two processes. One process writes values in the memory and the other reads. Each operation takes five nanoseconds, 
 and each \gls{cs} takes one nanosecond. If the simulation lasts for one minute, ten seconds would be just for \glspl{cs}. 
 It is visible that a lot of simulation time is spent here, and it tends to get worse if more processes are needed. The overhead of the event 
 scheduling and process context switching become the dominant factor in simulation speed, leading to a huge host time.
@@ -623,7 +623,7 @@ reducing the scheduling overhead of the simulator. \autoref{fig_SequentialSimula
 \end{figure}
 
 Now, for the same process execution time, the host time was smaller ensuring the existence of less \glspl{cs}. In this example, the reduction 
-was four nanoseconds (four \glspl{cs}), circa 11\% of host time, compared to the approach without \gls{td}. It can be even higher if more 
+was four nanoseconds (four \glspl{cs}), about 11\% of host time, compared to the approach without \gls{td}. It can be even higher if more 
 processes and \glspl{cs} were being simulated.
 
 
@@ -644,13 +644,13 @@ Nevertheless, a problem can occur if the process does not respect the previous r
 able the run, compromising the system's functionality. A solution is to define a global quantum that forces the synchronizations. This global 
 quantum, in the original version of SystemC, is static, which means it is defined by the user before the simulation and never changes. Forcing 
 the synchronization results in another problem which is the trade-off between speed and accuracy. A small global quantum guarantees that the 
-processes are using always the updated values and the simulator does not crash, therefore the accuracy will be high. However, the simulation 
-speed will be sacrificed as more \glspl{cs} are occurring. On the opposite side, if the time slice is big, means that the system might introduce 
+processes are using always the updated values and that the simulator does not crash, therefore, the accuracy will be high. However, the simulation 
+speed will be sacrificed as more \glspl{cs} are occurring. On the opposite side, if the time slice is big, it means that the system might introduce 
 timing inconsistencies, which can lead, in the worst case, to a crash in the simulator. Hence, this value must be chosen carefully in order to 
 have a fast yet accurate simulation.  
 
-The SystemC reference manual \cite{systemC} enforces that some processes cannot be temporally decoupled due to their characteristics, thus 
-they might become a simulation speed bottleneck. 
+The SystemC reference manual \cite{systemC} enforces that some processes cannot be temporally decoupled due to their characteristics, as they 
+might become a bottleneck in simulation speed.
 
 From here onwards, whenever the word "quantum" or "quanta" is mentioned, it refers to global quantum.
 
@@ -1038,7 +1038,7 @@ Ayaz Akram and Lina Sawalha developed a work where a comparison of x86 computer 
 this study are evaluated four simulators: Gem5 \cite{TheGem5Simulator}, Multi2Sim \cite{ubal2012multi2sim}, Sniper \cite{carlson2011sniper}, 
 PTLsim \cite{yourst2007ptlsim}, and ZSim \cite{sanchez2013zsim}. The authors selected these simulators based on their diverse design approaches 
 regarding the level of detail and abstraction. All of them are modern simulators that are actively being developed, except for PTLsim, which is 
-currently not undergoing active development but is still widely utilized. The following image presents a features comparison between the 
+currently not undergoing active development but is still widely utilized. The following image presents a comparison between the 
 previous simulators. 
 
 \begin{figure}[H]

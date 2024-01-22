@@ -11,7 +11,7 @@ allows step-backs in the development process due to potential problems or upgrad
 
 One example of this non-linear characteristic is in the development of an \gls{asic}. As the name suggests, an \gls{asic} is used for specific 
 applications where dedicated hardware is required, for example, a critical system of a car. After the design, the prototype is developed, on 
-which will be running tests, or benchmarks, in order to understand if the developed \gls{asic} satisfies all the requirements. Only in this stage, 
+which tests will be performed, or benchmarks, in order to understand if the developed \gls{asic} satisfies all the requirements. Only in this stage, 
 it is possible to obtain some indicators such as power consumption or compute performance to evaluate if \gls{swapc} requirements match. 
 With \glspl{vp} or \glspl{fss}, on the other hand, most of the time is possible to have those without the physical prototype. 
 Therefore, the time to market can be accelerated because problems or upgrades can be spotted much sooner.
@@ -68,7 +68,7 @@ must be flexible, so it can be used with different simulators, and respect three
 environment: data integrity, data exchange, and tool synchronization. Additionally, it should be a lightweight framework, 
 ensuring that simulation overhead is not overly significant.
 
-In the end, this dissertation development will not only aim to provide an algorithm that solves the problem of 
+In the end, the development of this dissertation will not only aim to provide an algorithm that solves the problem of 
 finding the best compromise between performance and accuracy, making it possible to simulate 
 massively parallel and complex systems faster without a break in the accuracy, but also a co-simulation framework that will enable the use 
 of Gem5 in projects with more application domains.
@@ -91,14 +91,14 @@ simulation coding.
 The third chapter presents the developed work done regarding the dynamic quantum. It starts by giving a short explanation of the used benchmarks
 to test the algorithms and required changes in par-gem5. Then, the four developed algorithms will be covered, providing an insight into the need to develop 
 such algorithms and how they actually work. It ends with the final version, where a direct comparison with the static mode is made. The 
-simulation results will be provided throughout the chapter in order to help the reader have a better idea of the algorithm's evolution.
+simulation results will be provided throughout the chapter in order to help the reader to have a better idea of the algorithm's evolution.
 
 The fourth chapter contains a proposal for a co-simulation environment, providing an interface where the two tools can cooperate. 
-A case study was chosen the validate the developed work, giving a practical example of how this technique might be useful. 
+A case study was chosen to validate the developed work, giving a practical example of how this technique might be useful. 
 It was based on a \gls{crc} peripheral, which is used for communication error detection and memory integrity checks. 
-Since in a real-world scenario, there are other devices to manage, the framework was tested alongside other tasks. In the end, the integration
+Since in a real-world scenario there are other devices to manage, the framework was tested alongside other tasks. In the end, the integration
 of the par-gem5 with the dynamic quantum was done, in order to evaluate its advantages and disadvantages in this situation. 
 
-The final chapter discusses the conclusions regarding the developed work. It also includes future work, where can be found a set of 
-aspects on which this work can have continuity and further improve par-gem5. 
+The final chapter discusses the conclusions regarding the developed work. It also includes future work, where a set of aspects can be found on 
+which this work can have continuity and further improve par-gem5. 
 
