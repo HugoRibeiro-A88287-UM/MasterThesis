@@ -285,7 +285,7 @@ From the module datasheet, the peripheral is characterized by the following:
 
 \begin{figure}[]
 	\centering
- 	\includegraphics[width=0.65\linewidth]{Images/CrcBlockDiagram.png}
+ 	\includegraphics[width=0.55\linewidth]{Images/CrcBlockDiagram.png}
  	\caption{CRC block diagram}
 	 \label{fig_CrcBlockDiagram}
 \end{figure}
@@ -296,12 +296,8 @@ in the data register (CRC\_DR). After four \gls{crc} clock cycles, the correspon
 value is stored in the CRC\_DR. In this case, the \gls{crc} frequency will be equal to the \gls{cpu}. The data width must be 32-bit, 
 hence whether the user needs a \gls{crc} for five bytes, for example, two different computations will be needed. 
 
-Moreover, the input and output data can be reversed, to manage the various endianness schemes. For the input data, the reverse operation 
-is controlled by the REV\_IN[1:0] bits, and for the output data, the REV\_OUT bit is used. These, along with the reset bit, which is used to 
-reset the \gls{crc}, are located in the control register (CRC\_CR). This bit must be set by software, and it is automatically cleared by
-the hardware. An example of a reverse operation can be found on \autoref{tab:CRC_REV}.
 
-\begin{table}[!htb]
+\begin{table}[H]
     \caption{Reverse operation}
     \begin{minipage}{.5\linewidth}
       \centering
@@ -336,6 +332,18 @@ the hardware. An example of a reverse operation can be found on \autoref{tab:CRC
 	\label{tab:CRC_REV} 
 \end{table}
 
+Moreover, the input and output data can be reversed, to manage the various endianness schemes. For the input data, the reverse operation 
+is controlled by the REV\_IN[1:0] bits, and for the output data, the REV\_OUT bit is used. These, along with the reset bit, which is used to 
+reset the \gls{crc}, are located in the control register (CRC\_CR). This bit must be set by software, and it is automatically cleared by
+the hardware. An example of a reverse operation can be found on \autoref{tab:CRC_REV}.
+
+\begin{figure}[H]
+	\centering
+ 	\includegraphics[width=0.66\linewidth]{Images/CRC_write.png}
+ 	\caption{CRC write operation}
+	 \label{fig_CRC_write}
+\end{figure}
+
 By default, the polynomial coefficients are defined by 0x4C11DB7 nevertheless, it can be fully programmable through the CRC\_POL register.
 It is important to mention that modifications in this register when a \gls{crc} computation is ongoing are not permitted, as it would 
 compromise the output value. To complete the list of available registers, there are the CRC\_INIT and CRC\_IDR.  
@@ -346,12 +354,6 @@ Finally, the write command must be redefined to adhere to the peripheral charact
 Since the read operation does not require a specific behavior depending on the desired registers, the aforementioned template does not demand any
 action.   
 
-\begin{figure}[ht!]
-	\centering
- 	\includegraphics[width=0.7\linewidth]{Images/CRC_write.png}
- 	\caption{CRC write operation}
-	 \label{fig_CRC_write}
-\end{figure}
 
 \subsection{Peripheral Development on Gem5}
 
@@ -457,6 +459,8 @@ launch automatically, therefore it must be manually called, with \textit{./m5ter
 \end{figure}
 
 The application will run the code present in \ref{validationCodeCRC}, which describes the previous validation test. 
+
+\newpage
 
 \begin{lstlisting}[style=customC, caption={CRC validation code}, label=validationCodeCRC]
 CRC_SC_INIT();

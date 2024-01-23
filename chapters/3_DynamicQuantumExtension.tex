@@ -4,7 +4,7 @@ The development of par-gem5 \cite{pargem5} tackled the low-performance issue of 
 The tradeoff is defined by the quantum value, which, in its current state, is set at the beginning of the simulation and remains unchanged 
 throughout. Introducing a dynamic quantum allows the value to be adjusted during the simulation, making it possible to adapt it to the 
 simulation needs. Concerning the current works on this subject, none fulfills the three characteristics presented in the 
-\autoref{tab_OverviewDynamicQuantum}, therefore they can not be employed in the par-gem5. 
+\autoref{tab_OverviewDynamicQuantum}, therefore, they can not be employed in the par-gem5. 
 
 To overcome these limitations and find the optimal quantum automatically, this dissertation proposes some algorithms to tackle these limitations.   
 During the chapter, these algorithms, which are named ADALINE-based, Step Ladder, \gls{ifp}, and Loop Detection, will be described 
@@ -20,7 +20,7 @@ in the \autoref{fig_HighLevelPar_gem5OpMode}.
 
 
 All event queues (EQs) are running independently from each other until they reach the synchronization barrier. 
-Due to their independence, each one has its local time thus, the processes will not hit the barrier at the same moment. 
+Due to their independence, each one has its local time, thus, the processes will not hit the barrier at the same moment. 
 To avoid parallelism issues, the synchronization process is only executed when all have reached the barrier. When starting this 
 process, the simulator verifies if there are more events to carry out and establishes whether the simulation should continue or not.
 If affirmative, the postponed events are scheduled to their respective event queues and the next synchronization is programmed for 
@@ -29,7 +29,7 @@ the current time plus the result from the developed algorithm. If not, it finish
 The chapter will start presenting an introduction to the developed extension, demonstrating the required modifications to integrate the solution and 
 explaining the used benchmarks. 
 After that, the remaining sections will outline the advantages and disadvantages of each algorithm, consistently comparing their performance with the 
-previous scenario. In the end, an evaluation will be done, resulting in the definition of the definitive algorithm and comparing its results with 
+previous scenario. In the end, an evaluation will be done, resulting in the definition of the definitive algorithm. Its results will be compared with 
 the static version already presented in par-gem5.
 
 
@@ -41,13 +41,13 @@ algorithms. These changes were done to integrate the usage of the dynamic quantu
 
 \subsection{Par-gem5 Changes}
 
- The first was the addition of a new function mode, 
-and the other was the inclusion of more simulation feedback regarding the dynamic algorithm. 
+In order to modify the simulator to integrate the dynamic quantum, two changes were required. 
+The first change was the addition of a new function mode, and the other was the inclusion of more simulation feedback regarding 
+the dynamic algorithm. 
 
-Par-gem5 has two possible simulation modes, sequential and parallel with a static quantum. When the user chooses a parallel mode, 
-the simulator already knows that the quantum will not change. If the user previously provides a value, it will be applied as the new 
-synchronization time otherwise, a default value is selected (1 microsecond). By adding the dynamic version, the user needs to specify a new 
-parameter hence, the prior approach does not work.
+Par-gem5 has two possible simulation modes: sequential and parallel with a static quantum. With the introduction of the dynamic version, 
+users must specify whether the quantum value will be static or dynamic. In the case of a dynamic quantum, no additional actions are needed. 
+If a static quantum is chosen, users can still define the quantum value, otherwise, a default value is selected (1 microsecond). 
 
 Concerning this, the \textit{QuantumMode} was created to adhere to the new situation. This variable can have two states, static or 
 dynamic, representing the two available versions. To integrate it into the simulator, a couple of steps were done. 
@@ -55,6 +55,8 @@ First of all, the \textit{QuantumMode} was defined and added to the list of the 
 After that, a new file was created, \autoref{SnippetQuantum}, to implement the name translation, due to the fact that the names used on the user 
 side are different from the simulator side. At last, the remaining simulator was adapted to be able to select between the two versions, 
 including the quantum global synchronization event, which is reasonable for the synchronization process.
+
+\newpage
 
 \begin{lstlisting}[style=customPython, caption={Snippet of Params.py}, label=SnippetParams]
                              # (...) #
@@ -103,13 +105,13 @@ the number of quanta with at least one postponed event (\textit{errQuanta}), the
 and the number of events postponed (\textit{eventsPostponed}). However, to have a better view of how the dynamic algorithm was executed, 
 the \textit{quantumMean} and \textit{DynReset} statistics were included in the final simulation results. 
 
-The first, as the name suggests, refers to the mean of applied quantum. During the simulation, the dynamic algorithm may vary the quantum 
-hence, having its average value might be useful to have an idea of how the simulation was conducted. For instance, if the workload was 
+The first, as the name suggests, refers to the mean of applied quantum. During the simulation, the dynamic algorithm may vary the quantum, 
+hence, its average value might be useful to have an idea of how the simulation was conducted. For instance, if the workload was 
 focused on performance and the \textit{quantumMean} gives a small value, it might be a sign that something went badly. The development of a 
-dynamic algorithm can be another example since this data can reveal if, in some tests, the quantum was or was not the most adequate.
+dynamic algorithm can be another example, since this data can reveal if, in some tests, the quantum was or was not the most adequate.
 
 The \textit{DynReset} gives information about how many times the dynamic algorithm had to reset. This might happen when the dynamic system 
-becomes unstable, providing illogical quantum values. Later in this chapter will be explained better this concept. 
+becomes unstable, providing illogical quantum values. Later in this chapter this concept will be better explained. 
 
 
 \subsection{Benchmarks}
@@ -120,7 +122,7 @@ needs to execute tests, or benchmarks, to perform the evaluation. They are desig
 and other system components. There are different types of benchmarks, each one emphasizing an area of interest. 
 Some examples are \gls{cpu}, network, and storage. 
 
-In the context of this dissertation, it will be used two \gls{cpu} benchmarks, the bare-metal bubble sort and the \gls{npb}. These will 
+In the context of this dissertation, it will be used two \gls{cpu} benchmarks: the bare-metal bubble sort and the \gls{npb}. These will 
 executed on a host and target system with the configurations exhibited in the \autoref{tab:hostSystemConfig} and \autoref{tab:targetSystemConfig}, 
 respectively.
 \newline
@@ -170,7 +172,7 @@ to attain a near-best-case simulation throughput, meaning that thread synchroniz
 
 \begin{figure}[H]
 	\centering
- 	\includegraphics[width=0.7\linewidth]{Images/bubble_sort.png}
+ 	\includegraphics[width=0.6\linewidth]{Images/bubble_sort.png}
  	\caption{Bubble sort example}
 	 \label{fig_bubble_sort}
 \end{figure}
@@ -185,14 +187,14 @@ mismatch, a failure is detected, and a notification is sent to the user.
 This benchmark operates in a bare-metal environment, which means the program runs directly on the hardware without the mediation or 
 assistance of an operating system. This approach is often chosen for 
 performance-critical or resource-constrained applications where direct control over the hardware is necessary, and there is no need for the 
-additional services and abstractions provided by an operating system.
+additional services and abstractions provided by an \gls{os}.
 \newline
 
 \textbf{NPB}
 \newline
 
 \gls{npb} \cite{bailey1994parallel} is a group of a small set of programs designed to help the performance evaluation of parallel 
-supercomputers. In total, there are eight benchmark specifications, five kernels, and three pseudo-applications. The kernel benchmarks are:
+supercomputers. In total, there are eight benchmark specifications: five kernels, and three pseudo-applications. The kernel benchmarks are:
 
 \begin{itemize}
     \item \textbf{Integer Sort (IS):} Performs a sort operation where both integer computation speed and communication performance are tested.
@@ -233,7 +235,7 @@ of a \gls{anc} algorithm \cite{noiseCancelingADALINE}. A generic scheme can be f
 	 \label{fig_AdaptiveNoiseCancellationScheme}
 \end{figure}
 
-While $S(n)$ is the input that has the signal mixed with the noise, $X(n)$ receives only the noise hence, it is a noise reference. If the noise 
+While $S(n)$ is the input that has the signal mixed with the noise, $X(n)$ receives only the noise, hence, it is a noise reference. If the noise 
 in $S(n)$ was the same as the one presented in $X(n)$, it would only be needed to subtract the $X(n)$ to $S(n)$. Nevertheless, this noise is 
 different because it is attenuated, delayed, and filtered by the noise path. For these reasons, an adaptive filter should be utilized, allowing 
 $Y(n)$ to closely resemble $X_{1}(n)$. $E(n)$ will be the output without the error. It is also used by the filter in order to adapt their weights.
@@ -244,7 +246,7 @@ benchmark is running, the simulation error obtained is referred to as the worst-
 is a cross-schedule event, and the time difference between when that happens and the next synchronization is considered the error since it 
 is taken into account that the event must be postponed. However, most of the time, it is not true, and the event is not postponed, causing a smaller error. To 
 accurately analyse what was the impact of inaccuracy ($X_{1}(n)$), it would be needed to run the sequential simulation first, killing 
-all the benefits of par-gem5 \cite{pargem5}. The next equation describes how the worst-case error estimation is calculated. 
+all the benefits of par-gem5. The next equation describes how the worst-case error estimation is calculated. 
 
 \begin{equation}
     \label{eq_errSim}
@@ -261,11 +263,11 @@ $t_{i,max\_pp}$. $Q$ is the number of simulated quanta and $t_{sim,meas}$ is the
 
 \subsection{Adaptive Filter}
 
-Following the \autoref{fig_AdalineSquematic}, the adaptive filter will be responsible for adapting the weights of the ADALINE \gls{nn}. It uses 
-the \autoref{eq_LSM} for the training, where it is essential to carefully choose an appropriate learning rate.
+Following the \autoref{fig_AdalineSquematic}, the adaptive filter will be responsible for adapting the weights of the ADALINE \gls{nn}. It will use 
+the \autoref{eq_LSM} for the training, which means that where it is essential to carefully choose an appropriate learning rate.
 
 The learning rate is a constant that is chosen at the beginning of the simulation and it is not modified. This parameter compromises a trade-off 
-between control speed and stability. With lower values, the learning process is fast nevertheless, it is likely to become an unstable control 
+between control speed and stability. With lower values, the learning process is fast, nevertheless, it is likely to become an unstable control 
 system. With higher values, stability is granted, but the learning process is very slow, taking a lot of time to be operational.
 Finding the best value is not linear, therefore an iterative approach was used. 
 
@@ -308,7 +310,7 @@ The next flowchart illustrates how the reset system works.
 
 \begin{figure}[H]
 	\centering
- 	\includegraphics[width=0.6\linewidth]{Images/ResetSystemADALINE.png}
+ 	\includegraphics[width=0.57\linewidth]{Images/ResetSystemADALINE.png}
  	\caption{Reset system in ADALINE-based algorithm}
 	 \label{fig_ResetSystemADALINE}
 \end{figure}
@@ -321,7 +323,7 @@ Yet, it is desirable to have the least resets possible.
 
 As the simulation precedes, there is more data to analyse, taking away performance from the \gls{nn}. Stella et al. \cite{noiseCancelingADALINE} 
 presented one example of an application where this problem is also present. The solution to make full use of the ADALINE network as an adaptive 
-filter was the implementation of a \gls{tdl}. Its operating method is described in the figure below. 
+filter was to implement a \gls{tdl}. Its operating method is described in the figure below. 
 
 \begin{figure}[H]
 	\centering
@@ -348,7 +350,7 @@ but it makes the \gls{nn} more susceptible to noise variations. To choose the be
 \end{figure}
 
 To have maximum performance on the simulator, only base $2^{n}$ sizes were chosen, where $n \in N$. Observing the outcome, it can be seen that 
-there is a point where the host time does not improve significantly however, the number of resets continues increasing. As previously noted, 
+there is a point where the host time does not improve significantly, however, the number of resets continues increasing. As previously noted, 
 each reset has a 
 performance impact, as it requires resetting every variable to its initial conditions. Therefore, it is desirable to minimize the number of 
 resets whenever possible. In conclusion, the best size to be used is 32, and for this reason, it was used for the subsequent 
@@ -357,7 +359,7 @@ tests.
 \subsection{Quantum Increment}
 
 The ADALINE-based algorithm output, that is, the filtered quantum, will be always lower than the source. Using this new quantum implies there will 
-be a point in time when it becomes too small, primarily because it fails to increase its value. This situation inevitably leads to a 
+be a point in time when it becomes too small because it fails to increase its value. This situation inevitably leads to a 
 trade-off, wherein performance is compromised. To strike the optimal balance, it becomes necessary to increment the quantum value. This adjustment 
 should occur when no errors are detected in the system. \autoref{fig_ADALINE_v1} presents the flowchart for the ADALINE-based algorithm.
 
@@ -373,7 +375,7 @@ ADALINE-based algorithm takes action.
 
 The increment value should have a balance, in the way that with a smaller increment, the performance may not be improved, and 
 with a high value the accuracy may be ruined. According to \cite{pargem5}, the quantum of 1 microsecond gives a good trade-off between those 
-two thus, it was chosen to use an increment 10 times lower. This value enables a significant balance without causing any harm.
+two, thus, it was chosen to use an increment 10 times lower. This value enables a significant balance without causing any harm.
 
 \subsection{Results}
 \label{sec:ADALINE_results}
@@ -406,7 +408,7 @@ The aforementioned benchmarks executed the developed algorithm with different nu
 \label{fig:results_ADA}
 \end{figure}
 
-The horizontal subtitle illustrates the executed benchmark along with the number of cores and the corresponding algorithm used, hence 4 ADA 
+The horizontal subtitle illustrates the executed benchmark along with the number of cores and the corresponding algorithm used, hence, 4 ADA 
 means four cores with the ADALINE-based algorithm were simulated. To assess the ADALINE performance, the static version was also executed with 
 a quantum set to one microsecond. In all cases, the comparison reference is the result obtained from sequential simulation. Additionally, the 
 results for a single simulated core are not presented because, in all conducted tests, the sequential simulation exhibited similar performance. 
@@ -433,7 +435,7 @@ Moreover, special attention should be given to its design, as excessively large 
 \section{Step Ladder Algorithm}
 
 As shown, it was verified in some cases where the performance was equal or lower when compared with the static approach. Concerning the quantum 
-increment, a fixed value was defined following the aforementioned philosophy however, a dynamic approach may bring better results, as different 
+increment, a fixed value was defined following the aforementioned philosophy. However, a dynamic approach may bring better results, as different 
 benchmarks require different needs. 
 
 Therefore, the ADALINE-based algorithm was updated to integrate this new functionality. Observing the \autoref{fig_ADALINE_v1}, the calculation of the 
@@ -448,7 +450,7 @@ The new flowchart is represented in the next figure.
 \end{figure}
 
 The concept is to initiate with a gradual increase in value initially. If there are no postponed events during this period, then the increment 
-can be escalated. It can be seen as an exponential however, an approach like this would scale too fast, affecting the accuracy. A solution can be 
+can be escalated. It can be seen as an exponential, however, an approach like this would scale too fast, affecting the accuracy. A solution can be 
 the definition of a threshold, where the increment value only increases if no "accuracy issues" have happened N times in a row. An example is 
 illustrated in the \autoref{fig_incAlgorithm_graph}. It is possible to observe that there is a point, marked in red, 
 where there was no variation in the \textit{incValue}, indicating the occurrence of a postponed event.
@@ -482,7 +484,7 @@ fulfills the condition for N consecutive times, as shown in the later image.
 The algorithm starts checking if any event 
 was postponed. If yes, it is considered that an "inaccuracy problem" occurred. If not, it is considered that the quantum value was the right one.
 Then, the \textit{maxCondition} and \textit{minCondition} ensure that the \textit{incValue} does not cross the previously set boundaries. To control the 
-increment or decrement sequence, it was created the \textit{incIndex} and \textit{decIndex}, respectively, These are incremented or reset, as 
+increment or decrement sequence, it was created the \textit{incIndex} and \textit{decIndex}, respectively. These are incremented or reset, as 
 shown in the subsequent flowchart, and they are used to check if the increment or decrement threshold has been reached.
 
 \begin{figure}[H]
@@ -534,7 +536,7 @@ Regarding the first topic, the reasons are the same as presented in the previous
 a possible explanation for this could be the nature of the algorithm itself. The adaptive filter may not be designed to 
 handle drastic interventions. As shown in \autoref{fig:AF2}, the control action appears to be smooth, even though there are moments, for example, 
 in inter-process communications when it should be more aggressive to prevent postponed events in cross-scheduling. The problem was not evident at 
-the beginning however, with the dynamic increment, it becomes more notable. 
+the beginning, however, with the dynamic increment, it becomes more notable. 
 
 One of the requirements for this dissertation is to maintain a maximum inaccuracy of 5\% thus, the current approach does not meet this criterion. 
 It is crucial to explore alternative methods and optimizations to ensure that the desired level of accuracy is achieved.
@@ -546,8 +548,9 @@ solution for this issue could involve predicting when this situation is likely t
 postponed event will take place. If it becomes possible to forecast when such an event will be postponed, adjustments can be made to the quantum 
 before it happens. This preemptive action can help prevent significant inaccuracies from occurring. 
 
-Before the simulation initiates, the commands destined for execution are loaded into memory and remain unaltered throughout the simulation. These, 
-when executed, can lead to a postponed event. An example of that is the Wait For Event (WFE) instruction, where the \gls{cpu} enters in low-power 
+Before the simulation initiates, the commands destined for execution are loaded into memory and remain unaltered throughout the simulation.  
+When executed, these commands can lead to a postponed event. 
+An example of that is the Wait For Event (WFE) instruction, where the \gls{cpu} enters in low-power 
 standby state. Furthermore, in general, loops are the backbone of benchmarks, whether due to multiple iterations or the benchmark's inherent 
 characteristics, such as testing the transfer of memory blocks between different locations. As a result, the same memory address can be 
 encountered more than one time. 
@@ -566,7 +569,7 @@ of how the algorithm works.
 
 In the beginning, every memory address is considered risk-free, but as the simulation proceeds, it can be changed. When it happens, the processed 
 address becomes a spotted address (marked in red in the figure) until the end of the simulation. All these addresses will be taken into 
-account in the new quantum calculation, thus to avoid possible noise on the attribution, these will be acknowledged as genuine 
+account in the new quantum calculation, thus, to avoid possible noise on the attribution, these will be acknowledged as genuine 
 "postponed event generators" only when they are identified regularly.
 
  
@@ -592,7 +595,7 @@ the \autoref{eq_PCForecast1} was developed.
 
 \hspace*{1cm}
 
-Thereafter, one of two scenarios can unfold, as depicted in the next pictures. Nothing may transpire, if no addresses were 
+Thereafter, one of two scenarios can unfold, as depicted in the next pictures. Nothing may transpire if no addresses were 
 identified between the \gls{pc} and \gls{fpc}; Alternatively, if the \gls{fpc} corrects its value to the nearest identified 
 address, a quantum recalibration is necessary using the \autoref{eq_PCForecast2}. Hence, the synchronization will occur right after the 
 execution of the spotted address, avoiding inaccuracy as the cross-schedule event is inserted in the target event queue at the expected time.
@@ -636,8 +639,8 @@ reflected in an increment of the host time of around 0.3\%. Nevertheless, there 
 conducted into better performance, for instance, the NPB BT over two and eight simulated cores. 
 
 The most distinguished side is the accuracy, where the \gls{pc} analysis inclusion allowed the removal of the inaccuracy peaks that existed 
-in the A-SL version hence, the previously mentioned cases that passed the 5\% are now within the limit. Only the NPB FT with 32
-and NPB CG with 64 simulated cores are exceptions however, these should not be considered, as explained further in this chapter. 
+in the A-SL version. Hence, the previously mentioned cases that passed the 5\% are now within the limit. Only the NPB FT with 32
+and NPB CG with 64 simulated cores are exceptions, however, these should not be considered, as explained further in this chapter. 
 When considering up to 16 simulated cores, there was approximately an increment 
 of about 0.5\% in accuracy. 
 
@@ -697,7 +700,7 @@ until the \gls{pc} no longer follows the loop's path. At that point, the loop is
 
 \subsection{Hare-Tortoise Algorithm}
 
-The detection method must be light otherwise, the simulation performance is set in danger. One algorithm with this characteristic is Floyd's 
+The detection method must be light, otherwise, the simulation performance is set in danger. One algorithm with this characteristic is Floyd's 
 Tortoise and Hare. It consists of two pointers, one twice faster than the other. If both match at some point, means that there is a 
 loop, as shown in the figure below.
 
@@ -727,11 +730,11 @@ is a mismatch, the loop is discarded and the entire detection process starts aga
 
 Although this technique is simple and very effective, it has some inherent problems. The first issue pertains to the inability to detect 
 nested loops. Another challenge is the incapability to identify subsequent loops following the one that has been detected. Lastly, the most crucial 
-problem is the difficulty in detecting conditions within loops. All of these can be solved with the \gls{pc} track nevertheless, this solution 
+problem is the difficulty in detecting conditions within loops. All of these can be solved with the \gls{pc} track, nevertheless, this solution 
 may cut the benefits of the algorithm, since these problems can be recurrent in the benchmark. 
 
 Another problem is the multi-thread environment. When more than one \gls{cpu} is active, the \gls{pc} is used by multiple event queues, 
-meaning an unpredictable pointer. In this situation is almost impossible to identify any loop, thus a a restriction that permits the Loop 
+meaning an unpredictable pointer. In this situation is almost impossible to identify any loop, thus, a restriction that permits the Loop 
 Detection only when one \gls{cpu} is active was implemented.   
 If there is a loop defined and the other \glspl{cpu} wakes up, this is automatically discarded, and the algorithm 
 stops, restarting again when the later condition reverts. 
@@ -753,7 +756,7 @@ is a match, that value is associated with a \textit{PPaddr}.
 	 \label{fig_Repetition_flowchart_quantum}
 \end{figure}
 
-To calculate the quantum, the last task uses an iteration technique, as demonstrated in the flowchart. 
+To calculate the quantum, the last task uses an iteration technique, as demonstrated in the above flowchart. 
 The iterator starts where the \gls{pc} is, and pursues the loop until it either finds a \textit{PPaddr} or reaches the starting point. 
 The quantum starts with the minimum value, which is the clock period, and increments that value in each iteration.
 
@@ -764,7 +767,7 @@ When compared with the previous algorithm, the new one does not bring a better t
 In reality, it is the opposite, that is, the Loop Detection action resulted in a loss of benefits. 
 
 
-\begin{figure}[H]
+\begin{figure}[h!]
 \centering
 \begin{subfigure}{\textwidth}
     \centering
@@ -870,7 +873,7 @@ If the quantum is set with the smaller delay, a perfect accuracy can be achieved
 
 \begin{figure}[H]
 	\centering
- 	\includegraphics[width=0.4\linewidth]{Images/NewGlobalSyncEventStatic.png}
+ 	\includegraphics[width=0.48\linewidth]{Images/NewGlobalSyncEventStatic.png}
  	\caption{New quantum definition in the synchronization process}
 	\label{fig_NewGlobalSyncEventStatic}
 \end{figure}
@@ -878,6 +881,13 @@ If the quantum is set with the smaller delay, a perfect accuracy can be achieved
 \subsection{Results}
 
 The next graphs present a comparison between the improved baseline algorithm and the static mode with one microsecond synchronization time. 
+
+Starting with performance, the dynamic version outperformed the other one in most of the cases. Nevertheless, in the cases where it 
+did not happen, in particular, NPB BT, LU, and SP with 32 and 64 simulated cores, the performance difference was huge. 
+This is related to the Step Ladder design, as previously explained in this chapter. 
+If the previous cases are considered,
+when calculating the mean of performance gain and comparing it with the static version, the result would be circa -9\%. Without the previous 
+tests, the gain average would be almost 10\%. 
 
 \begin{figure}[H]
     \centering
@@ -903,14 +913,6 @@ The next graphs present a comparison between the improved baseline algorithm and
 \caption{Improved baseline and static mode comparison}
 \label{fig:results_FINAL}
 \end{figure}
-
-
-Starting with performance, the dynamic version outperformed the other one in most of the cases. Nevertheless, in the cases where it 
-did not happen, in particular, NPB BT, LU, and SP with 32 and 64 simulated cores, the performance difference was huge. 
-This is related to the Step Ladder design, as previously explained in this chapter. 
-If the previous cases are considered,
-when calculating the mean of performance gain and comparing it with the static version, the result would be circa -9\%. Without the previous 
-tests, the gain average would be almost 10\%. 
 
 Moving to accuracy, in all workloads, the dynamic approach only exceeded the 5\% inaccuracy in two cases. On the other hand, the static 
 version performed worst, having six occurrences. In the remaining cases, on average, there was an increment of 0.5\% of inaccuracy when 
