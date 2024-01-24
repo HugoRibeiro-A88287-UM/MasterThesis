@@ -1,25 +1,25 @@
 
 This chapter presents a communication interface for different simulator domains. These will be integrated into Gem5 and SystemC, representing 
-a new contribution since no existing solutions are present in the current state of the art. Further, it was selected a 
+a new contribution, since no existing solutions are present in the current state of the art. Further, it was selected a 
 case study, which serves as a stimulus for system design and demonstrates 
-the practical application of the developed work. The chosen case study focuses on the \gls{crc} peripheral, developed on SystemC which interfaces 
-as an external peripheral on gem5's board. 
+the practical application of the developed work. The chosen case study focuses on the \gls{crc} peripheral, developed on SystemC, which interfaces 
+as an external peripheral on Gem5's board. 
 
-To close the chapter, par-gem5 with both static and dynamic versions will be tested with the developed interface. 
+To close the chapter, Par-gem5 with both static and dynamic versions will be tested with the developed interface. 
 The obtained results will be presented and compared to the ones conducted in sequential mode in order to have an evaluation reference. 
-Concerning the results, an approach will be selected, being it the preferred to address other situations. 
+Concerning the results, an approach will be selected to address other situations. 
 
 \section{Framework Proposal}
 
 As previously mentioned on \autoref{cap:SoA}, co-simulation involves the integration of multiple simulation tools from different
 domains. Therefore, it is required to develop a system that could execute and communicate among them. This system must adhere to three key 
-aspects to ensure a well-functioning environment. The first one is data integrity. Both tools must respect the defined data exchange standards 
+aspects to ensure a well-functioning environment. The first one is data integrity. Both tools must respect the defined data exchange standards, 
 otherwise, data may become corrupted, creating a failure in the simulation ecosystem. The second aspect is data exchange. A proper delineation of the 
 interface where data will flow is important as well. Missing this may result in faulty communication channels. The last one is the synchronization 
 between both simulators, since improper synchronization may lead to causality errors.
 
 Regarding these concerns, it was proposed the framework presented in the following picture. It will be composed of three interfaces: Gem5, SystemC, 
-and remote port. Gem5 and SystemC are two simulators already introduced in the state-of-the-art chapter however, other simulators could be used. 
+and remote port. Gem5 and SystemC are two simulators already introduced in the state-of-the-art chapter, however, other simulators could be used. 
 The remote port interface was defined to allow communication between the tools.
 
 \begin{figure}[H]
@@ -29,10 +29,10 @@ The remote port interface was defined to allow communication between the tools.
 	 \label{fig_CoSimDesignSimplified}
 \end{figure}
 
-Each simulator will perform different tasks, meaning they will operate at different abstraction levels. For this reason, the remote interface is 
+Each simulator will perform different tasks, meaning that they will operate at different abstraction levels. For this reason, the remote interface is 
 required in order to receive the frames of one simulator and adapt to the other.  
 This exchanges data utilizing the TCP/IP \gls{ipc} protocol, due to its application independence and its versatility for various applications 
-and purposes. Furthermore, this type of connection can be used remotely, by having multiple simulators running on different machines.  
+and purposes. Furthermore, this type of connection can be used remotely, with multiple simulators running on different machines.  
 As shown in the previous figure, each hardware device will have a unique connection to avoid concurrency problems. 
 
 \subsection{Remote Port Interface} 
@@ -40,9 +40,9 @@ As shown in the previous figure, each hardware device will have a unique connect
 
 As already mentioned, the remote port interface will establish the communication between Gem5 and SystemC.
 Although they are two simulators that use C++, they cannot communicate directly with each other. Gem5 is unable to 
-interpret the \gls{tlm} commands, just as SystemC doesn't understand gem5 packages. For these reasons,
+interpret the \gls{tlm} commands, just as SystemC does not understand Gem5 packages. For these reasons,
 this interface will require a wrapper to enable communication between the two platforms. 
-The wrapper will be available in both tools, and every transaction must be created regarding its definition otherwise, 
+The wrapper will be available in both tools, and every transaction must be created regarding its definition, otherwise, 
 data integrity may be compromised. 
 
 \begin{figure}[H]
@@ -55,7 +55,7 @@ data integrity may be compromised.
 
 The main part of the wrapper is the payload definition. It provides a unique definition to transport data and perform operations, 
 keeps the transactions easy to understand, and improves efficiency. For this case, its definition can be found in the prior image. 
-It can be divided into three sections: the remote port header, marked with red; the preamble data, marked with blue; and the data, marked with green. 
+It can be divided into three sections: the header, marked with red; the preamble data, marked with blue; and the data, marked with green. 
 It is important to mention that the remote port's design was done regarding a 32-bit machine, reason why the data address, data size, and data value 
 parameters have a four-byte length.
 
@@ -63,7 +63,7 @@ Every operation must begin with the payload header, which is composed of a comma
 its list can be found on \autoref{tab_TLMwrapperCMD}. The slot is used as an ID to decode where the operation should be done. 
 As shown in \autoref{fig_CoSimDesignSimplified}, each hardware module connected to a remote port has a number associated, which can be indexed by 
 the slot. Preamble data comes after the header, and it indicates the location where the execution will take place in the selected hardware. 
-The data address or offset points to the desired hardware address and the data size specifies the action range. The data is required in 
+The data address or offset points to the desired hardware address, and the data size specifies the action range. The data is required in 
 the case of writing, since the new value must be known. 
 
 
@@ -88,7 +88,7 @@ latency, which is required to maintain the synchronization between the simulator
 The next figures demonstrate how the wrapper is implemented in both tools. First of all, it is mandatory to initialize the remote port interface.
 To accomplish that, Gem5 must start with the \textit{TLM\_INIT}, and wait for a positive response from SystemC. Only after that, the remote port 
 is available, and write and read operations can proceed. Closing the remote port follows a similar path. Gem5 must call the \textit{TLM\_CLOSE}, and 
-wait for \textit{TLM\_ACK} from SystemC. The wrapper always verifies if the remote port is available for transactions, and in case of an error, it 
+wait for \textit{TLM\_ACK} from SystemC. The wrapper always verifies if the remote port is available for transactions, and, in case of an error, it 
 returns a permission-denied notification. 
 
 In read-and-write operations, the device's availability is crucial to maintain the tools synchronized. Picture a scenario where Gem5 sends 
@@ -97,8 +97,9 @@ four clock cycles. Consequently, whether another attempt is made in the next clo
 resulting in a synchronization conflict. For this reason, if the device is unavailable, the busy notification is returned, indicating a need to 
 retry the operation later.
 
-In SystemC, while \textit{TLM\_INIT} and \textit{TLM\_CLOSE} are identical to Gem5 ones in the way of operating, \textit{TLM\_READ} and 
-\textit{TLM\_WRITE} have some differences. First of all, instead of sending the frame, it receives it and verifies if the received slot is accessible.
+In SystemC, while \textit{TLM\_INIT} \space and \textit{TLM\_CLOSE} \space are identical to Gem5 ones in the way of operating, 
+\textit{TLM\_READ} \space and \textit{TLM\_WRITE} \space have some differences. First of all, instead of sending the frame, it receives 
+it and verifies if the received slot is accessible.
 After that, it executes the respective \gls{tlm} operation, which can result in an error, for example, 
 the offset crossed the device's boundaries, or in a successful process, returning to Gem5 the respective data. Further in this chapter, these 
 operations will be explained in detail. 
@@ -118,10 +119,10 @@ operations will be explained in detail.
 	% \label{fig_TLM_Wrapper_Payload}
 \end{figure}
 
-In the end, the wrapper can be described as presented in the \autoref{fig_TLM_Wrapper_ClassDiagram}. \textit{TLM\_Socket} provides an abstraction 
+In the end, the wrapper can be described as presented in the \autoref{fig_TLM_Wrapper_ClassDiagram}. \textit{TLM\_Socket} \space provides an abstraction 
 for socket write and read processes. Both have a dependency relationship since the \textit{TLM\_Wrapper} depends on the 
-\textit{TLM\_Socket} functions to be able to communicate. When a remote port is initialized, the socket identification number is returned, 
-and it is stored in the \textit{data\_fd} variable. In this way, it is possible to associate the slot with the respective remote port, providing 
+\textit{TLM\_Socket} \space functions to be able to communicate. When a remote port is initialized, the socket identification number is returned, 
+and it is stored in the \textit{data\_fd} \space variable. In this way, it is possible to associate the slot with the respective remote port, providing 
 coherent communication. When closing the remote port, this variable is reset to its default value. 
 
 \begin{figure}[!ht]
@@ -156,7 +157,8 @@ SystemC \gls{tlm} transactions are 64-bit width, leaving 32 bits unused. Before 
 target ID, which will be utilized by the bus to identify the targets.
 
 Lastly, the targets are the peripherals, which can be different from each other. These receive the 
-\gls{tlm} commands and act accordingly. The next images demonstrate how peripherals respond to \textit{TLM\_READ} and \textit{TLM\_WRITE} operations. 
+\gls{tlm} commands and act accordingly. The next images demonstrate how peripherals respond to \textit{TLM\_READ} and \textit{TLM\_WRITE} 
+\space operations. 
 
 \begin{figure}[H]
 	\centering
@@ -181,7 +183,7 @@ other simulator how long it should wait until a new operation can be done. An ex
 
 \subsection{Gem5 Interface}
 
-Gem5 can integrate different boards with different characteristics. Nevertheless, the steps for integrating a device remain the same across 
+Gem5 can integrate different boards with different characteristics. Nevertheless, the steps to integrate a device remain the same across 
 all boards. 
 
 The first step is the identification of available memory in the \gls{mcu}'s \gls{mmio}, and reserve the required memory for the device. 
@@ -386,7 +388,7 @@ The first aspect to take care of is the definition of the memory region. In acco
 occupy 0xFFFF of memory space, unless it requires more space. In this case, another block of 0xFFFF should be used until its needs are fulfilled. 
 Following the previously defined rule, for the understudy device memory will be reserved from 0x10030000 to 0x1003FFFF.
 
-Then, the \gls{pte} entry must be created, with the \textit{DEVICE\_ADDR} parameter equal to the beginning of the device's memory, which 
+Then, the \gls{pte} entry must be created, with the \textit{DEVICE\_ADDR} \space parameter equal to the beginning of the device's memory, which 
 is 0x10030000. The last part is the implementation of the write and read functions. Concerning the 
 template present in the \autoref{fig_Gem5ReadWrite}, no modifications were needed to integrate this peripheral, therefore these were employed. 
 
@@ -406,9 +408,9 @@ development and enhance code clarity.
 \end{figure}
 
 Primarily, initializing the peripheral is a mandatory step. Without initialization, any attempt to execute an operation will 
-result in an error, and no action will take place. To calculate the \gls{crc} value of a given number, the \textit{CRC\_SC\_VALUE\_INPUT} 
+result in an error, and no action will take place. To calculate the \gls{crc} value of a given number, the \textit{CRC\_SC\_VALUE\_INPUT} \space
 function must be called, with the corresponding number as a parameter. After that, the result can be obtained by calling the 
-\textit{CRC\_SC\_VALUE\_OUTPUT} function. It is important to mention that the calculation takes four clock cycles, thus the function can 
+\textit{CRC\_SC\_VALUE\_OUTPUT} \space function. It is important to mention that the calculation takes four clock cycles, thus the function can 
 either return the \gls{crc} result or an error, warning that the value is not calculated yet. All the remaining functions are used to
 control the device.
 
@@ -440,7 +442,7 @@ expected, the obtained results matched with the expected ones, concluding that t
  	\caption{CRC peripheral validation results}
 \end{figure}
 
-Moving to the co-simulation validation test, two cores will be employed in gem5's simulation for this purpose: one will be dedicated to the 
+Moving to the co-simulation validation test, two cores will be employed in Gem5's simulation for this purpose: one will be dedicated to the 
 \gls{crc}, while the other will execute the bubble-sort benchmark. The simulation will be conducted in sequential mode since 
 the main objective is not performance, but accuracy.
 
@@ -609,7 +611,7 @@ designated tasks and the last memory comparison gives positive feedback.
 
 In opposition to the first, this test will simulate a corrupted memory scenario, as shown in the \autoref{fig_AppTimeDiagramFailure}. 
 In order to achieve that, a failure will be injected into the memory with the \gls{gdb} tool. \gls{gdb} is a debugger 
-that is supported by Gem5 and SystemC. It offers a variety of features but, for this purpose, the \textit{set var} command will be utilized. 
+that is supported by Gem5 and SystemC. It offers a variety of features but, for this purpose, the \textit{set var} \space command will be utilized. 
 This command allows a value modification of a variable in real-time thus, in this way, the failure can be simulated.
 
 \begin{figure}[H]
@@ -621,7 +623,7 @@ This command allows a value modification of a variable in real-time thus, in thi
 
 
 The test will be done under the same conditions as the previous one nevertheless, in this case, for comprehensive debugging capabilities, 
-the debug version of the gem5 binary will be employed. In the end, the workload is expected to finish with an error from Gem5, and it can occur 
+the debug version of the Gem5 binary will be employed. In the end, the workload is expected to finish with an error from Gem5, and it can occur 
 in two different moments. Either when the \gls{cpu}1-N are still running, or when these already completed their tasks. Both cases  
 will be tested, and in either case, the program should terminate promptly. The \autoref{fig_Failure_MemoryIntegrity} demonstrates the obtained 
 results, and it can be concluded that the system behaves in accordance with expectations.
@@ -650,11 +652,11 @@ results, and it can be concluded that the system behaves in accordance with expe
 \section{Dynamic Quantum Integration}
 
 Up to this point in the co-simulation, accuracy has been the primary concern. With this criteria, performance is sacrificed, giving a higher
-host time. In the co-simulation itself, the use of par-gem5 would not provide greater benefits, as communication between the tools 
+host time. In the co-simulation itself, the use of Par-gem5 would not provide greater benefits, as communication between the tools 
 is the most time-consuming aspect. On the other hand, the remaining workload would take advantage of the parallel mode, as verified in the 
 previous chapter (\ref{subsec::finalAlgorithm}). 
 
-To assess the advantages of par-gem5 and the dynamic quantum during co-simulation, a series of tests were conducted with various configurations. 
+To assess the advantages of Par-gem5 and the dynamic quantum during co-simulation, a series of tests were conducted with various configurations. 
 Compared to the prior ones, the differences will be resumed to the simulation modes, with the addition of static and dynamic parallel modes, 
 and the number of simulated cores, which will range from 2, 4, 8, 16, 32, to 64 cores. Further, the same setup of the previous section was used  
 to perform this new set of tests (\autoref{fig_CoSimDesign}). The next figures exhibit the results obtained. 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  23 JAN 2024 18:37
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.10.24)  24 JAN 2024 16:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2187,15 +2187,15 @@ File: Images/ResetSystemADALINE.png Graphic file (type bmp)
  [48]
 File: Images/TDL.png Graphic file (type bmp)
 <Images/TDL.png>
+ [49]
 File: Images/ResetVsHost.png Graphic file (type bmp)
 <Images/ResetVsHost.png>
- [49]
 File: Images/ADALINE_v1.png Graphic file (type bmp)
 <Images/ADALINE_v1.png>
  [50]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 386.
+               Default added (so using `tbp') on input line 385.
 
 File: Images/Performance_ADA.png Graphic file (type bmp)
 <Images/Performance_ADA.png>
@@ -2211,10 +2211,10 @@ File: Images/incAlgorithm_graph.png Graphic file (type bmp)
 <Images/incAlgorithm_graph.png>
 
 
-LaTeX Font Warning: Command \Large invalid in math mode on input line 473.
+LaTeX Font Warning: Command \Large invalid in math mode on input line 472.
 
 
-LaTeX Font Warning: Command \normalsize invalid in math mode on input line 475.
+LaTeX Font Warning: Command \normalsize invalid in math mode on input line 474.
 
 
 File: Images/incAlgorithm_flowchart.png Graphic file (type bmp)
@@ -2340,7 +2340,7 @@ File: Images/SystemCdesign_CRC.png Graphic file (type bmp)
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 286.
+               Default added (so using `tbp') on input line 288.
 
 File: Images/CrcBlockDiagram.png Graphic file (type bmp)
 <Images/CrcBlockDiagram.png>
@@ -2370,7 +2370,7 @@ File: Images/MemoryIntegrity_StateDiagram.png Graphic file (type bmp)
 File: Images/MemoryIntegrity_CPU0SequenceDiagram.png Graphic file (type bmp)
 <Images/MemoryIntegrity_CPU0SequenceDiagram.png>
  [89]
-Underfull \hbox (badness 10000) in paragraph at lines 555--557
+Underfull \hbox (badness 10000) in paragraph at lines 557--559
 
  []
 
@@ -2380,7 +2380,7 @@ File: Images/AppTimeDiagram.png Graphic file (type bmp)
 File: Images/Success_MemoryIntegrity.png Graphic file (type bmp)
 <Images/Success_MemoryIntegrity.png>
 
-Underfull \hbox (badness 10000) in paragraph at lines 607--609
+Underfull \hbox (badness 10000) in paragraph at lines 609--611
 
  []
 
@@ -2394,7 +2394,7 @@ File: Images/Failure_MemoryIntegrity2.png Graphic file (type bmp)
  [92]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 663.
+               Default added (so using `tbp') on input line 665.
 
 File: Images/Performance_CO_SIM.png Graphic file (type bmp)
 <Images/Performance_CO_SIM.png>
@@ -2433,9 +2433,6 @@ L3 programming layer <2020/03/25>
 
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `Thesis_HugoRibeiro.out' has not changed.
 (rerunfilecheck)             Checksum: 6829C33D4AA95B57A83B8BCB0C31F45B;10262.

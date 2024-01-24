@@ -918,7 +918,7 @@ collaboration of Huawei. It utilizes the multi-threading capabilities of the hos
 \gls{pdes} approach, which allows the execution to be dispatched to multiple simulation threads that run independently from the rest of 
 the system for a time $t_{\Delta q}$ called quantum or quanta. At the time, only dist-gem5 \cite{dist-gem5}, a work that focuses 
 on simulating distributed systems connected via a \gls{nic}, has implemented a parallel extension. Nevertheless, its application is very strict, 
-as it can only be used in this type of system. Thereby, par-gem5 comes to overcome this problem and be a generalized parallel version.
+as it can only be used in this type of system. Thereby, Par-gem5 comes to overcome this problem and be a generalized parallel version.
 
 In the initialization phase, each \gls{cpu} is assigned to a dedicated event queue, and all other objects are assigned to the default event 
 queue (q0). Thereby, the total number of threads will be the number of cores plus one. This version cannot be classified either as conservative 
@@ -931,7 +931,7 @@ or optimistic for the reason that it allows causality errors to occur.
 	 \label{fig_SchedulingEventGem5}
 \end{figure}
 
-Observing the previous figure, scenario A represents the typical sequential simulation, and scenario B the par-gem5 scheduling method. 
+Observing the previous figure, scenario A represents the typical sequential simulation, and scenario B the Par-gem5 scheduling method. 
 When an event is scheduled in another event queue,
 it can either be executed or postponed to the following synchronization. The event is postponed when its timestamp has passed. 
 Consequently, it can lead to a chronologically incorrect execution order of events, affecting the simulation's accuracy, or, in the worst case, 
@@ -1060,7 +1060,7 @@ x86 diverse simulators, such as the MARSSx86 simulator \cite{patel2011marss}.
 \glsxtrfull{ml} is at present-day an extremely important subject, encompassing applications in both smaller devices, like watches, and larger 
 ones, such as cars.  Autonomous driving is one example of what can be done with machine learning \cite{bachute2021autonomous}. Although this 
 theme emerged recently with the evolution of computers, it was first defined by Arthur Samuel in 1959, who states that 
-\textit{ "it is a field of computer science that gives computers the ability to learn without being explicitly programmed" }\cite{samuel1959some}. 
+\textit{"it is a field of computer science that gives computers the ability to learn without being explicitly programmed" }\cite{samuel1959some}. 
 
 There are various types of \gls{ml} algorithms, such as classification, error cancellation, and prediction. Depending on the project 
 requirements, these algorithms can be utilized individually or combined in a manner that complements each other to address complex problems, 
@@ -1232,9 +1232,9 @@ them are remarkably consistent.
 
 \subsection{Co-Simulation on Gem5}
 
-Until the present date, few works have used gem5 in a co-simulation environment. The primary reason for this could be that official 
+Until the present date, few works have used Gem5 in a co-simulation environment. The primary reason for this could be that official 
 support is only available for SystemC \cite{Thegem5simulatorV2}. However, the open-source nature of Gem5 allows for extensions and 
-integrations of additional tools. An example of that is the work developed by Manu Komalan in \cite{komalan2018main}, where gem5 and NVMain 
+integrations of additional tools. An example of that is the work developed by Manu Komalan in \cite{komalan2018main}, where Gem5 and NVMain 
 work together to obtain a good simulation accuracy.
 
 SystemC is being widely used in the industry and research hardware design space exploration \cite{menard2017system}. Nonetheless, there 

@@ -38,11 +38,11 @@
 \contentsline {figure}{\numberline {2.34}{\ignorespaces Different domains of a complex system}}{39}{figure.caption.104}%
 \contentsline {figure}{\numberline {2.35}{\ignorespaces Research publications of co-simulation applications over five years\blx@tocontentsinit {0}\cite {gomes2017co}}}{40}{figure.caption.105}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces High-level diagram of par-gem5 operation mode}}{41}{figure.caption.108}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces High-level diagram of Par-gem5 operation mode}}{41}{figure.caption.108}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Bubble sort example}}{45}{figure.caption.150}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces ANC scheme}}{46}{figure.caption.152}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Control action with different learning rate values}}{48}{figure.caption.155}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Reset system in ADALINE-based algorithm}}{48}{figure.caption.156}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Reset system in ADALINE-based algorithm}}{49}{figure.caption.156}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces TDL working method}}{49}{figure.caption.158}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Reset vs. Host}}{50}{figure.caption.159}%
 \contentsline {figure}{\numberline {3.8}{\ignorespaces ADALINE flowchart}}{51}{figure.caption.161}%
@@ -62,7 +62,7 @@
 \contentsline {figure}{\numberline {3.22}{\ignorespaces Perf analysis on NPB CG}}{67}{figure.caption.189}%
 \contentsline {figure}{\numberline {3.23}{\ignorespaces New quantum definition in the synchronization process}}{69}{figure.caption.214}%
 \contentsline {figure}{\numberline {3.24}{\ignorespaces Improved baseline and static mode comparison}}{70}{figure.caption.216}%
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Simulation issue in par-gem5}}{71}{figure.caption.217}%
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Simulation issue in Par-gem5}}{71}{figure.caption.217}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces High-level proposal design of the framework}}{73}{figure.caption.220}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces TLM wrapper payload definition}}{73}{figure.caption.222}%

@@ -4,14 +4,14 @@
 Nos últimos anos, a complexidade dos sistemas com múltiplos processadores num \textit{chip} (\glspl{mpsoc}) têm crescido exponencialmente. 
 Contudo, as ferrementas de simulação destes não têm seguido esse crescimento, principalmente devido ao seu tipo de simulação sequencial. 
 Logo, os tempos de simulação aumentam sempre que um novo \gls{mpsoc} é desenvolvido. Nesse sentido, a equipa \gls{ice} da universidade 
-\gls{rwth}, em Aachen, desenvolveu uma versão que possibilita a simulação paralela no modo atómico do Gem5, o par-gem5. Esse modo é baseado 
+\gls{rwth}, em Aachen, desenvolveu uma versão que possibilita a simulação paralela no modo atómico do Gem5, o Par-gem5. Esse modo é baseado 
 numa simulação paralela síncrona de eventos discretos (\gls{pdes}) que permite cada \textit{thread} operar independentemente do 
 resto do sistema por um tempo $t_{\Delta q}$, denominado quantum. Embora este trabalho tenha sido um importante avanço, ainda reside o problema 
 de definir qual o melhor quantum para cada teste. Adicionalmente, à medida que os sistemas crescem em complexidade, a interação entre 
 simuladores distintos aumenta devido há necessidade de avaliar diferente aspetos. 
 
 Esta dissertação tem como objetivo solucionar dois problemas. O primeiro é encontrar o quantum ótimo, ou seja, o quantum que permita obter o 
-melhor compromisso entre desempenho e a precisão de simulação. De momento, o par-gem5 apenas permite a definição de um quantum 
+melhor compromisso entre desempenho e a precisão de simulação. De momento, o Par-gem5 apenas permite a definição de um quantum 
 estático, pelo que este não pode ser alterado durante o decorrer da simulação. Porém, um quantum dinâmico consegue ultrapassar essas limitações. 
 Portanto, foi desenhado e desenvolvido um algoritmo flexível que consegue operar independentemente do teste e o sistema escolhido. O segundo 
 problema é a interação entre o Gem5 e outros simuladores. No seu atual estado, poucos conseguem trabalhar com esta ferramenta. Deste modo, foi 
