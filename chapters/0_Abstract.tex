@@ -17,21 +17,21 @@
 In recent years, \glspl{mpsoc} complexity has been growing exponentially. Nevertheless, the performance of simulation tools is not 
 following this growth, mainly because of their sequential simulation type. Therefore, simulation time increases each time a new \gls{mpsoc} 
 is developed. Concerning this problem, the \gls{ice} \gls{rwth} Aachen team developed a parallel version of the atomic mode of Gem5, Par-gem5. 
-It is based on a synchronous \gls{pdes} which allows each simulation thread to run independently from the rest of the system for a time 
+It is based on a synchronous \gls{pdes}, which allows each simulation thread to run independently from the rest of the system for a time 
 $t_{\Delta q}$ - called quantum. Although this is a huge improvement, it carries a challenge in the quantum definition for each simulation experiment. 
 Additionally, as systems become more complex, the necessity of interaction between distinct simulator domains grows because different aspects 
 must be taken into account. 
 
-This dissertation aims to solve two problems. The first one is the optimal quantum finding, which can lead to the best trade-off between 
-simulation accuracy and performance. Nowadays, Par-gem5 is bound to a static quantum which cannot be changed during run-time. However, an adaptive 
+This dissertation aims to solve two problems. The first one consists of the optimal quantum finding, which can lead to the best trade-off between 
+simulation accuracy and performance. Nowadays, Par-gem5 is bound to a static quantum, which cannot be changed during run-time. However, an adaptive 
 version can overcome this limitation. Thus, a flexible algorithm that can operate independently of the used benchmark and system was conceptualized and 
-developed. The second problem is the interaction between Gem5 and other simulators. At its current state, few available 
+developed. The second problem lies in the interaction between Gem5 and other simulators. At its current state, few available 
 frameworks can work with this tool. Thereby, it was proposed a co-simulation environment that can integrate any 
 simulator. Further, it was chosen a study case to validate the developed framework.
 
 The work developed resulted in an algorithm that brings greater benefits when compared with the present solution. It was possible to achieve, 
-on average, a performance gain of almost 10\%, only sacrificing 0.5\% of accuracy. Nevertheless, when a-priori information about the 
-test is given, the tradeoff can be improved with the static approach thus, it should not be fully discarded. 
+on average, a performance gain of almost 10\%, only sacrificing 0.5\% of accuracy. Nevertheless, when \textit{a priori} information about the 
+test is given, the tradeoff can be improved with the static approach, thus, it should not be fully discarded. 
 If perfect accuracy is a requirement, the sequential version must be used, since the usage of both methods implies a loss in accuracy. 
 Moreover, the proposed framework provided a new work environment. It maintained data integrity, data exchange, and synchronization 
 between the tools during all the simulations. With this work, a new contribution to this subject was provided.

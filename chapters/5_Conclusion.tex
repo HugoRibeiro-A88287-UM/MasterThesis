@@ -3,7 +3,7 @@
 This chapter concludes this dissertation, summarizing the former developed work, and giving up some topics that could be
 interesting for future work.
 
-From a general perspective, this project development contributed to solving the principal problem verified in Par-gem5, which is the 
+From a general perspective, the development of this project contributed to solve the principal problem verified in Par-gem5, which is the 
 quantum definition to get the best tradeoff between performance and accuracy. Further, it provided a flexible and well-functioning framework 
 that enables the interaction between different tools. With these advancements, it is no longer required to study and understand 
 the target system and benchmarks in detail, and Gem5 can now be utilized in co-simulation environments more frequently.
@@ -22,10 +22,10 @@ Due to its overhead in the simulation performance and weak accuracy gain, it was
 that it can be an option when the workload has lots of repetitive tasks, enabling specific optimizations.
 
 %talk about the simulation results of the final algorithm
-Several tests were performed to evaluate it. In the end, it can be concluded the use of the dynamic version for the quantum choice brings 
+Several tests were performed to evaluate it. In the end, it can be concluded that the use of the dynamic version for the quantum choice brings 
 greater benefits. When the NPB BT, LU, and SP with 32 and 64 simulated cores are not considered, there are gains in performance almost 
 reaching 10\%, only sacrificing 0.5\% of accuracy. As mentioned on \autoref{cap:BM}, the previous tests have a particular characteristic, 
-which is they execute nonlinear partial differential equations. This workload does not require inter-process communications thus, 
+which is that they execute nonlinear partial differential equations. This workload does not require inter-process communications, thus, 
 quantum can be increased without losing significant accuracy. The dynamic algorithm was designed to make it harder to increase the 
 quantum value as the number of cores increases, due to the conclusions obtained in the Par-gem5 \cite*{pargem5} work. For this reason, 
 this type of benchmark obtains a meaningful drop in performance when more than 16 cores are being simulated. However, the 
@@ -34,11 +34,11 @@ algorithm's design must be flexible, in a way that all benchmarks can have the b
 Negative inaccuracy may continue to be present, as a consequence of Par-gem5 use. The dynamic quantum development was not able to solve this
 issue, making necessary a deeper analysis of Par-gem5 design in order to find the problem. 
 
-In conclusion, the better algorithm depends on the a-priori available information. If there is no information available, the dynamic version should be 
+In conclusion, the better algorithm depends on the \textit{a priori} available information. If there is no information available, the dynamic version should be 
 used because, even if the performance might be lower than it could be, it is guaranteed that accuracy will be above 95\%. On the other side,
 knowing the details of the benchmark enables us to calculate the optimal quantum before initiating the simulation. It is important to 
 remember that when increasing the quantum, while performance as a function of the quantum behaves similarly to a sigmoidal, inaccuracy 
-grows linearly \cite*{BeyondQuantumTDSim}. If perfect accuracy is mandatory, the sequential mode should be selected since the usage of Par-gem5 
+grows linearly \cite*{BeyondQuantumTDSim}. If perfect accuracy is mandatory, the sequential mode should be selected, since the usage of Par-gem5 
 implies an accuracy cost. Also, simulations with a single simulated core should always be 
 executed with the later mode. It was concluded that parallelization with only one simulated core results in a loss of accuracy 
 without a significant gain in performance.
@@ -52,7 +52,7 @@ with the real ones. On the other part, it was possible to verify that the dynami
 time consumption in the communication between tools. Further, accuracy was always above 99\%, enchanting its performance. 
 
 It is important to mention that this work regarding co-simulation between Gem5 and other tools is very poor, only existing a few works in the 
-literature. Gem5 already has a defined co-simulation environment with SystemC in its official repository nevertheless, it does not 
+literature. Gem5 already has a defined co-simulation environment with SystemC in its official repository, nevertheless, it does not 
 fully adhere to the previously mentioned co-simulation definition because the two simulators are not running simultaneously in separate processes.
 For this reason, this work contributes to the first steps in this subject. 
 
@@ -62,25 +62,25 @@ For this reason, this work contributes to the first steps in this subject.
 Concerning future work, there are some aspects where improvements and new additions can be developed to have either an 
 algorithm or a framework more robust and versatile.
 
-The first aspect is the execution of more benchmarks. Although the algorithm was tested with a set of different and distinct benchmarks, 
+The first aspect concerns the execution of more benchmarks. Although the algorithm was tested with a set of different and distinct benchmarks, 
 more tests are required to have more performance results. These may reveal points where it can be improved, either with the development
 of a new support algorithm or with a better tunning of the available parameters. PARSEC, SPEC2017, and STREAM are some examples of 
 benchmarks where experiments can be conducted. 
 
-The second aspect is the adaptation for the timing \gls{cpu} model. A future work of Par-gem5 \cite{pargem5} is to extend this solution 
-to the timing mode thus, the developed approach should also function in this condition. Only the \gls{ifp} algorithm requires an 
+The second aspect regards the adaptation for the timing \gls{cpu} model. A future work of Par-gem5 \cite{pargem5} consists of extending this solution 
+to the timing mode, thus, the developed approach should also function in this condition. Only the \gls{ifp} algorithm requires an 
 adaptation, due to its \gls{pc} analysis method. The timing mode uses multiple events to model a transaction, which makes it difficult
-to perform a correct examination of the executed instructions. In-order, and \gls{o3} demand an adaptation as well however, until 
+to perform a correct examination of the executed instructions. In-order and \gls{o3} demand an adaptation as well, however, until 
 the present date, no publications have been made on this matter regarding Par-gem5.
 
-Another point is the usage of other targets. The developed algorithm was designed to tackle any target board nevertheless, as 
+Another point to highlight is the usage of other targets. The developed algorithm was designed to tackle any target board, nevertheless, as 
 aforementioned, only VExpress\_gem5 was used for all the tests. Different boards with different characteristics may highlight flaws
-that could not be spotted with the present one. Such usage may require its design and development in the platform, 
+that could not be spotted with the present one. Such usage may require its design and development in the platform 
 with the creation of all the necessary devices and connections. 
 
 Finally, improvements in the co-simulation environment can be implemented. The main problem observed was the time consumption in the 
 communication between tools. From a host time perspective, the workload on the memory comparison task corresponds to 87 \% of the 
 whole simulation, where 82.2\% of this value, on average, corresponds to the waiting time for the payload response. As part of the solution
 to speed up co-simulation, other \glspl*{ipc} techniques can be used, like shared memory. Although it is the 
-fastest \gls{ipc} available, it is the unsafest one due to the lack of permission verifications hence, for this reason, a careful 
+fastest \gls{ipc} available, it is the unsafest one due to the lack of permission verifications, hence, for this reason, a careful 
 design must be employed. Nevertheless, it might not be enough to solve the problem, and other approaches must be considered.

@@ -1,26 +1,26 @@
 
 \vspace*{-0.5cm}
 
-Nos últimos anos, a complexidade dos sistemas com múltiplos processadores num \textit{chip} (\glspl{mpsoc}) têm crescido exponencialmente. 
-Contudo, as ferrementas de simulação destes não têm seguido esse crescimento, principalmente devido ao seu tipo de simulação sequencial. 
-Logo, os tempos de simulação aumentam sempre que um novo \gls{mpsoc} é desenvolvido. Nesse sentido, a equipa \gls{ice} da universidade 
+Nos últimos anos, a complexidade dos sistemas com múltiplos processadores num \textit{chip} (\glspl{mpsoc}) tem crescido exponencialmente. 
+Contudo, as ferramentas de simulação destes não têm seguido esse crescimento, principalmente devido ao seu tipo de simulação sequencial. 
+Assim, os tempos de simulação aumentam sempre que um novo \gls{mpsoc} é desenvolvido. Nesse sentido, a equipa \gls{ice} da universidade 
 \gls{rwth}, em Aachen, desenvolveu uma versão que possibilita a simulação paralela no modo atómico do Gem5, o Par-gem5. Esse modo é baseado 
 numa simulação paralela síncrona de eventos discretos (\gls{pdes}) que permite cada \textit{thread} operar independentemente do 
 resto do sistema por um tempo $t_{\Delta q}$, denominado quantum. Embora este trabalho tenha sido um importante avanço, ainda reside o problema 
 de definir qual o melhor quantum para cada teste. Adicionalmente, à medida que os sistemas crescem em complexidade, a interação entre 
-simuladores distintos aumenta devido há necessidade de avaliar diferente aspetos. 
+simuladores distintos aumenta devido à necessidade de avaliar diferentes aspetos. 
 
-Esta dissertação tem como objetivo solucionar dois problemas. O primeiro é encontrar o quantum ótimo, ou seja, o quantum que permita obter o 
+Esta dissertação tem como objetivo solucionar dois problemas. O primeiro consiste em encontrar o quantum ótimo, ou seja, o quantum que permita obter o 
 melhor compromisso entre desempenho e a precisão de simulação. De momento, o Par-gem5 apenas permite a definição de um quantum 
 estático, pelo que este não pode ser alterado durante o decorrer da simulação. Porém, um quantum dinâmico consegue ultrapassar essas limitações. 
-Portanto, foi desenhado e desenvolvido um algoritmo flexível que consegue operar independentemente do teste e o sistema escolhido. O segundo 
-problema é a interação entre o Gem5 e outros simuladores. No seu atual estado, poucos conseguem trabalhar com esta ferramenta. Deste modo, foi 
-proposto um ambiente de co-simulação que permite integrar qualquer simulador. Ainda, um caso de estudo para validar este ambiente foi escolhido. 
+Portanto, foi desenhado e desenvolvido um algoritmo flexível que consegue operar independentemente do teste e do sistema escolhido. O segundo 
+problema reside na interação entre o Gem5 e outros simuladores. No seu estado atual, poucos conseguem trabalhar com esta ferramenta. Deste modo, foi 
+proposto um ambiente de co-simulação que permite integrar qualquer simulador. Além disso, um caso de estudo para validar este ambiente foi escolhido. 
 
 O trabalho desenvolvido resultou num algoritmo que trouxe grandes benefícios quando comparado com a solução atual. Foi possível atingir, 
-em média, aumento de desempenho de 10\% sacrificando apenas 0.5\% de precisão. No entanto, quando existe informação prévia, 
-este compromisso pode ser melhorado com a versão estática logo, esta não deve ser totalmente descartada. Caso seja necessário uma 
-precisão perfeita, o modo sequencial deve de ser utilizado já que os métodos anteriores implicam uma perda de precisão. Além disso, o ambiente 
+em média, um aumento de desempenho de 10\%, sacrificando, apenas, 0.5\% de precisão. No entanto, quando existe informação prévia, 
+este compromisso pode ser melhorado com a versão estática, pelo que esta não deve ser totalmente descartada. Caso seja necessária uma 
+precisão perfeita, o modo sequencial deve de ser utilizado, já que os métodos anteriores implicam uma perda. Além disso, o ambiente 
 de co-simulação proposto permitiu a interação com outros simuladores. Este manteve a integridade dos dados, a troca de dados, e a sincronização 
 entre as ferramentas durante todo o processo. Com este trabalho, uma nova contribuição neste ramo foi desenvolvida.
 

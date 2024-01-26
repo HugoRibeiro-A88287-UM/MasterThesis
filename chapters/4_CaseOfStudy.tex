@@ -145,14 +145,14 @@ at the same time. In order to integrate this flexibility, the subsequent design 
 \end{figure}
 
 
-SystemC design is composed of three main components. The initiator, the bus, and the targets. The first serves as the initial 
-point of interaction for the tool since it handles incoming frames received through the remote port. The remote port operates independently 
+SystemC design is composed of three main components: the initiator, the bus, and the targets. The first serves as the initial 
+point of interaction for the tool, since it handles incoming frames received through the remote port. The remote port operates independently 
 of the initiator, enabling asynchronous reception and transmission of bytes through the receiver and transmit buffers, respectively.
 Additionally, it also performs an interpretation of the received frame and creates the \gls{tlm} transaction. It analyses various 
-parameters such as the operation type, the desired target, and the memory region, among others, with the help of \textit{TLM\_wrapper}.
+parameters, such as the operation type, the desired target, and the memory region, among others, with the help of \textit{TLM\_wrapper}.
 
 The bus is responsible for forwarding the \gls{tlm} transaction to the correct target. Each target has a unique ID, that is assigned 
-at the beginning of the simulation. As previously mentioned, the preamble data and data were designed for a 32-bit architecture, however 
+at the beginning of the simulation. As previously mentioned, the preamble data and data were designed for a 32-bit architecture, however, 
 SystemC \gls{tlm} transactions are 64-bit width, leaving 32 bits unused. Before the transmission, the initiator uses these bytes to set the 
 target ID, which will be utilized by the bus to identify the targets.
 
@@ -177,7 +177,7 @@ Lastly, the targets are the peripherals, which can be different from each other.
 \end{figure}
 
 The first step is to verify the offset/size out-of-bounds, and permissions in a way that the device's integrity is maintained. If no errors occurred 
-in this process, the desired operation is done otherwise, an error response is created, reporting where the problem was. 
+in this process, the desired operation is done, otherwise, an error response is created, reporting where the problem was. 
 At the end of each operation, the correspondent latency is returned, which may vary regarding the desired work. The latency is used to inform the 
 other simulator how long it should wait until a new operation can be done. An example concerning this can be seen in the above subsection.  
 
@@ -186,14 +186,14 @@ other simulator how long it should wait until a new operation can be done. An ex
 Gem5 can integrate different boards with different characteristics. Nevertheless, the steps to integrate a device remain the same across 
 all boards. 
 
-The first step is the identification of available memory in the \gls{mcu}'s \gls{mmio}, and reserve the required memory for the device. 
+The first step is to identify the available memory in the \gls{mcu}'s \gls{mmio} and to reserve the required memory for the device. 
 Most microcontrollers have a lot of unused \gls{mmio} available, enabling the testing with new peripherals while retaining most of the 
 original \gls{mcu}.
 
 After planning this, Gem5 must recognize this hardware to enable communication with the other simulator. 
 To achieve that, every peripheral should be defined and added to the list of off-chip devices in the 
 board's configuration. In addition, it is also required to create a \gls{pte} for each device, which can be done by following the
-code on \ref{templatePTE}. However, it's important to note that after this process, the devices are only recognized as part of the 
+code on \ref{templatePTE}. However, it is important to note that, after this process, the devices are only recognized as part of the 
 board, and their implementation still needs to be completed.
 
 \hspace{1cm}
@@ -228,17 +228,17 @@ STR   r1, [r0, r2]       // Store table entry
 	\label{fig_Gem5ReadWrite}
 \end{figure}
  
-To implement a device in Gem5, a few aspects are mandatory. First of all, the peripheral interface, which describes the type, 
+To implement a device in Gem5, a few aspects are mandatory. In the first place, the peripheral interface, which describes the type 
 where the implementation is, and, optionally, some parameters to be customized. In this context, these can be
-the port number, for the remote connection, or the action time delay. 
-In second place, is the implementation itself. To accomplish this, the class \textit{BasicPioDevice} should be used. It is the base class 
+the port number for the remote connection or the action time delay. 
+In the second place, it is needed the implementation itself. To accomplish this, the class \textit{BasicPioDevice} should be used. It is the base class 
 which all devices sensitive to an address range inherit from. It abstracts all device's implementation, from the creation of the SimObject 
 to memory access protocols. Still, it is required to define the read and write operations, as these change from device to device. 
 The figures \ref{fig_CrcReadFunction} and \ref{fig_CrcWriteFunction} present a template for this implementation. Both start evaluating if
 the peripheral is available or not. If it is negative, a busy notification is returned informing that it is not available at the 
 moment. Otherwise, the respective operation is performed, returning the amount of time spent.
 
-The last step is the connection to the remote port interface. The connection process is the following: Firstly, a socket must be created; 
+The last step consists of the connection to the remote port interface. The connection process is the following: Firstly, a socket must be created; 
 After that, the simulator listens to the socket and waits until a connection is made; Finally, it verifies if the other interfaces are ready 
 by initializing the co-simulation environment. If it receives a positive response, the simulation can proceed, else the simulation is aborted. 
 Note that all this process is done before the actual benchmark starts. 
@@ -252,8 +252,8 @@ The \gls{crc} was created in 1961 by William Wesley Peterson \cite{peterson1961c
 it utilizes systematic cyclic codes to encode messages by incorporating a fixed-length check value. In the end, his work
 contributed significantly to simplifying and enhancing the detection of accidental errors/changes in communication 
 networks. \gls{crc} uses a generator polynomial, which is known by the sender and receiver, and it is used to 
-perform the calculation. There are different standards however, the most common ones are the CRC-8, CRC-12, CRC-16, 
-CRC-32, and CRC-CCIT \cite{borrelli2001ieee}
+perform the calculation. There are different standards, however, the most common ones are the CRC-8, CRC-12, CRC-16, 
+CRC-32, and CRC-CCIT \cite{borrelli2001ieee}.
 
 Another application for the \gls{crc} is the storage integrity. Due to defective components or electromagnetic fields,
 bits can change their value without notice. In the presented case study, this scenario will be explored, where 
@@ -265,7 +265,7 @@ besides memory verification. Hence, as a proof-of-concept, parallel tasks will b
 
 The development of the \gls{crc} peripheral was done in SystemC, which took as a reference the STM32 microcontroller family's 
 reference manual \cite{referenceManualRM0385}. As presented in the figure below, the \autoref{fig_SystemCdesign_geral} was redefined to 
-the present case study. The initiator will only have one remote port associated since only one device will be simulated.
+the present case study. The initiator will only have one remote port associated, since only one device will be simulated.
 
 \begin{figure}[H]
 	\centering
@@ -296,7 +296,7 @@ From the module datasheet, the peripheral is characterized by the following:
 Regarding the \autoref{fig_CrcBlockDiagram}, the module working principle is as follows. First of all, the user needs to write the input value 
 in the data register (CRC\_DR). After four \gls{crc} clock cycles, the correspondent \gls{crc} value is fully calculated, and its
 value is stored in the CRC\_DR. In this case, the \gls{crc} frequency will be equal to the \gls{cpu}. The data width must be 32-bit, 
-hence whether the user needs a \gls{crc} for five bytes, for example, two different computations will be needed. 
+hence, whether the user needs a \gls{crc} for five bytes, for example, two different computations will be needed. 
 
 
 \begin{table}[H]
@@ -336,7 +336,7 @@ hence whether the user needs a \gls{crc} for five bytes, for example, two differ
 
 Moreover, the input and output data can be reversed, to manage the various endianness schemes. For the input data, the reverse operation 
 is controlled by the REV\_IN[1:0] bits, and for the output data, the REV\_OUT bit is used. These, along with the reset bit, which is used to 
-reset the \gls{crc}, are located in the control register (CRC\_CR). This bit must be set by software, and it is automatically cleared by
+reset the \gls{crc}, are located in the control register (CRC\_CR). This bit must be set by the software, and it is automatically cleared by
 the hardware. An example of a reverse operation can be found on \autoref{tab:CRC_REV}.
 
 \begin{figure}[H]
@@ -346,7 +346,7 @@ the hardware. An example of a reverse operation can be found on \autoref{tab:CRC
 	 \label{fig_CRC_write}
 \end{figure}
 
-By default, the polynomial coefficients are defined by 0x4C11DB7 nevertheless, it can be fully programmable through the CRC\_POL register.
+By default, the polynomial coefficients are defined by 0x4C11DB7, nevertheless, it can be fully programmable through the CRC\_POL register.
 It is important to mention that modifications in this register when a \gls{crc} computation is ongoing are not permitted, as it would 
 compromise the output value. To complete the list of available registers, there are the CRC\_INIT and CRC\_IDR.  
 These registers are used to initialize the \gls{crc} calculator during reset and to hold a temporary 8-bit value related to \gls{crc} 
@@ -390,12 +390,12 @@ Following the previously defined rule, for the understudy device memory will be 
 
 Then, the \gls{pte} entry must be created, with the \textit{DEVICE\_ADDR} \space parameter equal to the beginning of the device's memory, which 
 is 0x10030000. The last part is the implementation of the write and read functions. Concerning the 
-template present in the \autoref{fig_Gem5ReadWrite}, no modifications were needed to integrate this peripheral, therefore these were employed. 
+template present in the \autoref{fig_Gem5ReadWrite}, no modifications were needed to integrate this peripheral, therefore, these were employed. 
 
 \subsection{Application API}
 
 At this point, the user on the application side can write and read directly from memory without any restriction. However, it can be
-dangerous, in the way that the user can, by mistake, do an unpermitted operation. For example, write in reversed memory, causing a
+dangerous, in the way that the user can, by mistake, do an unpermitted operation, for example, write in reversed memory, causing a
 segmentation fault. To avoid this, it was developed an \gls{api} for the application side. Similar to STM32 microcontrollers that 
 utilize the HAL library, the \gls{crc} device will also have its own hardware abstraction layer. This layer is designed to speed up 
 development and enhance code clarity.
@@ -410,7 +410,7 @@ development and enhance code clarity.
 Primarily, initializing the peripheral is a mandatory step. Without initialization, any attempt to execute an operation will 
 result in an error, and no action will take place. To calculate the \gls{crc} value of a given number, the \textit{CRC\_SC\_VALUE\_INPUT} \space
 function must be called, with the corresponding number as a parameter. After that, the result can be obtained by calling the 
-\textit{CRC\_SC\_VALUE\_OUTPUT} \space function. It is important to mention that the calculation takes four clock cycles, thus the function can 
+\textit{CRC\_SC\_VALUE\_OUTPUT} \space function. It is important to mention that the calculation takes four clock cycles, thus, the function can 
 either return the \gls{crc} result or an error, warning that the value is not calculated yet. All the remaining functions are used to
 control the device.
 
@@ -433,7 +433,7 @@ change, and the calculation will use a reverse input and a different polynomial.
 By executing this benchmark, every functionality of the peripheral is checked. At the end of the simulation, the expected return values are 
 0x22CC4488 for the first part and 0xC66CE444 for the second part. The final output will be the result of the reset operation. 
 
-With this into account, the test was executed in the firstly mentioned condition, obtaining the results demonstrated in the figure below. As 
+Taking this into account, the test was executed in the first-mentioned condition, obtaining the results demonstrated in the figure below. As 
 expected, the obtained results matched with the expected ones, concluding that the peripheral is working properly. 
 
 \begin{figure}[H]
@@ -443,15 +443,15 @@ expected, the obtained results matched with the expected ones, concluding that t
 \end{figure}
 
 Moving to the co-simulation validation test, two cores will be employed in Gem5's simulation for this purpose: one will be dedicated to the 
-\gls{crc}, while the other will execute the bubble-sort benchmark. The simulation will be conducted in sequential mode since 
+\gls{crc}, while the other will execute the bubble-sort benchmark. The simulation will be conducted in sequential mode, since 
 the main objective is not performance, but accuracy.
 
 It will be used one \gls{crc} and the \gls{uart}, to communicate with the user by the terminal.
-As referred, \gls{uart} is already implemented, hence it only requires its initialization and configuration. For the test, it will be used the 
+As referred, \gls{uart} is already implemented, hence, it only requires its initialization and configuration. For the test, it will be used the 
 \gls{uart}0, which is present in the memory map from 0x1C090000 to 0x1C09FFFF.
 To connect to the \gls{uart}, the m5term can be utilized. It is
 a dedicated program that allows the user to connect to the simulated console interface. When executing the simulation, this program does not
-launch automatically, therefore it must be manually called, with \textit{./m5term <host> <port>}.
+launch automatically, therefore, it must be manually called, with \textit{./m5term <host> <port>}.
 
 \begin{figure}[H]
 	\centering
@@ -504,7 +504,7 @@ break;
 \end{lstlisting}
 
 After executing the validation benchmark, the real results were the ones present in the \autoref{fig_Validation_Results}. It is possible to 
-conclude that the peripheral passed the validation since every expected output matches the real ones. 
+conclude that the peripheral passed the validation, since every expected output matches the real ones. 
 
 \begin{figure}[H]
 	\centering
@@ -531,8 +531,8 @@ the \autoref{fig_CoSimDesign}.
 
 When the benchmark starts, there is the creation of the intended \glspl{cpu}. Each one has an ID, that allows one to identify
 themselves. To conduct the memory integrity test, \gls{cpu}0 will start initializing the \gls{crc} and the memory that will 
-be utilized to compare. Afterward, periodically, it will perform a memory comparison, having two possible outcomes. Or everything
-is all right, and the operation is a success. Or there is a flaw and the simulation ends immediately. A detailed view can be 
+be utilized to compare. Afterward, periodically, it will perform a memory comparison, having two possible outcomes. Either everything is all right 
+and the operation is a success, or there is a flaw and the simulation ends immediately. A detailed view can be 
 observed in \ref{fig_MemoryIntegrity_CPU0SequenceDiagram}. 
 
 \begin{figure}[H]
@@ -542,8 +542,8 @@ observed in \ref{fig_MemoryIntegrity_CPU0SequenceDiagram}.
 	\label{fig_MemoryIntegrity_StateDiagram}
 \end{figure}
 
-The bubble-sort test run in the remaining instaciated cores. Detail information about this benchmark can be found on \autoref{cap:BM}.
-If its workload is concluded successfully and still there are memory verifications to carry out, the simulation continues since 
+The bubble-sort test runs in the remaining instaciated cores. Detail information about this benchmark can be found on \autoref{cap:BM}.
+If its workload is concluded successfully and there are still memory verifications to carry out, the simulation continues, since 
 the primary objective is not to evaluate the bubble-sort algorithm. 
 
 
@@ -557,7 +557,7 @@ the primary objective is not to evaluate the bubble-sort algorithm.
 \textbf{Success Modeling}
 \newline
 
-In the first memory integrity test, the perfect scenario will be simulated, in other words, the memory will operate without any failures, 
+In the first memory integrity test, the perfect scenario will be simulated. In other words, the memory will operate without any failures, 
 ensuring a well-functioning system. As represented in the \autoref{fig_MemoryIntegrity_StateDiagram}, there will be an interval between both 
 tasks, and this can be different from each other (\ref{fig_AppTimeDiagram}). 
 
@@ -612,7 +612,7 @@ designated tasks and the last memory comparison gives positive feedback.
 In opposition to the first, this test will simulate a corrupted memory scenario, as shown in the \autoref{fig_AppTimeDiagramFailure}. 
 In order to achieve that, a failure will be injected into the memory with the \gls{gdb} tool. \gls{gdb} is a debugger 
 that is supported by Gem5 and SystemC. It offers a variety of features but, for this purpose, the \textit{set var} \space command will be utilized. 
-This command allows a value modification of a variable in real-time thus, in this way, the failure can be simulated.
+This command allows a value modification of a variable in real-time, thus, in this way, the failure can be simulated.
 
 \begin{figure}[H]
 	\centering
@@ -622,10 +622,10 @@ This command allows a value modification of a variable in real-time thus, in thi
 \end{figure}
 
 
-The test will be done under the same conditions as the previous one nevertheless, in this case, for comprehensive debugging capabilities, 
+The test will be done under the same conditions as the previous one, nevertheless, in this case, for comprehensive debugging capabilities, 
 the debug version of the Gem5 binary will be employed. In the end, the workload is expected to finish with an error from Gem5, and it can occur 
-in two different moments. Either when the \gls{cpu}1-N are still running, or when these already completed their tasks. Both cases  
-will be tested, and in either case, the program should terminate promptly. The \autoref{fig_Failure_MemoryIntegrity} demonstrates the obtained 
+in two different moments. Either when the \glspl{cpu} are still running, or when these already completed their tasks. Both cases  
+will be tested, and, in either case, the program should terminate promptly. The \autoref{fig_Failure_MemoryIntegrity} demonstrates the obtained 
 results, and it can be concluded that the system behaves in accordance with expectations.
 
 \begin{figure}[!b]
@@ -689,23 +689,23 @@ to perform this new set of tests (\autoref{fig_CoSimDesign}). The next figures e
 
 
 The graphs illustrate the gains in comparison to the sequential simulation. Observing the images can be settled that the parallel version, either 
-with the static or dynamic version had a better performance. With 64 simulated cores, the gains of the dynamic version overpassed 250\%. 
+with the static or dynamic version, had a better performance. With 64 simulated cores, the gains of the dynamic version overpassed 250\%. 
 In fact, it can be affirmed that the performance gains grow with the increasing number of cores, due to the rise of workload amount. 
 In terms of accuracy, the static version had almost a perfect result, while the dynamic one had 
-a maximum inaccuracy of 0,98\% nevertheless, it is considerably far from the 5\%. Finally, as a consequence of the previously mentioned gains,
-the host time was reduced, getting, in the majority of the cases, at least a reduction of 40\%. 
+a maximum inaccuracy of 0,98\%, nevertheless, it is considerably far from the 5\%. Finally, as a consequence of the previously mentioned gains,
+the host time was reduced, getting, in the majority of the cases, at least, a reduction of 40\%. 
 
 
 From these benchmarks other conclusions can be taken. Depending on the benchmark, the better simulation mode can differ from the sequential and
-the parallel ones. It was verified that when the parallel tasks have considerable time consumption, the parallel mode gives more advantages 
-since it can accelerate these, keeping the inaccuracy below 5\%. On the opposite way, if the communication between tools is where the simulation 
+the parallel ones. It was verified that when the parallel tasks have considerable time consumption, the parallel mode gives more advantages, 
+since it can accelerate them, keeping the inaccuracy below 5\%. On the opposite way, if the communication between tools is where the simulation 
 spends most of the time, the sequential mode will fit better, as it has a greater tradeoff between accuracy and performance. Further, the delay
-times between the tasks also play a significant role. In cases where $T_{CoSim} >>> T_{ParTask}$, the parallel version is the most appropriate
+times between the tasks also play a significant role. In cases where $T_{CoSim} >>> T_{ParTask}$, the parallel version is the most appropriate, 
 otherwise, the sequential one should be chosen. 
 
-In the end, to decide which mode is better for a certain workload, apriori information is needed.
+In the end, to decide which mode is better for a certain workload, \textit{a priori} information is needed.
 If it does not exist, either because there is no documentation or the access to the source code is restricted, the better simulation mode to use, 
-based on this case study, is the parallel mode with a dynamic quantum. The reason is that it had always an inaccuracy below 5\% and 
+based on this case study, is the parallel mode with a dynamic quantum. The reason for that is that it always had an inaccuracy below 5\% and 
 had a higher performance gain when compared to the sequential version. Nevertheless, if perfect accuracy is the main requirement, the 
 sequential simulation mode should always be chosen.
 
