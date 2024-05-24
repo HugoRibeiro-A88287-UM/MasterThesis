@@ -39,53 +39,52 @@
 \contentsline {figure}{\numberline {2.35}{\ignorespaces Research publications of co-simulation applications over five years\blx@tocontentsinit {0}\cite {gomes2017co}}}{40}{figure.caption.105}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces High-level diagram of Par-gem5 operation mode}}{41}{figure.caption.108}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Bubble sort example}}{45}{figure.caption.150}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces ANC scheme}}{46}{figure.caption.152}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Control action with different learning rate values}}{48}{figure.caption.155}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Reset system in ADALINE-based algorithm}}{49}{figure.caption.156}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces TDL working method}}{49}{figure.caption.158}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Reset vs. Host}}{50}{figure.caption.159}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces ADALINE flowchart}}{51}{figure.caption.161}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces ADALINE-based algorithm results}}{52}{figure.caption.163}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces ADALINE-based and Step Ladder algorithms combined}}{53}{figure.caption.165}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Example of the increment value evolution with a threshold}}{54}{figure.caption.166}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Step Ladder algorithm flowchart}}{55}{figure.caption.168}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Dynamic increment results}}{56}{figure.caption.170}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces IFP Algorithm}}{58}{figure.caption.172}%
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Possible scenarios after the forecast}}{59}{figure.caption.176}%
-\contentsline {figure}{\numberline {3.16}{\ignorespaces IFP algorithm results}}{61}{figure.caption.179}%
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Quantum definition with Loop Detection algorithm}}{62}{figure.caption.181}%
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Hare-Tortoise Algorithm}}{63}{figure.caption.183}%
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Loop Detection flowchart}}{64}{figure.caption.184}%
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Quantum calculation flowchart}}{65}{figure.caption.186}%
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Loop Detection algorithm results}}{66}{figure.caption.188}%
-\contentsline {figure}{\numberline {3.22}{\ignorespaces Perf analysis on NPB CG}}{67}{figure.caption.189}%
-\contentsline {figure}{\numberline {3.23}{\ignorespaces New quantum definition in the synchronization process}}{69}{figure.caption.214}%
-\contentsline {figure}{\numberline {3.24}{\ignorespaces Improved baseline and static mode comparison}}{70}{figure.caption.216}%
-\contentsline {figure}{\numberline {3.25}{\ignorespaces Simulation issue in Par-gem5}}{71}{figure.caption.217}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces ANC scheme}}{46}{figure.caption.151}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Control action with different learning rate values}}{47}{figure.caption.154}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Reset system in ADALINE-based algorithm}}{48}{figure.caption.155}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces TDL working method}}{48}{figure.caption.157}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces TDl size influence}}{49}{figure.caption.158}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces ADALINE flowchart}}{50}{figure.caption.160}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces ADALINE-based algorithm results}}{51}{figure.caption.162}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces ADALINE-based and Step Ladder algorithms combined}}{52}{figure.caption.164}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Example of the increment value evolution with a threshold}}{53}{figure.caption.165}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Step Ladder algorithm flowchart}}{54}{figure.caption.167}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Dynamic increment results}}{55}{figure.caption.169}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces IFP Algorithm}}{57}{figure.caption.171}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Possible scenarios after the forecast}}{58}{figure.caption.175}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces IFP algorithm results}}{60}{figure.caption.178}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Quantum definition with Loop Detection algorithm}}{61}{figure.caption.180}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Hare-Tortoise Algorithm}}{62}{figure.caption.182}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Loop Detection flowchart}}{63}{figure.caption.183}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Quantum calculation flowchart}}{64}{figure.caption.185}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Loop Detection algorithm results}}{65}{figure.caption.187}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Perf analysis on NPB CG}}{66}{figure.caption.188}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces New quantum definition in the synchronization process}}{68}{figure.caption.213}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Improved baseline and static mode comparison}}{69}{figure.caption.215}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Simulation issue in Par-gem5}}{70}{figure.caption.216}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces High-level proposal design of the framework}}{73}{figure.caption.220}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces TLM wrapper payload definition}}{73}{figure.caption.222}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces TLM wrapper in Gem5}}{75}{figure.caption.224}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces TLM wrapper in SystemC}}{76}{figure.caption.225}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces TLM wrapper class diagram}}{77}{figure.caption.226}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces General SystemC design}}{77}{figure.caption.228}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Flowcharts of the available commands}}{78}{figure.caption.229}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Redefinition of \textit {BasicPioDevice} functions}}{80}{figure.caption.239}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces SystemC design with CRC}}{81}{figure.caption.242}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces CRC block diagram}}{82}{figure.caption.243}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces CRC write operation}}{82}{figure.caption.245}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Class diagram for the CRC API}}{84}{figure.caption.262}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces CRC peripheral validation}}{85}{figure.caption.264}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces CRC peripheral validation results}}{86}{figure.caption.265}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Validation co-simulation environment}}{86}{figure.caption.266}%
-\contentsline {figure}{\numberline {4.16}{\ignorespaces Co-simulation environment validation results}}{88}{figure.caption.304}%
-\contentsline {figure}{\numberline {4.17}{\ignorespaces Case study co-simulation environment}}{88}{figure.caption.306}%
-\contentsline {figure}{\numberline {4.18}{\ignorespaces State machine diagram for the memory integrity test}}{89}{figure.caption.307}%
-\contentsline {figure}{\numberline {4.19}{\ignorespaces Sequence diagram diagram for the memory comparison}}{90}{figure.caption.308}%
-\contentsline {figure}{\numberline {4.20}{\ignorespaces Application execution timely diagram}}{91}{figure.caption.309}%
-\contentsline {figure}{\numberline {4.21}{\ignorespaces Success memory integrity test}}{91}{figure.caption.310}%
-\contentsline {figure}{\numberline {4.22}{\ignorespaces Application execution timely diagram with a failure}}{92}{figure.caption.311}%
-\contentsline {figure}{\numberline {4.23}{\ignorespaces Failure memory integrity test}}{93}{figure.caption.313}%
-\contentsline {figure}{\numberline {4.24}{\ignorespaces Co-simulation results}}{94}{figure.caption.315}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces High-level proposal design of the framework}}{72}{figure.caption.219}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces TLM wrapper payload definition}}{72}{figure.caption.221}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces TLM wrapper in Gem5}}{74}{figure.caption.223}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces TLM wrapper in SystemC}}{75}{figure.caption.224}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces TLM wrapper class diagram}}{76}{figure.caption.225}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces General SystemC design}}{76}{figure.caption.227}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Flowcharts of the available commands}}{77}{figure.caption.228}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Redefinition of \textit {BasicPioDevice} functions}}{79}{figure.caption.238}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces SystemC design with CRC}}{80}{figure.caption.241}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces CRC block diagram}}{81}{figure.caption.242}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces CRC write operation}}{81}{figure.caption.244}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Class diagram for the CRC API}}{83}{figure.caption.261}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces CRC peripheral validation}}{84}{figure.caption.263}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces CRC peripheral validation results}}{85}{figure.caption.264}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Validation co-simulation environment}}{85}{figure.caption.265}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Co-simulation environment validation results}}{87}{figure.caption.303}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Case study co-simulation environment}}{87}{figure.caption.305}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces State machine diagram for the memory integrity test}}{88}{figure.caption.306}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces Sequence diagram diagram for the memory comparison}}{89}{figure.caption.307}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces Application execution timely diagram}}{90}{figure.caption.308}%
+\contentsline {figure}{\numberline {4.21}{\ignorespaces Success memory integrity test}}{90}{figure.caption.309}%
+\contentsline {figure}{\numberline {4.22}{\ignorespaces Application execution timely diagram with a failure}}{91}{figure.caption.310}%
+\contentsline {figure}{\numberline {4.23}{\ignorespaces Failure memory integrity test}}{92}{figure.caption.312}%
+\contentsline {figure}{\numberline {4.24}{\ignorespaces Co-simulation results}}{93}{figure.caption.314}%
 \addvspace {10\p@ }

@@ -150,6 +150,7 @@ respectively.
             \begin{tabular}{lll}
             \cline{1-2}
             \multicolumn{1}{|l|}{CPU} & \multicolumn{1}{l|}{ARM64, AtomicSimpleCPU @ 2GHz} &  \\ \cline{1-2}
+            \multicolumn{1}{|l|}{Cores} & \multicolumn{1}{l|}{2, 4, 8, 16, 32, 64} &  \\ \cline{1-2}
             \multicolumn{1}{|l|}{Caches} & \multicolumn{1}{l|}{64kiB L1-D, 32kiB L1-I, 2MiB L2 shared} &  \\ \cline{1-2}
             \multicolumn{1}{|l|}{Main Memory} & \multicolumn{1}{l|}{2GB of DDR3 RAM @ 1600MHz} &  \\ \cline{1-2}
             \multicolumn{1}{|l|}{Periph. Sub-system} & \multicolumn{1}{l|}{Real View Virtual Express V1} &  \\ \cline{1-2}
@@ -169,26 +170,26 @@ positioned at the top. The algorithm employed for this task is quite straightfor
 examining each element in turn. In each iteration, the algorithm compares the current element with the subsequent one, and if the latter is 
 smaller, the values are swapped. This process continues until the entire array is sorted according to the desired criterion. It was designed 
 to attain a near-best-case simulation throughput, meaning that thread synchronizations and accesses to shared memory are reduced to a minimum.
-
-\begin{figure}[H]
-	\centering
- 	\includegraphics[width=0.6\linewidth]{Images/bubble_sort.png}
- 	\caption{Bubble sort example}
-	 \label{fig_bubble_sort}
-\end{figure}
-
-The test will run a pre-defined number of iterations, and 
-once all the cores have completed their tasks, the simulation will be completed successfully. At the first moment, the array 
-is initialized with random numbers, where the lower and bigger numbers are saved. Then, the bubble-sort 
-the algorithm is executed. To ensure that the simulation ran smoothly, the program compares the first and last values of 
-the sorted array with previously saved values. If there is a match, the execution is considered successful. In case of a 
-mismatch, a failure is detected, and a notification is sent to the user.
-
-This benchmark operates in a bare-metal environment, which means that the program runs directly on the hardware without the mediation or 
-assistance of an operating system. This approach is often chosen for 
-performance-critical or resource-constrained applications where direct control over the hardware is necessary, and there is no need for the 
-additional services and abstractions provided by an \gls{os}.
 \newline
+% \begin{figure}[H]
+% 	\centering
+%  	\includegraphics[width=0.6\linewidth]{Images/bubble_sort.png}
+%  	\caption{Bubble sort example}
+% 	 \label{fig_bubble_sort}
+% \end{figure}
+
+% The test will run a pre-defined number of iterations, and 
+% once all the cores have completed their tasks, the simulation will be completed successfully. At the first moment, the array 
+% is initialized with random numbers, where the lower and bigger numbers are saved. Then, the bubble-sort 
+% the algorithm is executed. To ensure that the simulation ran smoothly, the program compares the first and last values of 
+% the sorted array with previously saved values. If there is a match, the execution is considered successful. In case of a 
+% mismatch, a failure is detected, and a notification is sent to the user.
+
+% This benchmark operates in a bare-metal environment, which means that the program runs directly on the hardware without the mediation or 
+% assistance of an operating system. This approach is often chosen for 
+% performance-critical or resource-constrained applications where direct control over the hardware is necessary, and there is no need for the 
+% additional services and abstractions provided by an \gls{os}.
+
 
 \textbf{NPB}
 \newline
@@ -345,7 +346,7 @@ but it makes the \gls{nn} more susceptible to noise variations. To choose the be
 \begin{figure}[H]
 	\centering
  	\includegraphics[width=0.7\linewidth]{Images/ResetVsHost.png}
- 	\caption{Reset vs. Host}
+ 	\caption{TDl size influence}
 	 \label{fig_ResetVsHost}
 \end{figure}
 
@@ -864,7 +865,7 @@ future optimizations for specific tasks may require this approach.
 
 After the development and testing of all aforementioned algorithms, it was determined that the better approach is the combination of the ADALINE-based, 
 the dynamic increment, and the \gls{pc} analyses. The results show that they complement each other, providing a great trade-off between performance 
-and accuracy. The repetition algorithm was not integrated into the final solution due to its weak performance and accuracy gain. 
+and accuracy. The loop detection algorithm was not integrated into the final solution due to its weak performance and accuracy gain. 
 
 The synchronization process can now be redefined to integrate the dynamic approach, as illustrated in the following flowchart. 
 The static version was not removed because, with a-priory information about the benchmark, 
